@@ -1,0 +1,2 @@
+# Players ruled OUT tonight, one name per line (spelling like NBA.com).
+# Lines starting with # are ignored. Clear this file each day.
