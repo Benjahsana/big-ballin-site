@@ -1,0 +1,9649 @@
+{
+  "date": "2026-11-06",
+  "season": "2026-27",
+  "generated_at": "2026-11-06T23:10:02+00:00",
+  "cap": 100,
+  "price_source": "formula",
+  "scoring": {
+    "pts": 1.0,
+    "fg3m": 0.5,
+    "reb": 1.25,
+    "ast": 1.5,
+    "stl": 2.0,
+    "blk": 2.0,
+    "tov": -0.5,
+    "double_double": 1.5,
+    "triple_double": 3.0
+  },
+  "games": [
+    {
+      "game_id": "0022600025",
+      "away": "WAS",
+      "home": "ATL",
+      "tip_utc": "2026-11-07T00:00:00Z",
+      "status": "7:00 pm ET"
+    },
+    {
+      "game_id": "0022600026",
+      "away": "BOS",
+      "home": "CHA",
+      "tip_utc": "2026-11-07T00:00:00Z",
+      "status": "7:00 pm ET"
+    },
+    {
+      "game_id": "0022600027",
+      "away": "PHI",
+      "home": "CLE",
+      "tip_utc": "2026-11-07T00:30:00Z",
+      "status": "7:30 pm ET"
+    },
+    {
+      "game_id": "0022600028",
+      "away": "UTA",
+      "home": "DAL",
+      "tip_utc": "2026-11-07T01:00:00Z",
+      "status": "8:00 pm ET"
+    },
+    {
+      "game_id": "0022600029",
+      "away": "OKC",
+      "home": "MEM",
+      "tip_utc": "2026-11-07T01:00:00Z",
+      "status": "8:00 pm ET"
+    },
+    {
+      "game_id": "0022600030",
+      "away": "TOR",
+      "home": "MIL",
+      "tip_utc": "2026-11-07T01:00:00Z",
+      "status": "8:00 pm ET"
+    },
+    {
+      "game_id": "0022600031",
+      "away": "MIN",
+      "home": "NOP",
+      "tip_utc": "2026-11-07T01:00:00Z",
+      "status": "8:00 pm ET"
+    },
+    {
+      "game_id": "0022600032",
+      "away": "POR",
+      "home": "LAL",
+      "tip_utc": "2026-11-07T03:00:00Z",
+      "status": "10:00 pm ET"
+    },
+    {
+      "game_id": "0022600033",
+      "away": "SAS",
+      "home": "SAC",
+      "tip_utc": "2026-11-07T03:00:00Z",
+      "status": "10:00 pm ET"
+    }
+  ],
+  "players": [
+    {
+      "id": 1629029,
+      "name": "Luka Don\u010di\u0107",
+      "num": "77",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 60.3,
+      "avg_fp": 66.6,
+      "matchup_adj": -3.7,
+      "games_this_season": 8,
+      "last5": [
+        64.8,
+        60.8,
+        86.8,
+        77.8,
+        65.8
+      ],
+      "stats": {
+        "pts": 38.5,
+        "reb": 8.1,
+        "ast": 8.0,
+        "stl": 1.8,
+        "blk": 0.8,
+        "tov": 5.1,
+        "fg3m": 5.9,
+        "min": 35.6
+      },
+      "stats_from": "this season",
+      "price": 49.6,
+      "price_change": 0.0,
+      "value": 1.22
+    },
+    {
+      "id": 1641705,
+      "name": "Victor Wembanyama",
+      "num": "1",
+      "team": "SAS",
+      "opp": "SAC",
+      "home": false,
+      "game_id": "0022600033",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 61.7,
+      "avg_fp": 61.7,
+      "matchup_adj": 4.1,
+      "games_this_season": 8,
+      "last5": [
+        60.0,
+        74.5,
+        71.8,
+        40.2,
+        106.5
+      ],
+      "stats": {
+        "pts": 29.0,
+        "reb": 12.4,
+        "ast": 3.1,
+        "stl": 1.4,
+        "blk": 4.5,
+        "tov": 2.1,
+        "fg3m": 1.5,
+        "min": 31.6
+      },
+      "stats_from": "this season",
+      "price": 45.8,
+      "price_change": 0.0,
+      "value": 1.35
+    },
+    {
+      "id": 1628983,
+      "name": "Shai Gilgeous-Alexander",
+      "num": "2",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 47.2,
+      "avg_fp": 47.0,
+      "matchup_adj": -1.5,
+      "games_this_season": 8,
+      "last5": [
+        36.8,
+        33.5,
+        38.0,
+        66.2,
+        61.5
+      ],
+      "stats": {
+        "pts": 30.1,
+        "reb": 4.2,
+        "ast": 4.5,
+        "stl": 1.1,
+        "blk": 1.1,
+        "tov": 2.0,
+        "fg3m": 2.6,
+        "min": 33.8
+      },
+      "stats_from": "this season",
+      "price": 42.3,
+      "price_change": 0.0,
+      "value": 1.12
+    },
+    {
+      "id": 1630552,
+      "name": "Jalen Johnson",
+      "num": "1",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 46.8,
+      "avg_fp": 44.1,
+      "matchup_adj": -1.1,
+      "games_this_season": 7,
+      "last5": [
+        66.8,
+        41.2,
+        42.8,
+        36.5,
+        28.2
+      ],
+      "stats": {
+        "pts": 18.3,
+        "reb": 9.0,
+        "ast": 7.9,
+        "stl": 0.9,
+        "blk": 0.7,
+        "tov": 3.1,
+        "fg3m": 1.1,
+        "min": 32.7
+      },
+      "stats_from": "this season",
+      "price": 42.2,
+      "price_change": 0.0,
+      "value": 1.11
+    },
+    {
+      "id": 1630178,
+      "name": "Tyrese Maxey",
+      "num": "0",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 47.7,
+      "avg_fp": 45.8,
+      "matchup_adj": 0.6,
+      "games_this_season": 9,
+      "last5": [
+        40.8,
+        42.5,
+        54.0,
+        55.5,
+        31.8
+      ],
+      "stats": {
+        "pts": 28.0,
+        "reb": 3.8,
+        "ast": 5.4,
+        "stl": 1.6,
+        "blk": 0.8,
+        "tov": 2.3,
+        "fg3m": 2.6,
+        "min": 37.1
+      },
+      "stats_from": "this season",
+      "price": 41.5,
+      "price_change": 0.0,
+      "value": 1.15
+    },
+    {
+      "id": 1628369,
+      "name": "Jayson Tatum",
+      "num": "0",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 45.5,
+      "avg_fp": 48.1,
+      "matchup_adj": -1.8,
+      "games_this_season": 7,
+      "last5": [
+        41.8,
+        61.2,
+        44.2,
+        50.0,
+        40.0
+      ],
+      "stats": {
+        "pts": 27.0,
+        "reb": 6.0,
+        "ast": 7.9,
+        "stl": 0.7,
+        "blk": 0.4,
+        "tov": 3.0,
+        "fg3m": 1.6,
+        "min": 35.1
+      },
+      "stats_from": "this season",
+      "price": 41.0,
+      "price_change": 0.0,
+      "value": 1.11
+    },
+    {
+      "id": 1630162,
+      "name": "Anthony Edwards",
+      "num": "5",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 48.2,
+      "avg_fp": 50.8,
+      "matchup_adj": 1.5,
+      "games_this_season": 4,
+      "last5": [
+        72.0,
+        34.0,
+        30.8,
+        66.5
+      ],
+      "stats": {
+        "pts": 33.2,
+        "reb": 4.8,
+        "ast": 3.5,
+        "stl": 2.0,
+        "blk": 0.8,
+        "tov": 3.5,
+        "fg3m": 4.5,
+        "min": 33.8
+      },
+      "stats_from": "this season",
+      "price": 40.5,
+      "price_change": 0.0,
+      "value": 1.19
+    },
+    {
+      "id": 202695,
+      "name": "Kawhi Leonard",
+      "num": "2",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 48.9,
+      "avg_fp": 39.1,
+      "matchup_adj": 3.6,
+      "games_this_season": 2,
+      "last5": [
+        44.5,
+        33.8
+      ],
+      "stats": {
+        "pts": 19.5,
+        "reb": 7.5,
+        "ast": 1.5,
+        "stl": 3.5,
+        "blk": 0.5,
+        "tov": 2.0,
+        "fg3m": 2.0,
+        "min": 26.0
+      },
+      "stats_from": "this season",
+      "price": 40.3,
+      "price_change": 0.0,
+      "value": 1.21
+    },
+    {
+      "id": 1627759,
+      "name": "Jaylen Brown",
+      "num": "7",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 43.9,
+      "avg_fp": 39.9,
+      "matchup_adj": 0.5,
+      "games_this_season": 8,
+      "last5": [
+        29.5,
+        39.0,
+        29.5,
+        51.8,
+        45.8
+      ],
+      "stats": {
+        "pts": 21.8,
+        "reb": 6.9,
+        "ast": 3.9,
+        "stl": 1.2,
+        "blk": 0.5,
+        "tov": 2.2,
+        "fg3m": 2.0,
+        "min": 36.2
+      },
+      "stats_from": "this season",
+      "price": 39.8,
+      "price_change": 0.0,
+      "value": 1.1
+    },
+    {
+      "id": 1630166,
+      "name": "Deni Avdija",
+      "num": "8",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 43.6,
+      "avg_fp": 43.0,
+      "matchup_adj": -0.6,
+      "games_this_season": 7,
+      "last5": [
+        44.0,
+        47.8,
+        34.8,
+        39.2,
+        48.2
+      ],
+      "stats": {
+        "pts": 23.4,
+        "reb": 6.4,
+        "ast": 6.4,
+        "stl": 0.7,
+        "blk": 0.1,
+        "tov": 2.3,
+        "fg3m": 1.7,
+        "min": 32.3
+      },
+      "stats_from": "this season",
+      "price": 39.4,
+      "price_change": 0.0,
+      "value": 1.11
+    },
+    {
+      "id": 203954,
+      "name": "Joel Embiid",
+      "num": "21",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 44.2,
+      "avg_fp": 41.4,
+      "matchup_adj": 0.5,
+      "games_this_season": 7,
+      "last5": [
+        61.2,
+        39.2,
+        31.2,
+        28.0,
+        49.2
+      ],
+      "stats": {
+        "pts": 19.6,
+        "reb": 10.0,
+        "ast": 4.4,
+        "stl": 0.7,
+        "blk": 0.7,
+        "tov": 3.4,
+        "fg3m": 0.4,
+        "min": 33.3
+      },
+      "stats_from": "this season",
+      "price": 39.2,
+      "price_change": 0.0,
+      "value": 1.13
+    },
+    {
+      "id": 1628378,
+      "name": "Donovan Mitchell",
+      "num": "45",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 40.9,
+      "avg_fp": 40.3,
+      "matchup_adj": -2.0,
+      "games_this_season": 8,
+      "last5": [
+        38.2,
+        32.8,
+        24.5,
+        41.8,
+        43.2
+      ],
+      "stats": {
+        "pts": 22.5,
+        "reb": 5.0,
+        "ast": 5.5,
+        "stl": 1.1,
+        "blk": 0.4,
+        "tov": 3.0,
+        "fg3m": 2.9,
+        "min": 33.1
+      },
+      "stats_from": "this season",
+      "price": 38.8,
+      "price_change": 0.0,
+      "value": 1.05
+    },
+    {
+      "id": 203076,
+      "name": "Anthony Davis",
+      "num": "23",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 44.3,
+      "avg_fp": 43.3,
+      "matchup_adj": 0.7,
+      "games_this_season": 8,
+      "last5": [
+        46.5,
+        35.8,
+        47.8,
+        45.8,
+        50.5
+      ],
+      "stats": {
+        "pts": 23.4,
+        "reb": 9.2,
+        "ast": 2.1,
+        "stl": 1.4,
+        "blk": 1.1,
+        "tov": 2.0,
+        "fg3m": 0.9,
+        "min": 33.1
+      },
+      "stats_from": "this season",
+      "price": 38.5,
+      "price_change": 0.0,
+      "value": 1.15
+    },
+    {
+      "id": 1630567,
+      "name": "Scottie Barnes",
+      "num": "4",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 47.1,
+      "avg_fp": 45.1,
+      "matchup_adj": 3.5,
+      "games_this_season": 8,
+      "last5": [
+        50.5,
+        57.2,
+        45.5,
+        56.8,
+        37.0
+      ],
+      "stats": {
+        "pts": 23.5,
+        "reb": 7.6,
+        "ast": 5.1,
+        "stl": 2.2,
+        "blk": 0.6,
+        "tov": 4.0,
+        "fg3m": 0.5,
+        "min": 33.4
+      },
+      "stats_from": "this season",
+      "price": 37.5,
+      "price_change": 0.0,
+      "value": 1.26
+    },
+    {
+      "id": 1643411,
+      "name": "Darius Acuff Jr.",
+      "num": "5",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 41.3,
+      "avg_fp": 42.6,
+      "matchup_adj": -1.4,
+      "games_this_season": 8,
+      "last5": [
+        30.2,
+        62.5,
+        54.8,
+        40.8,
+        48.8
+      ],
+      "stats": {
+        "pts": 25.6,
+        "reb": 3.8,
+        "ast": 7.0,
+        "stl": 0.8,
+        "blk": 0.1,
+        "tov": 3.6,
+        "fg3m": 3.0,
+        "min": 37.2
+      },
+      "stats_from": "this season",
+      "price": 37.2,
+      "price_change": 0.0,
+      "value": 1.11
+    },
+    {
+      "id": 2544,
+      "name": "LeBron James",
+      "num": "23",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 42.1,
+      "avg_fp": 40.6,
+      "matchup_adj": 0.5,
+      "games_this_season": 7,
+      "last5": [
+        30.5,
+        42.8,
+        47.2,
+        37.8,
+        42.0
+      ],
+      "stats": {
+        "pts": 15.7,
+        "reb": 7.4,
+        "ast": 7.4,
+        "stl": 1.4,
+        "blk": 0.9,
+        "tov": 2.4,
+        "fg3m": 0.9,
+        "min": 33.0
+      },
+      "stats_from": "this season",
+      "price": 36.6,
+      "price_change": 0.0,
+      "value": 1.15
+    },
+    {
+      "id": 1642843,
+      "name": "Cooper Flagg",
+      "num": "32",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 44.3,
+      "avg_fp": 46.9,
+      "matchup_adj": 1.0,
+      "games_this_season": 7,
+      "last5": [
+        69.0,
+        45.2,
+        57.8,
+        32.0,
+        40.0
+      ],
+      "stats": {
+        "pts": 24.3,
+        "reb": 6.3,
+        "ast": 6.3,
+        "stl": 2.1,
+        "blk": 0.9,
+        "tov": 3.1,
+        "fg3m": 1.0,
+        "min": 34.6
+      },
+      "stats_from": "this season",
+      "price": 36.5,
+      "price_change": 0.0,
+      "value": 1.21
+    },
+    {
+      "id": 201935,
+      "name": "James Harden",
+      "num": "1",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 37.8,
+      "avg_fp": 35.1,
+      "matchup_adj": -1.9,
+      "games_this_season": 8,
+      "last5": [
+        29.5,
+        36.2,
+        33.5,
+        31.0,
+        45.2
+      ],
+      "stats": {
+        "pts": 16.6,
+        "reb": 5.2,
+        "ast": 6.2,
+        "stl": 0.9,
+        "blk": 0.5,
+        "tov": 3.0,
+        "fg3m": 2.6,
+        "min": 33.6
+      },
+      "stats_from": "this season",
+      "price": 36.3,
+      "price_change": 0.0,
+      "value": 1.04
+    },
+    {
+      "id": 1627734,
+      "name": "Domantas Sabonis",
+      "num": "11",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 40.5,
+      "avg_fp": 45.0,
+      "matchup_adj": -1.3,
+      "games_this_season": 8,
+      "last5": [
+        50.0,
+        40.8,
+        43.0,
+        23.8,
+        41.2
+      ],
+      "stats": {
+        "pts": 15.1,
+        "reb": 14.9,
+        "ast": 6.1,
+        "stl": 1.0,
+        "blk": 0.1,
+        "tov": 3.5,
+        "fg3m": 0.1,
+        "min": 36.1
+      },
+      "stats_from": "this season",
+      "price": 34.8,
+      "price_change": 0.0,
+      "value": 1.16
+    },
+    {
+      "id": 1630596,
+      "name": "Evan Mobley",
+      "num": "4",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "C"
+      ],
+      "proj": 37.6,
+      "avg_fp": 38.9,
+      "matchup_adj": -1.9,
+      "games_this_season": 8,
+      "last5": [
+        44.5,
+        28.0,
+        41.2,
+        36.2,
+        38.0
+      ],
+      "stats": {
+        "pts": 18.8,
+        "reb": 8.2,
+        "ast": 3.5,
+        "stl": 0.5,
+        "blk": 1.2,
+        "tov": 1.4,
+        "fg3m": 2.1,
+        "min": 32.9
+      },
+      "stats_from": "this season",
+      "price": 34.0,
+      "price_change": 0.0,
+      "value": 1.11
+    },
+    {
+      "id": 1628374,
+      "name": "Lauri Markkanen",
+      "num": "23",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 37.7,
+      "avg_fp": 32.4,
+      "matchup_adj": 0.0,
+      "games_this_season": 7,
+      "last5": [
+        40.2,
+        2.0,
+        30.0,
+        40.5,
+        48.0
+      ],
+      "stats": {
+        "pts": 17.1,
+        "reb": 6.6,
+        "ast": 2.1,
+        "stl": 0.7,
+        "blk": 0.7,
+        "tov": 1.4,
+        "fg3m": 3.0,
+        "min": 30.4
+      },
+      "stats_from": "this season",
+      "price": 33.9,
+      "price_change": 0.0,
+      "value": 1.11
+    },
+    {
+      "id": 1643409,
+      "name": "Cameron Boozer",
+      "num": "27",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 38.3,
+      "avg_fp": 39.4,
+      "matchup_adj": -1.1,
+      "games_this_season": 8,
+      "last5": [
+        29.8,
+        56.5,
+        42.8,
+        40.2,
+        24.0
+      ],
+      "stats": {
+        "pts": 16.5,
+        "reb": 9.8,
+        "ast": 5.4,
+        "stl": 0.4,
+        "blk": 0.8,
+        "tov": 3.2,
+        "fg3m": 2.2,
+        "min": 32.1
+      },
+      "stats_from": "this season",
+      "price": 33.8,
+      "price_change": 0.0,
+      "value": 1.13
+    },
+    {
+      "id": 1641718,
+      "name": "Keyonte George",
+      "num": "3",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 38.7,
+      "avg_fp": 37.6,
+      "matchup_adj": 0.0,
+      "games_this_season": 8,
+      "last5": [
+        37.8,
+        40.5,
+        18.2,
+        14.8,
+        64.5
+      ],
+      "stats": {
+        "pts": 22.0,
+        "reb": 4.0,
+        "ast": 5.9,
+        "stl": 1.0,
+        "blk": 0.1,
+        "tov": 3.8,
+        "fg3m": 2.1,
+        "min": 32.4
+      },
+      "stats_from": "this season",
+      "price": 33.5,
+      "price_change": 0.0,
+      "value": 1.16
+    },
+    {
+      "id": 202681,
+      "name": "Kyrie Irving",
+      "num": "11",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 39.9,
+      "avg_fp": 39.0,
+      "matchup_adj": 0.9,
+      "games_this_season": 6,
+      "last5": [
+        35.2,
+        38.5,
+        32.5,
+        55.0,
+        49.2
+      ],
+      "stats": {
+        "pts": 22.7,
+        "reb": 4.0,
+        "ast": 4.8,
+        "stl": 1.2,
+        "blk": 0.5,
+        "tov": 2.0,
+        "fg3m": 3.5,
+        "min": 30.0
+      },
+      "stats_from": "this season",
+      "price": 33.3,
+      "price_change": 0.0,
+      "value": 1.2
+    },
+    {
+      "id": 1630559,
+      "name": "Austin Reaves",
+      "num": "15",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 35.7,
+      "avg_fp": 36.4,
+      "matchup_adj": -2.2,
+      "games_this_season": 9,
+      "last5": [
+        23.5,
+        34.0,
+        28.2,
+        36.5,
+        31.2
+      ],
+      "stats": {
+        "pts": 23.3,
+        "reb": 3.2,
+        "ast": 5.0,
+        "stl": 0.8,
+        "blk": 0.4,
+        "tov": 4.1,
+        "fg3m": 2.3,
+        "min": 35.9
+      },
+      "stats_from": "this season",
+      "price": 33.1,
+      "price_change": 0.0,
+      "value": 1.08
+    },
+    {
+      "id": 1630163,
+      "name": "LaMelo Ball",
+      "num": "1",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 37.8,
+      "avg_fp": 34.0,
+      "matchup_adj": 1.2,
+      "games_this_season": 9,
+      "last5": [
+        23.8,
+        45.5,
+        29.5,
+        49.5,
+        38.0
+      ],
+      "stats": {
+        "pts": 17.2,
+        "reb": 3.4,
+        "ast": 5.9,
+        "stl": 1.9,
+        "blk": 0.1,
+        "tov": 4.0,
+        "fg3m": 3.3,
+        "min": 26.8
+      },
+      "stats_from": "this season",
+      "price": 32.3,
+      "price_change": 0.0,
+      "value": 1.17
+    },
+    {
+      "id": 1631117,
+      "name": "Walker Kessler",
+      "num": "14",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "C"
+      ],
+      "proj": 35.2,
+      "avg_fp": 36.7,
+      "matchup_adj": -2.2,
+      "games_this_season": 9,
+      "last5": [
+        29.8,
+        40.2,
+        44.8,
+        41.8,
+        39.0
+      ],
+      "stats": {
+        "pts": 14.4,
+        "reb": 10.2,
+        "ast": 1.1,
+        "stl": 1.3,
+        "blk": 2.7,
+        "tov": 1.3,
+        "fg3m": 0.0,
+        "min": 30.6
+      },
+      "stats_from": "this season",
+      "price": 32.0,
+      "price_change": 0.0,
+      "value": 1.1
+    },
+    {
+      "id": 1629660,
+      "name": "Ty Jerome",
+      "num": "2",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 37.3,
+      "avg_fp": 42.5,
+      "matchup_adj": -1.1,
+      "games_this_season": 7,
+      "last5": [
+        48.5,
+        30.2,
+        20.0,
+        58.2,
+        34.0
+      ],
+      "stats": {
+        "pts": 27.4,
+        "reb": 3.6,
+        "ast": 5.3,
+        "stl": 1.0,
+        "blk": 0.3,
+        "tov": 2.4,
+        "fg3m": 2.6,
+        "min": 30.9
+      },
+      "stats_from": "this season",
+      "price": 31.1,
+      "price_change": 0.0,
+      "value": 1.2
+    },
+    {
+      "id": 1627749,
+      "name": "Dejounte Murray",
+      "num": "5",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 35.8,
+      "avg_fp": 39.6,
+      "matchup_adj": -1.3,
+      "games_this_season": 5,
+      "last5": [
+        46.2,
+        37.0,
+        44.0,
+        28.5,
+        42.5
+      ],
+      "stats": {
+        "pts": 18.2,
+        "reb": 6.2,
+        "ast": 5.6,
+        "stl": 2.4,
+        "blk": 0.8,
+        "tov": 3.0,
+        "fg3m": 0.8,
+        "min": 34.8
+      },
+      "stats_from": "this season",
+      "price": 30.6,
+      "price_change": 0.0,
+      "value": 1.17
+    },
+    {
+      "id": 1629027,
+      "name": "Trae Young",
+      "num": "3",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 38.4,
+      "avg_fp": 40.8,
+      "matchup_adj": 0.6,
+      "games_this_season": 8,
+      "last5": [
+        45.5,
+        30.8,
+        48.5,
+        33.8,
+        34.5
+      ],
+      "stats": {
+        "pts": 19.6,
+        "reb": 3.4,
+        "ast": 9.5,
+        "stl": 1.1,
+        "blk": 0.2,
+        "tov": 3.0,
+        "fg3m": 1.9,
+        "min": 35.8
+      },
+      "stats_from": "this season",
+      "price": 30.5,
+      "price_change": 0.0,
+      "value": 1.26
+    },
+    {
+      "id": 202331,
+      "name": "Paul George",
+      "num": "13",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 36.1,
+      "avg_fp": 41.5,
+      "matchup_adj": -1.5,
+      "games_this_season": 7,
+      "last5": [
+        24.8,
+        42.2,
+        43.5,
+        44.0,
+        43.8
+      ],
+      "stats": {
+        "pts": 21.3,
+        "reb": 5.6,
+        "ast": 5.0,
+        "stl": 2.6,
+        "blk": 0.3,
+        "tov": 3.3,
+        "fg3m": 3.4,
+        "min": 31.6
+      },
+      "stats_from": "this season",
+      "price": 30.3,
+      "price_change": 0.0,
+      "value": 1.19
+    },
+    {
+      "id": 1629630,
+      "name": "Ja Morant",
+      "num": "1",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 34.8,
+      "avg_fp": 29.2,
+      "matchup_adj": -0.5,
+      "games_this_season": 4,
+      "last5": [
+        38.8,
+        27.8,
+        29.0,
+        21.5
+      ],
+      "stats": {
+        "pts": 15.8,
+        "reb": 2.5,
+        "ast": 5.5,
+        "stl": 1.0,
+        "blk": 0.0,
+        "tov": 1.2,
+        "fg3m": 1.5,
+        "min": 26.0
+      },
+      "stats_from": "this season",
+      "price": 30.3,
+      "price_change": 0.0,
+      "value": 1.15
+    },
+    {
+      "id": 1631096,
+      "name": "Chet Holmgren",
+      "num": "7",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 34.5,
+      "avg_fp": 33.0,
+      "matchup_adj": -1.1,
+      "games_this_season": 3,
+      "last5": [
+        33.2,
+        46.2,
+        19.5
+      ],
+      "stats": {
+        "pts": 12.0,
+        "reb": 9.3,
+        "ast": 1.3,
+        "stl": 0.7,
+        "blk": 3.0,
+        "tov": 1.7,
+        "fg3m": 0.7,
+        "min": 30.0
+      },
+      "stats_from": "this season",
+      "price": 29.9,
+      "price_change": 0.0,
+      "value": 1.15
+    },
+    {
+      "id": 1629639,
+      "name": "Tyler Herro",
+      "num": "11",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 35.3,
+      "avg_fp": 37.5,
+      "matchup_adj": -1.1,
+      "games_this_season": 8,
+      "last5": [
+        52.0,
+        29.8,
+        24.8,
+        40.0,
+        37.2
+      ],
+      "stats": {
+        "pts": 22.2,
+        "reb": 5.0,
+        "ast": 3.9,
+        "stl": 1.0,
+        "blk": 0.1,
+        "tov": 2.1,
+        "fg3m": 3.6,
+        "min": 30.6
+      },
+      "stats_from": "this season",
+      "price": 29.9,
+      "price_change": 0.0,
+      "value": 1.18
+    },
+    {
+      "id": 1629627,
+      "name": "Zion Williamson",
+      "num": "1",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 35.1,
+      "avg_fp": 37.4,
+      "matchup_adj": -1.3,
+      "games_this_season": 8,
+      "last5": [
+        40.2,
+        43.0,
+        33.0,
+        46.2,
+        36.0
+      ],
+      "stats": {
+        "pts": 21.5,
+        "reb": 5.1,
+        "ast": 2.6,
+        "stl": 2.5,
+        "blk": 0.6,
+        "tov": 2.1,
+        "fg3m": 0.4,
+        "min": 33.0
+      },
+      "stats_from": "this season",
+      "price": 29.9,
+      "price_change": 0.0,
+      "value": 1.17
+    },
+    {
+      "id": 1630530,
+      "name": "Trey Murphy III",
+      "num": "25",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 32.7,
+      "avg_fp": 28.1,
+      "matchup_adj": -1.2,
+      "games_this_season": 7,
+      "last5": [
+        41.5,
+        15.8,
+        32.8,
+        32.2,
+        33.2
+      ],
+      "stats": {
+        "pts": 14.9,
+        "reb": 4.6,
+        "ast": 3.4,
+        "stl": 0.9,
+        "blk": 0.1,
+        "tov": 1.4,
+        "fg3m": 2.1,
+        "min": 33.0
+      },
+      "stats_from": "this season",
+      "price": 29.9,
+      "price_change": 0.0,
+      "value": 1.09
+    },
+    {
+      "id": 1641706,
+      "name": "Brandon Miller",
+      "num": "24",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 34.8,
+      "avg_fp": 36.3,
+      "matchup_adj": -1.0,
+      "games_this_season": 9,
+      "last5": [
+        56.0,
+        35.2,
+        45.2,
+        25.2,
+        15.5
+      ],
+      "stats": {
+        "pts": 22.0,
+        "reb": 5.3,
+        "ast": 2.3,
+        "stl": 1.1,
+        "blk": 0.8,
+        "tov": 2.6,
+        "fg3m": 3.0,
+        "min": 32.9
+      },
+      "stats_from": "this season",
+      "price": 29.5,
+      "price_change": 0.0,
+      "value": 1.18
+    },
+    {
+      "id": 1642264,
+      "name": "Stephon Castle",
+      "num": "5",
+      "team": "SAS",
+      "opp": "SAC",
+      "home": false,
+      "game_id": "0022600033",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 37.0,
+      "avg_fp": 32.5,
+      "matchup_adj": 2.4,
+      "games_this_season": 8,
+      "last5": [
+        30.8,
+        38.5,
+        12.8,
+        31.2,
+        35.5
+      ],
+      "stats": {
+        "pts": 15.0,
+        "reb": 6.1,
+        "ast": 4.8,
+        "stl": 1.0,
+        "blk": 0.2,
+        "tov": 2.2,
+        "fg3m": 2.4,
+        "min": 29.6
+      },
+      "stats_from": "this season",
+      "price": 29.5,
+      "price_change": 0.0,
+      "value": 1.25
+    },
+    {
+      "id": 1629638,
+      "name": "Nickeil Alexander-Walker",
+      "num": "7",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 33.7,
+      "avg_fp": 34.1,
+      "matchup_adj": -0.8,
+      "games_this_season": 9,
+      "last5": [
+        31.8,
+        34.2,
+        16.5,
+        55.5,
+        35.5
+      ],
+      "stats": {
+        "pts": 21.7,
+        "reb": 3.3,
+        "ast": 2.7,
+        "stl": 1.4,
+        "blk": 0.2,
+        "tov": 2.2,
+        "fg3m": 4.1,
+        "min": 30.3
+      },
+      "stats_from": "this season",
+      "price": 28.6,
+      "price_change": 0.0,
+      "value": 1.18
+    },
+    {
+      "id": 203994,
+      "name": "Jusuf Nurki\u0107",
+      "num": "30",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "C"
+      ],
+      "proj": 34.6,
+      "avg_fp": 34.5,
+      "matchup_adj": 0.0,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 10.9,
+        "reb": 10.4,
+        "ast": 4.8,
+        "stl": 1.3,
+        "blk": 0.5,
+        "tov": 2.5,
+        "fg3m": 0.6,
+        "min": 26.4
+      },
+      "stats_from": "last season",
+      "price": 28.4,
+      "price_change": 0.0,
+      "value": 1.22
+    },
+    {
+      "id": 1642270,
+      "name": "Donovan Clingan",
+      "num": "23",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "C"
+      ],
+      "proj": 33.7,
+      "avg_fp": 33.2,
+      "matchup_adj": -0.5,
+      "games_this_season": 7,
+      "last5": [
+        25.5,
+        34.0,
+        17.2,
+        53.0,
+        47.2
+      ],
+      "stats": {
+        "pts": 12.0,
+        "reb": 10.6,
+        "ast": 1.6,
+        "stl": 0.3,
+        "blk": 2.4,
+        "tov": 1.4,
+        "fg3m": 1.0,
+        "min": 24.7
+      },
+      "stats_from": "this season",
+      "price": 28.4,
+      "price_change": 0.0,
+      "value": 1.19
+    },
+    {
+      "id": 1628368,
+      "name": "De'Aaron Fox",
+      "num": "4",
+      "team": "SAS",
+      "opp": "SAC",
+      "home": false,
+      "game_id": "0022600033",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 36.2,
+      "avg_fp": 32.4,
+      "matchup_adj": 2.4,
+      "games_this_season": 8,
+      "last5": [
+        24.5,
+        30.8,
+        42.5,
+        21.0,
+        22.2
+      ],
+      "stats": {
+        "pts": 15.1,
+        "reb": 4.2,
+        "ast": 6.1,
+        "stl": 1.4,
+        "blk": 0.5,
+        "tov": 2.9,
+        "fg3m": 1.0,
+        "min": 30.9
+      },
+      "stats_from": "this season",
+      "price": 28.4,
+      "price_change": 0.0,
+      "value": 1.27
+    },
+    {
+      "id": 1629628,
+      "name": "RJ Barrett",
+      "num": "9",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 37.6,
+      "avg_fp": 36.5,
+      "matchup_adj": 2.8,
+      "games_this_season": 8,
+      "last5": [
+        48.8,
+        20.2,
+        44.0,
+        42.0,
+        34.2
+      ],
+      "stats": {
+        "pts": 20.9,
+        "reb": 6.0,
+        "ast": 3.9,
+        "stl": 0.5,
+        "blk": 0.5,
+        "tov": 1.5,
+        "fg3m": 1.8,
+        "min": 32.5
+      },
+      "stats_from": "this season",
+      "price": 28.0,
+      "price_change": 0.0,
+      "value": 1.34
+    },
+    {
+      "id": 203081,
+      "name": "Damian Lillard",
+      "num": "0",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 33.4,
+      "avg_fp": 33.9,
+      "matchup_adj": -0.5,
+      "games_this_season": 7,
+      "last5": [
+        34.2,
+        14.5,
+        39.2,
+        38.0,
+        36.8
+      ],
+      "stats": {
+        "pts": 20.1,
+        "reb": 4.1,
+        "ast": 4.1,
+        "stl": 0.9,
+        "blk": 0.1,
+        "tov": 2.0,
+        "fg3m": 2.7,
+        "min": 29.7
+      },
+      "stats_from": "this season",
+      "price": 27.8,
+      "price_change": 0.0,
+      "value": 1.2
+    },
+    {
+      "id": 1630193,
+      "name": "Immanuel Quickley",
+      "num": "5",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 36.3,
+      "avg_fp": 33.4,
+      "matchup_adj": 2.7,
+      "games_this_season": 8,
+      "last5": [
+        35.8,
+        38.5,
+        33.0,
+        36.5,
+        29.2
+      ],
+      "stats": {
+        "pts": 17.4,
+        "reb": 3.5,
+        "ast": 5.8,
+        "stl": 1.1,
+        "blk": 0.0,
+        "tov": 1.0,
+        "fg3m": 2.6,
+        "min": 31.8
+      },
+      "stats_from": "this season",
+      "price": 27.6,
+      "price_change": 0.0,
+      "value": 1.32
+    },
+    {
+      "id": 1628991,
+      "name": "Jaren Jackson Jr.",
+      "num": "20",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 32.7,
+      "avg_fp": 28.0,
+      "matchup_adj": 0.0,
+      "games_this_season": 4,
+      "last5": [
+        28.8,
+        48.0,
+        22.5,
+        12.8
+      ],
+      "stats": {
+        "pts": 16.2,
+        "reb": 5.0,
+        "ast": 2.0,
+        "stl": 0.2,
+        "blk": 1.2,
+        "tov": 3.0,
+        "fg3m": 1.2,
+        "min": 26.0
+      },
+      "stats_from": "this season",
+      "price": 27.2,
+      "price_change": 0.0,
+      "value": 1.2
+    },
+    {
+      "id": 1628401,
+      "name": "Derrick White",
+      "num": "9",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 29.9,
+      "avg_fp": 27.4,
+      "matchup_adj": -1.2,
+      "games_this_season": 8,
+      "last5": [
+        31.8,
+        21.5,
+        22.0,
+        15.0,
+        45.0
+      ],
+      "stats": {
+        "pts": 12.8,
+        "reb": 3.2,
+        "ast": 5.1,
+        "stl": 1.4,
+        "blk": 0.4,
+        "tov": 2.6,
+        "fg3m": 1.5,
+        "min": 30.8
+      },
+      "stats_from": "this season",
+      "price": 26.6,
+      "price_change": 0.0,
+      "value": 1.12
+    },
+    {
+      "id": 1631114,
+      "name": "Jalen Williams",
+      "num": "8",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 31.4,
+      "avg_fp": 28.3,
+      "matchup_adj": -1.0,
+      "games_this_season": 3,
+      "last5": [
+        28.2,
+        34.2,
+        22.5
+      ],
+      "stats": {
+        "pts": 13.7,
+        "reb": 4.7,
+        "ast": 3.3,
+        "stl": 1.3,
+        "blk": 0.7,
+        "tov": 1.3,
+        "fg3m": 1.0,
+        "min": 31.7
+      },
+      "stats_from": "this season",
+      "price": 26.6,
+      "price_change": 0.0,
+      "value": 1.18
+    },
+    {
+      "id": 1631101,
+      "name": "Shaedon Sharpe",
+      "num": "17",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 32.4,
+      "avg_fp": 32.8,
+      "matchup_adj": -0.5,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 20.8,
+        "reb": 4.3,
+        "ast": 2.6,
+        "stl": 1.4,
+        "blk": 0.1,
+        "tov": 2.9,
+        "fg3m": 2.1,
+        "min": 29.4
+      },
+      "stats_from": "last season",
+      "price": 26.6,
+      "price_change": 0.0,
+      "value": 1.22
+    },
+    {
+      "id": 1630168,
+      "name": "Onyeka Okongwu",
+      "num": "17",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 31.1,
+      "avg_fp": 30.2,
+      "matchup_adj": -0.7,
+      "games_this_season": 9,
+      "last5": [
+        24.0,
+        54.0,
+        21.5,
+        32.5,
+        47.0
+      ],
+      "stats": {
+        "pts": 12.2,
+        "reb": 8.4,
+        "ast": 2.8,
+        "stl": 0.7,
+        "blk": 0.7,
+        "tov": 1.1,
+        "fg3m": 1.3,
+        "min": 29.1
+      },
+      "stats_from": "this season",
+      "price": 26.5,
+      "price_change": 0.0,
+      "value": 1.17
+    },
+    {
+      "id": 1630700,
+      "name": "Dyson Daniels",
+      "num": "5",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 31.0,
+      "avg_fp": 30.4,
+      "matchup_adj": -0.7,
+      "games_this_season": 9,
+      "last5": [
+        30.0,
+        21.0,
+        22.5,
+        30.2,
+        39.0
+      ],
+      "stats": {
+        "pts": 9.6,
+        "reb": 6.7,
+        "ast": 4.7,
+        "stl": 2.7,
+        "blk": 0.3,
+        "tov": 1.1,
+        "fg3m": 0.1,
+        "min": 29.7
+      },
+      "stats_from": "this season",
+      "price": 26.2,
+      "price_change": 0.0,
+      "value": 1.18
+    },
+    {
+      "id": 201950,
+      "name": "Jrue Holiday",
+      "num": "5",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 31.0,
+      "avg_fp": 28.8,
+      "matchup_adj": -0.4,
+      "games_this_season": 7,
+      "last5": [
+        34.0,
+        21.5,
+        26.0,
+        48.0,
+        23.0
+      ],
+      "stats": {
+        "pts": 13.4,
+        "reb": 4.4,
+        "ast": 4.1,
+        "stl": 1.1,
+        "blk": 0.3,
+        "tov": 1.3,
+        "fg3m": 2.4,
+        "min": 26.0
+      },
+      "stats_from": "this season",
+      "price": 26.0,
+      "price_change": 0.0,
+      "value": 1.19
+    },
+    {
+      "id": 1631157,
+      "name": "Ryan Rollins",
+      "num": "13",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 29.3,
+      "avg_fp": 25.8,
+      "matchup_adj": -0.9,
+      "games_this_season": 8,
+      "last5": [
+        28.5,
+        18.0,
+        23.8,
+        17.8,
+        34.8
+      ],
+      "stats": {
+        "pts": 11.2,
+        "reb": 4.8,
+        "ast": 4.5,
+        "stl": 0.5,
+        "blk": 0.5,
+        "tov": 1.9,
+        "fg3m": 1.5,
+        "min": 24.9
+      },
+      "stats_from": "this season",
+      "price": 25.9,
+      "price_change": 0.0,
+      "value": 1.13
+    },
+    {
+      "id": 1642259,
+      "name": "Alex Sarr",
+      "num": "20",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "C"
+      ],
+      "proj": 30.4,
+      "avg_fp": 24.0,
+      "matchup_adj": 0.4,
+      "games_this_season": 7,
+      "last5": [
+        22.0,
+        25.0,
+        36.5,
+        11.5,
+        29.2
+      ],
+      "stats": {
+        "pts": 9.6,
+        "reb": 6.0,
+        "ast": 2.0,
+        "stl": 1.1,
+        "blk": 1.0,
+        "tov": 1.3,
+        "fg3m": 0.6,
+        "min": 25.1
+      },
+      "stats_from": "this season",
+      "price": 25.8,
+      "price_change": 0.0,
+      "value": 1.18
+    },
+    {
+      "id": 1642845,
+      "name": "VJ Edgecombe",
+      "num": "77",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 31.6,
+      "avg_fp": 29.3,
+      "matchup_adj": 0.4,
+      "games_this_season": 8,
+      "last5": [
+        20.8,
+        25.5,
+        29.5,
+        36.8,
+        24.0
+      ],
+      "stats": {
+        "pts": 12.5,
+        "reb": 7.0,
+        "ast": 3.0,
+        "stl": 1.1,
+        "blk": 0.5,
+        "tov": 1.4,
+        "fg3m": 1.6,
+        "min": 33.5
+      },
+      "stats_from": "this season",
+      "price": 25.8,
+      "price_change": 0.0,
+      "value": 1.22
+    },
+    {
+      "id": 1642273,
+      "name": "Kyshawn George",
+      "num": "18",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 32.4,
+      "avg_fp": 32.2,
+      "matchup_adj": 0.5,
+      "games_this_season": 8,
+      "last5": [
+        29.0,
+        29.0,
+        23.2,
+        40.0,
+        40.0
+      ],
+      "stats": {
+        "pts": 17.2,
+        "reb": 4.2,
+        "ast": 4.8,
+        "stl": 0.5,
+        "blk": 1.1,
+        "tov": 3.2,
+        "fg3m": 1.9,
+        "min": 32.8
+      },
+      "stats_from": "this season",
+      "price": 25.4,
+      "price_change": 0.0,
+      "value": 1.28
+    },
+    {
+      "id": 1642851,
+      "name": "Kon Knueppel",
+      "num": "7",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 30.0,
+      "avg_fp": 2.0,
+      "matchup_adj": -0.9,
+      "games_this_season": 1,
+      "last5": [
+        2.0
+      ],
+      "stats": {
+        "pts": 3.0,
+        "reb": 0.0,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 2.0,
+        "fg3m": 0.0,
+        "min": 6.0
+      },
+      "stats_from": "this season",
+      "price": 25.4,
+      "price_change": 0.0,
+      "value": 1.18
+    },
+    {
+      "id": 1628386,
+      "name": "Jarrett Allen",
+      "num": "31",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "C"
+      ],
+      "proj": 29.0,
+      "avg_fp": 28.9,
+      "matchup_adj": -1.4,
+      "games_this_season": 8,
+      "last5": [
+        34.0,
+        29.5,
+        47.2,
+        27.0,
+        1.2
+      ],
+      "stats": {
+        "pts": 13.2,
+        "reb": 7.8,
+        "ast": 1.2,
+        "stl": 0.6,
+        "blk": 1.5,
+        "tov": 0.9,
+        "fg3m": 0.2,
+        "min": 25.1
+      },
+      "stats_from": "this season",
+      "price": 24.8,
+      "price_change": 0.0,
+      "value": 1.17
+    },
+    {
+      "id": 203497,
+      "name": "Rudy Gobert",
+      "num": "27",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "C"
+      ],
+      "proj": 30.7,
+      "avg_fp": 27.2,
+      "matchup_adj": 1.0,
+      "games_this_season": 8,
+      "last5": [
+        36.0,
+        9.5,
+        34.8,
+        27.5,
+        34.8
+      ],
+      "stats": {
+        "pts": 7.5,
+        "reb": 11.9,
+        "ast": 1.5,
+        "stl": 0.5,
+        "blk": 1.0,
+        "tov": 1.1,
+        "fg3m": 0.0,
+        "min": 30.5
+      },
+      "stats_from": "this season",
+      "price": 24.4,
+      "price_change": 0.0,
+      "value": 1.26
+    },
+    {
+      "id": 1641744,
+      "name": "Zach Edey",
+      "num": "14",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "C"
+      ],
+      "proj": 27.6,
+      "avg_fp": 22.2,
+      "matchup_adj": -0.8,
+      "games_this_season": 7,
+      "last5": [
+        13.2,
+        22.2,
+        12.5,
+        22.2,
+        33.2
+      ],
+      "stats": {
+        "pts": 7.4,
+        "reb": 8.1,
+        "ast": 1.0,
+        "stl": 0.1,
+        "blk": 1.6,
+        "tov": 1.1,
+        "fg3m": 0.1,
+        "min": 20.7
+      },
+      "stats_from": "this season",
+      "price": 24.1,
+      "price_change": 0.0,
+      "value": 1.15
+    },
+    {
+      "id": 1629675,
+      "name": "Naz Reid",
+      "num": "0",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 30.3,
+      "avg_fp": 32.7,
+      "matchup_adj": -0.9,
+      "games_this_season": 9,
+      "last5": [
+        16.5,
+        34.2,
+        23.2,
+        24.0,
+        44.2
+      ],
+      "stats": {
+        "pts": 16.9,
+        "reb": 8.3,
+        "ast": 1.9,
+        "stl": 0.6,
+        "blk": 0.6,
+        "tov": 2.7,
+        "fg3m": 2.3,
+        "min": 29.7
+      },
+      "stats_from": "this season",
+      "price": 23.9,
+      "price_change": 0.0,
+      "value": 1.27
+    },
+    {
+      "id": 1630583,
+      "name": "Santi Aldama",
+      "num": "34",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 31.0,
+      "avg_fp": 30.2,
+      "matchup_adj": 0.7,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 14.0,
+        "reb": 6.7,
+        "ast": 2.9,
+        "stl": 0.9,
+        "blk": 0.7,
+        "tov": 1.3,
+        "fg3m": 1.6,
+        "min": 27.8
+      },
+      "stats_from": "last season",
+      "price": 23.8,
+      "price_change": 0.0,
+      "value": 1.3
+    },
+    {
+      "id": 1631170,
+      "name": "Jaime Jaquez Jr.",
+      "num": "24",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 29.2,
+      "avg_fp": 30.2,
+      "matchup_adj": -0.9,
+      "games_this_season": 8,
+      "last5": [
+        17.5,
+        30.0,
+        23.8,
+        33.5,
+        27.0
+      ],
+      "stats": {
+        "pts": 16.8,
+        "reb": 6.6,
+        "ast": 2.8,
+        "stl": 0.5,
+        "blk": 0.0,
+        "tov": 2.1,
+        "fg3m": 1.9,
+        "min": 28.4
+      },
+      "stats_from": "this season",
+      "price": 23.7,
+      "price_change": 0.0,
+      "value": 1.23
+    },
+    {
+      "id": 203897,
+      "name": "Zach LaVine",
+      "num": "8",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 30.2,
+      "avg_fp": 33.7,
+      "matchup_adj": -1.0,
+      "games_this_season": 8,
+      "last5": [
+        30.8,
+        40.2,
+        11.5,
+        30.5,
+        32.0
+      ],
+      "stats": {
+        "pts": 23.1,
+        "reb": 3.1,
+        "ast": 2.6,
+        "stl": 1.0,
+        "blk": 0.5,
+        "tov": 3.4,
+        "fg3m": 2.9,
+        "min": 33.4
+      },
+      "stats_from": "this season",
+      "price": 23.6,
+      "price_change": 0.0,
+      "value": 1.28
+    },
+    {
+      "id": 203468,
+      "name": "CJ McCollum",
+      "num": "3",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 28.2,
+      "avg_fp": 27.0,
+      "matchup_adj": -0.7,
+      "games_this_season": 9,
+      "last5": [
+        17.0,
+        22.8,
+        21.0,
+        47.2,
+        33.2
+      ],
+      "stats": {
+        "pts": 14.3,
+        "reb": 3.0,
+        "ast": 4.0,
+        "stl": 1.1,
+        "blk": 0.2,
+        "tov": 1.9,
+        "fg3m": 2.0,
+        "min": 26.6
+      },
+      "stats_from": "this season",
+      "price": 23.5,
+      "price_change": 0.0,
+      "value": 1.2
+    },
+    {
+      "id": 1642882,
+      "name": "Julian Reese",
+      "num": "13",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 28.2,
+      "avg_fp": 2.8,
+      "matchup_adj": -1.0,
+      "games_this_season": 1,
+      "last5": [
+        2.8
+      ],
+      "stats": {
+        "pts": 2.0,
+        "reb": 1.0,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 1.0,
+        "fg3m": 0.0,
+        "min": 3.0
+      },
+      "stats_from": "this season",
+      "price": 23.5,
+      "price_change": 0.0,
+      "value": 1.2
+    },
+    {
+      "id": 1629023,
+      "name": "P.J. Washington",
+      "num": "25",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 30.5,
+      "avg_fp": 29.8,
+      "matchup_adj": 0.7,
+      "games_this_season": 8,
+      "last5": [
+        40.8,
+        31.8,
+        17.0,
+        23.8,
+        42.5
+      ],
+      "stats": {
+        "pts": 14.5,
+        "reb": 8.0,
+        "ast": 1.4,
+        "stl": 0.5,
+        "blk": 0.9,
+        "tov": 1.8,
+        "fg3m": 2.0,
+        "min": 34.9
+      },
+      "stats_from": "this season",
+      "price": 23.3,
+      "price_change": 0.0,
+      "value": 1.31
+    },
+    {
+      "id": 1630183,
+      "name": "Jaden McDaniels",
+      "num": "3",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 31.8,
+      "avg_fp": 32.4,
+      "matchup_adj": 1.0,
+      "games_this_season": 9,
+      "last5": [
+        33.2,
+        44.5,
+        31.2,
+        25.0,
+        33.0
+      ],
+      "stats": {
+        "pts": 16.4,
+        "reb": 6.2,
+        "ast": 3.6,
+        "stl": 0.9,
+        "blk": 0.7,
+        "tov": 1.8,
+        "fg3m": 1.3,
+        "min": 33.3
+      },
+      "stats_from": "this season",
+      "price": 23.3,
+      "price_change": 0.0,
+      "value": 1.36
+    },
+    {
+      "id": 1630180,
+      "name": "Saddiq Bey",
+      "num": "41",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 27.8,
+      "avg_fp": 26.8,
+      "matchup_adj": -1.0,
+      "games_this_season": 8,
+      "last5": [
+        18.0,
+        19.5,
+        41.0,
+        28.8,
+        34.0
+      ],
+      "stats": {
+        "pts": 16.4,
+        "reb": 3.9,
+        "ast": 1.9,
+        "stl": 1.1,
+        "blk": 0.1,
+        "tov": 1.2,
+        "fg3m": 1.8,
+        "min": 26.5
+      },
+      "stats_from": "this season",
+      "price": 23.3,
+      "price_change": 0.0,
+      "value": 1.19
+    },
+    {
+      "id": 1630202,
+      "name": "Payton Pritchard",
+      "num": "11",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 26.7,
+      "avg_fp": 24.0,
+      "matchup_adj": -1.1,
+      "games_this_season": 8,
+      "last5": [
+        16.0,
+        42.2,
+        23.8,
+        13.8,
+        18.8
+      ],
+      "stats": {
+        "pts": 13.0,
+        "reb": 2.8,
+        "ast": 3.6,
+        "stl": 0.8,
+        "blk": 0.2,
+        "tov": 1.4,
+        "fg3m": 1.6,
+        "min": 26.8
+      },
+      "stats_from": "this season",
+      "price": 23.1,
+      "price_change": 0.0,
+      "value": 1.16
+    },
+    {
+      "id": 1642852,
+      "name": "Derik Queen",
+      "num": "22",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "C"
+      ],
+      "proj": 28.8,
+      "avg_fp": 30.4,
+      "matchup_adj": -1.0,
+      "games_this_season": 8,
+      "last5": [
+        28.5,
+        16.5,
+        24.5,
+        42.2,
+        41.2
+      ],
+      "stats": {
+        "pts": 13.4,
+        "reb": 7.9,
+        "ast": 3.0,
+        "stl": 1.0,
+        "blk": 0.6,
+        "tov": 2.2,
+        "fg3m": 0.4,
+        "min": 24.1
+      },
+      "stats_from": "this season",
+      "price": 23.1,
+      "price_change": 0.0,
+      "value": 1.25
+    },
+    {
+      "id": 1630245,
+      "name": "Ayo Dosunmu",
+      "num": "13",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 31.7,
+      "avg_fp": 33.2,
+      "matchup_adj": 1.0,
+      "games_this_season": 9,
+      "last5": [
+        36.2,
+        28.8,
+        48.2,
+        51.0,
+        35.2
+      ],
+      "stats": {
+        "pts": 16.3,
+        "reb": 5.3,
+        "ast": 4.3,
+        "stl": 1.3,
+        "blk": 0.4,
+        "tov": 1.9,
+        "fg3m": 1.4,
+        "min": 30.7
+      },
+      "stats_from": "this season",
+      "price": 22.7,
+      "price_change": 0.0,
+      "value": 1.4
+    },
+    {
+      "id": 1642907,
+      "name": "Cedric Coward",
+      "num": "23",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 29.4,
+      "avg_fp": 33.8,
+      "matchup_adj": -0.9,
+      "games_this_season": 7,
+      "last5": [
+        38.8,
+        38.2,
+        26.2,
+        26.8,
+        48.8
+      ],
+      "stats": {
+        "pts": 14.3,
+        "reb": 8.7,
+        "ast": 2.7,
+        "stl": 1.6,
+        "blk": 0.1,
+        "tov": 1.4,
+        "fg3m": 2.7,
+        "min": 29.3
+      },
+      "stats_from": "this season",
+      "price": 22.6,
+      "price_change": 0.0,
+      "value": 1.3
+    },
+    {
+      "id": 1628392,
+      "name": "Isaiah Hartenstein",
+      "num": "55",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 27.3,
+      "avg_fp": 27.1,
+      "matchup_adj": -0.9,
+      "games_this_season": 8,
+      "last5": [
+        36.8,
+        32.5,
+        23.8,
+        32.0,
+        28.0
+      ],
+      "stats": {
+        "pts": 8.1,
+        "reb": 10.1,
+        "ast": 2.5,
+        "stl": 1.1,
+        "blk": 0.2,
+        "tov": 1.5,
+        "fg3m": 0.0,
+        "min": 24.8
+      },
+      "stats_from": "this season",
+      "price": 22.1,
+      "price_change": 0.0,
+      "value": 1.24
+    },
+    {
+      "id": 1628960,
+      "name": "Grayson Allen",
+      "num": "8",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 26.6,
+      "avg_fp": 25.6,
+      "matchup_adj": -0.8,
+      "games_this_season": 9,
+      "last5": [
+        24.8,
+        11.8,
+        42.5,
+        12.8,
+        36.0
+      ],
+      "stats": {
+        "pts": 15.7,
+        "reb": 2.8,
+        "ast": 2.7,
+        "stl": 0.6,
+        "blk": 0.4,
+        "tov": 2.6,
+        "fg3m": 3.6,
+        "min": 26.4
+      },
+      "stats_from": "this season",
+      "price": 21.8,
+      "price_change": 0.0,
+      "value": 1.22
+    },
+    {
+      "id": 1630230,
+      "name": "Naji Marshall",
+      "num": "3",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 29.0,
+      "avg_fp": 28.8,
+      "matchup_adj": 0.7,
+      "games_this_season": 5,
+      "last5": [
+        29.5,
+        34.0,
+        24.0,
+        21.0,
+        35.2
+      ],
+      "stats": {
+        "pts": 13.6,
+        "reb": 3.4,
+        "ast": 5.4,
+        "stl": 1.4,
+        "blk": 0.2,
+        "tov": 2.0,
+        "fg3m": 1.2,
+        "min": 26.6
+      },
+      "stats_from": "this season",
+      "price": 21.6,
+      "price_change": 0.0,
+      "value": 1.34
+    },
+    {
+      "id": 1642349,
+      "name": "Ajay Mitchell",
+      "num": "25",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 28.0,
+      "avg_fp": 31.4,
+      "matchup_adj": -0.9,
+      "games_this_season": 8,
+      "last5": [
+        42.0,
+        44.5,
+        18.8,
+        29.8,
+        39.8
+      ],
+      "stats": {
+        "pts": 17.8,
+        "reb": 4.0,
+        "ast": 3.5,
+        "stl": 1.4,
+        "blk": 0.5,
+        "tov": 1.4,
+        "fg3m": 0.6,
+        "min": 27.5
+      },
+      "stats_from": "this season",
+      "price": 21.2,
+      "price_change": 0.0,
+      "value": 1.32
+    },
+    {
+      "id": 1631099,
+      "name": "Keegan Murray",
+      "num": "13",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 26.1,
+      "avg_fp": 13.2,
+      "matchup_adj": -0.9,
+      "games_this_season": 2,
+      "last5": [
+        9.0,
+        17.5
+      ],
+      "stats": {
+        "pts": 7.0,
+        "reb": 3.0,
+        "ast": 0.5,
+        "stl": 1.0,
+        "blk": 0.0,
+        "tov": 0.5,
+        "fg3m": 0.0,
+        "min": 27.0
+      },
+      "stats_from": "this season",
+      "price": 21.1,
+      "price_change": 0.0,
+      "value": 1.24
+    },
+    {
+      "id": 1643407,
+      "name": "AJ Dybantsa",
+      "num": "4",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 27.9,
+      "avg_fp": 27.5,
+      "matchup_adj": 0.4,
+      "games_this_season": 4,
+      "last5": [
+        24.0,
+        29.2,
+        35.8,
+        21.0
+      ],
+      "stats": {
+        "pts": 16.5,
+        "reb": 5.0,
+        "ast": 2.0,
+        "stl": 1.0,
+        "blk": 0.0,
+        "tov": 1.2,
+        "fg3m": 0.8,
+        "min": 30.5
+      },
+      "stats_from": "this season",
+      "price": 20.8,
+      "price_change": 0.0,
+      "value": 1.34
+    },
+    {
+      "id": 1629632,
+      "name": "Coby White",
+      "num": "3",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 25.8,
+      "avg_fp": 12.4,
+      "matchup_adj": -0.8,
+      "games_this_season": 2,
+      "last5": [
+        10.5,
+        14.2
+      ],
+      "stats": {
+        "pts": 5.5,
+        "reb": 2.5,
+        "ast": 2.5,
+        "stl": 0.0,
+        "blk": 0.5,
+        "tov": 2.5,
+        "fg3m": 0.5,
+        "min": 17.0
+      },
+      "stats_from": "this season",
+      "price": 20.7,
+      "price_change": 0.0,
+      "value": 1.25
+    },
+    {
+      "id": 1631212,
+      "name": "Peyton Watson",
+      "num": "8",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 25.7,
+      "avg_fp": 25.5,
+      "matchup_adj": -1.3,
+      "games_this_season": 6,
+      "last5": [
+        24.8,
+        39.5,
+        34.0,
+        16.5,
+        22.5
+      ],
+      "stats": {
+        "pts": 10.8,
+        "reb": 4.0,
+        "ast": 3.0,
+        "stl": 1.2,
+        "blk": 1.8,
+        "tov": 2.3,
+        "fg3m": 0.7,
+        "min": 28.3
+      },
+      "stats_from": "this season",
+      "price": 20.6,
+      "price_change": 0.0,
+      "value": 1.25
+    },
+    {
+      "id": 1628978,
+      "name": "Donte DiVincenzo",
+      "num": "0",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 28.1,
+      "avg_fp": 27.2,
+      "matchup_adj": 0.9,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 12.2,
+        "reb": 4.1,
+        "ast": 3.8,
+        "stl": 1.3,
+        "blk": 0.4,
+        "tov": 1.4,
+        "fg3m": 3.0,
+        "min": 30.5
+      },
+      "stats_from": "last season",
+      "price": 20.5,
+      "price_change": 0.0,
+      "value": 1.37
+    },
+    {
+      "id": 1642847,
+      "name": "Jeremiah Fears",
+      "num": "0",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 26.6,
+      "avg_fp": 28.4,
+      "matchup_adj": -1.0,
+      "games_this_season": 8,
+      "last5": [
+        21.5,
+        65.0,
+        37.8,
+        25.5,
+        33.0
+      ],
+      "stats": {
+        "pts": 13.6,
+        "reb": 4.5,
+        "ast": 4.5,
+        "stl": 1.0,
+        "blk": 0.5,
+        "tov": 2.6,
+        "fg3m": 1.0,
+        "min": 28.0
+      },
+      "stats_from": "this season",
+      "price": 20.5,
+      "price_change": 0.0,
+      "value": 1.3
+    },
+    {
+      "id": 1642844,
+      "name": "Dylan Harper",
+      "num": "2",
+      "team": "SAS",
+      "opp": "SAC",
+      "home": false,
+      "game_id": "0022600033",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 31.5,
+      "avg_fp": 34.3,
+      "matchup_adj": 2.1,
+      "games_this_season": 8,
+      "last5": [
+        33.0,
+        32.8,
+        44.8,
+        41.2,
+        26.8
+      ],
+      "stats": {
+        "pts": 18.6,
+        "reb": 5.6,
+        "ast": 4.6,
+        "stl": 1.0,
+        "blk": 0.0,
+        "tov": 1.8,
+        "fg3m": 1.2,
+        "min": 32.9
+      },
+      "stats_from": "this season",
+      "price": 20.5,
+      "price_change": 0.0,
+      "value": 1.54
+    },
+    {
+      "id": 1643408,
+      "name": "Darryn Peterson",
+      "num": "22",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 26.9,
+      "avg_fp": 26.9,
+      "matchup_adj": 0.0,
+      "games_this_season": 8,
+      "last5": [
+        32.2,
+        31.2,
+        31.0,
+        40.5,
+        19.0
+      ],
+      "stats": {
+        "pts": 12.6,
+        "reb": 4.0,
+        "ast": 3.8,
+        "stl": 1.1,
+        "blk": 0.6,
+        "tov": 1.2,
+        "fg3m": 1.5,
+        "min": 30.2
+      },
+      "stats_from": "this season",
+      "price": 20.2,
+      "price_change": 0.0,
+      "value": 1.33
+    },
+    {
+      "id": 1642276,
+      "name": "Kel'el Ware",
+      "num": "9",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "C"
+      ],
+      "proj": 25.3,
+      "avg_fp": 24.6,
+      "matchup_adj": -0.8,
+      "games_this_season": 8,
+      "last5": [
+        37.0,
+        15.5,
+        43.0,
+        16.8,
+        11.2
+      ],
+      "stats": {
+        "pts": 10.2,
+        "reb": 8.2,
+        "ast": 0.8,
+        "stl": 0.5,
+        "blk": 0.9,
+        "tov": 1.6,
+        "fg3m": 0.8,
+        "min": 18.9
+      },
+      "stats_from": "this season",
+      "price": 20.0,
+      "price_change": 0.0,
+      "value": 1.27
+    },
+    {
+      "id": 202699,
+      "name": "Tobias Harris",
+      "num": "23",
+      "team": "SAS",
+      "opp": "SAC",
+      "home": false,
+      "game_id": "0022600033",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 28.2,
+      "avg_fp": 26.3,
+      "matchup_adj": 1.9,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 13.3,
+        "reb": 5.1,
+        "ast": 2.5,
+        "stl": 0.9,
+        "blk": 0.4,
+        "tov": 1.0,
+        "fg3m": 1.3,
+        "min": 27.8
+      },
+      "stats_from": "last season",
+      "price": 19.5,
+      "price_change": 0.0,
+      "value": 1.45
+    },
+    {
+      "id": 1642846,
+      "name": "Ace Bailey",
+      "num": "19",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 26.9,
+      "avg_fp": 28.5,
+      "matchup_adj": 0.0,
+      "games_this_season": 8,
+      "last5": [
+        42.5,
+        27.5,
+        28.2,
+        18.0,
+        23.8
+      ],
+      "stats": {
+        "pts": 12.5,
+        "reb": 7.2,
+        "ast": 2.0,
+        "stl": 0.4,
+        "blk": 1.5,
+        "tov": 1.8,
+        "fg3m": 1.4,
+        "min": 30.6
+      },
+      "stats_from": "this season",
+      "price": 19.4,
+      "price_change": 0.0,
+      "value": 1.39
+    },
+    {
+      "id": 1631217,
+      "name": "Moussa Diabat\u00e9",
+      "num": "14",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 25.8,
+      "avg_fp": 27.6,
+      "matchup_adj": -0.8,
+      "games_this_season": 9,
+      "last5": [
+        22.8,
+        31.5,
+        28.0,
+        29.2,
+        16.5
+      ],
+      "stats": {
+        "pts": 8.9,
+        "reb": 9.1,
+        "ast": 2.0,
+        "stl": 1.6,
+        "blk": 0.9,
+        "tov": 1.8,
+        "fg3m": 0.0,
+        "min": 28.8
+      },
+      "stats_from": "this season",
+      "price": 19.2,
+      "price_change": 0.0,
+      "value": 1.34
+    },
+    {
+      "id": 1626167,
+      "name": "Myles Turner",
+      "num": "3",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 25.2,
+      "avg_fp": 26.0,
+      "matchup_adj": -0.8,
+      "games_this_season": 8,
+      "last5": [
+        31.8,
+        14.5,
+        28.2,
+        33.2,
+        41.8
+      ],
+      "stats": {
+        "pts": 8.5,
+        "reb": 5.6,
+        "ast": 2.6,
+        "stl": 0.6,
+        "blk": 2.8,
+        "tov": 2.0,
+        "fg3m": 1.5,
+        "min": 27.9
+      },
+      "stats_from": "this season",
+      "price": 19.2,
+      "price_change": 0.0,
+      "value": 1.31
+    },
+    {
+      "id": 1630228,
+      "name": "Jonathan Kuminga",
+      "num": "24",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 28.1,
+      "avg_fp": 29.4,
+      "matchup_adj": 0.9,
+      "games_this_season": 9,
+      "last5": [
+        36.8,
+        8.2,
+        34.0,
+        32.0,
+        39.0
+      ],
+      "stats": {
+        "pts": 12.7,
+        "reb": 5.7,
+        "ast": 2.9,
+        "stl": 1.2,
+        "blk": 1.0,
+        "tov": 0.8,
+        "fg3m": 2.1,
+        "min": 30.9
+      },
+      "stats_from": "this season",
+      "price": 19.2,
+      "price_change": 0.0,
+      "value": 1.46
+    },
+    {
+      "id": 1641739,
+      "name": "Toumani Camara",
+      "num": "33",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 24.8,
+      "avg_fp": 22.8,
+      "matchup_adj": -0.3,
+      "games_this_season": 7,
+      "last5": [
+        18.8,
+        25.5,
+        24.5,
+        16.2,
+        18.5
+      ],
+      "stats": {
+        "pts": 13.7,
+        "reb": 2.9,
+        "ast": 1.3,
+        "stl": 1.0,
+        "blk": 0.3,
+        "tov": 1.4,
+        "fg3m": 3.4,
+        "min": 27.7
+      },
+      "stats_from": "this season",
+      "price": 19.1,
+      "price_change": 0.0,
+      "value": 1.3
+    },
+    {
+      "id": 1642875,
+      "name": "Maxime Raynaud",
+      "num": "42",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "C"
+      ],
+      "proj": 25.0,
+      "avg_fp": 25.9,
+      "matchup_adj": -0.8,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 12.5,
+        "reb": 7.5,
+        "ast": 1.4,
+        "stl": 0.5,
+        "blk": 0.5,
+        "tov": 1.3,
+        "fg3m": 0.3,
+        "min": 26.6
+      },
+      "stats_from": "last season",
+      "price": 19.1,
+      "price_change": 0.0,
+      "value": 1.31
+    },
+    {
+      "id": 1629674,
+      "name": "Neemias Queta",
+      "num": "88",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "C"
+      ],
+      "proj": 23.9,
+      "avg_fp": 22.8,
+      "matchup_adj": -1.0,
+      "games_this_season": 8,
+      "last5": [
+        12.8,
+        24.0,
+        23.0,
+        25.0,
+        32.5
+      ],
+      "stats": {
+        "pts": 9.8,
+        "reb": 6.2,
+        "ast": 1.4,
+        "stl": 0.2,
+        "blk": 1.5,
+        "tov": 1.0,
+        "fg3m": 0.2,
+        "min": 22.5
+      },
+      "stats_from": "this season",
+      "price": 19.0,
+      "price_change": 0.0,
+      "value": 1.26
+    },
+    {
+      "id": 203924,
+      "name": "Jerami Grant",
+      "num": "3",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 22.9,
+      "avg_fp": 18.8,
+      "matchup_adj": -0.7,
+      "games_this_season": 8,
+      "last5": [
+        19.8,
+        7.2,
+        21.0,
+        21.5,
+        18.2
+      ],
+      "stats": {
+        "pts": 9.6,
+        "reb": 2.4,
+        "ast": 2.1,
+        "stl": 0.4,
+        "blk": 1.1,
+        "tov": 1.5,
+        "fg3m": 1.5,
+        "min": 24.2
+      },
+      "stats_from": "this season",
+      "price": 18.9,
+      "price_change": 0.0,
+      "value": 1.21
+    },
+    {
+      "id": 1630170,
+      "name": "Devin Vassell",
+      "num": "24",
+      "team": "SAS",
+      "opp": "SAC",
+      "home": false,
+      "game_id": "0022600033",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 27.1,
+      "avg_fp": 24.8,
+      "matchup_adj": 1.8,
+      "games_this_season": 8,
+      "last5": [
+        34.5,
+        36.2,
+        23.2,
+        16.5,
+        22.8
+      ],
+      "stats": {
+        "pts": 10.6,
+        "reb": 4.2,
+        "ast": 3.2,
+        "stl": 1.8,
+        "blk": 0.2,
+        "tov": 1.2,
+        "fg3m": 1.1,
+        "min": 31.8
+      },
+      "stats_from": "this season",
+      "price": 18.7,
+      "price_change": 0.0,
+      "value": 1.45
+    },
+    {
+      "id": 1642285,
+      "name": "Cam Spencer",
+      "num": "24",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 23.9,
+      "avg_fp": 24.4,
+      "matchup_adj": -0.7,
+      "games_this_season": 8,
+      "last5": [
+        22.8,
+        31.5,
+        40.2,
+        24.2,
+        29.5
+      ],
+      "stats": {
+        "pts": 9.1,
+        "reb": 3.8,
+        "ast": 5.8,
+        "stl": 0.8,
+        "blk": 0.0,
+        "tov": 1.4,
+        "fg3m": 1.9,
+        "min": 19.8
+      },
+      "stats_from": "this season",
+      "price": 17.8,
+      "price_change": 0.0,
+      "value": 1.34
+    },
+    {
+      "id": 1630173,
+      "name": "Precious Achiuwa",
+      "num": "9",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 24.1,
+      "avg_fp": 25.9,
+      "matchup_adj": -0.8,
+      "games_this_season": 8,
+      "last5": [
+        5.2,
+        45.8,
+        18.2,
+        30.5,
+        16.8
+      ],
+      "stats": {
+        "pts": 11.0,
+        "reb": 6.1,
+        "ast": 1.2,
+        "stl": 1.6,
+        "blk": 1.1,
+        "tov": 0.9,
+        "fg3m": 0.2,
+        "min": 27.2
+      },
+      "stats_from": "this season",
+      "price": 17.5,
+      "price_change": 0.0,
+      "value": 1.38
+    },
+    {
+      "id": 1642281,
+      "name": "Jaylon Tyson",
+      "num": "20",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 22.3,
+      "avg_fp": 18.4,
+      "matchup_adj": -1.1,
+      "games_this_season": 5,
+      "last5": [
+        18.5,
+        24.8,
+        23.0,
+        13.2,
+        12.5
+      ],
+      "stats": {
+        "pts": 7.8,
+        "reb": 3.6,
+        "ast": 2.8,
+        "stl": 0.6,
+        "blk": 0.4,
+        "tov": 1.2,
+        "fg3m": 1.0,
+        "min": 20.8
+      },
+      "stats_from": "this season",
+      "price": 17.4,
+      "price_change": 0.0,
+      "value": 1.28
+    },
+    {
+      "id": 1642268,
+      "name": "Isaiah Collier",
+      "num": "8",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 22.1,
+      "avg_fp": 17.2,
+      "matchup_adj": 0.0,
+      "games_this_season": 8,
+      "last5": [
+        29.0,
+        21.8,
+        17.8,
+        12.0,
+        1.2
+      ],
+      "stats": {
+        "pts": 6.5,
+        "reb": 3.4,
+        "ast": 4.5,
+        "stl": 0.4,
+        "blk": 0.0,
+        "tov": 2.0,
+        "fg3m": 0.0,
+        "min": 15.9
+      },
+      "stats_from": "this season",
+      "price": 17.4,
+      "price_change": 0.0,
+      "value": 1.27
+    },
+    {
+      "id": 1628398,
+      "name": "Kyle Kuzma",
+      "num": "18",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 23.3,
+      "avg_fp": 23.6,
+      "matchup_adj": -0.7,
+      "games_this_season": 8,
+      "last5": [
+        31.2,
+        14.5,
+        24.8,
+        11.0,
+        19.2
+      ],
+      "stats": {
+        "pts": 9.5,
+        "reb": 6.2,
+        "ast": 3.0,
+        "stl": 0.9,
+        "blk": 0.0,
+        "tov": 1.6,
+        "fg3m": 1.2,
+        "min": 26.4
+      },
+      "stats_from": "this season",
+      "price": 17.4,
+      "price_change": 0.0,
+      "value": 1.34
+    },
+    {
+      "id": 1631097,
+      "name": "Bennedict Mathurin",
+      "num": "24",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 19.7,
+      "avg_fp": 12.3,
+      "matchup_adj": -0.7,
+      "games_this_season": 8,
+      "last5": [
+        10.2,
+        16.8,
+        10.8,
+        6.0,
+        9.2
+      ],
+      "stats": {
+        "pts": 6.5,
+        "reb": 2.4,
+        "ast": 1.6,
+        "stl": 0.4,
+        "blk": 0.0,
+        "tov": 1.2,
+        "fg3m": 0.6,
+        "min": 16.6
+      },
+      "stats_from": "this season",
+      "price": 17.2,
+      "price_change": 0.0,
+      "value": 1.15
+    },
+    {
+      "id": 1629655,
+      "name": "Daniel Gafford",
+      "num": "21",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 24.9,
+      "avg_fp": 25.2,
+      "matchup_adj": 0.6,
+      "games_this_season": 8,
+      "last5": [
+        29.2,
+        27.2,
+        32.2,
+        32.2,
+        13.5
+      ],
+      "stats": {
+        "pts": 9.1,
+        "reb": 6.6,
+        "ast": 2.0,
+        "stl": 0.9,
+        "blk": 1.9,
+        "tov": 1.6,
+        "fg3m": 0.1,
+        "min": 23.2
+      },
+      "stats_from": "this season",
+      "price": 17.0,
+      "price_change": 0.0,
+      "value": 1.46
+    },
+    {
+      "id": 1641731,
+      "name": "Bilal Coulibaly",
+      "num": "0",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 22.3,
+      "avg_fp": 18.8,
+      "matchup_adj": 0.3,
+      "games_this_season": 8,
+      "last5": [
+        12.2,
+        28.0,
+        10.8,
+        19.2,
+        17.0
+      ],
+      "stats": {
+        "pts": 7.9,
+        "reb": 3.4,
+        "ast": 0.9,
+        "stl": 1.5,
+        "blk": 1.2,
+        "tov": 0.5,
+        "fg3m": 0.4,
+        "min": 26.8
+      },
+      "stats_from": "this season",
+      "price": 16.4,
+      "price_change": 0.0,
+      "value": 1.36
+    },
+    {
+      "id": 1642504,
+      "name": "Cormac Ryan",
+      "num": "30",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 22.5,
+      "avg_fp": 23.2,
+      "matchup_adj": -0.7,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 14.3,
+        "reb": 2.5,
+        "ast": 1.7,
+        "stl": 1.0,
+        "blk": 0.3,
+        "tov": 1.5,
+        "fg3m": 2.5,
+        "min": 24.5
+      },
+      "stats_from": "last season",
+      "price": 16.2,
+      "price_change": 0.0,
+      "value": 1.39
+    },
+    {
+      "id": 1630577,
+      "name": "Julian Champagnie",
+      "num": "30",
+      "team": "SAS",
+      "opp": "SAC",
+      "home": false,
+      "game_id": "0022600033",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 24.1,
+      "avg_fp": 21.2,
+      "matchup_adj": 1.6,
+      "games_this_season": 8,
+      "last5": [
+        37.8,
+        14.5,
+        20.8,
+        16.0,
+        11.5
+      ],
+      "stats": {
+        "pts": 9.8,
+        "reb": 3.8,
+        "ast": 1.4,
+        "stl": 1.0,
+        "blk": 0.8,
+        "tov": 0.4,
+        "fg3m": 2.8,
+        "min": 26.5
+      },
+      "stats_from": "this season",
+      "price": 16.1,
+      "price_change": 0.0,
+      "value": 1.5
+    },
+    {
+      "id": 1629012,
+      "name": "Collin Sexton",
+      "num": "10",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 20.2,
+      "avg_fp": 17.8,
+      "matchup_adj": -1.2,
+      "games_this_season": 8,
+      "last5": [
+        30.5,
+        7.5,
+        24.2,
+        14.8,
+        18.8
+      ],
+      "stats": {
+        "pts": 9.8,
+        "reb": 2.1,
+        "ast": 2.4,
+        "stl": 0.6,
+        "blk": 0.4,
+        "tov": 1.4,
+        "fg3m": 1.0,
+        "min": 17.2
+      },
+      "stats_from": "this season",
+      "price": 16.0,
+      "price_change": 0.0,
+      "value": 1.26
+    },
+    {
+      "id": 203471,
+      "name": "Dennis Schr\u00f6der",
+      "num": "17",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 22.1,
+      "avg_fp": 22.6,
+      "matchup_adj": -0.7,
+      "games_this_season": 9,
+      "last5": [
+        25.0,
+        28.0,
+        16.2,
+        10.5,
+        18.8
+      ],
+      "stats": {
+        "pts": 10.2,
+        "reb": 3.6,
+        "ast": 4.9,
+        "stl": 0.8,
+        "blk": 0.1,
+        "tov": 3.2,
+        "fg3m": 0.8,
+        "min": 30.0
+      },
+      "stats_from": "this season",
+      "price": 15.9,
+      "price_change": 0.0,
+      "value": 1.39
+    },
+    {
+      "id": 1627751,
+      "name": "Jakob Poeltl",
+      "num": "19",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "C"
+      ],
+      "proj": 23.0,
+      "avg_fp": 15.4,
+      "matchup_adj": 1.7,
+      "games_this_season": 6,
+      "last5": [
+        23.8,
+        0.8,
+        4.0,
+        33.8,
+        15.8
+      ],
+      "stats": {
+        "pts": 5.2,
+        "reb": 5.7,
+        "ast": 1.0,
+        "stl": 0.5,
+        "blk": 0.3,
+        "tov": 0.5,
+        "fg3m": 0.0,
+        "min": 20.0
+      },
+      "stats_from": "this season",
+      "price": 15.9,
+      "price_change": 0.0,
+      "value": 1.45
+    },
+    {
+      "id": 1629631,
+      "name": "De'Andre Hunter",
+      "num": "15",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 21.9,
+      "avg_fp": 21.9,
+      "matchup_adj": -0.7,
+      "games_this_season": 8,
+      "last5": [
+        40.0,
+        32.2,
+        25.8,
+        16.8,
+        19.0
+      ],
+      "stats": {
+        "pts": 13.0,
+        "reb": 4.8,
+        "ast": 1.2,
+        "stl": 0.2,
+        "blk": 0.1,
+        "tov": 1.4,
+        "fg3m": 2.0,
+        "min": 31.2
+      },
+      "stats_from": "this season",
+      "price": 15.9,
+      "price_change": 0.0,
+      "value": 1.38
+    },
+    {
+      "id": 1630590,
+      "name": "Scotty Pippen Jr.",
+      "num": "1",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 20.7,
+      "avg_fp": 14.0,
+      "matchup_adj": -0.6,
+      "games_this_season": 5,
+      "last5": [
+        24.0,
+        19.5,
+        9.8,
+        15.0,
+        2.0
+      ],
+      "stats": {
+        "pts": 6.4,
+        "reb": 2.2,
+        "ast": 2.2,
+        "stl": 1.0,
+        "blk": 0.2,
+        "tov": 2.0,
+        "fg3m": 0.4,
+        "min": 16.2
+      },
+      "stats_from": "this season",
+      "price": 15.7,
+      "price_change": 0.0,
+      "value": 1.32
+    },
+    {
+      "id": 1642271,
+      "name": "Kyle Filipowski",
+      "num": "2",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "C"
+      ],
+      "proj": 19.5,
+      "avg_fp": 4.2,
+      "matchup_adj": 0.0,
+      "games_this_season": 5,
+      "last5": [
+        5.0,
+        1.8,
+        0.2,
+        10.5,
+        3.5
+      ],
+      "stats": {
+        "pts": 1.8,
+        "reb": 0.8,
+        "ast": 0.4,
+        "stl": 0.6,
+        "blk": 0.0,
+        "tov": 1.0,
+        "fg3m": 0.2,
+        "min": 7.8
+      },
+      "stats_from": "this season",
+      "price": 15.4,
+      "price_change": 0.0,
+      "value": 1.27
+    },
+    {
+      "id": 1629656,
+      "name": "Quentin Grimes",
+      "num": "5",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 19.4,
+      "avg_fp": 17.4,
+      "matchup_adj": -1.2,
+      "games_this_season": 9,
+      "last5": [
+        40.8,
+        9.8,
+        11.2,
+        18.5,
+        10.2
+      ],
+      "stats": {
+        "pts": 8.2,
+        "reb": 3.0,
+        "ast": 2.7,
+        "stl": 0.8,
+        "blk": 0.1,
+        "tov": 1.3,
+        "fg3m": 0.7,
+        "min": 26.1
+      },
+      "stats_from": "this season",
+      "price": 15.4,
+      "price_change": 0.0,
+      "value": 1.26
+    },
+    {
+      "id": 1629028,
+      "name": "Deandre Ayton",
+      "num": "8",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "C"
+      ],
+      "proj": 19.8,
+      "avg_fp": 13.3,
+      "matchup_adj": 0.3,
+      "games_this_season": 8,
+      "last5": [
+        7.5,
+        13.8,
+        9.0,
+        14.5,
+        15.0
+      ],
+      "stats": {
+        "pts": 5.4,
+        "reb": 4.5,
+        "ast": 0.9,
+        "stl": 0.1,
+        "blk": 0.5,
+        "tov": 0.5,
+        "fg3m": 0.0,
+        "min": 15.1
+      },
+      "stats_from": "this season",
+      "price": 15.3,
+      "price_change": 0.0,
+      "value": 1.29
+    },
+    {
+      "id": 1630703,
+      "name": "Scoot Henderson",
+      "num": "00",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 19.9,
+      "avg_fp": 14.4,
+      "matchup_adj": -0.3,
+      "games_this_season": 7,
+      "last5": [
+        6.5,
+        13.5,
+        23.8,
+        16.0,
+        13.0
+      ],
+      "stats": {
+        "pts": 8.7,
+        "reb": 2.3,
+        "ast": 1.4,
+        "stl": 0.7,
+        "blk": 0.0,
+        "tov": 2.4,
+        "fg3m": 0.9,
+        "min": 22.1
+      },
+      "stats_from": "this season",
+      "price": 15.1,
+      "price_change": 0.0,
+      "value": 1.32
+    },
+    {
+      "id": 1630572,
+      "name": "Sandro Mamukelashvili",
+      "num": "54",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 20.0,
+      "avg_fp": 20.0,
+      "matchup_adj": -1.2,
+      "games_this_season": 9,
+      "last5": [
+        32.5,
+        16.2,
+        14.8,
+        26.8,
+        12.5
+      ],
+      "stats": {
+        "pts": 9.0,
+        "reb": 4.6,
+        "ast": 1.7,
+        "stl": 0.8,
+        "blk": 0.6,
+        "tov": 0.8,
+        "fg3m": 1.0,
+        "min": 23.6
+      },
+      "stats_from": "this season",
+      "price": 14.9,
+      "price_change": 0.0,
+      "value": 1.34
+    },
+    {
+      "id": 1629640,
+      "name": "Keldon Johnson",
+      "num": "3",
+      "team": "SAS",
+      "opp": "SAC",
+      "home": false,
+      "game_id": "0022600033",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 22.1,
+      "avg_fp": 18.1,
+      "matchup_adj": 1.5,
+      "games_this_season": 8,
+      "last5": [
+        19.0,
+        21.0,
+        9.5,
+        25.8,
+        12.2
+      ],
+      "stats": {
+        "pts": 8.6,
+        "reb": 5.5,
+        "ast": 1.2,
+        "stl": 0.5,
+        "blk": 0.0,
+        "tov": 0.8,
+        "fg3m": 0.2,
+        "min": 22.5
+      },
+      "stats_from": "this season",
+      "price": 14.7,
+      "price_change": 0.0,
+      "value": 1.5
+    },
+    {
+      "id": 1629673,
+      "name": "Jordan Poole",
+      "num": "3",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 20.3,
+      "avg_fp": 16.5,
+      "matchup_adj": -0.7,
+      "games_this_season": 4,
+      "last5": [
+        10.5,
+        26.0,
+        24.2,
+        5.2
+      ],
+      "stats": {
+        "pts": 6.0,
+        "reb": 2.0,
+        "ast": 3.0,
+        "stl": 1.2,
+        "blk": 0.5,
+        "tov": 0.8,
+        "fg3m": 0.8,
+        "min": 16.0
+      },
+      "stats_from": "this season",
+      "price": 14.6,
+      "price_change": 0.0,
+      "value": 1.39
+    },
+    {
+      "id": 1630241,
+      "name": "Sam Merrill",
+      "num": "5",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 19.5,
+      "avg_fp": 18.9,
+      "matchup_adj": -1.0,
+      "games_this_season": 8,
+      "last5": [
+        13.8,
+        26.0,
+        18.0,
+        17.8,
+        25.2
+      ],
+      "stats": {
+        "pts": 8.6,
+        "reb": 3.5,
+        "ast": 2.1,
+        "stl": 0.9,
+        "blk": 0.1,
+        "tov": 0.2,
+        "fg3m": 1.8,
+        "min": 24.4
+      },
+      "stats_from": "this season",
+      "price": 14.0,
+      "price_change": 0.0,
+      "value": 1.39
+    },
+    {
+      "id": 1643133,
+      "name": "Lawson Lovering",
+      "num": "nan",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "C"
+      ],
+      "proj": 18.9,
+      "avg_fp": 1.6,
+      "matchup_adj": -1.2,
+      "games_this_season": 2,
+      "last5": [
+        1.2,
+        2.0
+      ],
+      "stats": {
+        "pts": 0.0,
+        "reb": 0.5,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.5,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 1.0
+      },
+      "stats_from": "this season",
+      "price": 14.0,
+      "price_change": 0.0,
+      "value": 1.35
+    },
+    {
+      "id": 1642377,
+      "name": "Jaylen Wells",
+      "num": "0",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 20.3,
+      "avg_fp": 20.5,
+      "matchup_adj": -0.6,
+      "games_this_season": 8,
+      "last5": [
+        18.8,
+        12.2,
+        8.0,
+        27.8,
+        8.5
+      ],
+      "stats": {
+        "pts": 11.1,
+        "reb": 3.4,
+        "ast": 1.5,
+        "stl": 1.0,
+        "blk": 0.1,
+        "tov": 0.5,
+        "fg3m": 1.8,
+        "min": 27.2
+      },
+      "stats_from": "this season",
+      "price": 13.9,
+      "price_change": 0.0,
+      "value": 1.46
+    },
+    {
+      "id": 1629057,
+      "name": "Robert Williams III",
+      "num": "35",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 20.9,
+      "avg_fp": 21.5,
+      "matchup_adj": -0.3,
+      "games_this_season": 6,
+      "last5": [
+        21.5,
+        35.5,
+        11.8,
+        12.0,
+        30.0
+      ],
+      "stats": {
+        "pts": 7.2,
+        "reb": 7.2,
+        "ast": 1.0,
+        "stl": 0.8,
+        "blk": 1.2,
+        "tov": 0.8,
+        "fg3m": 0.0,
+        "min": 16.5
+      },
+      "stats_from": "this season",
+      "price": 13.9,
+      "price_change": 0.0,
+      "value": 1.5
+    },
+    {
+      "id": 1626209,
+      "name": "Mario Hezonja",
+      "num": "33",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 20.0,
+      "avg_fp": 21.0,
+      "matchup_adj": -1.0,
+      "games_this_season": 8,
+      "last5": [
+        12.2,
+        23.5,
+        27.2,
+        32.0,
+        23.5
+      ],
+      "stats": {
+        "pts": 8.6,
+        "reb": 5.9,
+        "ast": 2.0,
+        "stl": 0.8,
+        "blk": 0.1,
+        "tov": 1.0,
+        "fg3m": 1.5,
+        "min": 19.8
+      },
+      "stats_from": "this season",
+      "price": 13.8,
+      "price_change": 0.0,
+      "value": 1.45
+    },
+    {
+      "id": 1642914,
+      "name": "Javon Small",
+      "num": "10",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 20.3,
+      "avg_fp": 16.2,
+      "matchup_adj": -0.6,
+      "games_this_season": 1,
+      "last5": [
+        16.2
+      ],
+      "stats": {
+        "pts": 7.0,
+        "reb": 1.0,
+        "ast": 5.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 1.0,
+        "fg3m": 2.0,
+        "min": 20.0
+      },
+      "stats_from": "this season",
+      "price": 13.8,
+      "price_change": 0.0,
+      "value": 1.47
+    },
+    {
+      "id": 1630598,
+      "name": "Aaron Wiggins",
+      "num": "2",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 22.0,
+      "avg_fp": 25.1,
+      "matchup_adj": -0.5,
+      "games_this_season": 9,
+      "last5": [
+        20.0,
+        36.8,
+        18.0,
+        15.2,
+        29.5
+      ],
+      "stats": {
+        "pts": 13.9,
+        "reb": 3.7,
+        "ast": 1.9,
+        "stl": 1.1,
+        "blk": 0.4,
+        "tov": 1.2,
+        "fg3m": 2.7,
+        "min": 26.0
+      },
+      "stats_from": "this season",
+      "price": 13.7,
+      "price_change": 0.0,
+      "value": 1.61
+    },
+    {
+      "id": 1641729,
+      "name": "Brice Sensabaugh",
+      "num": "28",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 19.2,
+      "avg_fp": 15.2,
+      "matchup_adj": 0.0,
+      "games_this_season": 8,
+      "last5": [
+        14.0,
+        23.2,
+        19.2,
+        12.5,
+        12.0
+      ],
+      "stats": {
+        "pts": 8.9,
+        "reb": 2.9,
+        "ast": 1.0,
+        "stl": 0.4,
+        "blk": 0.1,
+        "tov": 1.2,
+        "fg3m": 1.8,
+        "min": 14.9
+      },
+      "stats_from": "this season",
+      "price": 13.7,
+      "price_change": 0.0,
+      "value": 1.4
+    },
+    {
+      "id": 1629111,
+      "name": "Jock Landale",
+      "num": "31",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "C"
+      ],
+      "proj": 19.1,
+      "avg_fp": 16.1,
+      "matchup_adj": -0.4,
+      "games_this_season": 7,
+      "last5": [
+        7.5,
+        23.5,
+        16.0,
+        21.0,
+        0.0
+      ],
+      "stats": {
+        "pts": 6.3,
+        "reb": 4.9,
+        "ast": 2.0,
+        "stl": 0.1,
+        "blk": 0.4,
+        "tov": 1.1,
+        "fg3m": 0.4,
+        "min": 15.3
+      },
+      "stats_from": "this season",
+      "price": 13.6,
+      "price_change": 0.0,
+      "value": 1.4
+    },
+    {
+      "id": 1630191,
+      "name": "Isaiah Stewart",
+      "num": "28",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 19.7,
+      "avg_fp": 18.9,
+      "matchup_adj": -0.6,
+      "games_this_season": 7,
+      "last5": [
+        8.5,
+        24.2,
+        30.0,
+        27.2,
+        7.2
+      ],
+      "stats": {
+        "pts": 11.9,
+        "reb": 3.4,
+        "ast": 0.6,
+        "stl": 0.1,
+        "blk": 0.7,
+        "tov": 0.9,
+        "fg3m": 1.1,
+        "min": 18.3
+      },
+      "stats_from": "this season",
+      "price": 13.6,
+      "price_change": 0.0,
+      "value": 1.45
+    },
+    {
+      "id": 1629014,
+      "name": "Anfernee Simons",
+      "num": "5",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 19.5,
+      "avg_fp": 16.8,
+      "matchup_adj": 0.2,
+      "games_this_season": 9,
+      "last5": [
+        30.2,
+        27.0,
+        30.5,
+        10.5,
+        0.8
+      ],
+      "stats": {
+        "pts": 10.0,
+        "reb": 1.9,
+        "ast": 1.1,
+        "stl": 0.7,
+        "blk": 0.2,
+        "tov": 0.6,
+        "fg3m": 2.4,
+        "min": 22.9
+      },
+      "stats_from": "this season",
+      "price": 13.5,
+      "price_change": 0.0,
+      "value": 1.44
+    },
+    {
+      "id": 1642928,
+      "name": "Dylan Cardwell",
+      "num": "32",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "C"
+      ],
+      "proj": 19.9,
+      "avg_fp": 13.5,
+      "matchup_adj": -0.7,
+      "games_this_season": 1,
+      "last5": [
+        13.5
+      ],
+      "stats": {
+        "pts": 4.0,
+        "reb": 6.0,
+        "ast": 0.0,
+        "stl": 1.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 13.0
+      },
+      "stats_from": "this season",
+      "price": 13.5,
+      "price_change": 0.0,
+      "value": 1.47
+    },
+    {
+      "id": 1630551,
+      "name": "Justin Champagnie",
+      "num": "9",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 21.0,
+      "avg_fp": 21.1,
+      "matchup_adj": 0.3,
+      "games_this_season": 4,
+      "last5": [
+        20.0,
+        21.5,
+        38.5,
+        4.5
+      ],
+      "stats": {
+        "pts": 7.2,
+        "reb": 7.5,
+        "ast": 1.2,
+        "stl": 0.5,
+        "blk": 0.5,
+        "tov": 0.0,
+        "fg3m": 0.5,
+        "min": 18.5
+      },
+      "stats_from": "this season",
+      "price": 13.4,
+      "price_change": 0.0,
+      "value": 1.57
+    },
+    {
+      "id": 1643509,
+      "name": "Meleek Thomas",
+      "num": "15",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 19.7,
+      "avg_fp": 20.6,
+      "matchup_adj": -1.0,
+      "games_this_season": 5,
+      "last5": [
+        21.5,
+        18.5,
+        22.2,
+        28.2,
+        12.8
+      ],
+      "stats": {
+        "pts": 13.0,
+        "reb": 2.6,
+        "ast": 0.8,
+        "stl": 1.0,
+        "blk": 0.2,
+        "tov": 1.0,
+        "fg3m": 2.6,
+        "min": 21.2
+      },
+      "stats_from": "this season",
+      "price": 13.4,
+      "price_change": 0.0,
+      "value": 1.47
+    },
+    {
+      "id": 1642867,
+      "name": "Collin Murray-Boyles",
+      "num": "30",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 22.0,
+      "avg_fp": 19.8,
+      "matchup_adj": 1.6,
+      "games_this_season": 8,
+      "last5": [
+        13.5,
+        22.8,
+        14.8,
+        30.2,
+        19.8
+      ],
+      "stats": {
+        "pts": 9.6,
+        "reb": 4.8,
+        "ast": 1.2,
+        "stl": 0.9,
+        "blk": 0.5,
+        "tov": 1.4,
+        "fg3m": 0.6,
+        "min": 20.8
+      },
+      "stats_from": "this season",
+      "price": 13.4,
+      "price_change": 0.0,
+      "value": 1.64
+    },
+    {
+      "id": 1641717,
+      "name": "Cason Wallace",
+      "num": "22",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 19.6,
+      "avg_fp": 16.3,
+      "matchup_adj": -0.6,
+      "games_this_season": 3,
+      "last5": [
+        14.2,
+        22.5,
+        12.2
+      ],
+      "stats": {
+        "pts": 6.3,
+        "reb": 2.7,
+        "ast": 1.3,
+        "stl": 2.3,
+        "blk": 0.0,
+        "tov": 1.0,
+        "fg3m": 1.0,
+        "min": 16.3
+      },
+      "stats_from": "this season",
+      "price": 13.3,
+      "price_change": 0.0,
+      "value": 1.47
+    },
+    {
+      "id": 1631108,
+      "name": "Max Christie",
+      "num": "0",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 19.6,
+      "avg_fp": 16.2,
+      "matchup_adj": 0.5,
+      "games_this_season": 7,
+      "last5": [
+        18.8,
+        22.2,
+        21.2,
+        6.8,
+        4.0
+      ],
+      "stats": {
+        "pts": 7.1,
+        "reb": 3.6,
+        "ast": 1.7,
+        "stl": 0.7,
+        "blk": 0.3,
+        "tov": 1.4,
+        "fg3m": 1.4,
+        "min": 23.9
+      },
+      "stats_from": "this season",
+      "price": 12.9,
+      "price_change": 0.0,
+      "value": 1.52
+    },
+    {
+      "id": 1642258,
+      "name": "Zaccharie Risacher",
+      "num": "10",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 21.3,
+      "avg_fp": 22.2,
+      "matchup_adj": 0.5,
+      "games_this_season": 8,
+      "last5": [
+        26.0,
+        26.5,
+        32.5,
+        8.8,
+        7.8
+      ],
+      "stats": {
+        "pts": 7.4,
+        "reb": 5.2,
+        "ast": 1.6,
+        "stl": 1.8,
+        "blk": 1.2,
+        "tov": 1.2,
+        "fg3m": 1.0,
+        "min": 26.9
+      },
+      "stats_from": "this season",
+      "price": 12.9,
+      "price_change": 0.0,
+      "value": 1.65
+    },
+    {
+      "id": 1642267,
+      "name": "Bub Carrington",
+      "num": "7",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 18.2,
+      "avg_fp": 13.1,
+      "matchup_adj": 0.3,
+      "games_this_season": 8,
+      "last5": [
+        13.0,
+        8.8,
+        20.0,
+        16.0,
+        6.2
+      ],
+      "stats": {
+        "pts": 5.4,
+        "reb": 1.8,
+        "ast": 2.4,
+        "stl": 0.6,
+        "blk": 0.1,
+        "tov": 0.6,
+        "fg3m": 1.5,
+        "min": 19.6
+      },
+      "stats_from": "this season",
+      "price": 12.8,
+      "price_change": 0.0,
+      "value": 1.42
+    },
+    {
+      "id": 1629011,
+      "name": "Mitchell Robinson",
+      "num": "4",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 17.9,
+      "avg_fp": 15.0,
+      "matchup_adj": -0.7,
+      "games_this_season": 7,
+      "last5": [
+        15.2,
+        14.8,
+        18.0,
+        8.0,
+        20.5
+      ],
+      "stats": {
+        "pts": 5.7,
+        "reb": 5.3,
+        "ast": 0.6,
+        "stl": 0.4,
+        "blk": 0.7,
+        "tov": 1.0,
+        "fg3m": 0.0,
+        "min": 19.3
+      },
+      "stats_from": "this season",
+      "price": 12.7,
+      "price_change": 0.0,
+      "value": 1.41
+    },
+    {
+      "id": 1641869,
+      "name": "Malachi Smith",
+      "num": "18",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 21.4,
+      "avg_fp": 19.8,
+      "matchup_adj": 1.6,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 8.3,
+        "reb": 3.4,
+        "ast": 3.3,
+        "stl": 0.8,
+        "blk": 0.3,
+        "tov": 0.9,
+        "fg3m": 1.3,
+        "min": 23.9
+      },
+      "stats_from": "last season",
+      "price": 12.6,
+      "price_change": 0.0,
+      "value": 1.7
+    },
+    {
+      "id": 1628370,
+      "name": "Malik Monk",
+      "num": "0",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 18.2,
+      "avg_fp": 15.8,
+      "matchup_adj": -0.6,
+      "games_this_season": 7,
+      "last5": [
+        15.0,
+        3.8,
+        15.5,
+        39.2,
+        20.5
+      ],
+      "stats": {
+        "pts": 8.0,
+        "reb": 1.3,
+        "ast": 3.4,
+        "stl": 0.4,
+        "blk": 0.1,
+        "tov": 1.6,
+        "fg3m": 1.3,
+        "min": 16.1
+      },
+      "stats_from": "this season",
+      "price": 12.6,
+      "price_change": 0.0,
+      "value": 1.44
+    },
+    {
+      "id": 1643412,
+      "name": "Kingston Flemings",
+      "num": "4",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 19.4,
+      "avg_fp": 19.8,
+      "matchup_adj": -0.4,
+      "games_this_season": 8,
+      "last5": [
+        11.2,
+        41.2,
+        10.8,
+        30.5,
+        23.8
+      ],
+      "stats": {
+        "pts": 8.0,
+        "reb": 2.9,
+        "ast": 4.6,
+        "stl": 0.8,
+        "blk": 0.2,
+        "tov": 2.2,
+        "fg3m": 0.9,
+        "min": 20.6
+      },
+      "stats_from": "this season",
+      "price": 12.5,
+      "price_change": 0.0,
+      "value": 1.55
+    },
+    {
+      "id": 1641713,
+      "name": "GG Jackson",
+      "num": "45",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 17.4,
+      "avg_fp": 13.8,
+      "matchup_adj": -0.5,
+      "games_this_season": 8,
+      "last5": [
+        9.8,
+        24.8,
+        29.8,
+        6.5,
+        3.0
+      ],
+      "stats": {
+        "pts": 7.4,
+        "reb": 3.5,
+        "ast": 1.0,
+        "stl": 0.1,
+        "blk": 0.2,
+        "tov": 1.5,
+        "fg3m": 1.1,
+        "min": 15.6
+      },
+      "stats_from": "this season",
+      "price": 12.5,
+      "price_change": 0.0,
+      "value": 1.39
+    },
+    {
+      "id": 1630533,
+      "name": "Ziaire Williams",
+      "num": "11",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 18.5,
+      "avg_fp": 21.4,
+      "matchup_adj": -1.1,
+      "games_this_season": 6,
+      "last5": [
+        26.8,
+        18.5,
+        24.0,
+        18.0,
+        21.0
+      ],
+      "stats": {
+        "pts": 10.7,
+        "reb": 3.0,
+        "ast": 2.0,
+        "stl": 1.5,
+        "blk": 0.2,
+        "tov": 0.5,
+        "fg3m": 1.8,
+        "min": 25.3
+      },
+      "stats_from": "this season",
+      "price": 11.9,
+      "price_change": 0.0,
+      "value": 1.55
+    },
+    {
+      "id": 1642274,
+      "name": "Yves Missi",
+      "num": "21",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "C"
+      ],
+      "proj": 19.0,
+      "avg_fp": 29.1,
+      "matchup_adj": -0.7,
+      "games_this_season": 2,
+      "last5": [
+        49.0,
+        9.2
+      ],
+      "stats": {
+        "pts": 9.5,
+        "reb": 7.5,
+        "ast": 2.5,
+        "stl": 1.0,
+        "blk": 2.0,
+        "tov": 0.5,
+        "fg3m": 0.0,
+        "min": 19.5
+      },
+      "stats_from": "this season",
+      "price": 11.8,
+      "price_change": 0.0,
+      "value": 1.61
+    },
+    {
+      "id": 1630529,
+      "name": "Herbert Jones",
+      "num": "2",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 16.8,
+      "avg_fp": 13.9,
+      "matchup_adj": -0.6,
+      "games_this_season": 8,
+      "last5": [
+        12.0,
+        25.0,
+        19.8,
+        21.0,
+        11.2
+      ],
+      "stats": {
+        "pts": 6.5,
+        "reb": 3.0,
+        "ast": 1.0,
+        "stl": 1.0,
+        "blk": 0.2,
+        "tov": 1.4,
+        "fg3m": 0.8,
+        "min": 24.0
+      },
+      "stats_from": "this season",
+      "price": 11.7,
+      "price_change": 0.0,
+      "value": 1.44
+    },
+    {
+      "id": 1642269,
+      "name": "Devin Carter",
+      "num": "99",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 18.2,
+      "avg_fp": 19.0,
+      "matchup_adj": -0.7,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 8.9,
+        "reb": 3.3,
+        "ast": 2.7,
+        "stl": 0.9,
+        "blk": 0.2,
+        "tov": 1.4,
+        "fg3m": 0.8,
+        "min": 18.4
+      },
+      "stats_from": "last season",
+      "price": 11.6,
+      "price_change": 0.0,
+      "value": 1.57
+    },
+    {
+      "id": 1626220,
+      "name": "Royce O'Neale",
+      "num": "00",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 15.5,
+      "avg_fp": 11.0,
+      "matchup_adj": -0.5,
+      "games_this_season": 9,
+      "last5": [
+        17.5,
+        13.2,
+        19.5,
+        8.0,
+        8.8
+      ],
+      "stats": {
+        "pts": 4.4,
+        "reb": 3.0,
+        "ast": 0.6,
+        "stl": 0.6,
+        "blk": 0.2,
+        "tov": 0.3,
+        "fg3m": 1.1,
+        "min": 18.0
+      },
+      "stats_from": "this season",
+      "price": 11.6,
+      "price_change": 0.0,
+      "value": 1.34
+    },
+    {
+      "id": 1642347,
+      "name": "Jamal Shead",
+      "num": "1",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 20.2,
+      "avg_fp": 18.5,
+      "matchup_adj": 1.5,
+      "games_this_season": 8,
+      "last5": [
+        31.0,
+        18.8,
+        26.5,
+        17.8,
+        16.8
+      ],
+      "stats": {
+        "pts": 5.5,
+        "reb": 2.0,
+        "ast": 5.4,
+        "stl": 1.4,
+        "blk": 0.2,
+        "tov": 2.1,
+        "fg3m": 0.5,
+        "min": 21.5
+      },
+      "stats_from": "this season",
+      "price": 11.5,
+      "price_change": 0.0,
+      "value": 1.76
+    },
+    {
+      "id": 1643530,
+      "name": "Aday Mara",
+      "num": "15",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "C"
+      ],
+      "proj": 18.2,
+      "avg_fp": 18.8,
+      "matchup_adj": -0.6,
+      "games_this_season": 8,
+      "last5": [
+        30.0,
+        13.8,
+        29.8,
+        22.2,
+        24.2
+      ],
+      "stats": {
+        "pts": 6.8,
+        "reb": 5.5,
+        "ast": 1.2,
+        "stl": 0.1,
+        "blk": 1.9,
+        "tov": 1.9,
+        "fg3m": 0.0,
+        "min": 19.1
+      },
+      "stats_from": "this season",
+      "price": 11.4,
+      "price_change": 0.0,
+      "value": 1.6
+    },
+    {
+      "id": 1631222,
+      "name": "Jake LaRavia",
+      "num": "12",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 17.5,
+      "avg_fp": 17.9,
+      "matchup_adj": -1.1,
+      "games_this_season": 8,
+      "last5": [
+        23.5,
+        16.0,
+        20.5,
+        19.5,
+        19.0
+      ],
+      "stats": {
+        "pts": 6.4,
+        "reb": 3.4,
+        "ast": 1.5,
+        "stl": 1.6,
+        "blk": 1.0,
+        "tov": 1.6,
+        "fg3m": 1.2,
+        "min": 23.4
+      },
+      "stats_from": "this season",
+      "price": 11.4,
+      "price_change": 0.0,
+      "value": 1.54
+    },
+    {
+      "id": 1631230,
+      "name": "Dominick Barlow",
+      "num": "25",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 18.8,
+      "avg_fp": 18.6,
+      "matchup_adj": 0.2,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 7.7,
+        "reb": 4.8,
+        "ast": 1.2,
+        "stl": 0.9,
+        "blk": 0.7,
+        "tov": 0.8,
+        "fg3m": 0.3,
+        "min": 23.7
+      },
+      "stats_from": "last season",
+      "price": 11.2,
+      "price_change": 0.0,
+      "value": 1.68
+    },
+    {
+      "id": 1642848,
+      "name": "Tre Johnson",
+      "num": "12",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 17.3,
+      "avg_fp": 12.9,
+      "matchup_adj": 0.3,
+      "games_this_season": 7,
+      "last5": [
+        19.5,
+        15.2,
+        6.5,
+        6.8,
+        5.5
+      ],
+      "stats": {
+        "pts": 8.4,
+        "reb": 2.1,
+        "ast": 0.6,
+        "stl": 0.3,
+        "blk": 0.1,
+        "tov": 1.0,
+        "fg3m": 1.1,
+        "min": 20.0
+      },
+      "stats_from": "this season",
+      "price": 11.1,
+      "price_change": 0.0,
+      "value": 1.56
+    },
+    {
+      "id": 1642266,
+      "name": "Ja'Kobe Walter",
+      "num": "14",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 21.6,
+      "avg_fp": 24.1,
+      "matchup_adj": 1.6,
+      "games_this_season": 8,
+      "last5": [
+        26.8,
+        17.8,
+        24.0,
+        26.5,
+        11.8
+      ],
+      "stats": {
+        "pts": 11.4,
+        "reb": 3.8,
+        "ast": 2.5,
+        "stl": 1.4,
+        "blk": 0.4,
+        "tov": 0.8,
+        "fg3m": 2.2,
+        "min": 29.1
+      },
+      "stats_from": "this season",
+      "price": 10.8,
+      "price_change": 0.0,
+      "value": 2.0
+    },
+    {
+      "id": 1629637,
+      "name": "Jaxson Hayes",
+      "num": "11",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 19.4,
+      "avg_fp": 23.0,
+      "matchup_adj": 0.0,
+      "games_this_season": 7,
+      "last5": [
+        18.8,
+        26.8,
+        23.2,
+        20.8,
+        12.2
+      ],
+      "stats": {
+        "pts": 7.3,
+        "reb": 6.4,
+        "ast": 1.9,
+        "stl": 1.0,
+        "blk": 1.9,
+        "tov": 1.6,
+        "fg3m": 0.0,
+        "min": 24.4
+      },
+      "stats_from": "this season",
+      "price": 10.7,
+      "price_change": 0.0,
+      "value": 1.81
+    },
+    {
+      "id": 1641778,
+      "name": "Leaky Black",
+      "num": "19",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 16.8,
+      "avg_fp": 12.5,
+      "matchup_adj": -0.6,
+      "games_this_season": 4,
+      "last5": [
+        0.0,
+        8.8,
+        27.2,
+        14.0
+      ],
+      "stats": {
+        "pts": 4.2,
+        "reb": 2.5,
+        "ast": 0.8,
+        "stl": 1.5,
+        "blk": 0.2,
+        "tov": 0.0,
+        "fg3m": 1.0,
+        "min": 13.8
+      },
+      "stats_from": "this season",
+      "price": 10.6,
+      "price_change": 0.0,
+      "value": 1.58
+    },
+    {
+      "id": 1631126,
+      "name": "Caleb Love",
+      "num": "8",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 17.6,
+      "avg_fp": 0.0,
+      "matchup_adj": 0.2,
+      "games_this_season": 1,
+      "last5": [
+        0.0
+      ],
+      "stats": {
+        "pts": 0.0,
+        "reb": 0.0,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 0.0
+      },
+      "stats_from": "this season",
+      "price": 10.4,
+      "price_change": 0.0,
+      "value": 1.69
+    },
+    {
+      "id": 1631119,
+      "name": "Jaylin Williams",
+      "num": "6",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 15.6,
+      "avg_fp": 11.1,
+      "matchup_adj": -0.5,
+      "games_this_season": 7,
+      "last5": [
+        0.0,
+        20.5,
+        7.8,
+        11.0,
+        11.8
+      ],
+      "stats": {
+        "pts": 2.9,
+        "reb": 4.0,
+        "ast": 1.6,
+        "stl": 0.4,
+        "blk": 0.0,
+        "tov": 0.6,
+        "fg3m": 0.7,
+        "min": 18.4
+      },
+      "stats_from": "this season",
+      "price": 10.3,
+      "price_change": 0.0,
+      "value": 1.51
+    },
+    {
+      "id": 1643415,
+      "name": "Brayden Burries",
+      "num": "0",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 17.3,
+      "avg_fp": 17.8,
+      "matchup_adj": -0.5,
+      "games_this_season": 8,
+      "last5": [
+        9.5,
+        20.0,
+        21.8,
+        21.8,
+        20.2
+      ],
+      "stats": {
+        "pts": 8.9,
+        "reb": 4.5,
+        "ast": 1.5,
+        "stl": 0.6,
+        "blk": 0.0,
+        "tov": 1.1,
+        "fg3m": 0.8,
+        "min": 17.9
+      },
+      "stats_from": "this season",
+      "price": 10.3,
+      "price_change": 0.0,
+      "value": 1.68
+    },
+    {
+      "id": 1629652,
+      "name": "Luguentz Dort",
+      "num": "0",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 17.2,
+      "avg_fp": 17.5,
+      "matchup_adj": -0.4,
+      "games_this_season": 9,
+      "last5": [
+        20.8,
+        12.8,
+        19.2,
+        20.5,
+        17.2
+      ],
+      "stats": {
+        "pts": 8.9,
+        "reb": 3.0,
+        "ast": 1.6,
+        "stl": 0.8,
+        "blk": 0.2,
+        "tov": 0.6,
+        "fg3m": 1.6,
+        "min": 25.3
+      },
+      "stats_from": "this season",
+      "price": 10.2,
+      "price_change": 0.0,
+      "value": 1.69
+    },
+    {
+      "id": 1630695,
+      "name": "Micah Potter",
+      "num": "9",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "C"
+      ],
+      "proj": 15.8,
+      "avg_fp": 4.7,
+      "matchup_adj": -0.2,
+      "games_this_season": 4,
+      "last5": [
+        7.2,
+        2.5,
+        3.2,
+        5.8
+      ],
+      "stats": {
+        "pts": 2.8,
+        "reb": 1.8,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.8,
+        "fg3m": 0.2,
+        "min": 6.8
+      },
+      "stats_from": "this season",
+      "price": 10.2,
+      "price_change": 0.0,
+      "value": 1.55
+    },
+    {
+      "id": 1642364,
+      "name": "Jamir Watkins",
+      "num": "5",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 17.7,
+      "avg_fp": 17.4,
+      "matchup_adj": 0.3,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 7.4,
+        "reb": 3.9,
+        "ast": 1.3,
+        "stl": 1.1,
+        "blk": 0.5,
+        "tov": 0.8,
+        "fg3m": 0.9,
+        "min": 20.6
+      },
+      "stats_from": "last season",
+      "price": 10.0,
+      "price_change": 0.0,
+      "value": 1.77
+    },
+    {
+      "id": 1641750,
+      "name": "Ryan Kalkbrenner",
+      "num": "11",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "C"
+      ],
+      "proj": 16.1,
+      "avg_fp": 14.9,
+      "matchup_adj": -0.5,
+      "games_this_season": 9,
+      "last5": [
+        6.8,
+        9.0,
+        19.2,
+        14.5,
+        15.0
+      ],
+      "stats": {
+        "pts": 4.6,
+        "reb": 4.3,
+        "ast": 1.6,
+        "stl": 0.3,
+        "blk": 1.2,
+        "tov": 1.1,
+        "fg3m": 0.0,
+        "min": 16.8
+      },
+      "stats_from": "this season",
+      "price": 10.0,
+      "price_change": 0.0,
+      "value": 1.61
+    },
+    {
+      "id": 1642383,
+      "name": "Walter Clayton Jr.",
+      "num": "1",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 17.5,
+      "avg_fp": 16.1,
+      "matchup_adj": 0.4,
+      "games_this_season": 7,
+      "last5": [
+        28.0,
+        10.0,
+        6.0,
+        28.2,
+        24.0
+      ],
+      "stats": {
+        "pts": 7.0,
+        "reb": 2.6,
+        "ast": 3.1,
+        "stl": 0.3,
+        "blk": 0.1,
+        "tov": 0.7,
+        "fg3m": 1.4,
+        "min": 14.6
+      },
+      "stats_from": "this season",
+      "price": 9.9,
+      "price_change": 0.0,
+      "value": 1.77
+    },
+    {
+      "id": 1630573,
+      "name": "Sam Hauser",
+      "num": "30",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 15.7,
+      "avg_fp": 14.1,
+      "matchup_adj": -0.6,
+      "games_this_season": 8,
+      "last5": [
+        17.5,
+        13.8,
+        8.0,
+        8.0,
+        15.0
+      ],
+      "stats": {
+        "pts": 7.6,
+        "reb": 2.9,
+        "ast": 0.9,
+        "stl": 0.2,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 2.1,
+        "min": 21.2
+      },
+      "stats_from": "this season",
+      "price": 9.8,
+      "price_change": 0.0,
+      "value": 1.6
+    },
+    {
+      "id": 1627936,
+      "name": "Alex Caruso",
+      "num": "9",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 17.7,
+      "avg_fp": 23.0,
+      "matchup_adj": -0.6,
+      "games_this_season": 5,
+      "last5": [
+        21.0,
+        24.0,
+        36.2,
+        17.5,
+        16.5
+      ],
+      "stats": {
+        "pts": 8.8,
+        "reb": 4.6,
+        "ast": 3.6,
+        "stl": 0.8,
+        "blk": 0.4,
+        "tov": 0.4,
+        "fg3m": 1.8,
+        "min": 19.2
+      },
+      "stats_from": "this season",
+      "price": 9.8,
+      "price_change": 0.0,
+      "value": 1.81
+    },
+    {
+      "id": 203114,
+      "name": "Khris Middleton",
+      "num": "22",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 15.5,
+      "avg_fp": 5.3,
+      "matchup_adj": 0.2,
+      "games_this_season": 5,
+      "last5": [
+        4.0,
+        12.0,
+        0.8,
+        9.8,
+        0.0
+      ],
+      "stats": {
+        "pts": 2.4,
+        "reb": 1.6,
+        "ast": 0.4,
+        "stl": 0.4,
+        "blk": 0.0,
+        "tov": 1.2,
+        "fg3m": 0.2,
+        "min": 13.8
+      },
+      "stats_from": "this season",
+      "price": 9.7,
+      "price_change": 0.0,
+      "value": 1.6
+    },
+    {
+      "id": 1641726,
+      "name": "Dereck Lively II",
+      "num": "2",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "C"
+      ],
+      "proj": 17.7,
+      "avg_fp": 17.2,
+      "matchup_adj": 0.4,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 4.3,
+        "reb": 5.3,
+        "ast": 1.9,
+        "stl": 0.6,
+        "blk": 1.6,
+        "tov": 1.4,
+        "fg3m": 0.0,
+        "min": 16.4
+      },
+      "stats_from": "last season",
+      "price": 9.7,
+      "price_change": 0.0,
+      "value": 1.82
+    },
+    {
+      "id": 1631260,
+      "name": "AJ Green",
+      "num": "20",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 15.6,
+      "avg_fp": 13.5,
+      "matchup_adj": -0.5,
+      "games_this_season": 8,
+      "last5": [
+        15.0,
+        14.2,
+        6.2,
+        23.2,
+        12.5
+      ],
+      "stats": {
+        "pts": 7.2,
+        "reb": 2.1,
+        "ast": 1.8,
+        "stl": 0.1,
+        "blk": 0.0,
+        "tov": 0.6,
+        "fg3m": 2.1,
+        "min": 19.9
+      },
+      "stats_from": "this season",
+      "price": 9.7,
+      "price_change": 0.0,
+      "value": 1.61
+    },
+    {
+      "id": 1630538,
+      "name": "Bones Hyland",
+      "num": "8",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 17.5,
+      "avg_fp": 17.1,
+      "matchup_adj": 0.6,
+      "games_this_season": 9,
+      "last5": [
+        19.2,
+        34.0,
+        15.2,
+        22.8,
+        30.5
+      ],
+      "stats": {
+        "pts": 8.4,
+        "reb": 1.2,
+        "ast": 2.8,
+        "stl": 0.9,
+        "blk": 0.4,
+        "tov": 0.9,
+        "fg3m": 1.6,
+        "min": 12.4
+      },
+      "stats_from": "this season",
+      "price": 9.4,
+      "price_change": 0.0,
+      "value": 1.86
+    },
+    {
+      "id": 1628436,
+      "name": "Luke Kornet",
+      "num": "7",
+      "team": "SAS",
+      "opp": "SAC",
+      "home": false,
+      "game_id": "0022600033",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 15.8,
+      "avg_fp": 10.6,
+      "matchup_adj": 1.0,
+      "games_this_season": 8,
+      "last5": [
+        5.5,
+        14.0,
+        14.0,
+        19.2,
+        6.2
+      ],
+      "stats": {
+        "pts": 3.0,
+        "reb": 4.0,
+        "ast": 0.9,
+        "stl": 0.1,
+        "blk": 0.6,
+        "tov": 0.5,
+        "fg3m": 0.0,
+        "min": 14.9
+      },
+      "stats_from": "this season",
+      "price": 9.2,
+      "price_change": 0.0,
+      "value": 1.72
+    },
+    {
+      "id": 1641774,
+      "name": "Tristan Vuk\u010devi\u0107",
+      "num": "00",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 16.9,
+      "avg_fp": 16.6,
+      "matchup_adj": 0.2,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 9.0,
+        "reb": 3.0,
+        "ast": 1.1,
+        "stl": 0.5,
+        "blk": 0.7,
+        "tov": 1.3,
+        "fg3m": 1.0,
+        "min": 13.7
+      },
+      "stats_from": "last season",
+      "price": 9.1,
+      "price_change": 0.0,
+      "value": 1.86
+    },
+    {
+      "id": 1627747,
+      "name": "Caris LeVert",
+      "num": "12",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 16.2,
+      "avg_fp": 16.7,
+      "matchup_adj": -0.5,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 7.4,
+        "reb": 1.9,
+        "ast": 2.6,
+        "stl": 0.8,
+        "blk": 0.7,
+        "tov": 1.4,
+        "fg3m": 1.0,
+        "min": 19.2
+      },
+      "stats_from": "last season",
+      "price": 9.1,
+      "price_change": 0.0,
+      "value": 1.78
+    },
+    {
+      "id": 1641765,
+      "name": "Olivier-Maxence Prosper",
+      "num": "18",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 15.1,
+      "avg_fp": 6.0,
+      "matchup_adj": -0.5,
+      "games_this_season": 3,
+      "last5": [
+        5.2,
+        4.8,
+        8.0
+      ],
+      "stats": {
+        "pts": 3.3,
+        "reb": 1.3,
+        "ast": 0.7,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 4.7
+      },
+      "stats_from": "this season",
+      "price": 9.0,
+      "price_change": 0.0,
+      "value": 1.68
+    },
+    {
+      "id": 1629684,
+      "name": "Grant Williams",
+      "num": "2",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 16.0,
+      "avg_fp": 16.5,
+      "matchup_adj": -0.5,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 7.0,
+        "reb": 3.9,
+        "ast": 1.6,
+        "stl": 0.5,
+        "blk": 0.5,
+        "tov": 0.9,
+        "fg3m": 1.4,
+        "min": 19.8
+      },
+      "stats_from": "last season",
+      "price": 8.9,
+      "price_change": 0.0,
+      "value": 1.8
+    },
+    {
+      "id": 1629731,
+      "name": "Dean Wade",
+      "num": "45",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 16.4,
+      "avg_fp": 16.4,
+      "matchup_adj": 0.2,
+      "games_this_season": 7,
+      "last5": [
+        2.8,
+        10.0,
+        30.8,
+        18.5,
+        12.8
+      ],
+      "stats": {
+        "pts": 4.1,
+        "reb": 3.1,
+        "ast": 2.1,
+        "stl": 1.9,
+        "blk": 0.6,
+        "tov": 0.3,
+        "fg3m": 0.7,
+        "min": 26.3
+      },
+      "stats_from": "this season",
+      "price": 8.5,
+      "price_change": 0.0,
+      "value": 1.93
+    },
+    {
+      "id": 203484,
+      "name": "Kentavious Caldwell-Pope",
+      "num": "1",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 15.1,
+      "avg_fp": 13.1,
+      "matchup_adj": 0.2,
+      "games_this_season": 9,
+      "last5": [
+        12.0,
+        15.8,
+        6.5,
+        4.8,
+        6.8
+      ],
+      "stats": {
+        "pts": 5.8,
+        "reb": 2.3,
+        "ast": 1.3,
+        "stl": 0.9,
+        "blk": 0.1,
+        "tov": 0.4,
+        "fg3m": 1.3,
+        "min": 22.7
+      },
+      "stats_from": "this season",
+      "price": 8.3,
+      "price_change": 0.0,
+      "value": 1.82
+    },
+    {
+      "id": 1629680,
+      "name": "Matisse Thybulle",
+      "num": "4",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 15.7,
+      "avg_fp": 17.9,
+      "matchup_adj": -1.0,
+      "games_this_season": 9,
+      "last5": [
+        23.2,
+        19.8,
+        21.5,
+        12.8,
+        15.8
+      ],
+      "stats": {
+        "pts": 8.0,
+        "reb": 1.7,
+        "ast": 1.3,
+        "stl": 1.7,
+        "blk": 1.0,
+        "tov": 1.0,
+        "fg3m": 2.0,
+        "min": 24.2
+      },
+      "stats_from": "this season",
+      "price": 8.3,
+      "price_change": 0.0,
+      "value": 1.89
+    },
+    {
+      "id": 1630568,
+      "name": "Luka Garza",
+      "num": "52",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "C"
+      ],
+      "proj": 14.9,
+      "avg_fp": 14.7,
+      "matchup_adj": -0.6,
+      "games_this_season": 8,
+      "last5": [
+        6.5,
+        7.8,
+        28.5,
+        21.8,
+        23.2
+      ],
+      "stats": {
+        "pts": 7.5,
+        "reb": 3.1,
+        "ast": 1.1,
+        "stl": 0.5,
+        "blk": 0.1,
+        "tov": 0.6,
+        "fg3m": 1.4,
+        "min": 12.8
+      },
+      "stats_from": "this season",
+      "price": 8.2,
+      "price_change": 0.0,
+      "value": 1.82
+    },
+    {
+      "id": 1642857,
+      "name": "Kasparas Jaku\u010dionis",
+      "num": "25",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 15.9,
+      "avg_fp": 17.7,
+      "matchup_adj": -0.5,
+      "games_this_season": 8,
+      "last5": [
+        19.0,
+        14.0,
+        12.8,
+        21.8,
+        6.2
+      ],
+      "stats": {
+        "pts": 7.5,
+        "reb": 2.9,
+        "ast": 4.0,
+        "stl": 0.5,
+        "blk": 0.1,
+        "tov": 2.0,
+        "fg3m": 0.6,
+        "min": 21.1
+      },
+      "stats_from": "this season",
+      "price": 8.2,
+      "price_change": 0.0,
+      "value": 1.94
+    },
+    {
+      "id": 201599,
+      "name": "DeAndre Jordan",
+      "num": "6",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "C"
+      ],
+      "proj": 15.3,
+      "avg_fp": 17.4,
+      "matchup_adj": -0.6,
+      "games_this_season": 2,
+      "last5": [
+        25.2,
+        9.5
+      ],
+      "stats": {
+        "pts": 6.0,
+        "reb": 6.5,
+        "ast": 1.0,
+        "stl": 0.0,
+        "blk": 1.0,
+        "tov": 0.5,
+        "fg3m": 0.0,
+        "min": 16.5
+      },
+      "stats_from": "this season",
+      "price": 8.2,
+      "price_change": 0.0,
+      "value": 1.87
+    },
+    {
+      "id": 1631255,
+      "name": "Karlo Matkovi\u0107",
+      "num": "17",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 16.3,
+      "avg_fp": 20.0,
+      "matchup_adj": -0.6,
+      "games_this_season": 7,
+      "last5": [
+        10.2,
+        26.0,
+        26.0,
+        42.0,
+        15.0
+      ],
+      "stats": {
+        "pts": 9.3,
+        "reb": 4.4,
+        "ast": 1.0,
+        "stl": 1.1,
+        "blk": 0.6,
+        "tov": 1.1,
+        "fg3m": 1.6,
+        "min": 18.7
+      },
+      "stats_from": "this season",
+      "price": 8.1,
+      "price_change": 0.0,
+      "value": 2.01
+    },
+    {
+      "id": 1631342,
+      "name": "Daeqwon Plowden",
+      "num": "29",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 13.2,
+      "avg_fp": 5.8,
+      "matchup_adj": -0.4,
+      "games_this_season": 6,
+      "last5": [
+        5.5,
+        8.8,
+        4.0,
+        4.0,
+        2.2
+      ],
+      "stats": {
+        "pts": 2.5,
+        "reb": 1.3,
+        "ast": 0.3,
+        "stl": 0.3,
+        "blk": 0.2,
+        "tov": 0.2,
+        "fg3m": 0.3,
+        "min": 12.2
+      },
+      "stats_from": "this season",
+      "price": 8.1,
+      "price_change": 0.0,
+      "value": 1.63
+    },
+    {
+      "id": 1642272,
+      "name": "Jared McCain",
+      "num": "3",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 15.8,
+      "avg_fp": 18.0,
+      "matchup_adj": -0.5,
+      "games_this_season": 8,
+      "last5": [
+        32.8,
+        19.5,
+        19.0,
+        20.8,
+        11.8
+      ],
+      "stats": {
+        "pts": 10.1,
+        "reb": 3.0,
+        "ast": 1.9,
+        "stl": 0.6,
+        "blk": 0.1,
+        "tov": 1.9,
+        "fg3m": 1.5,
+        "min": 25.0
+      },
+      "stats_from": "this season",
+      "price": 7.9,
+      "price_change": 0.0,
+      "value": 2.0
+    },
+    {
+      "id": 1642366,
+      "name": "Quinten Post",
+      "num": "41",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "C"
+      ],
+      "proj": 14.2,
+      "avg_fp": 11.3,
+      "matchup_adj": -0.4,
+      "games_this_season": 6,
+      "last5": [
+        7.8,
+        14.8,
+        16.5,
+        16.0,
+        4.8
+      ],
+      "stats": {
+        "pts": 6.7,
+        "reb": 2.3,
+        "ast": 0.5,
+        "stl": 0.2,
+        "blk": 0.3,
+        "tov": 0.8,
+        "fg3m": 0.8,
+        "min": 14.3
+      },
+      "stats_from": "this season",
+      "price": 7.9,
+      "price_change": 0.0,
+      "value": 1.8
+    },
+    {
+      "id": 1630570,
+      "name": "Trendon Watford",
+      "num": "9",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 14.7,
+      "avg_fp": 14.9,
+      "matchup_adj": -0.5,
+      "games_this_season": 4,
+      "last5": [
+        17.8,
+        13.0,
+        12.5,
+        16.2
+      ],
+      "stats": {
+        "pts": 6.5,
+        "reb": 3.0,
+        "ast": 1.2,
+        "stl": 1.2,
+        "blk": 0.5,
+        "tov": 1.5,
+        "fg3m": 0.0,
+        "min": 17.8
+      },
+      "stats_from": "this season",
+      "price": 7.6,
+      "price_change": 0.0,
+      "value": 1.93
+    },
+    {
+      "id": 203084,
+      "name": "Harrison Barnes",
+      "num": "40",
+      "team": "SAS",
+      "opp": "SAC",
+      "home": false,
+      "game_id": "0022600033",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 14.0,
+      "avg_fp": 5.0,
+      "matchup_adj": 0.9,
+      "games_this_season": 6,
+      "last5": [
+        0.0,
+        0.0,
+        3.0,
+        14.5,
+        7.0
+      ],
+      "stats": {
+        "pts": 3.8,
+        "reb": 0.3,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.2,
+        "tov": 0.0,
+        "fg3m": 0.8,
+        "min": 11.0
+      },
+      "stats_from": "this season",
+      "price": 7.5,
+      "price_change": 0.0,
+      "value": 1.87
+    },
+    {
+      "id": 1641707,
+      "name": "Taylor Hendricks",
+      "num": "22",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 13.4,
+      "avg_fp": 3.6,
+      "matchup_adj": -0.4,
+      "games_this_season": 3,
+      "last5": [
+        1.2,
+        1.2,
+        8.2
+      ],
+      "stats": {
+        "pts": 2.0,
+        "reb": 1.0,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.7,
+        "min": 4.7
+      },
+      "stats_from": "this season",
+      "price": 7.1,
+      "price_change": 0.0,
+      "value": 1.89
+    },
+    {
+      "id": 203937,
+      "name": "Kyle Anderson",
+      "num": "13",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 13.9,
+      "avg_fp": 5.4,
+      "matchup_adj": 1.0,
+      "games_this_season": 6,
+      "last5": [
+        4.0,
+        3.5,
+        9.8,
+        5.5,
+        3.5
+      ],
+      "stats": {
+        "pts": 1.0,
+        "reb": 1.0,
+        "ast": 1.2,
+        "stl": 0.5,
+        "blk": 0.3,
+        "tov": 0.5,
+        "fg3m": 0.0,
+        "min": 6.2
+      },
+      "stats_from": "this season",
+      "price": 7.1,
+      "price_change": 0.0,
+      "value": 1.96
+    },
+    {
+      "id": 1629004,
+      "name": "Svi Mykhailiuk",
+      "num": "10",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 13.2,
+      "avg_fp": 9.8,
+      "matchup_adj": 0.0,
+      "games_this_season": 8,
+      "last5": [
+        3.2,
+        7.5,
+        12.8,
+        6.0,
+        11.2
+      ],
+      "stats": {
+        "pts": 4.1,
+        "reb": 2.1,
+        "ast": 0.9,
+        "stl": 0.8,
+        "blk": 0.0,
+        "tov": 0.2,
+        "fg3m": 0.8,
+        "min": 16.4
+      },
+      "stats_from": "this season",
+      "price": 7.0,
+      "price_change": 0.0,
+      "value": 1.89
+    },
+    {
+      "id": 1642942,
+      "name": "Jahmai Mashack",
+      "num": "21",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 13.6,
+      "avg_fp": 2.8,
+      "matchup_adj": -0.4,
+      "games_this_season": 2,
+      "last5": [
+        3.5,
+        2.0
+      ],
+      "stats": {
+        "pts": 1.0,
+        "reb": 0.0,
+        "ast": 0.5,
+        "stl": 0.5,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 2.0
+      },
+      "stats_from": "this season",
+      "price": 7.0,
+      "price_change": 0.0,
+      "value": 1.94
+    },
+    {
+      "id": 1642363,
+      "name": "Nique Clifford",
+      "num": "10",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 11.5,
+      "avg_fp": 3.6,
+      "matchup_adj": -0.4,
+      "games_this_season": 7,
+      "last5": [
+        2.0,
+        1.5,
+        6.2,
+        1.2,
+        2.0
+      ],
+      "stats": {
+        "pts": 1.1,
+        "reb": 0.7,
+        "ast": 0.9,
+        "stl": 0.3,
+        "blk": 0.0,
+        "tov": 0.6,
+        "fg3m": 0.0,
+        "min": 6.4
+      },
+      "stats_from": "this season",
+      "price": 7.0,
+      "price_change": 0.0,
+      "value": 1.64
+    },
+    {
+      "id": 1642883,
+      "name": "Sion James",
+      "num": "4",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 14.2,
+      "avg_fp": 14.6,
+      "matchup_adj": -0.4,
+      "games_this_season": 9,
+      "last5": [
+        14.5,
+        22.2,
+        7.5,
+        20.5,
+        20.0
+      ],
+      "stats": {
+        "pts": 5.2,
+        "reb": 3.0,
+        "ast": 2.8,
+        "stl": 0.8,
+        "blk": 0.0,
+        "tov": 1.0,
+        "fg3m": 0.9,
+        "min": 25.3
+      },
+      "stats_from": "this season",
+      "price": 6.9,
+      "price_change": 0.0,
+      "value": 2.06
+    },
+    {
+      "id": 1630557,
+      "name": "Corey Kispert",
+      "num": "24",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 13.5,
+      "avg_fp": 10.3,
+      "matchup_adj": -0.3,
+      "games_this_season": 5,
+      "last5": [
+        15.2,
+        5.5,
+        1.5,
+        18.2,
+        11.0
+      ],
+      "stats": {
+        "pts": 7.8,
+        "reb": 0.4,
+        "ast": 0.6,
+        "stl": 0.2,
+        "blk": 0.0,
+        "tov": 0.4,
+        "fg3m": 1.8,
+        "min": 8.4
+      },
+      "stats_from": "this season",
+      "price": 6.8,
+      "price_change": 0.0,
+      "value": 1.99
+    },
+    {
+      "id": 1642260,
+      "name": "Nikola Topi\u0107",
+      "num": "44",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 14.1,
+      "avg_fp": 14.5,
+      "matchup_adj": -0.5,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 5.2,
+        "reb": 1.9,
+        "ast": 4.4,
+        "stl": 0.5,
+        "blk": 0.0,
+        "tov": 2.5,
+        "fg3m": 0.6,
+        "min": 16.0
+      },
+      "stats_from": "last season",
+      "price": 6.8,
+      "price_change": 0.0,
+      "value": 2.07
+    },
+    {
+      "id": 1642860,
+      "name": "Will Riley",
+      "num": "27",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 11.7,
+      "avg_fp": 1.1,
+      "matchup_adj": 0.2,
+      "games_this_season": 6,
+      "last5": [
+        2.0,
+        1.0,
+        0.0,
+        1.5,
+        2.0
+      ],
+      "stats": {
+        "pts": 0.7,
+        "reb": 0.0,
+        "ast": 0.2,
+        "stl": 0.0,
+        "blk": 0.2,
+        "tov": 0.3,
+        "fg3m": 0.0,
+        "min": 4.7
+      },
+      "stats_from": "this season",
+      "price": 6.6,
+      "price_change": 0.0,
+      "value": 1.77
+    },
+    {
+      "id": 1631248,
+      "name": "Baylor Scheierman",
+      "num": "55",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 13.8,
+      "avg_fp": 14.8,
+      "matchup_adj": -0.6,
+      "games_this_season": 8,
+      "last5": [
+        12.0,
+        12.2,
+        15.0,
+        22.8,
+        27.2
+      ],
+      "stats": {
+        "pts": 5.9,
+        "reb": 4.2,
+        "ast": 1.2,
+        "stl": 0.8,
+        "blk": 0.0,
+        "tov": 1.0,
+        "fg3m": 1.4,
+        "min": 20.9
+      },
+      "stats_from": "this season",
+      "price": 6.3,
+      "price_change": 0.0,
+      "value": 2.19
+    },
+    {
+      "id": 1642262,
+      "name": "Cody Williams",
+      "num": "9",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 12.2,
+      "avg_fp": 0.2,
+      "matchup_adj": 0.4,
+      "games_this_season": 5,
+      "last5": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.2
+      ],
+      "stats": {
+        "pts": 0.0,
+        "reb": 0.2,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 4.0
+      },
+      "stats_from": "this season",
+      "price": 6.3,
+      "price_change": 0.0,
+      "value": 1.94
+    },
+    {
+      "id": 1629026,
+      "name": "Kenrich Williams",
+      "num": "34",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 13.4,
+      "avg_fp": 13.6,
+      "matchup_adj": -0.4,
+      "games_this_season": 8,
+      "last5": [
+        15.8,
+        10.8,
+        24.8,
+        18.2,
+        22.0
+      ],
+      "stats": {
+        "pts": 6.9,
+        "reb": 3.5,
+        "ast": 0.9,
+        "stl": 0.1,
+        "blk": 0.1,
+        "tov": 0.5,
+        "fg3m": 1.5,
+        "min": 17.8
+      },
+      "stats_from": "this season",
+      "price": 6.2,
+      "price_change": 0.0,
+      "value": 2.16
+    },
+    {
+      "id": 1641854,
+      "name": "Craig Porter Jr.",
+      "num": "9",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 11.6,
+      "avg_fp": 5.8,
+      "matchup_adj": -0.6,
+      "games_this_season": 6,
+      "last5": [
+        7.2,
+        1.2,
+        10.0,
+        6.5,
+        4.2
+      ],
+      "stats": {
+        "pts": 0.8,
+        "reb": 2.0,
+        "ast": 1.2,
+        "stl": 0.2,
+        "blk": 0.3,
+        "tov": 0.8,
+        "fg3m": 0.2,
+        "min": 9.2
+      },
+      "stats_from": "this season",
+      "price": 6.0,
+      "price_change": 0.0,
+      "value": 1.93
+    },
+    {
+      "id": 1631172,
+      "name": "Ousmane Dieng",
+      "num": "21",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 11.6,
+      "avg_fp": 5.1,
+      "matchup_adj": -0.4,
+      "games_this_season": 6,
+      "last5": [
+        5.8,
+        0.0,
+        6.0,
+        4.2,
+        0.0
+      ],
+      "stats": {
+        "pts": 2.0,
+        "reb": 1.0,
+        "ast": 1.0,
+        "stl": 0.2,
+        "blk": 0.0,
+        "tov": 0.2,
+        "fg3m": 0.2,
+        "min": 9.7
+      },
+      "stats_from": "this season",
+      "price": 6.0,
+      "price_change": 0.0,
+      "value": 1.93
+    },
+    {
+      "id": 1630249,
+      "name": "V\u00edt Krej\u010d\u00ed",
+      "num": "27",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 11.9,
+      "avg_fp": 7.3,
+      "matchup_adj": -0.2,
+      "games_this_season": 7,
+      "last5": [
+        4.5,
+        3.5,
+        15.5,
+        2.0,
+        12.2
+      ],
+      "stats": {
+        "pts": 2.7,
+        "reb": 1.6,
+        "ast": 1.1,
+        "stl": 0.4,
+        "blk": 0.0,
+        "tov": 0.3,
+        "fg3m": 0.4,
+        "min": 10.1
+      },
+      "stats_from": "this season",
+      "price": 6.0,
+      "price_change": 0.0,
+      "value": 1.98
+    },
+    {
+      "id": 1643516,
+      "name": "Morez Johnson Jr.",
+      "num": "14",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 14.0,
+      "avg_fp": 13.7,
+      "matchup_adj": 0.3,
+      "games_this_season": 8,
+      "last5": [
+        9.5,
+        21.5,
+        7.5,
+        19.0,
+        15.8
+      ],
+      "stats": {
+        "pts": 7.4,
+        "reb": 3.1,
+        "ast": 1.2,
+        "stl": 0.5,
+        "blk": 0.0,
+        "tov": 1.1,
+        "fg3m": 0.1,
+        "min": 16.0
+      },
+      "stats_from": "this season",
+      "price": 5.8,
+      "price_change": 0.0,
+      "value": 2.41
+    },
+    {
+      "id": 1631200,
+      "name": "Kris Murray",
+      "num": "17",
+      "team": "MEM",
+      "opp": "OKC",
+      "home": true,
+      "game_id": "0022600029",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 12.2,
+      "avg_fp": 7.9,
+      "matchup_adj": -0.4,
+      "games_this_season": 5,
+      "last5": [
+        7.2,
+        1.2,
+        8.8,
+        12.5,
+        9.8
+      ],
+      "stats": {
+        "pts": 1.4,
+        "reb": 2.0,
+        "ast": 0.8,
+        "stl": 0.4,
+        "blk": 1.0,
+        "tov": 0.2,
+        "fg3m": 0.2,
+        "min": 14.2
+      },
+      "stats_from": "this season",
+      "price": 5.7,
+      "price_change": 0.0,
+      "value": 2.14
+    },
+    {
+      "id": 1631121,
+      "name": "Bryce McGowens",
+      "num": "11",
+      "team": "NOP",
+      "opp": "MIN",
+      "home": true,
+      "game_id": "0022600031",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 12.1,
+      "avg_fp": 6.4,
+      "matchup_adj": -0.4,
+      "games_this_season": 4,
+      "last5": [
+        2.0,
+        9.8,
+        10.5,
+        3.2
+      ],
+      "stats": {
+        "pts": 1.8,
+        "reb": 0.5,
+        "ast": 0.8,
+        "stl": 1.2,
+        "blk": 0.2,
+        "tov": 0.2,
+        "fg3m": 0.0,
+        "min": 7.5
+      },
+      "stats_from": "this season",
+      "price": 5.7,
+      "price_change": 0.0,
+      "value": 2.12
+    },
+    {
+      "id": 1641775,
+      "name": "Jordan Walsh",
+      "num": "27",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 12.3,
+      "avg_fp": 11.6,
+      "matchup_adj": -0.5,
+      "games_this_season": 8,
+      "last5": [
+        27.5,
+        4.5,
+        6.2,
+        9.2,
+        8.5
+      ],
+      "stats": {
+        "pts": 4.2,
+        "reb": 3.8,
+        "ast": 0.8,
+        "stl": 0.6,
+        "blk": 0.1,
+        "tov": 0.6,
+        "fg3m": 0.8,
+        "min": 15.4
+      },
+      "stats_from": "this season",
+      "price": 5.4,
+      "price_change": 0.0,
+      "value": 2.28
+    },
+    {
+      "id": 1631321,
+      "name": "Sidy Cissoko",
+      "num": "91",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 13.8,
+      "avg_fp": 16.2,
+      "matchup_adj": -0.2,
+      "games_this_season": 7,
+      "last5": [
+        14.0,
+        16.0,
+        7.8,
+        11.8,
+        22.5
+      ],
+      "stats": {
+        "pts": 6.3,
+        "reb": 4.1,
+        "ast": 2.1,
+        "stl": 0.4,
+        "blk": 0.3,
+        "tov": 0.7,
+        "fg3m": 0.9,
+        "min": 21.7
+      },
+      "stats_from": "this season",
+      "price": 5.4,
+      "price_change": 0.0,
+      "value": 2.56
+    },
+    {
+      "id": 1641772,
+      "name": "Nae'Qwan Tomlin",
+      "num": "35",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 12.4,
+      "avg_fp": 13.0,
+      "matchup_adj": -0.6,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 5.8,
+        "reb": 2.9,
+        "ast": 0.8,
+        "stl": 0.6,
+        "blk": 0.5,
+        "tov": 0.5,
+        "fg3m": 0.4,
+        "min": 15.7
+      },
+      "stats_from": "last season",
+      "price": 5.2,
+      "price_change": 0.0,
+      "value": 2.38
+    },
+    {
+      "id": 1631243,
+      "name": "Mouhamed Gueye",
+      "num": "18",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 12.7,
+      "avg_fp": 13.0,
+      "matchup_adj": -0.3,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 4.4,
+        "reb": 3.6,
+        "ast": 0.9,
+        "stl": 0.8,
+        "blk": 0.5,
+        "tov": 0.4,
+        "fg3m": 0.5,
+        "min": 15.3
+      },
+      "stats_from": "last season",
+      "price": 5.1,
+      "price_change": 0.0,
+      "value": 2.49
+    },
+    {
+      "id": 1642275,
+      "name": "Tidjane Sala\u00fcn",
+      "num": "31",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 12.2,
+      "avg_fp": 11.8,
+      "matchup_adj": -0.4,
+      "games_this_season": 8,
+      "last5": [
+        4.5,
+        9.0,
+        8.0,
+        17.2,
+        11.8
+      ],
+      "stats": {
+        "pts": 5.2,
+        "reb": 3.4,
+        "ast": 0.1,
+        "stl": 0.6,
+        "blk": 0.2,
+        "tov": 0.4,
+        "fg3m": 1.1,
+        "min": 13.9
+      },
+      "stats_from": "this season",
+      "price": 5.1,
+      "price_change": 0.0,
+      "value": 2.39
+    },
+    {
+      "id": 1628964,
+      "name": "Mo Bamba",
+      "num": "44",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "C"
+      ],
+      "proj": 14.4,
+      "avg_fp": 21.0,
+      "matchup_adj": 0.0,
+      "games_this_season": 5,
+      "last5": [
+        31.8,
+        16.0,
+        13.0,
+        21.5,
+        23.0
+      ],
+      "stats": {
+        "pts": 8.6,
+        "reb": 6.6,
+        "ast": 0.6,
+        "stl": 0.2,
+        "blk": 1.6,
+        "tov": 0.6,
+        "fg3m": 0.0,
+        "min": 17.8
+      },
+      "stats_from": "this season",
+      "price": 5.1,
+      "price_change": 0.0,
+      "value": 2.82
+    },
+    {
+      "id": 1642933,
+      "name": "Keshon Gilbert",
+      "num": "00",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 12.5,
+      "avg_fp": 12.8,
+      "matchup_adj": -0.3,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 4.2,
+        "reb": 1.2,
+        "ast": 3.0,
+        "stl": 0.8,
+        "blk": 1.0,
+        "tov": 2.0,
+        "fg3m": 0.0,
+        "min": 18.5
+      },
+      "stats_from": "last season",
+      "price": 4.9,
+      "price_change": 0.0,
+      "value": 2.55
+    },
+    {
+      "id": 201144,
+      "name": "Mike Conley",
+      "num": "45",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 11.9,
+      "avg_fp": 8.0,
+      "matchup_adj": -0.5,
+      "games_this_season": 2,
+      "last5": [
+        11.0,
+        5.0
+      ],
+      "stats": {
+        "pts": 4.5,
+        "reb": 0.0,
+        "ast": 0.0,
+        "stl": 1.0,
+        "blk": 0.5,
+        "tov": 0.5,
+        "fg3m": 1.5,
+        "min": 5.5
+      },
+      "stats_from": "this season",
+      "price": 4.8,
+      "price_change": 0.0,
+      "value": 2.48
+    },
+    {
+      "id": 1630579,
+      "name": "Jericho Sims",
+      "num": "00",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "C"
+      ],
+      "proj": 10.9,
+      "avg_fp": 1.0,
+      "matchup_adj": -0.3,
+      "games_this_season": 4,
+      "last5": [
+        0.0,
+        0.0,
+        4.0,
+        0.0
+      ],
+      "stats": {
+        "pts": 0.0,
+        "reb": 0.5,
+        "ast": 0.2,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 6.2
+      },
+      "stats_from": "this season",
+      "price": 4.8,
+      "price_change": 0.0,
+      "value": 2.27
+    },
+    {
+      "id": 1629020,
+      "name": "Jarred Vanderbilt",
+      "num": "2",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 11.1,
+      "avg_fp": 7.2,
+      "matchup_adj": -0.7,
+      "games_this_season": 5,
+      "last5": [
+        11.2,
+        7.8,
+        10.8,
+        2.8,
+        3.2
+      ],
+      "stats": {
+        "pts": 1.2,
+        "reb": 3.0,
+        "ast": 1.2,
+        "stl": 0.2,
+        "blk": 0.2,
+        "tov": 0.8,
+        "fg3m": 0.0,
+        "min": 11.8
+      },
+      "stats_from": "this season",
+      "price": 4.8,
+      "price_change": 0.0,
+      "value": 2.31
+    },
+    {
+      "id": 1641737,
+      "name": "Adem Bona",
+      "num": "30",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 12.0,
+      "avg_fp": 10.6,
+      "matchup_adj": 0.1,
+      "games_this_season": 9,
+      "last5": [
+        4.2,
+        3.5,
+        16.8,
+        11.5,
+        11.0
+      ],
+      "stats": {
+        "pts": 2.1,
+        "reb": 3.9,
+        "ast": 0.8,
+        "stl": 0.4,
+        "blk": 1.0,
+        "tov": 0.9,
+        "fg3m": 0.0,
+        "min": 14.2
+      },
+      "stats_from": "this season",
+      "price": 4.7,
+      "price_change": 0.0,
+      "value": 2.55
+    },
+    {
+      "id": 1630619,
+      "name": "Moussa Ciss\u00e9",
+      "num": "30",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "C"
+      ],
+      "proj": 11.3,
+      "avg_fp": 3.2,
+      "matchup_adj": 0.3,
+      "games_this_season": 5,
+      "last5": [
+        3.0,
+        4.2,
+        9.0,
+        0.0,
+        0.0
+      ],
+      "stats": {
+        "pts": 2.0,
+        "reb": 1.0,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 3.2
+      },
+      "stats_from": "this season",
+      "price": 4.7,
+      "price_change": 0.0,
+      "value": 2.4
+    },
+    {
+      "id": 1630545,
+      "name": "Terrence Shannon Jr",
+      "num": "4",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 15.5,
+      "avg_fp": 21.7,
+      "matchup_adj": 0.5,
+      "games_this_season": 7,
+      "last5": [
+        26.5,
+        29.5,
+        30.5,
+        18.8,
+        11.8
+      ],
+      "stats": {
+        "pts": 12.0,
+        "reb": 3.6,
+        "ast": 2.6,
+        "stl": 0.4,
+        "blk": 0.1,
+        "tov": 1.4,
+        "fg3m": 1.9,
+        "min": 22.0
+      },
+      "stats_from": "this season",
+      "price": 4.7,
+      "price_change": 0.0,
+      "value": 3.3
+    },
+    {
+      "id": 1630264,
+      "name": "Anthony Gill",
+      "num": "16",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 12.3,
+      "avg_fp": 0.0,
+      "matchup_adj": 0.2,
+      "games_this_season": 1,
+      "last5": [
+        0.0
+      ],
+      "stats": {
+        "pts": 0.0,
+        "reb": 0.0,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 1.0
+      },
+      "stats_from": "this season",
+      "price": 4.6,
+      "price_change": 0.0,
+      "value": 2.67
+    },
+    {
+      "id": 1628418,
+      "name": "Thomas Bryant",
+      "num": "3",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 11.7,
+      "avg_fp": 9.8,
+      "matchup_adj": -0.6,
+      "games_this_season": 3,
+      "last5": [
+        17.0,
+        4.0,
+        8.5
+      ],
+      "stats": {
+        "pts": 7.7,
+        "reb": 0.7,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.3,
+        "tov": 0.0,
+        "fg3m": 1.3,
+        "min": 9.7
+      },
+      "stats_from": "this season",
+      "price": 4.6,
+      "price_change": 0.0,
+      "value": 2.54
+    },
+    {
+      "id": 1629018,
+      "name": "Gary Trent Jr.",
+      "num": "5",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 11.6,
+      "avg_fp": 4.9,
+      "matchup_adj": -0.4,
+      "games_this_season": 2,
+      "last5": [
+        3.5,
+        6.2
+      ],
+      "stats": {
+        "pts": 3.0,
+        "reb": 0.5,
+        "ast": 0.5,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 1.0,
+        "min": 6.5
+      },
+      "stats_from": "this season",
+      "price": 4.4,
+      "price_change": 0.0,
+      "value": 2.64
+    },
+    {
+      "id": 1626168,
+      "name": "Trey Lyles",
+      "num": "41",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 12.7,
+      "avg_fp": 12.3,
+      "matchup_adj": 0.4,
+      "games_this_season": 9,
+      "last5": [
+        16.8,
+        16.8,
+        5.0,
+        18.0,
+        10.0
+      ],
+      "stats": {
+        "pts": 6.2,
+        "reb": 3.1,
+        "ast": 0.7,
+        "stl": 0.2,
+        "blk": 0.2,
+        "tov": 0.6,
+        "fg3m": 1.1,
+        "min": 17.0
+      },
+      "stats_from": "this season",
+      "price": 4.3,
+      "price_change": 0.0,
+      "value": 2.95
+    },
+    {
+      "id": 1641712,
+      "name": "Rayan Rupert",
+      "num": "12",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 12.1,
+      "avg_fp": 4.5,
+      "matchup_adj": 0.1,
+      "games_this_season": 1,
+      "last5": [
+        4.5
+      ],
+      "stats": {
+        "pts": 2.0,
+        "reb": 2.0,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 2.0
+      },
+      "stats_from": "this season",
+      "price": 4.2,
+      "price_change": 0.0,
+      "value": 2.88
+    },
+    {
+      "id": 1642880,
+      "name": "Kam Jones",
+      "num": "19",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 11.7,
+      "avg_fp": 12.1,
+      "matchup_adj": -0.4,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 4.4,
+        "reb": 1.6,
+        "ast": 3.2,
+        "stl": 0.5,
+        "blk": 0.0,
+        "tov": 1.0,
+        "fg3m": 0.6,
+        "min": 16.6
+      },
+      "stats_from": "last season",
+      "price": 4.1,
+      "price_change": 0.0,
+      "value": 2.85
+    },
+    {
+      "id": 1642866,
+      "name": "Joan Beringer",
+      "num": "19",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 14.7,
+      "avg_fp": 17.9,
+      "matchup_adj": 0.5,
+      "games_this_season": 9,
+      "last5": [
+        24.0,
+        11.0,
+        24.5,
+        19.8,
+        13.8
+      ],
+      "stats": {
+        "pts": 6.2,
+        "reb": 6.9,
+        "ast": 0.8,
+        "stl": 0.3,
+        "blk": 0.8,
+        "tov": 0.7,
+        "fg3m": 0.0,
+        "min": 17.6
+      },
+      "stats_from": "this season",
+      "price": 4.1,
+      "price_change": 0.0,
+      "value": 3.59
+    },
+    {
+      "id": 1626172,
+      "name": "Kevon Looney",
+      "num": "55",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 10.0,
+      "avg_fp": 3.9,
+      "matchup_adj": -0.6,
+      "games_this_season": 5,
+      "last5": [
+        13.8,
+        1.2,
+        4.5,
+        0.0,
+        0.0
+      ],
+      "stats": {
+        "pts": 1.6,
+        "reb": 1.6,
+        "ast": 0.2,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 6.0
+      },
+      "stats_from": "this season",
+      "price": 3.9,
+      "price_change": 0.0,
+      "value": 2.56
+    },
+    {
+      "id": 1631250,
+      "name": "Pete Nance",
+      "num": "35",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 11.4,
+      "avg_fp": 11.7,
+      "matchup_adj": -0.4,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 5.4,
+        "reb": 2.7,
+        "ast": 1.0,
+        "stl": 0.3,
+        "blk": 0.3,
+        "tov": 0.6,
+        "fg3m": 1.1,
+        "min": 15.6
+      },
+      "stats_from": "last season",
+      "price": 3.8,
+      "price_change": 0.0,
+      "value": 3.0
+    },
+    {
+      "id": 1643417,
+      "name": "Nate Ament",
+      "num": "15",
+      "team": "MIL",
+      "opp": "TOR",
+      "home": true,
+      "game_id": "0022600030",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 11.3,
+      "avg_fp": 11.7,
+      "matchup_adj": -0.4,
+      "games_this_season": 6,
+      "last5": [
+        11.2,
+        16.5,
+        18.8,
+        4.8,
+        12.5
+      ],
+      "stats": {
+        "pts": 7.2,
+        "reb": 2.3,
+        "ast": 0.3,
+        "stl": 0.3,
+        "blk": 0.2,
+        "tov": 0.8,
+        "fg3m": 1.0,
+        "min": 15.5
+      },
+      "stats_from": "this season",
+      "price": 3.7,
+      "price_change": 0.0,
+      "value": 3.05
+    },
+    {
+      "id": 1642382,
+      "name": "Branden Carlson",
+      "num": "10",
+      "team": "POR",
+      "opp": "LAL",
+      "home": false,
+      "game_id": "0022600032",
+      "positions": [
+        "C"
+      ],
+      "proj": 10.8,
+      "avg_fp": 4.8,
+      "matchup_adj": -0.2,
+      "games_this_season": 3,
+      "last5": [
+        8.5,
+        4.0,
+        2.0
+      ],
+      "stats": {
+        "pts": 1.3,
+        "reb": 1.3,
+        "ast": 0.7,
+        "stl": 0.0,
+        "blk": 0.7,
+        "tov": 1.0,
+        "fg3m": 0.0,
+        "min": 6.3
+      },
+      "stats_from": "this season",
+      "price": 3.5,
+      "price_change": 0.0,
+      "value": 3.09
+    },
+    {
+      "id": 1630592,
+      "name": "Jalen Wilson",
+      "num": "22",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 11.2,
+      "avg_fp": 11.4,
+      "matchup_adj": -0.3,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 6.4,
+        "reb": 2.1,
+        "ast": 0.9,
+        "stl": 0.4,
+        "blk": 0.0,
+        "tov": 0.7,
+        "fg3m": 1.0,
+        "min": 15.9
+      },
+      "stats_from": "last season",
+      "price": 3.4,
+      "price_change": 0.0,
+      "value": 3.29
+    },
+    {
+      "id": 1643512,
+      "name": "Allen Graves",
+      "num": "22",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 12.2,
+      "avg_fp": 11.3,
+      "matchup_adj": 0.9,
+      "games_this_season": 8,
+      "last5": [
+        5.8,
+        12.5,
+        5.0,
+        3.0,
+        9.5
+      ],
+      "stats": {
+        "pts": 4.5,
+        "reb": 2.5,
+        "ast": 0.9,
+        "stl": 0.5,
+        "blk": 0.6,
+        "tov": 0.1,
+        "fg3m": 0.4,
+        "min": 12.9
+      },
+      "stats_from": "this season",
+      "price": 3.3,
+      "price_change": 0.0,
+      "value": 3.7
+    },
+    {
+      "id": 1642878,
+      "name": "Tyrese Proctor",
+      "num": "24",
+      "team": "CLE",
+      "opp": "PHI",
+      "home": true,
+      "game_id": "0022600027",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 11.2,
+      "avg_fp": 13.4,
+      "matchup_adj": -0.6,
+      "games_this_season": 7,
+      "last5": [
+        4.8,
+        18.0,
+        25.0,
+        18.5,
+        13.2
+      ],
+      "stats": {
+        "pts": 6.3,
+        "reb": 2.6,
+        "ast": 1.9,
+        "stl": 0.3,
+        "blk": 0.0,
+        "tov": 0.3,
+        "fg3m": 1.3,
+        "min": 14.4
+      },
+      "stats_from": "this season",
+      "price": 3.2,
+      "price_change": 0.0,
+      "value": 3.5
+    },
+    {
+      "id": 1630702,
+      "name": "Jaden Hardy",
+      "num": "7",
+      "team": "LAL",
+      "opp": "POR",
+      "home": true,
+      "game_id": "0022600032",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 9.0,
+      "avg_fp": 3.4,
+      "matchup_adj": -0.6,
+      "games_this_season": 6,
+      "last5": [
+        7.0,
+        1.2,
+        1.0,
+        2.0,
+        3.5
+      ],
+      "stats": {
+        "pts": 1.3,
+        "reb": 0.5,
+        "ast": 0.5,
+        "stl": 0.3,
+        "blk": 0.0,
+        "tov": 0.2,
+        "fg3m": 0.2,
+        "min": 3.3
+      },
+      "stats_from": "this season",
+      "price": 3.2,
+      "price_change": 0.0,
+      "value": 2.81
+    },
+    {
+      "id": 1630544,
+      "name": "Tre Mann",
+      "num": "1",
+      "team": "WAS",
+      "opp": "ATL",
+      "home": false,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 9.4,
+      "avg_fp": 1.3,
+      "matchup_adj": 0.1,
+      "games_this_season": 3,
+      "last5": [
+        0.0,
+        0.0,
+        4.0
+      ],
+      "stats": {
+        "pts": 0.7,
+        "reb": 0.0,
+        "ast": 0.0,
+        "stl": 0.3,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 1.7
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.13
+    },
+    {
+      "id": 1642484,
+      "name": "RayJ Dennis",
+      "num": "00",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 9.9,
+      "avg_fp": 11.5,
+      "matchup_adj": -0.2,
+      "games_this_season": 1,
+      "last5": [
+        11.5
+      ],
+      "stats": {
+        "pts": 4.0,
+        "reb": 2.0,
+        "ast": 2.0,
+        "stl": 0.0,
+        "blk": 1.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 8.0
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.3
+    },
+    {
+      "id": 1627827,
+      "name": "Dorian Finney-Smith",
+      "num": "8",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 7.6,
+      "avg_fp": 2.3,
+      "matchup_adj": -0.2,
+      "games_this_season": 3,
+      "last5": [
+        7.0,
+        0.0,
+        0.0
+      ],
+      "stats": {
+        "pts": 1.0,
+        "reb": 0.7,
+        "ast": 0.3,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.3,
+        "fg3m": 0.3,
+        "min": 4.0
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 2.53
+    },
+    {
+      "id": 1642854,
+      "name": "Asa Newell",
+      "num": "14",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 9.6,
+      "avg_fp": 9.0,
+      "matchup_adj": -0.2,
+      "games_this_season": 5,
+      "last5": [
+        4.8,
+        1.2,
+        19.5,
+        9.5,
+        9.8
+      ],
+      "stats": {
+        "pts": 3.6,
+        "reb": 2.6,
+        "ast": 1.0,
+        "stl": 0.2,
+        "blk": 0.2,
+        "tov": 0.8,
+        "fg3m": 0.4,
+        "min": 11.0
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.2
+    },
+    {
+      "id": 1643544,
+      "name": "Zuby Ejiofor",
+      "num": "20",
+      "team": "ATL",
+      "opp": "WAS",
+      "home": true,
+      "game_id": "0022600025",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 9.7,
+      "avg_fp": 9.9,
+      "matchup_adj": -0.2,
+      "games_this_season": 4,
+      "last5": [
+        5.5,
+        0.0,
+        12.2,
+        21.8
+      ],
+      "stats": {
+        "pts": 4.2,
+        "reb": 2.5,
+        "ast": 1.0,
+        "stl": 0.5,
+        "blk": 0.0,
+        "tov": 0.8,
+        "fg3m": 0.8,
+        "min": 10.2
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.23
+    },
+    {
+      "id": 1642864,
+      "name": "Hugo Gonz\u00e1lez",
+      "num": "28",
+      "team": "BOS",
+      "opp": "CHA",
+      "home": false,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 9.3,
+      "avg_fp": 8.8,
+      "matchup_adj": -0.4,
+      "games_this_season": 8,
+      "last5": [
+        2.0,
+        4.5,
+        14.2,
+        11.8,
+        8.0
+      ],
+      "stats": {
+        "pts": 3.8,
+        "reb": 2.2,
+        "ast": 0.5,
+        "stl": 0.5,
+        "blk": 0.2,
+        "tov": 0.2,
+        "fg3m": 0.2,
+        "min": 12.9
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.1
+    },
+    {
+      "id": 1643515,
+      "name": "Christian Anderson",
+      "num": "5",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 7.2,
+      "avg_fp": 7.4,
+      "matchup_adj": -0.2,
+      "games_this_season": 8,
+      "last5": [
+        11.5,
+        2.5,
+        12.2,
+        3.0,
+        15.0
+      ],
+      "stats": {
+        "pts": 2.6,
+        "reb": 1.5,
+        "ast": 1.4,
+        "stl": 0.4,
+        "blk": 0.4,
+        "tov": 1.6,
+        "fg3m": 0.2,
+        "min": 10.4
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 2.4
+    },
+    {
+      "id": 1641790,
+      "name": "PJ Hall",
+      "num": "16",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "C"
+      ],
+      "proj": 10.1,
+      "avg_fp": 4.5,
+      "matchup_adj": -0.3,
+      "games_this_season": 2,
+      "last5": [
+        7.8,
+        1.2
+      ],
+      "stats": {
+        "pts": 0.0,
+        "reb": 1.0,
+        "ast": 1.5,
+        "stl": 0.0,
+        "blk": 0.5,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 6.0
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.37
+    },
+    {
+      "id": 1642862,
+      "name": "Liam McNeeley",
+      "num": "33",
+      "team": "CHA",
+      "opp": "BOS",
+      "home": true,
+      "game_id": "0022600026",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 7.4,
+      "avg_fp": 3.8,
+      "matchup_adj": -0.2,
+      "games_this_season": 4,
+      "last5": [
+        1.2,
+        7.5,
+        2.5,
+        4.0
+      ],
+      "stats": {
+        "pts": 1.8,
+        "reb": 1.8,
+        "ast": 0.2,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 1.0,
+        "fg3m": 0.0,
+        "min": 6.8
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 2.47
+    },
+    {
+      "id": 1642348,
+      "name": "Justin Edwards",
+      "num": "11",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 10.0,
+      "avg_fp": 1.5,
+      "matchup_adj": 0.1,
+      "games_this_season": 3,
+      "last5": [
+        0.0,
+        1.2,
+        3.2
+      ],
+      "stats": {
+        "pts": 0.7,
+        "reb": 0.7,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.0,
+        "min": 1.3
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.33
+    },
+    {
+      "id": 1631133,
+      "name": "Jabari Walker",
+      "num": "33",
+      "team": "PHI",
+      "opp": "CLE",
+      "home": false,
+      "game_id": "0022600027",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 9.5,
+      "avg_fp": 7.9,
+      "matchup_adj": 0.1,
+      "games_this_season": 5,
+      "last5": [
+        1.5,
+        3.2,
+        13.2,
+        20.0,
+        1.5
+      ],
+      "stats": {
+        "pts": 4.0,
+        "reb": 2.0,
+        "ast": 0.6,
+        "stl": 0.2,
+        "blk": 0.0,
+        "tov": 0.0,
+        "fg3m": 0.2,
+        "min": 8.0
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.17
+    },
+    {
+      "id": 1630182,
+      "name": "Josh Green",
+      "num": "5",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 8.3,
+      "avg_fp": 6.7,
+      "matchup_adj": 0.0,
+      "games_this_season": 6,
+      "last5": [
+        14.0,
+        11.5,
+        0.0,
+        4.2,
+        8.8
+      ],
+      "stats": {
+        "pts": 3.0,
+        "reb": 1.3,
+        "ast": 0.7,
+        "stl": 0.3,
+        "blk": 0.2,
+        "tov": 0.5,
+        "fg3m": 0.5,
+        "min": 15.3
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 2.77
+    },
+    {
+      "id": 1628396,
+      "name": "Tony Bradley",
+      "num": "13",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "proj": 8.2,
+      "avg_fp": 5.0,
+      "matchup_adj": 0.0,
+      "games_this_season": 2,
+      "last5": [
+        2.2,
+        7.8
+      ],
+      "stats": {
+        "pts": 2.0,
+        "reb": 2.0,
+        "ast": 0.0,
+        "stl": 0.5,
+        "blk": 0.0,
+        "tov": 1.0,
+        "fg3m": 0.0,
+        "min": 6.5
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 2.73
+    },
+    {
+      "id": 1641725,
+      "name": "Trey Alexander",
+      "num": "15",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 10.2,
+      "avg_fp": 10.2,
+      "matchup_adj": 0.0,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 5.2,
+        "reb": 1.2,
+        "ast": 1.0,
+        "stl": 0.7,
+        "blk": 0.2,
+        "tov": 0.3,
+        "fg3m": 0.7,
+        "min": 12.3
+      },
+      "stats_from": "last season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.4
+    },
+    {
+      "id": 1629006,
+      "name": "Josh Okogie",
+      "num": "21",
+      "team": "UTA",
+      "opp": "DAL",
+      "home": false,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 10.5,
+      "avg_fp": 9.6,
+      "matchup_adj": 0.0,
+      "games_this_season": 7,
+      "last5": [
+        4.0,
+        21.2,
+        0.8,
+        17.8,
+        13.5
+      ],
+      "stats": {
+        "pts": 2.7,
+        "reb": 3.4,
+        "ast": 1.1,
+        "stl": 0.3,
+        "blk": 0.3,
+        "tov": 1.0,
+        "fg3m": 0.4,
+        "min": 18.0
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.5
+    },
+    {
+      "id": 1631204,
+      "name": "Marcus Sasser",
+      "num": "8",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 11.5,
+      "avg_fp": 11.5,
+      "matchup_adj": 0.3,
+      "games_this_season": 8,
+      "last5": [
+        1.2,
+        17.2,
+        1.0,
+        6.2,
+        4.2
+      ],
+      "stats": {
+        "pts": 6.1,
+        "reb": 1.2,
+        "ast": 2.1,
+        "stl": 0.1,
+        "blk": 0.1,
+        "tov": 0.9,
+        "fg3m": 1.1,
+        "min": 17.4
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.83
+    },
+    {
+      "id": 1641724,
+      "name": "Jett Howard",
+      "num": "9",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 8.5,
+      "avg_fp": 2.3,
+      "matchup_adj": 0.2,
+      "games_this_season": 3,
+      "last5": [
+        5.0,
+        0.0,
+        2.0
+      ],
+      "stats": {
+        "pts": 2.3,
+        "reb": 0.0,
+        "ast": 0.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 0.3,
+        "fg3m": 0.3,
+        "min": 3.0
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 2.83
+    },
+    {
+      "id": 1628997,
+      "name": "Caleb Martin",
+      "num": "16",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 11.2,
+      "avg_fp": 11.3,
+      "matchup_adj": 0.3,
+      "games_this_season": 4,
+      "last5": [
+        15.0,
+        9.0,
+        12.5,
+        8.8
+      ],
+      "stats": {
+        "pts": 5.8,
+        "reb": 2.8,
+        "ast": 0.5,
+        "stl": 0.5,
+        "blk": 0.0,
+        "tov": 0.5,
+        "fg3m": 1.2,
+        "min": 20.0
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.73
+    },
+    {
+      "id": 1643547,
+      "name": "Sergio de Larrea",
+      "num": "55",
+      "team": "DAL",
+      "opp": "UTA",
+      "home": true,
+      "game_id": "0022600028",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 9.7,
+      "avg_fp": 9.5,
+      "matchup_adj": 0.2,
+      "games_this_season": 4,
+      "last5": [
+        4.0,
+        0.0,
+        32.8,
+        1.2
+      ],
+      "stats": {
+        "pts": 5.2,
+        "reb": 2.0,
+        "ast": 1.2,
+        "stl": 0.0,
+        "blk": 0.0,
+        "tov": 1.0,
+        "fg3m": 0.8,
+        "min": 11.8
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.23
+    },
+    {
+      "id": 1642892,
+      "name": "Bennett Stirtz",
+      "num": "14",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 10.0,
+      "avg_fp": 10.3,
+      "matchup_adj": -0.3,
+      "games_this_season": 8,
+      "last5": [
+        9.2,
+        13.0,
+        17.8,
+        12.5,
+        24.8
+      ],
+      "stats": {
+        "pts": 6.6,
+        "reb": 0.8,
+        "ast": 1.0,
+        "stl": 0.4,
+        "blk": 0.0,
+        "tov": 0.5,
+        "fg3m": 1.5,
+        "min": 15.9
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.33
+    },
+    {
+      "id": 1642877,
+      "name": "Micah Peavy",
+      "num": "16",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "proj": 9.3,
+      "avg_fp": 8.7,
+      "matchup_adj": -0.3,
+      "games_this_season": 4,
+      "last5": [
+        0.0,
+        3.2,
+        14.8,
+        16.8
+      ],
+      "stats": {
+        "pts": 3.0,
+        "reb": 3.8,
+        "ast": 0.2,
+        "stl": 0.2,
+        "blk": 0.0,
+        "tov": 0.2,
+        "fg3m": 0.5,
+        "min": 15.2
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.1
+    },
+    {
+      "id": 1643717,
+      "name": "Josh Dix",
+      "num": "21",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 3.4,
+      "avg_fp": 3.5,
+      "matchup_adj": -0.1,
+      "games_this_season": 5,
+      "last5": [
+        0.8,
+        6.0,
+        7.5,
+        3.2,
+        0.0
+      ],
+      "stats": {
+        "pts": 1.8,
+        "reb": 0.8,
+        "ast": 0.0,
+        "stl": 0.2,
+        "blk": 0.2,
+        "tov": 0.4,
+        "fg3m": 0.2,
+        "min": 13.4
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 1.13
+    },
+    {
+      "id": 1631207,
+      "name": "Dalen Terry",
+      "num": "77",
+      "team": "OKC",
+      "opp": "MEM",
+      "home": false,
+      "game_id": "0022600029",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 9.5,
+      "avg_fp": 9.8,
+      "matchup_adj": -0.3,
+      "games_this_season": 0,
+      "last5": [],
+      "stats": {
+        "pts": 3.7,
+        "reb": 1.8,
+        "ast": 1.4,
+        "stl": 0.6,
+        "blk": 0.3,
+        "tov": 0.5,
+        "fg3m": 0.5,
+        "min": 11.5
+      },
+      "stats_from": "last season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.17
+    },
+    {
+      "id": 1642419,
+      "name": "Jamison Battle",
+      "num": "77",
+      "team": "TOR",
+      "opp": "MIL",
+      "home": false,
+      "game_id": "0022600030",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 10.4,
+      "avg_fp": 12.8,
+      "matchup_adj": 0.8,
+      "games_this_season": 8,
+      "last5": [
+        12.5,
+        2.0,
+        27.8,
+        13.5,
+        11.2
+      ],
+      "stats": {
+        "pts": 8.4,
+        "reb": 1.5,
+        "ast": 0.4,
+        "stl": 0.6,
+        "blk": 0.0,
+        "tov": 0.5,
+        "fg3m": 1.9,
+        "min": 16.5
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.47
+    },
+    {
+      "id": 1641740,
+      "name": "Jaylen Clark",
+      "num": "7",
+      "team": "MIN",
+      "opp": "NOP",
+      "home": false,
+      "game_id": "0022600031",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 10.0,
+      "avg_fp": 10.4,
+      "matchup_adj": 0.3,
+      "games_this_season": 8,
+      "last5": [
+        7.0,
+        14.0,
+        17.0,
+        11.0,
+        20.0
+      ],
+      "stats": {
+        "pts": 4.5,
+        "reb": 1.8,
+        "ast": 0.9,
+        "stl": 0.9,
+        "blk": 0.2,
+        "tov": 0.6,
+        "fg3m": 0.9,
+        "min": 12.6
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 3.33
+    },
+    {
+      "id": 1642868,
+      "name": "Carter Bryant",
+      "num": "11",
+      "team": "SAS",
+      "opp": "SAC",
+      "home": false,
+      "game_id": "0022600033",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "proj": 7.7,
+      "avg_fp": 4.4,
+      "matchup_adj": 0.5,
+      "games_this_season": 7,
+      "last5": [
+        5.2,
+        7.2,
+        3.5,
+        6.5,
+        7.0
+      ],
+      "stats": {
+        "pts": 2.4,
+        "reb": 0.3,
+        "ast": 0.4,
+        "stl": 0.1,
+        "blk": 0.3,
+        "tov": 0.3,
+        "fg3m": 0.6,
+        "min": 9.9
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 2.57
+    },
+    {
+      "id": 1643567,
+      "name": "Emanuel Sharp",
+      "num": "34",
+      "team": "SAC",
+      "opp": "SAS",
+      "home": true,
+      "game_id": "0022600033",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "proj": 8.6,
+      "avg_fp": 8.9,
+      "matchup_adj": -0.3,
+      "games_this_season": 8,
+      "last5": [
+        8.0,
+        3.2,
+        6.8,
+        19.8,
+        7.8
+      ],
+      "stats": {
+        "pts": 4.4,
+        "reb": 1.0,
+        "ast": 0.9,
+        "stl": 0.5,
+        "blk": 0.2,
+        "tov": 0.2,
+        "fg3m": 1.1,
+        "min": 17.1
+      },
+      "stats_from": "this season",
+      "price": 3.0,
+      "price_change": 0.0,
+      "value": 2.87
+    }
+  ]
+}

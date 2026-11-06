@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIG BALLIN</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0B0B12; --panel: #151525; --panel2: #1E1E33; --line: #2E2E4D; --line2: #4A4A70;
+  --text: #F4F1E8; --muted: #A9A7C2; --soft: #D6D4E8;
+  --yel: #FFD23F; --red: #FF4A3D; --blu: #3D8BFF;
+  --display: 'Bungee', Impact, sans-serif;
+  --pixel: 'Press Start 2P', monospace;
+  --body: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--body); font-size: 18px; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: default; }
+:focus-visible { outline: 3px solid var(--yel); outline-offset: 2px; }
+.wrap { max-width: 1360px; margin: 0 auto; padding: 24px clamp(14px, 3vw, 40px) 56px; display: flex; flex-direction: column; gap: 22px; }
+.muted { color: var(--muted); }
+[hidden] { display: none !important; }
+
+/* Header */
+header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+.logo { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(40px, 6vw, 68px); line-height: 1; color: var(--yel); text-shadow: 3px 3px 0 var(--red), 6px 6px 0 var(--blu); letter-spacing: 1px; }
+.slate-line { margin: 10px 0 0; font-family: var(--pixel); font-size: 11px; line-height: 1.7; color: var(--muted); }
+.cap { flex: 1 1 340px; max-width: 520px; background: var(--panel); border: 3px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.cap-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.cap-label { font-family: var(--pixel); font-size: 11px; color: var(--muted); }
+.cap-left { font-family: var(--display); font-size: 32px; }
+.cap-bar { height: 22px; background: var(--bg); border: 2px solid var(--line); border-radius: 4px; overflow: hidden; }
+.cap-fill { height: 100%; transition: width 400ms ease; }
+.cap-bottom { display: flex; justify-content: space-between; font-size: 17px; color: var(--muted); }
+.banner { background: #2A1F05; border: 2px solid var(--yel); border-radius: 10px; padding: 12px 16px; font-size: 18px; }
+.banner code { font-family: ui-monospace, Menlo, monospace; font-size: 15px; background: var(--bg); padding: 2px 6px; border-radius: 4px; }
+
+/* Tabs & buttons */
+nav { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.tab { min-height: 48px; padding: 0 20px; border-radius: 8px; border: 3px solid var(--line); background: var(--panel); font-family: var(--pixel); font-size: 12px; }
+.tab[aria-pressed="true"] { background: var(--blu); border-color: var(--blu); color: var(--bg); }
+.sound { margin-left: auto; min-height: 44px; padding: 0 14px; border-radius: 8px; border: 2px solid var(--line2); background: transparent; color: var(--muted); font-family: var(--pixel); font-size: 10px; }
+.btn { min-height: 46px; padding: 0 12px; border-radius: 8px; font-family: var(--pixel); font-size: 10px; border: 2px solid transparent; }
+.btn-primary { background: var(--yel); color: var(--bg); box-shadow: 0 4px 0 #000; }
+.btn-danger { background: var(--red); color: var(--bg); box-shadow: 0 4px 0 #000; }
+.btn-off { background: var(--line); color: var(--muted); }
+.btn-ghost { background: transparent; border-color: var(--blu); }
+.btn-plain { background: transparent; border-color: var(--line2); }
+.btn-cut { background: transparent; border-color: var(--red); color: var(--red); }
+.pill { min-height: 44px; min-width: 56px; padding: 0 14px; border-radius: 22px; border: 2px solid var(--line2); background: transparent; font-family: var(--pixel); font-size: 11px; }
+.pill[aria-pressed="true"] { background: var(--yel); border-color: var(--yel); color: var(--bg); }
+.search { min-height: 46px; padding: 0 14px; border-radius: 8px; border: 2px solid var(--line2); background: var(--panel); font-size: 19px; min-width: 0; flex: 1 1 220px; max-width: 360px; }
+.search::placeholder { color: var(--muted); }
+select.search { flex: 0 1 250px; }
+.toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
+.toolbar-group { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; }
+
+/* Slots */
+.slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+.slot { background: var(--panel); border: 3px solid var(--line); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 12px; min-height: 210px; }
+.slot.is-filled { border-color: var(--blu); box-shadow: 0 0 14px rgba(61, 139, 255, 0.3); }
+.slot.is-active { border-color: var(--yel); box-shadow: 0 0 18px rgba(255, 210, 63, 0.45); }
+.slot-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.slot-pos { font-family: var(--pixel); font-size: 15px; color: var(--yel); }
+.slot-empty { flex: 1; min-height: 120px; border: 3px dashed var(--line2); background: transparent; color: var(--muted); border-radius: 10px; font-family: var(--pixel); font-size: 11px; line-height: 1.8; }
+.slot.is-active .slot-empty { border-color: var(--yel); }
+.slot-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.slot-actions .btn { flex: 1 1 56px; min-height: 44px; font-size: 9px; }
+.badge { font-family: var(--pixel); font-size: 9px; color: var(--bg); background: var(--muted); padding: 4px 6px; border-radius: 4px; }
+
+/* Player bits */
+.who { display: flex; gap: 12px; align-items: center; }
+.jersey { width: 56px; height: 56px; flex: none; border-radius: 8px; border: 3px solid var(--text); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 21px; color: #fff; }
+.jersey.sm { width: 46px; height: 46px; font-size: 17px; }
+.jersey.lg { width: 72px; height: 72px; font-size: 26px; }
+.who-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.pname { margin: 0; font-size: 23px; font-weight: 700; line-height: 1.1; }
+.sub { font-size: 17px; color: var(--muted); }
+.price { font-family: var(--display); font-size: 22px; text-align: right; white-space: nowrap; }
+.chg { display: block; font-family: var(--body); font-size: 15px; color: var(--muted); text-align: right; }
+.pool { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
+.pcard { background: var(--panel); border: 3px solid var(--line); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+.pcard.on { border-color: var(--blu); }
+.nums { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.nums > div { background: var(--panel2); border-radius: 8px; padding: 8px 10px; }
+.nums dt { font-family: var(--pixel); font-size: 9px; color: var(--muted); }
+.nums dd { margin: 6px 0 0; font-size: 26px; font-weight: 700; }
+.yel { color: var(--yel); } .blu { color: var(--blu); } .red { color: var(--red); }
+.line { margin: 0; font-size: 18px; color: var(--soft); }
+.row-btns { display: flex; gap: 10px; }
+.row-btns .btn:first-child { flex: 1; }
+.row-btns .btn:last-child { flex: 1.4; }
+.more { align-self: center; }
+
+/* Stats */
+.stats-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 20px; align-items: start; }
+.stats-main { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.table-box { overflow: auto; max-height: 72vh; background: var(--panel); border: 3px solid var(--line); border-radius: 12px; }
+table { width: 100%; min-width: 1040px; border-collapse: collapse; font-size: 19px; font-variant-numeric: tabular-nums; }
+thead th { position: sticky; top: 0; z-index: 2; background: var(--panel2); padding: 0; font-weight: 400; }
+thead th.left { text-align: left; padding: 0 12px; font-family: var(--pixel); font-size: 10px; color: var(--muted); }
+thead th.corner { left: 0; z-index: 3; }
+.sortbtn { width: 100%; min-height: 48px; padding: 0 8px; background: transparent; border: none; text-align: right; font-family: var(--pixel); font-size: 10px; color: var(--muted); white-space: nowrap; }
+.sortbtn.on { color: var(--yel); }
+tbody tr { border-top: 1px solid var(--line); }
+tbody tr.sel { background: #2A2A48; }
+tbody th { position: sticky; left: 0; z-index: 1; background: var(--panel); text-align: left; padding: 0 12px; font-weight: 400; }
+tbody tr.sel th { background: #2A2A48; }
+.namebtn { background: none; border: none; padding: 8px 0; min-height: 44px; text-align: left; font-size: 20px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--line2); text-underline-offset: 4px; white-space: nowrap; }
+tr.sel .namebtn { color: var(--yel); }
+td { padding: 0 8px; text-align: right; white-space: nowrap; }
+td.l { text-align: left; color: var(--muted); }
+td:last-child { padding-right: 16px; }
+
+.pcard-big { position: sticky; top: 16px; background: var(--panel); border: 3px solid var(--yel); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 0 22px rgba(255, 210, 63, 0.25); }
+.big-name { margin: 0; font-family: var(--display); font-weight: 400; font-size: 26px; line-height: 1.05; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.tile { background: var(--panel2); border-radius: 10px; padding: 10px 12px; }
+.tile-k { font-family: var(--pixel); font-size: 9px; color: var(--muted); }
+.tile-v { margin-top: 8px; font-family: var(--display); font-size: 21px; }
+.bars-head { display: flex; justify-content: space-between; align-items: baseline; }
+.bars-head h3 { margin: 0; font-family: var(--pixel); font-size: 10px; font-weight: 400; color: var(--muted); }
+.bars { display: flex; align-items: flex-end; gap: 10px; height: 150px; padding: 0 4px; border-bottom: 2px solid var(--line2); }
+.bar { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%; font-size: 17px; font-weight: 700; }
+.bar i { display: block; width: 100%; border-radius: 4px 4px 0 0; }
+.grid4 { margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.grid4 > div { background: var(--panel2); border-radius: 8px; padding: 8px; }
+.grid4 dt { font-family: var(--pixel); font-size: 9px; color: var(--muted); }
+.grid4 dd { margin: 6px 0 0; font-size: 22px; font-weight: 700; }
+.note { background: var(--panel2); border-radius: 10px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+
+/* Scoreboard */
+.score-wrap { display: flex; flex-direction: column; gap: 18px; max-width: 920px; }
+.board { background: #000; border: 4px solid var(--blu); border-radius: 14px; padding: 20px 22px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; box-shadow: 0 0 26px rgba(61, 139, 255, 0.35); }
+.board-total { font-family: var(--pixel); font-size: clamp(36px, 7vw, 64px); line-height: 1; color: var(--yel); text-shadow: 0 0 14px rgba(255, 210, 63, 0.55); }
+.srows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.srow { background: var(--panel); border: 3px solid var(--line); border-radius: 12px; padding: 12px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.srow.hot { border-color: var(--red); }
+.srow-fp { font-family: var(--display); font-size: 30px; line-height: 1; }
+.hot-tag { display: flex; align-items: center; gap: 6px; color: var(--red); font-family: var(--pixel); font-size: 11px; }
+.empty { background: var(--panel); border: 3px dashed var(--line2); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font-size: 20px; }
+.empty code { font-family: ui-monospace, Menlo, monospace; font-size: 15px; background: var(--bg); padding: 4px 8px; border-radius: 4px; }
+
+/* Callout */
+.callout { position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%) rotate(-6deg); z-index: 50; pointer-events: none; font-family: var(--display); font-size: clamp(40px, 8vw, 104px); line-height: 1; white-space: nowrap; }
+.callout.pop { animation: pop 1.3s ease-out forwards; }
+@keyframes pop { 0% { transform: translate(-50%, -50%) rotate(-6deg) scale(.4); opacity: 0; } 15% { transform: translate(-50%, -50%) rotate(-6deg) scale(1.08); opacity: 1; } 75% { opacity: 1; } 100% { transform: translate(-50%, -50%) rotate(-6deg) scale(1); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .callout.pop { animation: none; } .cap-fill { transition: none; } }
+
+@media (max-width: 900px) {
+  .stats-layout { grid-template-columns: minmax(0, 1fr); }
+  .pcard-big { position: static; order: -1; }
+  .table-box { max-height: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 class="logo">BIG BALLIN</h1>
+      <p class="slate-line" id="slateLine">Loading tonight’s slate…</p>
+    </div>
+    <div class="cap" aria-live="polite">
+      <div class="cap-top"><span class="cap-label">CAP SPACE</span><span class="cap-left" id="capLeft">$100.0M</span></div>
+      <div class="cap-bar"><div class="cap-fill" id="capFill" style="width:100%;background:var(--yel)"></div></div>
+      <div class="cap-bottom"><span id="capSpent">Spent $0.0M</span><span id="capCount">0/5 signed</span></div>
+    </div>
+  </header>
+
+  <div class="banner" id="banner" hidden></div>
+
+  <nav aria-label="Sections">
+    <button class="tab" data-act="tab" data-tab="build" aria-pressed="true">BUILD</button>
+    <button class="tab" data-act="tab" data-tab="stats" aria-pressed="false">STATS</button>
+    <button class="tab" data-act="tab" data-tab="score" aria-pressed="false">SCOREBOARD</button>
+    <button class="sound" data-act="sound" id="soundBtn" aria-pressed="true">SOUND ON</button>
+  </nav>
+
+  <!-- BUILD -->
+  <section id="view-build" aria-label="Build your lineup" style="display:flex;flex-direction:column;gap:26px">
+    <div class="slots" id="slots"></div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="toolbar">
+        <h2>Free agents <span class="blu" id="poolTitle"></span></h2>
+        <div class="toolbar-group" role="group" aria-label="Filter by position" id="poolPills"></div>
+      </div>
+      <div class="toolbar">
+        <div class="toolbar-group" style="flex:1">
+          <input class="search" id="poolSearch" type="search" placeholder="Search a player or team (e.g. DEN)" aria-label="Search players">
+          <select class="search" id="poolSort" aria-label="Sort players">
+            <option value="proj">Highest projection</option>
+            <option value="value">Best value (FP per $1M)</option>
+            <option value="price">Most expensive</option>
+            <option value="cheap">Cheapest</option>
+          </select>
+        </div>
+        <span class="muted" id="poolCount"></span>
+      </div>
+      <div class="pool" id="pool"></div>
+      <button class="btn btn-plain more" data-act="more" id="moreBtn">SHOW MORE</button>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="view-stats" aria-label="Player stats" hidden>
+    <div class="stats-layout">
+      <div class="stats-main">
+        <div class="toolbar">
+          <h2>Stat center</h2>
+          <div class="toolbar-group" role="group" aria-label="Filter stats by position" id="statsPills"></div>
+        </div>
+        <div class="toolbar">
+          <input class="search" id="statsSearch" type="search" placeholder="Search a player or team" aria-label="Search stats">
+          <span class="muted">Tap a column to sort. Tap a name for the full card.</span>
+        </div>
+        <div class="table-box"><table><thead><tr id="statsHead"></tr></thead><tbody id="statsBody"></tbody></table></div>
+      </div>
+      <aside class="pcard-big" id="card" aria-label="Player card"></aside>
+    </div>
+  </section>
+
+  <!-- SCOREBOARD -->
+  <section id="view-score" aria-label="Scoreboard" hidden>
+    <div class="score-wrap" id="score"></div>
+  </section>
+</div>
+
+<div class="callout" id="callout" role="status" aria-live="assertive"></div>
+
+<script>
+const POS = ['PG', 'SG', 'SF', 'PF', 'C'];
+const POSNAME = { PG: 'Point guard', SG: 'Shooting guard', SF: 'Small forward', PF: 'Power forward', C: 'Center' };
+const TEAM_COLORS = { ATL:'#C8102E', BOS:'#007A33', BKN:'#2A2A2A', CHA:'#1D1160', CHI:'#CE1141', CLE:'#860038', DAL:'#00538C', DEN:'#0E2240', DET:'#C8102E', GSW:'#1D428A', HOU:'#CE1141', IND:'#002D62', LAC:'#C8102E', LAL:'#552583', MEM:'#5D76A9', MIA:'#98002E', MIL:'#00471B', MIN:'#0C2340', NOP:'#0C2340', NYK:'#006BB6', OKC:'#007AC1', ORL:'#0077C0', PHI:'#006BB6', PHX:'#E56020', POR:'#E03A3E', SAC:'#5A2D81', SAS:'#5A5D60', TOR:'#CE1141', UTA:'#3E2680', WAS:'#002B5C' };
+
+const HOSTED = !['localhost', '127.0.0.1', ''].includes(location.hostname);
+
+const S = {
+  slate: null, byId: {}, games: {}, results: null,
+  tab: 'build', lineup: { PG: null, SG: null, SF: null, PF: null, C: null },
+  poolPos: 'PG', poolQuery: '', poolSort: 'proj', poolLimit: 36,
+  statsPos: 'ALL', statsQuery: '', sortKey: 'proj', sortDir: -1, selId: null,
+  sound: true, crushLine: 99
+};
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const fold = (s) => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const money = (n) => '$' + n.toFixed(1) + 'M';
+const color = (team) => TEAM_COLORS[team] || '#2E2E4D';
+const where = (p) => `${p.team} ${p.home ? 'vs' : '@'} ${p.opp}`;
+const slotsFor = (p) => { const e = (p.positions || []).filter((x) => POS.includes(x)); return e.length ? e : ['SF']; };
+const chg = (p) => !p.price_change ? '' : (p.price_change > 0 ? '▲ ' : '▼ ') + Math.abs(p.price_change).toFixed(1);
+
+function store(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
+function recall(key) { try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
+
+/* ---------- Sound & callouts ---------- */
+let audio = null;
+function beep(notes) {
+  if (!S.sound) return;
+  try {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    audio = audio || new AC();
+    let t = audio.currentTime;
+    notes.forEach(([freq, dur]) => {
+      const o = audio.createOscillator(), g = audio.createGain();
+      o.type = 'square'; o.frequency.value = freq;
+      g.gain.setValueAtTime(0.05, t); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(audio.destination); o.start(t); o.stop(t + dur); t += dur;
+    });
+  } catch (e) {}
+}
+let calloutTimer = null;
+function flash(text, col, shadow) {
+  const el = $('#callout');
+  el.textContent = text;
+  el.style.color = col;
+  el.style.textShadow = `4px 4px 0 #0B0B12, 9px 9px 0 ${shadow}`;
+  el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop');
+  clearTimeout(calloutTimer);
+  calloutTimer = setTimeout(() => { el.textContent = ''; el.classList.remove('pop'); }, 1350);
+}
+
+/* ---------- Lineup logic ---------- */
+function isLocked(p) {
+  const g = S.games[p.game_id];
+  if (!g || !g.tip_utc) return false;
+  const t = Date.parse(g.tip_utc);
+  return !isNaN(t) && Date.now() >= t;
+}
+function slotOf(id) { return POS.find((pos) => S.lineup[pos] === id) || null; }
+function spent() { return POS.reduce((t, pos) => t + (S.lineup[pos] ? S.byId[S.lineup[pos]].price : 0), 0); }
+function targetSlot(p) {
+  const elig = slotsFor(p);
+  if (elig.includes(S.poolPos)) return S.poolPos;
+  return elig.find((pos) => !S.lineup[pos]) || elig[0];
+}
+function costAfter(p) {
+  const t = targetSlot(p);
+  const occ = S.lineup[t] ? S.byId[S.lineup[t]] : null;
+  const already = slotOf(p.id) ? p.price : 0;
+  return spent() - (occ ? occ.price : 0) - already + p.price;
+}
+function signState(p) {
+  if (slotOf(p.id)) return { label: 'ON ROSTER', cls: 'btn-off', off: true };
+  if (isLocked(p)) return { label: 'LOCKED', cls: 'btn-off', off: true };
+  if (costAfter(p) > S.slate.cap + 1e-6) return { label: 'OVER CAP', cls: 'btn-danger', off: false };
+  return { label: S.lineup[targetSlot(p)] ? 'SWAP IN' : 'SIGN', cls: 'btn-primary', off: false };
+}
+function saveLineup() { store('bb-lineup-' + S.slate.date, S.lineup); }
+
+function sign(p) {
+  if (isLocked(p)) { beep([[110, 0.3]]); flash('LOCKED!', '#A9A7C2', '#FF4A3D'); return; }
+  const t = targetSlot(p);
+  const occ = S.lineup[t] ? S.byId[S.lineup[t]] : null;
+  if (occ && isLocked(occ)) { beep([[110, 0.3]]); flash('LOCKED!', '#A9A7C2', '#FF4A3D'); return; }
+  if (costAfter(p) > S.slate.cap + 1e-6) { beep([[110, 0.35], [92, 0.3]]); flash('OVER THE CAP!', '#FF4A3D', '#3D8BFF'); return; }
+  const cur = slotOf(p.id);
+  if (cur) S.lineup[cur] = null;
+  S.lineup[t] = p.id;
+  saveLineup();
+  const next = POS.find((pos) => !S.lineup[pos]);
+  if (next) S.poolPos = next;
+  beep([[660, 0.07], [880, 0.07], [1320, 0.12]]);
+  if (p.price >= 40) flash('MAX CONTRACT!', '#FFD23F', '#FF4A3D');
+  else if (p.value >= S.crushLine) flash('CAP CRUSHER!', '#FFD23F', '#3D8BFF');
+  else flash('SIGNED!', '#FFD23F', '#FF4A3D');
+  renderAll();
+}
+function cut(pos) {
+  const p = S.lineup[pos] ? S.byId[S.lineup[pos]] : null;
+  if (!p) return;
+  if (isLocked(p)) { beep([[110, 0.3]]); flash('LOCKED!', '#A9A7C2', '#FF4A3D'); return; }
+  S.lineup[pos] = null; S.poolPos = pos; saveLineup();
+  beep([[330, 0.08], [220, 0.12]]);
+  renderAll();
+}
+
+/* ---------- Rendering ---------- */
+function jersey(p, size) { return `<div class="jersey ${size || ''}" aria-hidden="true" style="background:${color(p.team)}">${esc(p.num || p.team)}</div>`; }
+function pills(cur, act) {
+  return ['ALL'].concat(POS).map((v) => `<button class="pill" data-act="${act}" data-v="${v}" aria-pressed="${cur === v}">${v}</button>`).join('');
+}
+function matches(p, q) { if (!q) return true; const f = fold(q.trim()); return fold(p.name).includes(f) || p.team.toLowerCase() === f || p.opp.toLowerCase() === f; }
+
+function renderHeader() {
+  const cap = S.slate.cap, s = spent(), left = cap - s;
+  const filled = POS.filter((p) => S.lineup[p]).length;
+  const col = left / cap > 0.25 ? 'var(--yel)' : 'var(--red)';
+  $('#capLeft').textContent = money(left) + ' LEFT';
+  $('#capLeft').style.color = col;
+  $('#capFill').style.width = Math.max(0, Math.min(100, (left / cap) * 100)) + '%';
+  $('#capFill').style.background = col;
+  $('#capSpent').textContent = 'Spent ' + money(s);
+  $('#capCount').textContent = filled + '/5 signed';
+  document.querySelectorAll('.tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tab === S.tab)));
+  ['build', 'stats', 'score'].forEach((t) => { $('#view-' + t).hidden = S.tab !== t; });
+  $('#soundBtn').textContent = S.sound ? 'SOUND ON' : 'SOUND OFF';
+  $('#soundBtn').setAttribute('aria-pressed', String(S.sound));
+}
+
+function renderSlots() {
+  $('#slots').innerHTML = POS.map((pos) => {
+    const p = S.lineup[pos] ? S.byId[S.lineup[pos]] : null;
+    const active = S.poolPos === pos ? ' is-active' : '';
+    const head = `<div class="slot-head"><span class="slot-pos">${pos}</span><span class="muted">${POSNAME[pos]}</span></div>`;
+    if (!p) return `<div class="slot${active}">${head}<button class="slot-empty" data-act="choose" data-pos="${pos}">+ SIGN A ${pos}</button></div>`;
+    const locked = isLocked(p);
+    return `<div class="slot is-filled${active}">${head}
+      <div class="who">${jersey(p, 'sm')}<div class="who-text"><span class="pname" style="font-size:21px">${esc(p.name)}</span><span class="sub">${esc(where(p))}</span></div></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+        <span class="price" style="text-align:left">${money(p.price)}</span>
+        ${locked ? '<span class="badge">LOCKED</span>' : `<span class="yel" style="font-weight:700">${p.proj.toFixed(1)} proj</span>`}
+      </div>
+      <div class="slot-actions">
+        <button class="btn btn-ghost" data-act="stats" data-id="${p.id}">STATS</button>
+        <button class="btn btn-plain" data-act="choose" data-pos="${pos}" ${locked ? 'disabled' : ''}>SWAP</button>
+        <button class="btn btn-cut" data-act="cut" data-pos="${pos}" ${locked ? 'disabled' : ''} aria-label="Cut ${esc(p.name)}">CUT</button>
+      </div></div>`;
+  }).join('');
+}
+
+function sortedPool() {
+  const list = S.slate.players.filter((p) => (S.poolPos === 'ALL' || slotsFor(p).includes(S.poolPos)) && matches(p, S.poolQuery));
+  const k = S.poolSort;
+  list.sort((a, b) => k === 'cheap' ? a.price - b.price : k === 'price' ? b.price - a.price : k === 'value' ? b.value - a.value : b.proj - a.proj);
+  return list;
+}
+function renderPool() {
+  $('#poolPills').innerHTML = pills(S.poolPos, 'poolpos');
+  $('#poolTitle').textContent = S.poolPos === 'ALL' ? '' : S.poolPos;
+  const list = sortedPool();
+  const shown = list.slice(0, S.poolLimit);
+  $('#poolCount').textContent = `Showing ${shown.length} of ${list.length}`;
+  $('#moreBtn').hidden = shown.length >= list.length;
+  if (!list.length) { $('#pool').innerHTML = `<p class="muted" style="margin:0">No players match. Clear the search or pick another position.</p>`; return; }
+  $('#pool').innerHTML = shown.map((p) => {
+    const st = signState(p);
+    const over = st.label === 'OVER CAP';
+    return `<article class="pcard${slotOf(p.id) ? ' on' : ''}">
+      <div class="who">${jersey(p)}
+        <div class="who-text"><h3 class="pname">${esc(p.name)}</h3><span class="sub">${esc(slotsFor(p).join('/'))} · ${esc(where(p))}</span></div>
+        <div><span class="price${over ? ' red' : ''}">${money(p.price)}</span><span class="chg">${chg(p)}</span></div>
+      </div>
+      <dl class="nums">
+        <div><dt>PROJ</dt><dd class="yel">${p.proj.toFixed(1)}</dd></div>
+        <div><dt>AVG FP</dt><dd>${p.avg_fp.toFixed(1)}</dd></div>
+        <div><dt>FP/$M</dt><dd class="blu">${p.value.toFixed(2)}</dd></div>
+      </dl>
+      <p class="line">${p.stats.pts} PTS · ${p.stats.reb} REB · ${p.stats.ast} AST · ${p.stats.min} MIN</p>
+      <div class="row-btns">
+        <button class="btn btn-ghost" data-act="stats" data-id="${p.id}">STATS</button>
+        <button class="btn ${st.cls}" data-act="sign" data-id="${p.id}" ${st.off ? 'disabled' : ''}>${st.label}</button>
+      </div></article>`;
+  }).join('');
+}
+
+const COLS = [
+  { k: 'price', l: 'PRICE', v: (p) => p.price, f: (p) => money(p.price) },
+  { k: 'chg', l: '+/−', v: (p) => p.price_change || 0, f: (p) => chg(p) || '–', c: 'muted' },
+  { k: 'proj', l: 'PROJ', v: (p) => p.proj, f: (p) => p.proj.toFixed(1), c: 'yel', b: 1 },
+  { k: 'avg', l: 'AVG FP', v: (p) => p.avg_fp, f: (p) => p.avg_fp.toFixed(1), b: 1 },
+  { k: 'value', l: 'FP/$M', v: (p) => p.value, f: (p) => p.value.toFixed(2), c: 'blu', b: 1 },
+  { k: 'pts', l: 'PTS', v: (p) => p.stats.pts },
+  { k: 'reb', l: 'REB', v: (p) => p.stats.reb },
+  { k: 'ast', l: 'AST', v: (p) => p.stats.ast },
+  { k: 'fg3m', l: '3PM', v: (p) => p.stats.fg3m },
+  { k: 'stl', l: 'STL', v: (p) => p.stats.stl },
+  { k: 'blk', l: 'BLK', v: (p) => p.stats.blk },
+  { k: 'tov', l: 'TOV', v: (p) => p.stats.tov },
+  { k: 'min', l: 'MIN', v: (p) => p.stats.min },
+];
+function renderStats() {
+  $('#statsPills').innerHTML = pills(S.statsPos, 'statspos');
+  $('#statsHead').innerHTML = `<th scope="col" class="left corner">PLAYER</th><th scope="col" class="left">POS</th><th scope="col" class="left">TONIGHT</th>` +
+    COLS.map((c) => {
+      const on = S.sortKey === c.k;
+      const aria = on ? (S.sortDir < 0 ? 'descending' : 'ascending') : 'none';
+      return `<th scope="col" aria-sort="${aria}"><button class="sortbtn${on ? ' on' : ''}" data-act="sort" data-k="${c.k}">${c.l}${on ? (S.sortDir < 0 ? ' ▼' : ' ▲') : ''}</button></th>`;
+    }).join('');
+  const col = COLS.find((c) => c.k === S.sortKey) || COLS[2];
+  const rows = S.slate.players.filter((p) => (S.statsPos === 'ALL' || slotsFor(p).includes(S.statsPos)) && matches(p, S.statsQuery))
+    .sort((a, b) => S.sortDir * (col.v(a) - col.v(b)));
+  $('#statsBody').innerHTML = rows.length ? rows.map((p) => `<tr class="${p.id === S.selId ? 'sel' : ''}">
+      <th scope="row"><button class="namebtn" data-act="select" data-id="${p.id}">${esc(p.name)}</button></th>
+      <td class="l">${esc(slotsFor(p).join('/'))}</td><td class="l">${esc(where(p))}</td>
+      ${COLS.map((c) => `<td class="${c.c || ''}"${c.b ? ' style="font-weight:700"' : ''}>${c.f ? c.f(p) : c.v(p)}</td>`).join('')}
+    </tr>`).join('') : `<tr><td class="l" colspan="16" style="padding:16px">No players match.</td></tr>`;
+  renderCard();
+}
+function renderCard() {
+  const p = S.byId[S.selId];
+  if (!p) { $('#card').innerHTML = '<p class="muted" style="margin:0">Pick a player to see his card.</p>'; return; }
+  const st = signState(p);
+  const l5 = p.last5 || [];
+  const max = Math.max(1, ...l5, p.avg_fp);
+  const bars = l5.length
+    ? `<div class="bars" role="img" aria-label="Last ${l5.length} games fantasy points, oldest to latest: ${l5.join(', ')}">${l5.map((v) => `<div class="bar"><span>${v}</span><i style="height:${Math.round(v / max * 100)}px;background:${v >= p.avg_fp ? 'var(--yel)' : 'var(--blu)'}"></i></div>`).join('')}</div>
+       <div style="display:flex;justify-content:space-between;font-size:15px" class="muted"><span>oldest</span><span>latest</span></div>`
+    : `<p class="muted" style="margin:0">No games yet this season.</p>`;
+  const adj = p.matchup_adj || 0;
+  const s = p.stats;
+  $('#card').innerHTML = `
+    <div class="who">${jersey(p, 'lg')}<div class="who-text"><h3 class="big-name">${esc(p.name)}</h3><span class="sub">${esc(slotsFor(p).join('/'))} · ${esc(where(p))}</span></div></div>
+    <div class="tiles">
+      <div class="tile"><div class="tile-k">PRICE</div><div class="tile-v">${money(p.price)}</div><div class="muted" style="font-size:15px">${chg(p) || 'no change'}</div></div>
+      <div class="tile"><div class="tile-k">PROJ</div><div class="tile-v yel">${p.proj.toFixed(1)}</div></div>
+      <div class="tile"><div class="tile-k">FP/$M</div><div class="tile-v blu">${p.value.toFixed(2)}</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="bars-head"><h3>LAST ${l5.length || 5} GAMES · FP</h3><span class="muted" style="font-size:16px">avg ${p.avg_fp.toFixed(1)}</span></div>
+      ${bars}
+    </div>
+    <div>
+      <div class="muted" style="font-size:16px;margin-bottom:8px">Per game, ${esc(p.stats_from || 'this season')}${p.games_this_season ? ` (${p.games_this_season} games)` : ''}</div>
+      <dl class="grid4">
+        <div><dt>PTS</dt><dd>${s.pts}</dd></div><div><dt>REB</dt><dd>${s.reb}</dd></div><div><dt>AST</dt><dd>${s.ast}</dd></div><div><dt>3PM</dt><dd>${s.fg3m}</dd></div>
+        <div><dt>STL</dt><dd>${s.stl}</dd></div><div><dt>BLK</dt><dd>${s.blk}</dd></div><div><dt>TOV</dt><dd>${s.tov}</dd></div><div><dt>MIN</dt><dd>${s.min}</dd></div>
+      </dl>
+    </div>
+    <div class="note"><span>${adj > 0 ? 'Matchup boost' : adj < 0 ? 'Tough matchup' : 'Neutral matchup'} ${esc(where(p))}</span>
+      <span style="font-family:var(--pixel);font-size:11px;color:${adj > 0 ? 'var(--yel)' : adj < 0 ? 'var(--red)' : 'var(--muted)'}">${adj > 0 ? '+' : ''}${adj.toFixed(1)} FP</span></div>
+    <button class="btn ${st.cls}" style="min-height:54px;font-size:12px" data-act="sign" data-id="${p.id}" ${st.off ? 'disabled' : ''}>${st.label}</button>`;
+}
+
+function renderScore() {
+  const rows = POS.filter((pos) => S.lineup[pos]).map((pos) => ({ pos, p: S.byId[S.lineup[pos]] }));
+  const res = S.results;
+  let total = 0, proj = 0;
+  const items = rows.map(({ pos, p }) => {
+    const r = res ? res[String(p.id)] : null;
+    const fp = r ? r.fp : null;
+    if (fp != null) total += fp;
+    proj += p.proj;
+    const hot = fp != null && fp >= p.proj;
+    const line = r ? `${r.pts} PTS · ${r.reb} REB · ${r.ast} AST · ${r.min} MIN` : (res ? 'Did not play' : (isLocked(p) ? 'Game under way or finished' : 'Waiting for tip-off'));
+    return `<li class="srow${hot ? ' hot' : ''}">
+      <span class="slot-pos" style="width:44px">${pos}</span>
+      <div style="flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:2px"><span class="pname">${esc(p.name)}</span><span class="sub">${esc(where(p))} · ${esc(line)}</span></div>
+      ${hot ? `<span class="hot-tag"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>HOT</span>` : ''}
+      <div style="text-align:right;min-width:90px"><div class="srow-fp ${hot ? 'red' : 'yel'}">${fp != null ? fp.toFixed(1) : '–'}</div><div class="muted" style="font-size:16px">proj ${p.proj.toFixed(1)}</div></div>
+    </li>`;
+  }).join('');
+  const board = `<div class="board">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span class="cap-label">${res ? 'FINAL TOTAL' : 'TONIGHT’S TOTAL'}</span>
+        <span class="board-total">${res ? total.toFixed(1) : '0.0'}</span>
+        <span class="muted">Projected ${proj.toFixed(1)} FP</span>
+      </div>
+      <button class="btn btn-primary" style="font-size:11px;min-height:52px;padding:0 18px" data-act="refresh">CHECK FOR SCORES</button>
+    </div>`;
+  const help = res ? '' : HOSTED
+    ? `<div class="empty"><span>Final scores post automatically the morning after the games.</span><span class="muted">Press Check for scores to look again.</span></div>`
+    : `<div class="empty"><span>Final scores appear after the games, once you run this in Terminal:</span><code>python pipeline/score_night.py --date ${esc(S.slate.date)}</code><span class="muted">Then press Check for scores.</span></div>`;
+  const empty = rows.length ? '' : `<div class="empty"><span>No one on the floor yet. Sign at least one player to fill the scoreboard.</span><button class="btn btn-primary" data-act="tab" data-tab="build">GO BUILD</button></div>`;
+  $('#score').innerHTML = board + empty + (rows.length ? `<ol class="srows">${items}</ol>` : '') + help;
+}
+
+function renderAll() {
+  renderHeader();
+  if (S.tab === 'build') { renderSlots(); renderPool(); }
+  if (S.tab === 'stats') renderStats();
+  if (S.tab === 'score') renderScore();
+}
+
+/* ---------- Events ---------- */
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-act]');
+  if (!b || b.disabled || !S.slate) return;
+  const id = b.dataset.id ? Number(b.dataset.id) : null;
+  switch (b.dataset.act) {
+    case 'tab': S.tab = b.dataset.tab; beep([[988, 0.05]]); renderAll(); window.scrollTo({ top: 0 }); break;
+    case 'sound': S.sound = !S.sound; store('bb-sound', S.sound); renderHeader(); break;
+    case 'choose': S.poolPos = b.dataset.pos; S.poolLimit = 36; renderAll(); $('#poolSearch').scrollIntoView({ block: 'center', behavior: 'smooth' }); break;
+    case 'poolpos': S.poolPos = b.dataset.v; S.poolLimit = 36; renderAll(); break;
+    case 'statspos': S.statsPos = b.dataset.v; renderStats(); break;
+    case 'more': S.poolLimit += 36; renderPool(); break;
+    case 'sign': sign(S.byId[id]); break;
+    case 'cut': cut(b.dataset.pos); break;
+    case 'stats': S.selId = id; S.tab = 'stats'; renderAll(); window.scrollTo({ top: 0 }); break;
+    case 'select': S.selId = id; renderStats(); if (window.innerWidth <= 900) $('#card').scrollIntoView({ behavior: 'smooth' }); break;
+    case 'sort': {
+      const k = b.dataset.k;
+      S.sortDir = S.sortKey === k ? -S.sortDir : (k === 'tov' ? 1 : -1);
+      S.sortKey = k; renderStats(); break;
+    }
+    case 'refresh': loadResults().then(() => { renderScore(); if (!S.results) flash('NOT YET!', '#A9A7C2', '#3D8BFF'); else flash('FINAL!', '#FFD23F', '#3D8BFF'); }); break;
+  }
+});
+$('#poolSearch').addEventListener('input', (e) => { S.poolQuery = e.target.value; S.poolLimit = 36; renderPool(); });
+$('#poolSort').addEventListener('change', (e) => { S.poolSort = e.target.value; S.poolLimit = 36; renderPool(); });
+$('#statsSearch').addEventListener('input', (e) => { S.statsQuery = e.target.value; renderStats(); });
+
+/* ---------- Loading ---------- */
+async function loadResults() {
+  try {
+    const r = await fetch(`../data/results/results-${S.slate.date}.json`, { cache: 'no-store' });
+    S.results = r.ok ? (await r.json()).players : null;
+  } catch (e) { S.results = null; }
+}
+function showBanner(html) { const b = $('#banner'); b.innerHTML = html; b.hidden = false; }
+
+async function load() {
+  try {
+    const r = await fetch('../data/slate-latest.json', { cache: 'no-store' });
+    if (!r.ok) throw new Error('missing');
+    S.slate = await r.json();
+  } catch (e) {
+    $('#slateLine').textContent = 'No slate loaded';
+    showBanner(HOSTED
+      ? 'Tonight’s slate isn’t posted yet. It updates every morning, so check back soon.'
+      : location.protocol === 'file:'
+      ? 'Open BIG BALLIN through the local server, not by double-clicking the file. In Terminal: <code>cd ~/Projects/big-ballin</code> then <code>python3 -m http.server 8000</code>, and go to <code>http://localhost:8000/app/</code>'
+      : 'Tonight’s slate hasn’t been built yet. In Terminal, run <code>python pipeline/build_slate.py</code> from the big-ballin folder, then reload this page.');
+    document.querySelectorAll('section').forEach((s) => { s.hidden = true; });
+    return;
+  }
+  S.slate.players.forEach((p) => { S.byId[p.id] = p; });
+  (S.slate.games || []).forEach((g) => { S.games[g.game_id] = g; });
+
+  const saved = recall('bb-lineup-' + S.slate.date);
+  if (saved) POS.forEach((pos) => { S.lineup[pos] = saved[pos] && S.byId[saved[pos]] ? saved[pos] : null; });
+  const snd = recall('bb-sound'); if (snd !== null) S.sound = !!snd;
+  const nextEmpty = POS.find((pos) => !S.lineup[pos]); S.poolPos = nextEmpty || 'ALL';
+
+  const vals = S.slate.players.filter((p) => p.proj >= 20).map((p) => p.value).sort((a, b) => a - b);
+  S.crushLine = vals.length ? vals[Math.floor(vals.length * 0.9)] : 99;
+  S.selId = [...S.slate.players].sort((a, b) => b.proj - a.proj)[0]?.id ?? null;
+
+  const d = new Date(S.slate.date + 'T12:00:00');
+  $('#slateLine').textContent = `${d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase()} · ${S.slate.games.length} GAMES · $${S.slate.cap}M CAP`;
+  const today = new Date(); const iso = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+  if (S.slate.date < iso) showBanner(HOSTED
+    ? `This is the slate from ${esc(S.slate.date)}. Today’s slate posts in the morning on game days.`
+    : `This slate is from ${esc(S.slate.date)}. For today’s games, run <code>python pipeline/build_slate.py</code> and reload.`);
+
+  await loadResults();
+  renderAll();
+  setInterval(() => { if (!document.hidden) renderAll(); }, 60000); // keeps locks current
+}
+load();
+</script>
+</body>
+</html>
