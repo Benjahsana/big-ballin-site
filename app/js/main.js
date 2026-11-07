@@ -1,17 +1,17 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=11e9431';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=11e9431';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=11e9431';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=11e9431';
-import { defaultDir } from './filters.js?v=11e9431';
-import { renderStats } from './render-stats.js?v=11e9431';
-import { renderScore } from './render-score.js?v=11e9431';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, friendly } from './cloud.js?v=11e9431';
-import { openModal, closeModal, renderModal } from './render-account.js?v=11e9431';
-import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=11e9431';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=11e9431';
-import { avatar } from './avatars.js?v=11e9431';
-import { LABELS } from './util.js?v=11e9431';
+import { S, ui } from './state.js?v=ede1dac';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=ede1dac';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=ede1dac';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=ede1dac';
+import { defaultDir } from './filters.js?v=ede1dac';
+import { renderStats } from './render-stats.js?v=ede1dac';
+import { renderScore } from './render-score.js?v=ede1dac';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, friendly } from './cloud.js?v=ede1dac';
+import { openModal, closeModal, renderModal } from './render-account.js?v=ede1dac';
+import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=ede1dac';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=ede1dac';
+import { avatar } from './avatars.js?v=ede1dac';
+import { LABELS } from './util.js?v=ede1dac';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;

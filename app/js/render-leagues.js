@@ -2,10 +2,10 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=11e9431';
-import { $, POS, esc, money, jersey, store } from './util.js?v=11e9431';
-import { avatar } from './avatars.js?v=11e9431';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=11e9431';
+import { S } from './state.js?v=ede1dac';
+import { $, POS, esc, money, jersey, store } from './util.js?v=ede1dac';
+import { avatar } from './avatars.js?v=ede1dac';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=ede1dac';
 
 export const PERIODS = [['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
