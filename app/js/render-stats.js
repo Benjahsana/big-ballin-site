@@ -1,7 +1,7 @@
 /* BIG BALLIN: Stats tab: Stat Center table and the big player card. */
-import { S } from './state.js?v=97455f4';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=97455f4';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=97455f4';
+import { S } from './state.js?v=d6ea804';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=d6ea804';
+import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=d6ea804';
 
 export const COLS = [
   { k: 'price', l: 'PRICE', v: (p) => p.price, f: (p) => money(p.price) },

@@ -1,10 +1,10 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=97455f4';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=97455f4';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=97455f4';
-import { renderSlots, renderPool } from './render-build.js?v=97455f4';
-import { renderStats } from './render-stats.js?v=97455f4';
-import { renderScore } from './render-score.js?v=97455f4';
+import { S, ui } from './state.js?v=d6ea804';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=d6ea804';
+import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=d6ea804';
+import { renderSlots, renderPool } from './render-build.js?v=d6ea804';
+import { renderStats } from './render-stats.js?v=d6ea804';
+import { renderScore } from './render-score.js?v=d6ea804';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
