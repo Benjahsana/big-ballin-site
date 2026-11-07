@@ -1,17 +1,17 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=ede1dac';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=ede1dac';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=ede1dac';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=ede1dac';
-import { defaultDir } from './filters.js?v=ede1dac';
-import { renderStats } from './render-stats.js?v=ede1dac';
-import { renderScore } from './render-score.js?v=ede1dac';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, friendly } from './cloud.js?v=ede1dac';
-import { openModal, closeModal, renderModal } from './render-account.js?v=ede1dac';
-import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=ede1dac';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=ede1dac';
-import { avatar } from './avatars.js?v=ede1dac';
-import { LABELS } from './util.js?v=ede1dac';
+import { S, ui } from './state.js?v=fc106aa';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=fc106aa';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=fc106aa';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=fc106aa';
+import { defaultDir } from './filters.js?v=fc106aa';
+import { renderStats } from './render-stats.js?v=fc106aa';
+import { renderScore } from './render-score.js?v=fc106aa';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, friendly } from './cloud.js?v=fc106aa';
+import { openModal, closeModal, renderModal } from './render-account.js?v=fc106aa';
+import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=fc106aa';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=fc106aa';
+import { avatar } from './avatars.js?v=fc106aa';
+import { LABELS } from './util.js?v=fc106aa';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -51,7 +51,7 @@ function renderHeader() {
   $('#soundBtn').setAttribute('aria-pressed', String(S.sound));
 }
 
-/* Header chip on every tab: [avatar] NAME · #47 WORLD ▲3 (season world rank). Biggest on BUILD. */
+/* Header chip on every tab: [avatar] NAME · #47 WORLD ▲3 (season world rank). Biggest on TODAY’S LINEUP. */
 function renderRankChip(cloudOn) {
   const chip = $('#rankChip');
   chip.hidden = !cloudOn;
@@ -330,6 +330,7 @@ async function load() {
   const win = recall('bb-win'); if (['l5', 'l10', 'season'].includes(win)) S.win = win;
   const ho = recall('bb-hideout'); if (ho !== null) S.hideOut = !!ho;
   const lgSaved = recall('bb-league'); if (typeof lgSaved === 'string' && lgSaved) S.lbLeague = lgSaved;
+  $('#buildTab').textContent = LABELS.build;
   $('#worldTab').textContent = LABELS.world;
   setupPoolControls();
   const nextEmpty = POS.find((pos) => !S.lineup[pos]); S.poolPos = nextEmpty || 'ALL';

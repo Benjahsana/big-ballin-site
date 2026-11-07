@@ -1,7 +1,7 @@
 /* BIG BALLIN: Scoreboard tab. */
-import { S } from './state.js?v=ede1dac';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=ede1dac';
-import { liveOf, gameOf, allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=ede1dac';
+import { S } from './state.js?v=fc106aa';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=fc106aa';
+import { liveOf, gameOf, allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=fc106aa';
 
 export function renderScore() {
   const rows = POS.filter((pos) => S.lineup[pos]).map((pos) => ({ pos, p: S.byId[S.lineup[pos]] }));
@@ -50,6 +50,6 @@ export function renderScore() {
     : HOSTED
     ? `<div class="empty"><span>Points go live a few minutes after tip-off, and final scores post the morning after.</span><span class="muted">Press Check for scores to look again.</span></div>`
     : `<div class="empty"><span>Final scores appear after the games, once you run this in Terminal:</span><code>python pipeline/score_night.py --date ${esc(S.slate.date)}</code><span class="muted">Then press Check for scores.</span></div>`;
-  const empty = rows.length ? '' : `<div class="empty"><span>No one on the floor yet. Sign at least one player to fill the scoreboard.</span><button class="btn btn-primary" data-act="tab" data-tab="build">GO BUILD</button></div>`;
+  const empty = rows.length ? '' : `<div class="empty"><span>No one on the floor yet. Sign at least one player to fill the scoreboard.</span><button class="btn btn-primary" data-act="tab" data-tab="build">SET TODAY’S LINEUP</button></div>`;
   $('#score').innerHTML = board + empty + (rows.length ? `<ol class="srows">${items}</ol>` : '') + help;
 }

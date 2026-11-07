@@ -1,9 +1,9 @@
 /* BIG BALLIN: constants, formatting, storage, sound, callouts, small render helpers. */
-import { S } from './state.js?v=ede1dac';
+import { S } from './state.js?v=fc106aa';
 
 export const POS = ['PG', 'SG', 'SF', 'PF', 'C'];
-/* Tab names shown in the app. The world board's name may change (e.g. 'WORLD HIGH SCORES'). */
-export const LABELS = { world: 'TOP WORLD RANKINGS', worldShort: 'WORLD' };
+/* Tab names shown in the app (one place to rename them). The world board's may become 'WORLD HIGH SCORES'. */
+export const LABELS = { build: 'TODAY’S LINEUP', world: 'TOP WORLD RANKINGS', worldShort: 'WORLD' };
 /* How many rows the World Rankings board shows (plus your own row if you're further down). */
 export const WORLD_ROWS = 100;
 export const POSNAME = { PG: 'Point guard', SG: 'Shooting guard', SF: 'Small forward', PF: 'Power forward', C: 'Center' };
