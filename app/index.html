@@ -6,7 +6,7 @@
 <title>BIG BALLIN</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=c35ea33">
+<link rel="stylesheet" href="styles.css?v=659b60b">
 </head>
 <body>
 <div class="wrap">
@@ -19,6 +19,7 @@
       <div class="cap-top"><span class="cap-label">CAP SPACE</span><span class="cap-left" id="capLeft">$100.0M</span></div>
       <div class="cap-bar"><div class="cap-fill" id="capFill" style="width:100%;background:var(--yel)"></div></div>
       <div class="cap-bottom"><span id="capSpent">Spent $0.0M</span><span id="capCount">0/5 signed</span></div>
+      <div class="sync" id="syncNote" aria-live="polite"></div>
       <div class="cap-bonus" title="Unused cap boosts your score: final score = fantasy points × cap bonus">
         <span class="cap-bonus-val" id="capBonus">CAP BONUS ×1.00</span>
         <span class="cap-bonus-note" id="capBonusNote">Leave cap unused to boost your score</span>
@@ -32,6 +33,8 @@
     <button class="tab" data-act="tab" data-tab="build" aria-pressed="true">BUILD</button>
     <button class="tab" data-act="tab" data-tab="stats" aria-pressed="false">STATS</button>
     <button class="tab" data-act="tab" data-tab="score" aria-pressed="false">SCOREBOARD</button>
+    <button class="tab" data-act="tab" data-tab="leagues" aria-pressed="false" id="leaguesTab" hidden>LEAGUES</button>
+    <button class="acct" data-act="acct" id="acctBtn" hidden>SIGN IN</button>
     <button class="sound" data-act="sound" id="soundBtn" aria-pressed="true">SOUND ON</button>
   </nav>
 
@@ -84,6 +87,11 @@
     </div>
   </section>
 
+  <!-- LEAGUES -->
+  <section id="view-leagues" aria-label="Leagues and leaderboards" hidden>
+    <div class="leagues-wrap" id="leagues"></div>
+  </section>
+
   <!-- SCOREBOARD -->
   <section id="view-score" aria-label="Scoreboard" hidden>
     <div class="score-wrap" id="score"></div>
@@ -99,7 +107,8 @@
 </div>
 
 <div class="callout" id="callout" role="status" aria-live="assertive"></div>
+<dialog class="modal" id="modal" aria-label="Account"></dialog>
 
-<script type="module" src="js/main.js?v=c35ea33"></script>
+<script type="module" src="js/main.js?v=659b60b"></script>
 </body>
 </html>

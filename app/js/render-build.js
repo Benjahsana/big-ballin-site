@@ -1,8 +1,8 @@
 /* BIG BALLIN: Build tab: lineup slots, fill bar, filters and free agents (cards or list). */
-import { S } from './state.js?v=c35ea33';
-import { $, POS, POSNAME, esc, money, where, slotsFor, chg, jersey, fitNames } from './util.js?v=c35ea33';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState } from './lineup.js?v=c35ea33';
-import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=c35ea33';
+import { S } from './state.js?v=659b60b';
+import { $, POS, POSNAME, esc, money, where, slotsFor, chg, jersey, fitNames } from './util.js?v=659b60b';
+import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState } from './lineup.js?v=659b60b';
+import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=659b60b';
 
 export function renderSlots() {
   $('#slots').innerHTML = POS.map((pos) => {
@@ -15,7 +15,7 @@ export function renderSlots() {
       <div class="who">${jersey(p, 'sm')}<div class="who-text"><span class="pname fit" style="font-size:21px">${esc(p.name)} ${injuryTag(p)}</span><span class="sub">${esc(where(p))}</span></div></div>
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
         <span class="price" style="text-align:left">${money(p.price)}</span>
-        ${locked ? '<span class="badge">LOCKED</span>' : `<span class="yel" style="font-weight:700">${p.proj.toFixed(1)} proj</span>`}
+        ${locked ? `<span class="badge">LOCKED</span>${liveOf(p) ? `<span class="live-fp">${liveOf(p).fp.toFixed(1)} FP</span>` : ''}` : `<span class="yel" style="font-weight:700">${p.proj.toFixed(1)} proj</span>`}
       </div>
       <div class="slot-actions">
         <button class="btn btn-ghost" data-act="stats" data-id="${p.id}">STATS</button>

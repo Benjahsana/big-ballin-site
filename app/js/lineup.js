@@ -1,6 +1,12 @@
 /* BIG BALLIN: lineup rules: locks, cap, cap bonus, sign and cut. */
-import { S, ui } from './state.js?v=c35ea33';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=c35ea33';
+import { S, ui } from './state.js?v=659b60b';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=659b60b';
+import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=659b60b';
+
+/* ---------- Live points (S.live, from Supabase) ---------- */
+export const liveOf = (p) => (S.live && S.live.p[String(p.id)]) || null;
+export const gameOf = (p) => (S.live && S.live.games[p.game_id]) || null;
+export const allFinal = () => !!(S.live && (S.slate.games || []).every((g) => S.live.games[g.game_id] && S.live.games[g.game_id].s === 3));
 
 /* ---------- Lineup logic ---------- */
 export function isLocked(p) {
@@ -50,7 +56,28 @@ export function signState(p) {
   if (!fits(p)) return { label: 'NO ROOM', cls: 'btn-danger', off: false };
   return { label: S.lineup[targetSlot(p)] ? 'SWAP IN' : 'SIGN', cls: 'btn-primary', off: false };
 }
-export function saveLineup() { store('bb-lineup-' + S.slate.date, S.lineup); }
+/* Save on this device, and to your account when signed in. The database re-checks
+   every rule (locks, cap, slots); if it says no, we put back what it has saved. */
+export function saveLineup() {
+  store('bb-lineup-' + S.slate.date, S.lineup);
+  if (!signedIn()) { S.sync = 'local'; return; }
+  const date = S.slate.date;
+  S.sync = 'saving';
+  pushLineup(date, { ...S.lineup })
+    .then(() => { S.sync = 'saved'; ui.renderAll(); })
+    .catch(async (e) => {
+      const f = friendly(e);
+      S.sync = 'error';
+      beep([[110, 0.35], [92, 0.3]]); flash(f.title, '#FF4A3D', '#3D8BFF');
+      try {
+        const lu = await loadLineup(date);
+        POS.forEach((pos) => { S.lineup[pos] = lu && lu[pos] && S.byId[lu[pos]] ? lu[pos] : null; });
+        store('bb-lineup-' + date, S.lineup);
+        S.sync = 'saved';
+      } catch (e2) { /* offline: keep the local copy */ }
+      ui.renderAll();
+    });
+}
 
 export function sign(p) {
   if (isLocked(p)) { beep([[110, 0.3]]); flash('LOCKED!', '#A9A7C2', '#FF4A3D'); return; }
