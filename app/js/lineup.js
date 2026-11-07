@@ -1,6 +1,6 @@
 /* BIG BALLIN: lineup rules: locks, cap, cap bonus, sign and cut. */
-import { S, ui } from './state.js?v=dev';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=dev';
+import { S, ui } from './state.js?v=97455f4';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=97455f4';
 
 /* ---------- Lineup logic ---------- */
 export function isLocked(p) {
