@@ -1,8 +1,8 @@
 /* BIG BALLIN: Leagues tab: leaderboards (Tonight / Week / Month / Season, by final
    score), latest winners, everyone's lineups once they lock, invite links. */
-import { S } from './state.js?v=659b60b';
-import { $, POS, esc, money, jersey } from './util.js?v=659b60b';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, friendly } from './cloud.js?v=659b60b';
+import { S } from './state.js?v=93327fe';
+import { $, POS, esc, money, jersey } from './util.js?v=93327fe';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, friendly } from './cloud.js?v=93327fe';
 
 export const PERIODS = [['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 const BADGE = { night: 'NIGHT WINNER', week: 'WEEK WINNER', month: 'MONTH WINNER', season: 'SEASON CHAMP' };

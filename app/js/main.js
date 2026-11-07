@@ -1,14 +1,14 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=659b60b';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=659b60b';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=659b60b';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=659b60b';
-import { defaultDir } from './filters.js?v=659b60b';
-import { renderStats } from './render-stats.js?v=659b60b';
-import { renderScore } from './render-score.js?v=659b60b';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveName, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, friendly } from './cloud.js?v=659b60b';
-import { openModal, closeModal, renderModal } from './render-account.js?v=659b60b';
-import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=659b60b';
+import { S, ui } from './state.js?v=93327fe';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=93327fe';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=93327fe';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=93327fe';
+import { defaultDir } from './filters.js?v=93327fe';
+import { renderStats } from './render-stats.js?v=93327fe';
+import { renderScore } from './render-score.js?v=93327fe';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveName, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, friendly } from './cloud.js?v=93327fe';
+import { openModal, closeModal, renderModal } from './render-account.js?v=93327fe';
+import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=93327fe';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
