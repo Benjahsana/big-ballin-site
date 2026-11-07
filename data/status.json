@@ -1,9 +1,9 @@
 {
   "last_run": {
     "job": "slate",
-    "ok": true,
-    "message": "ok",
-    "at": "2026-11-07T18:00:28+00:00",
+    "ok": false,
+    "message": "slate job failed",
+    "at": "2026-11-07T18:00:50+00:00",
     "code_version": "659b60b"
   },
   "last_ok": {
