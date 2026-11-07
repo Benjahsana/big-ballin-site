@@ -1,17 +1,19 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=c9556d0';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=c9556d0';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=c9556d0';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=c9556d0';
-import { defaultDir } from './filters.js?v=c9556d0';
-import { renderStats } from './render-stats.js?v=c9556d0';
-import { renderScore } from './render-score.js?v=c9556d0';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, friendly } from './cloud.js?v=c9556d0';
-import { openModal, closeModal, renderModal } from './render-account.js?v=c9556d0';
-import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=c9556d0';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=c9556d0';
-import { avatar } from './avatars.js?v=c9556d0';
-import { LABELS } from './util.js?v=c9556d0';
+import { S, ui } from './state.js?v=6739afe';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=6739afe';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=6739afe';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=6739afe';
+import { defaultDir } from './filters.js?v=6739afe';
+import { renderStats } from './render-stats.js?v=6739afe';
+import { renderScore, loadTonightRanks } from './render-score.js?v=6739afe';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=6739afe';
+import { openModal, closeModal, renderModal } from './render-account.js?v=6739afe';
+import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=6739afe';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=6739afe';
+import { avatar } from './avatars.js?v=6739afe';
+import { play, SOUNDS } from './sound.js?v=6739afe';
+import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=6739afe';
+import { LABELS } from './util.js?v=6739afe';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -48,7 +50,7 @@ function renderHeader() {
     : { saving: 'Saving…', saved: 'Saved to your account ✓', error: 'Couldn’t save to your account', local: '' }[S.sync] || '';
   $('#syncNote').className = 'sync' + (S.sync === 'error' && signedIn() ? ' red' : '');
   $('#soundBtn').textContent = S.sound ? 'SOUND ON' : 'SOUND OFF';
-  $('#soundBtn').setAttribute('aria-pressed', String(S.sound));
+  renderSoundPanel();
 }
 
 /* Header chip on every tab: [avatar] NAME · #47 WORLD ▲3 (season world rank). Biggest on TODAY’S LINEUP. */
@@ -67,6 +69,28 @@ function renderRankChip(cloudOn) {
   chip.dataset.act = 'rankchip';
   chip.innerHTML = `${avatar(S.profile.avatar, S.tab === 'build' ? 48 : 36)}<span class="rc-name">${esc(S.profile.display_name.toUpperCase())}</span><span class="rc-dot">·</span><span class="rc-rank">${t.rank}</span>${t.move}`;
   chip.setAttribute('aria-label', `${S.profile.display_name}, ${t.rank.replace('#', 'number ')}. Open ${LABELS.world}`);
+}
+
+/* SOUND panel: on/off and volume (remembered per device). With #soundtest at the end of
+   the address it also lists every sound, to hear them before pushing a change. */
+let soundOpen = location.hash === '#soundtest';
+function renderSoundPanel() {
+  const box = $('#soundPanel');
+  $('#soundBtn').setAttribute('aria-expanded', String(soundOpen));
+  box.hidden = !soundOpen;
+  if (!soundOpen) return;
+  const vol = Math.round(S.volume * 100);
+  const test = location.hash === '#soundtest'
+    ? `<div class="snd-test"><span class="cap-label">SOUND TEST (tap one; cooldown skipped here)</span>
+        <div class="snd-grid">${Object.entries(SOUNDS).map(([k, v]) => `<button class="btn btn-plain" data-act="soundtest" data-k="${k}">${esc(v[0])}</button>`).join('')}</div></div>` : '';
+  if (box.dataset.vol === String(vol) && box.dataset.on === String(S.sound) && box.dataset.test === String(!!test)) return;  // keep the slider steady while dragging
+  box.dataset.vol = vol; box.dataset.on = S.sound; box.dataset.test = !!test;
+  box.innerHTML = `<div class="snd-row">
+      <button class="tog" data-act="sound" aria-pressed="${S.sound}">${S.sound ? 'SOUND ON' : 'SOUND OFF'}</button>
+      <label class="snd-vol"><span class="cap-label">VOLUME</span>
+        <input type="range" id="volRange" min="0" max="100" step="5" value="${vol}" aria-label="Volume" ${S.sound ? '' : 'disabled'}></label>
+      <span class="muted">${vol}%</span>
+    </div>${test}`;
 }
 
 function renderAll() {
@@ -99,16 +123,16 @@ document.addEventListener('click', (e) => {
   if (!b || b.disabled || !S.slate) return;
   const id = b.dataset.id ? Number(b.dataset.id) : null;
   switch (b.dataset.act) {
-    case 'tab': S.tab = b.dataset.tab; beep([[988, 0.05]]); renderAll(); window.scrollTo({ top: 0 });
+    case 'tab': S.tab = b.dataset.tab; play('tap'); renderAll(); window.scrollTo({ top: 0 });
       if (S.tab === 'leagues') loadBoards().then(renderAll);
       if (S.tab === 'world') loadWorld().then(renderAll);
-      if (S.tab === 'score') pollLive().then(renderAll);
+      if (S.tab === 'score') pollLive().then(loadTonightRanks).then(renderAll);
       break;
     case 'acct': signedIn() ? openModal('account') : S.user ? openModal('name') : openModal('signin'); break;
     case 'modal': openModal(b.dataset.k, b.dataset.k === 'signin' && S.modal ? { email: S.modal.email } : null); break;
     case 'closemodal': closeModal(); break;
     case 'signout': signOut().then(() => { closeModal(); afterAuth(); flash('SIGNED OUT', '#A9A7C2', '#3D8BFF'); }); break;
-    case 'rankchip': S.tab = 'world'; S.wPeriod = 'season'; S.wRows = null; beep([[988, 0.05]]); renderAll(); window.scrollTo({ top: 0 }); loadWorld().then(renderAll); break;
+    case 'rankchip': S.tab = 'world'; S.wPeriod = 'season'; S.wRows = null; play('tap'); renderAll(); window.scrollTo({ top: 0 }); loadWorld().then(renderAll); break;
     case 'league': S.lbLeague = b.dataset.v || null; store('bb-league', S.lbLeague); S.lbRows = null; S.inviteOpen = false;
       renderLeagues(); window.scrollTo({ top: 0 }); loadBoards().then(renderAll); break;
     case 'lbperiod': S.lbPeriod = b.dataset.v; S.lbRows = null; renderLeagues(); loadBoards().then(renderAll); break;
@@ -132,7 +156,9 @@ document.addEventListener('click', (e) => {
         .catch((e) => { const f = friendly(e); flash(f.title, '#FF4A3D', '#3D8BFF'); });
       break;
     }
-    case 'sound': S.sound = !S.sound; store('bb-sound', S.sound); renderHeader(); break;
+    case 'soundpanel': soundOpen = !soundOpen; renderHeader(); break;
+    case 'sound': S.sound = !S.sound; store('bb-sound', S.sound); renderHeader(); if (S.sound) play('tap'); break;
+    case 'soundtest': play(b.dataset.k, { force: true }); break;
     case 'choose': S.poolPos = b.dataset.pos; S.poolLimit = 36; renderAll(); $('#faTitle').scrollIntoView({ block: 'start', behavior: 'smooth' }); break;
     case 'poolpos': S.poolPos = b.dataset.v; S.poolLimit = 36; renderAll(); break;
     case 'statspos': S.statsPos = b.dataset.v; renderStats(); break;
@@ -160,7 +186,7 @@ document.addEventListener('click', (e) => {
       S.sortDir = S.sortKey === k ? -S.sortDir : (k === 'tov' ? 1 : -1);
       S.sortKey = k; renderStats(); break;
     }
-    case 'refresh': loadResults().then(pollLive).then(() => {
+    case 'refresh': loadResults().then(pollLive).then(loadTonightRanks).then(() => {
       renderScore();
       if (S.results) flash('FINAL!', '#FFD23F', '#3D8BFF');
       else if (S.live) flash('LIVE!', '#FF4A3D', '#FFD23F');
@@ -172,6 +198,13 @@ $('#poolSearch').addEventListener('input', (e) => { S.poolQuery = e.target.value
 $('#poolSort').addEventListener('change', (e) => { S.poolSort = e.target.value; S.poolDir = defaultDir(S.poolSort); S.poolLimit = 36; renderPool(); });
 $('#poolGame').addEventListener('change', (e) => { S.poolGame = e.target.value; S.poolLimit = 36; renderPool(); });
 $('#poolPrice').addEventListener('change', (e) => { S.poolPrice = e.target.value; S.poolLimit = 36; renderPool(); });
+document.addEventListener('input', (e) => {
+  if (e.target.id !== 'volRange') return;
+  S.volume = Number(e.target.value) / 100; store('bb-vol', S.volume);
+  const pct = e.target.closest('.snd-row').querySelector('.muted'); if (pct) pct.textContent = Math.round(S.volume * 100) + '%';
+  $('#soundPanel').dataset.vol = Math.round(S.volume * 100);
+});
+document.addEventListener('change', (e) => { if (e.target.id === 'volRange') play('sign', { force: true }); });   // hear the new level
 $('#statsSearch').addEventListener('input', (e) => { S.statsQuery = e.target.value; renderStats(); });
 
 /* ---------- Account pop-up forms ---------- */
@@ -200,7 +233,7 @@ $('#modal').addEventListener('submit', async (e) => {
       closeModal();
       S.lbLeague = lg.id; store('bb-league', lg.id); S.tab = 'leagues'; S.lbRows = null; S.inviteOpen = kind === 'create';
       await loadBoards(); renderAll();
-      beep([[660, 0.07], [880, 0.07], [1320, 0.12]]);
+      play('league');
       flash(kind === 'create' ? 'LEAGUE CREATED!' : 'YOU’RE IN!', '#FFD23F', '#3D8BFF');
       return;
     }
@@ -213,7 +246,7 @@ $('#modal').addEventListener('submit', async (e) => {
 
 /* After sign-in, sign-out or on load: pick up the account's lineup and any pending invite. */
 async function afterAuth() {
-  if (!S.user) { S.sync = 'local'; S.leagues = []; S.rank = null; S.inviteOpen = false; if (S.tab === 'leagues') await loadBoards(); renderAll(); return; }
+  if (!S.user) { S.sync = 'local'; S.leagues = []; S.rank = null; S.tRanks = null; S.inviteOpen = false; if (S.tab === 'leagues') await loadBoards(); renderAll(); return; }
   if (!S.profile) { renderAll(); openModal('name'); return; }
   try {
     const lu = await loadLineup(S.slate.date);
@@ -235,9 +268,30 @@ async function afterAuth() {
     } catch (e) { const f = friendly(e); flash(f.title, '#FF4A3D', '#3D8BFF'); }
   }
   try { S.rank = await myWorldRank(); } catch (e) { S.rank = null; }
+  await checkBadges();
   if (S.tab === 'leagues') await loadBoards();
   if (S.tab === 'world') await loadWorld();
   renderAll();
+}
+
+/* Fanfare (once) for a badge I haven't seen yet on this device. The first time an account is
+   seen here, its existing badges are just marked as seen. */
+const BADGE_SHOUT = { night: 'NIGHT WINNER!', week: 'WEEK WINNER!', month: 'MONTH WINNER!', season: 'SEASON CHAMP!',
+  w_night1: 'WORLD #1 LAST NIGHT!', w_week10: 'WORLD TOP 10 WEEK!', w_month10: 'WORLD TOP 10 MONTH!' };
+async function checkBadges() {
+  if (!signedIn()) return;
+  try {
+    const mine = await myBadges();
+    const key = 'bb-badges-seen-' + S.user.id;
+    const seen = recall(key);
+    store(key, mine.map((b) => b.id));
+    if (!Array.isArray(seen)) return;
+    const fresh = mine.filter((b) => !seen.includes(b.id));
+    if (!fresh.length) return;
+    const best = fresh.find((b) => b.kind === 'night' || b.kind === 'w_night1') || fresh[0];
+    play('fanfare');
+    flash(BADGE_SHOUT[best.kind] || 'BADGE!', '#FFD23F', '#FF4A3D');
+  } catch (e) { /* try again next visit */ }
 }
 
 /* ---------- Live points (Supabase live_feed, refreshed by the server about every minute) ---------- */
@@ -259,7 +313,7 @@ async function pollLive() {
       if (liveSeeded && !shout) shout = p;
     });
     liveSeeded = true;
-    if (shout) { beep([[523, 0.08], [784, 0.08], [1047, 0.16]]); flash(shout.name.split(' ').slice(-1)[0].toUpperCase() + ' IS HEATING UP!', '#FF4A3D', '#FFD23F'); }
+    if (shout) { play('heat'); flash(shout.name.split(' ').slice(-1)[0].toUpperCase() + ' IS HEATING UP!', '#FF4A3D', '#FFD23F'); }
   } catch (e) { /* try again next minute */ }
 }
 
@@ -270,9 +324,11 @@ async function tick() {
   const liveNow = S.live && !allFinal();
   if (liveNow && S.tab === 'leagues' && S.lbLeague && S.lbPeriod === 'night') await loadBoards();
   if (liveNow && S.tab === 'world' && S.wPeriod === 'night') await loadWorld();
+  if (liveNow && S.tab === 'score') await loadTonightRanks();
   renderAll();
 }
 let lastTick = 0;
+window.addEventListener('hashchange', () => { if (location.hash === '#soundtest') { soundOpen = true; renderHeader(); } });
 document.addEventListener('visibilitychange', () => {
   // Coming back to the tab: catch up right away instead of waiting for the next minute.
   if (!document.hidden && S.slate && Date.now() - lastTick > 30000) { lastTick = Date.now(); tick(); }
@@ -326,6 +382,7 @@ async function load() {
   const saved = recall('bb-lineup-' + S.slate.date);
   if (saved) POS.forEach((pos) => { S.lineup[pos] = saved[pos] && S.byId[saved[pos]] ? saved[pos] : null; });
   const snd = recall('bb-sound'); if (snd !== null) S.sound = !!snd;
+  const vol = recall('bb-vol'); if (typeof vol === 'number' && vol >= 0 && vol <= 1) S.volume = vol; else S.volume = SOUND.volume;
   const view = recall('bb-view'); if (view === 'cards' || view === 'list') S.view = view;
   const win = recall('bb-win'); if (['l5', 'l10', 'season'].includes(win)) S.win = win;
   const ho = recall('bb-hideout'); if (ho !== null) S.hideOut = !!ho;
@@ -364,6 +421,6 @@ async function load() {
     await pollLive();
     renderAll();
   }
-  setInterval(() => { lastTick = Date.now(); tick(); }, 60000); // keeps locks and live points current
+  setInterval(() => { lastTick = Date.now(); tick(); }, LIVE_REFRESH_MS); // keeps locks and live points current
 }
 load();

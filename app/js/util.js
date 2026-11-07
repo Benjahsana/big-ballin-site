@@ -1,11 +1,8 @@
 /* BIG BALLIN: constants, formatting, storage, sound, callouts, small render helpers. */
-import { S } from './state.js?v=c9556d0';
+import { S } from './state.js?v=6739afe';
 
 export const POS = ['PG', 'SG', 'SF', 'PF', 'C'];
-/* Tab names shown in the app (one place to rename them). The world board's may become 'WORLD HIGH SCORES'. */
-export const LABELS = { build: 'TODAY’S LINEUP', stats: 'PLAYERS', world: 'TOP WORLD RANKINGS', worldShort: 'WORLD' };
-/* How many rows the World Rankings board shows (plus your own row if you're further down). */
-export const WORLD_ROWS = 100;
+export { LABELS, WORLD_ROWS } from './app-config.js?v=6739afe';
 export const POSNAME = { PG: 'Point guard', SG: 'Shooting guard', SF: 'Small forward', PF: 'Power forward', C: 'Center' };
 export const TEAM_COLORS = { ATL:'#C8102E', BOS:'#007A33', BKN:'#2A2A2A', CHA:'#1D1160', CHI:'#CE1141', CLE:'#860038', DAL:'#00538C', DEN:'#0E2240', DET:'#C8102E', GSW:'#1D428A', HOU:'#CE1141', IND:'#002D62', LAC:'#C8102E', LAL:'#552583', MEM:'#5D76A9', MIA:'#98002E', MIL:'#00471B', MIN:'#0C2340', NOP:'#0C2340', NYK:'#006BB6', OKC:'#007AC1', ORL:'#0077C0', PHI:'#006BB6', PHX:'#E56020', POR:'#E03A3E', SAC:'#5A2D81', SAS:'#5A5D60', TOR:'#CE1141', UTA:'#3E2680', WAS:'#002B5C' };
 
@@ -23,23 +20,7 @@ export const chg = (p) => !p.price_change ? '' : (p.price_change > 0 ? '▲ ' : 
 export function store(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
 export function recall(key) { try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
 
-/* ---------- Sound & callouts ---------- */
-export let audio = null;
-export function beep(notes) {
-  if (!S.sound) return;
-  try {
-    const AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) return;
-    audio = audio || new AC();
-    let t = audio.currentTime;
-    notes.forEach(([freq, dur]) => {
-      const o = audio.createOscillator(), g = audio.createGain();
-      o.type = 'square'; o.frequency.value = freq;
-      g.gain.setValueAtTime(0.05, t); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-      o.connect(g); g.connect(audio.destination); o.start(t); o.stop(t + dur); t += dur;
-    });
-  } catch (e) {}
-}
+/* ---------- Callouts (sounds are in sound.js) ---------- */
 export let calloutTimer = null;
 export function flash(text, col, shadow) {
   const el = $('#callout');

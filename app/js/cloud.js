@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=c9556d0';
-import { POS } from './util.js?v=c9556d0';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=c9556d0';
+import { S } from './state.js?v=6739afe';
+import { POS } from './util.js?v=6739afe';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=6739afe';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -150,6 +150,13 @@ export async function myWorldRank() {
   const { data, error } = await sb.rpc('my_world_rank');
   if (error) throw error;
   return (data && data[0]) || null;
+}
+
+/* My own badges (for the fanfare the first time I see a new one). */
+export async function myBadges() {
+  const { data, error } = await sb.from('badges').select('id,kind,period,league_id').eq('user_id', S.user.id).order('id');
+  if (error) throw error;
+  return data || [];
 }
 
 /* Most recent badge of each kind for a league, or the world (league null). */

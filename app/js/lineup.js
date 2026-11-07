@@ -1,7 +1,8 @@
 /* BIG BALLIN: lineup rules: locks, cap, cap bonus, sign and cut. */
-import { S, ui } from './state.js?v=c9556d0';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=c9556d0';
-import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=c9556d0';
+import { S, ui } from './state.js?v=6739afe';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=6739afe';
+import { play } from './sound.js?v=6739afe';
+import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=6739afe';
 
 /* ---------- Live points (S.live, from Supabase) ---------- */
 export const liveOf = (p) => (S.live && S.live.p[String(p.id)]) || null;
@@ -68,7 +69,7 @@ export function saveLineup() {
     .catch(async (e) => {
       const f = friendly(e);
       S.sync = 'error';
-      beep([[110, 0.35], [92, 0.3]]); flash(f.title, '#FF4A3D', '#3D8BFF');
+      play(f.title === 'LOCKED!' ? 'locked' : 'buzz'); flash(f.title, '#FF4A3D', '#3D8BFF');
       try {
         const lu = await loadLineup(date);
         POS.forEach((pos) => { S.lineup[pos] = lu && lu[pos] && S.byId[lu[pos]] ? lu[pos] : null; });
@@ -80,21 +81,21 @@ export function saveLineup() {
 }
 
 export function sign(p) {
-  if (isLocked(p)) { beep([[110, 0.3]]); flash('LOCKED!', '#A9A7C2', '#FF4A3D'); return; }
+  if (isLocked(p)) { play('locked'); flash('LOCKED!', '#A9A7C2', '#FF4A3D'); return; }
   const t = targetSlot(p);
   const occ = S.lineup[t] ? S.byId[S.lineup[t]] : null;
-  if (occ && isLocked(occ)) { beep([[110, 0.3]]); flash('LOCKED!', '#A9A7C2', '#FF4A3D'); return; }
-  if (costAfter(p) > S.slate.cap + 1e-6) { beep([[110, 0.35], [92, 0.3]]); flash('OVER THE CAP!', '#FF4A3D', '#3D8BFF'); return; }
-  if (!fits(p)) { beep([[110, 0.35], [92, 0.3]]); flash('NO ROOM!', '#FF4A3D', '#3D8BFF'); return; }
+  if (occ && isLocked(occ)) { play('locked'); flash('LOCKED!', '#A9A7C2', '#FF4A3D'); return; }
+  if (costAfter(p) > S.slate.cap + 1e-6) { play('buzz'); flash('OVER THE CAP!', '#FF4A3D', '#3D8BFF'); return; }
+  if (!fits(p)) { play('buzz'); flash('NO ROOM!', '#FF4A3D', '#3D8BFF'); return; }
   const cur = slotOf(p.id);
   if (cur) S.lineup[cur] = null;
   S.lineup[t] = p.id;
   saveLineup();
   const next = POS.find((pos) => !S.lineup[pos]);
   if (next) S.poolPos = next;
-  beep([[660, 0.07], [880, 0.07], [1320, 0.12]]);
   const bonus = capBonusFor(spent(), filledCount());
-  if (filledCount() === 5 && bonus >= 1.15) { beep([[523, 0.08], [659, 0.08], [784, 0.08], [1047, 0.2]]); flash('CAP BONUS ' + bonusText(bonus) + '!', '#FFD23F', '#3D8BFF'); }
+  play(filledCount() === 5 ? 'complete' : 'sign');   // the 5th signing plays the jingle instead of the blip
+  if (filledCount() === 5 && bonus >= 1.15) { flash('CAP BONUS ' + bonusText(bonus) + '!', '#FFD23F', '#3D8BFF'); }
   else if (p.price >= 40) flash('MAX CONTRACT!', '#FFD23F', '#FF4A3D');
   else if (p.value >= S.crushLine) flash('CAP CRUSHER!', '#FFD23F', '#3D8BFF');
   else flash('SIGNED!', '#FFD23F', '#FF4A3D');
@@ -103,8 +104,8 @@ export function sign(p) {
 export function cut(pos) {
   const p = S.lineup[pos] ? S.byId[S.lineup[pos]] : null;
   if (!p) return;
-  if (isLocked(p)) { beep([[110, 0.3]]); flash('LOCKED!', '#A9A7C2', '#FF4A3D'); return; }
+  if (isLocked(p)) { play('locked'); flash('LOCKED!', '#A9A7C2', '#FF4A3D'); return; }
   S.lineup[pos] = null; S.poolPos = pos; saveLineup();
-  beep([[330, 0.08], [220, 0.12]]);
+  play('cut');
   ui.renderAll();
 }

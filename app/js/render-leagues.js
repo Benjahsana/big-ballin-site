@@ -2,10 +2,10 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=c9556d0';
-import { $, POS, esc, money, jersey, store } from './util.js?v=c9556d0';
-import { avatar } from './avatars.js?v=c9556d0';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=c9556d0';
+import { S } from './state.js?v=6739afe';
+import { $, POS, esc, money, store } from './util.js?v=6739afe';
+import { avatar } from './avatars.js?v=6739afe';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=6739afe';
 
 export const PERIODS = [['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -57,18 +57,20 @@ export function winnersBox(w, kinds) {
   return html ? `<div class="winners">${html}</div>` : '';
 }
 
-/* Another player's lineup: picks show once their game has tipped, until then "?". */
+/* Another player's lineup as compact chips: slot, tiny headshot, last name, points (or price
+   before tip-off). Picks show once their game has tipped, until then "?". */
 function miniLineup(r) {
   const slots = r.slots || {};
   return `<div class="mini">${POS.map((pos) => {
     const v = slots[pos];
-    if (v == null) return `<div class="mini-s empty"><span>${pos}</span>–</div>`;
-    if (v === 'hidden') return `<div class="mini-s hid" title="Hidden until his game tips off"><span>${pos}</span><b>?</b></div>`;
+    if (v == null) return `<span class="mini-c empty"><i>${pos}</i>–</span>`;
+    if (v === 'hidden') return `<span class="mini-c hid" title="Hidden until his game tips off"><i>${pos}</i><b>?</b></span>`;
     const p = S.byId[v];
-    if (!p) return `<div class="mini-s"><span>${pos}</span>#${esc(v)}</div>`;
+    if (!p) return `<span class="mini-c"><i>${pos}</i>#${esc(v)}</span>`;
     const lv = S.live && S.live.p[String(p.id)];
     const fp = S.results && S.results[String(p.id)] ? S.results[String(p.id)].fp : lv ? lv.fp : null;
-    return `<div class="mini-s">${jersey(p, 'sm')}<span>${pos}</span><b class="mini-n">${esc(p.name.split(' ').slice(-1)[0])}</b><i>${fp != null ? Number(fp).toFixed(1) : money(p.price)}</i></div>`;
+    const hot = fp != null && fp >= p.proj;
+    return `<span class="mini-c${hot ? ' hot' : ''}" title="${esc(p.name)}"><i>${pos}</i>${p.sprite ? `<img src="../data/${esc(p.sprite)}" alt="" loading="lazy">` : ''}<b>${esc(p.name.split(' ').slice(-1)[0])}</b><em>${fp != null ? Number(fp).toFixed(1) : money(p.price)}</em></span>`;
   }).join('')}</div>`;
 }
 
