@@ -1,17 +1,17 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=fc106aa';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=fc106aa';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=fc106aa';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=fc106aa';
-import { defaultDir } from './filters.js?v=fc106aa';
-import { renderStats } from './render-stats.js?v=fc106aa';
-import { renderScore } from './render-score.js?v=fc106aa';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, friendly } from './cloud.js?v=fc106aa';
-import { openModal, closeModal, renderModal } from './render-account.js?v=fc106aa';
-import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=fc106aa';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=fc106aa';
-import { avatar } from './avatars.js?v=fc106aa';
-import { LABELS } from './util.js?v=fc106aa';
+import { S, ui } from './state.js?v=c9556d0';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=c9556d0';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=c9556d0';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=c9556d0';
+import { defaultDir } from './filters.js?v=c9556d0';
+import { renderStats } from './render-stats.js?v=c9556d0';
+import { renderScore } from './render-score.js?v=c9556d0';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, friendly } from './cloud.js?v=c9556d0';
+import { openModal, closeModal, renderModal } from './render-account.js?v=c9556d0';
+import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=c9556d0';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=c9556d0';
+import { avatar } from './avatars.js?v=c9556d0';
+import { LABELS } from './util.js?v=c9556d0';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -331,6 +331,7 @@ async function load() {
   const ho = recall('bb-hideout'); if (ho !== null) S.hideOut = !!ho;
   const lgSaved = recall('bb-league'); if (typeof lgSaved === 'string' && lgSaved) S.lbLeague = lgSaved;
   $('#buildTab').textContent = LABELS.build;
+  $('#statsTab').textContent = LABELS.stats;
   $('#worldTab').textContent = LABELS.world;
   setupPoolControls();
   const nextEmpty = POS.find((pos) => !S.lineup[pos]); S.poolPos = nextEmpty || 'ALL';
