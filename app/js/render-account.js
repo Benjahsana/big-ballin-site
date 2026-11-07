@@ -1,7 +1,8 @@
 /* BIG BALLIN: account pop-up: sign in by email (link or 6-digit code), pick a name,
    create or join a league. One <dialog id="modal">, content depends on S.modal.kind. */
-import { S } from './state.js?v=93327fe';
-import { $, esc } from './util.js?v=93327fe';
+import { S } from './state.js?v=11e9431';
+import { $, esc } from './util.js?v=11e9431';
+import { AVATARS, avatar } from './avatars.js?v=11e9431';
 
 export function openModal(kind, extra) { S.modal = { kind, ...(extra || {}) }; renderModal(); const d = $('#modal'); if (!d.open) d.showModal(); focusFirst(); }
 export function closeModal() { S.modal = null; const d = $('#modal'); if (d.open) d.close(); }
@@ -30,14 +31,22 @@ export function renderModal() {
       <button class="btn btn-primary" ${busy}>${m.busy ? 'CHECKING…' : 'SIGN IN'}</button>
     </form>
     <p class="muted">Nothing there? Check spam, or <button class="linkish" data-act="modal" data-k="signin">try again</button>.</p>`;
-  else if (m.kind === 'name') body = `
-    <h2>Pick your name</h2>
-    <p class="muted">This is what your friends see on the leaderboards. 2–20 characters.</p>
+  else if (m.kind === 'name') {
+    // Remember the choice in S.modal so a re-render (busy, error) keeps it. New players start on a random one.
+    if (m.avatar == null) m.avatar = S.profile ? S.profile.avatar || 0 : Math.floor(Math.random() * AVATARS.length);
+    const cur = m.avatar;
+    body = `
+    <h2>${S.profile ? 'Your player' : 'Pick your player'}</h2>
+    <p class="muted">Your name and look on every leaderboard. Names are 2–20 characters.</p>
     <form data-form="name" class="m-form">
       <label for="mName">Display name</label>
-      <input class="search" id="mName" name="name" minlength="2" maxlength="20" required autocomplete="nickname" value="${esc(S.profile ? S.profile.display_name : '')}">
-      <button class="btn btn-primary" ${busy}>SAVE NAME</button>
+      <input class="search" id="mName" name="name" minlength="2" maxlength="20" required autocomplete="nickname" value="${esc(m.name != null ? m.name : S.profile ? S.profile.display_name : '')}">
+      <fieldset class="ava-pick"><legend>Avatar</legend>
+        ${AVATARS.map((a, i) => `<label class="ava-opt" title="${esc(a.name)}"><input type="radio" name="avatar" value="${i}" ${i === cur ? 'checked' : ''}>${avatar(i, 48, true)}</label>`).join('')}
+      </fieldset>
+      <button class="btn btn-primary" ${busy}>SAVE</button>
     </form>`;
+  }
   else if (m.kind === 'create') body = `
     <h2>New league</h2>
     <p class="muted">You’ll get an invite link and a code to send your friends.</p>
@@ -55,10 +64,10 @@ export function renderModal() {
       <button class="btn btn-primary" ${busy}>JOIN</button>
     </form>`;
   else if (m.kind === 'account') body = `
-    <h2>${esc(S.profile ? S.profile.display_name : 'Account')}</h2>
+    <div class="m-who">${S.profile ? avatar(S.profile.avatar, 60) : ''}<h2>${esc(S.profile ? S.profile.display_name : 'Account')}</h2></div>
     <p class="muted">Signed in as ${esc(S.user ? S.user.email : '')}. Your lineup saves to your account.</p>
     <div class="m-actions">
-      <button class="btn btn-plain" data-act="modal" data-k="name">CHANGE NAME</button>
+      <button class="btn btn-plain" data-act="modal" data-k="name">CHANGE NAME OR AVATAR</button>
       <button class="btn btn-cut" data-act="signout">SIGN OUT</button>
     </div>`;
   $('#modal').innerHTML = `<div class="m-box">${body}${msg}<button class="m-close" data-act="closemodal" aria-label="Close">✕</button></div>`;

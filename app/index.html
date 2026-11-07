@@ -6,7 +6,7 @@
 <title>BIG BALLIN</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=93327fe">
+<link rel="stylesheet" href="styles.css?v=11e9431">
 </head>
 <body>
 <div class="wrap">
@@ -14,6 +14,7 @@
     <div>
       <h1 class="logo">BIG BALLIN</h1>
       <p class="slate-line" id="slateLine">Loading tonight’s slate…</p>
+      <button class="rank-chip" id="rankChip" data-act="acct" hidden></button>
     </div>
     <div class="cap" aria-live="polite">
       <div class="cap-top"><span class="cap-label">CAP SPACE</span><span class="cap-left" id="capLeft">$100.0M</span></div>
@@ -34,6 +35,7 @@
     <button class="tab" data-act="tab" data-tab="stats" aria-pressed="false">STATS</button>
     <button class="tab" data-act="tab" data-tab="score" aria-pressed="false">SCOREBOARD</button>
     <button class="tab" data-act="tab" data-tab="leagues" aria-pressed="false" id="leaguesTab" hidden>LEAGUES</button>
+    <button class="tab" data-act="tab" data-tab="world" aria-pressed="false" id="worldTab" hidden>WORLD RANKINGS</button>
     <button class="acct" data-act="acct" id="acctBtn" hidden>SIGN IN</button>
     <button class="sound" data-act="sound" id="soundBtn" aria-pressed="true">SOUND ON</button>
   </nav>
@@ -92,6 +94,11 @@
     <div class="leagues-wrap" id="leagues"></div>
   </section>
 
+  <!-- WORLD RANKINGS -->
+  <section id="view-world" aria-label="World rankings" hidden>
+    <div class="leagues-wrap" id="world"></div>
+  </section>
+
   <!-- SCOREBOARD -->
   <section id="view-score" aria-label="Scoreboard" hidden>
     <div class="score-wrap" id="score"></div>
@@ -109,6 +116,6 @@
 <div class="callout" id="callout" role="status" aria-live="assertive"></div>
 <dialog class="modal" id="modal" aria-label="Account"></dialog>
 
-<script type="module" src="js/main.js?v=93327fe"></script>
+<script type="module" src="js/main.js?v=11e9431"></script>
 </body>
 </html>

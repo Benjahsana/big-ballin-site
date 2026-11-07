@@ -15,7 +15,11 @@ export const S = {
   sync: 'local',        // 'local' (this device only) | 'saving' | 'saved' | 'error'
   live: null,           // { at, games: {game_id: {s, t, a, h}}, p: {player id: {fp, pts, ...}} }
   hotSeen: {},          // players we already shouted HEATING UP for tonight
-  leagues: [], lbScope: 'ALL', lbPeriod: 'night', lbRows: null, lbNight: null, lbWinners: null, lbErr: null,
+  // Leagues tab: my leagues (with invite codes), every league (public list), the one being viewed.
+  leagues: [], allLeagues: null, lbLeague: null, lbPeriod: 'night', lbRows: null, lbNight: null, lbWinners: null, lbErr: null,
+  inviteOpen: false,
+  // World Rankings tab, and my season world rank for the header ({rank, prev_rank, total, nights, players}).
+  wPeriod: 'season', wRows: null, wNight: null, wWinners: null, wErr: null, rank: null,
   modal: null           // { kind: 'signin' | 'code' | 'name' | 'create' | 'join' | 'account', ... }
 };
 

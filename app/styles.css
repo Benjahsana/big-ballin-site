@@ -327,3 +327,53 @@ nav .acct { margin-left: auto; }
   .mini-s { padding: 4px 2px; }
   .mini-s .jersey { display: none; }
 }
+
+/* Phase 5: avatars, header rank chip, World Rankings, league list and page */
+.ava { display: block; flex: none; border-radius: 6px; image-rendering: pixelated; }
+.rank-chip { margin-top: 12px; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 6px 14px 6px 6px;
+  border: 3px solid var(--blu); border-radius: 12px; background: var(--panel); font-family: var(--pixel); font-size: 10px; max-width: 100%; }
+.rank-chip:not(:has(.ava)) { padding: 0 14px; border-color: var(--yel); color: var(--yel); }
+.rank-chip .rc-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.rank-chip .rc-dot { color: var(--muted); }
+.rank-chip .rc-rank { color: var(--yel); white-space: nowrap; }
+.rank-chip.big { font-size: 13px; gap: 12px; padding: 8px 18px 8px 8px; box-shadow: 4px 4px 0 var(--red); }
+.rank-chip.big .rc-rank { font-size: 15px; }
+.up, .down { font-family: var(--body); font-weight: 700; font-size: 1.6em; line-height: 1; white-space: nowrap; }
+.up { color: #7CFF6B; }
+.down { color: var(--red); }
+.world-me { background: var(--panel); border: 3px solid var(--blu); border-radius: 12px; padding: 12px 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.world-me > div { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.world-me b { font-family: var(--display); font-weight: 400; font-size: 24px; }
+.world-me-rank { font-family: var(--pixel); font-size: 13px; color: var(--yel); }
+.lb-name { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.lb-name .pname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bdg-w_night1 { background: var(--yel); }
+.bdg-w_week10 { background: var(--blu); }
+.bdg-w_month10 { background: var(--red); }
+.lg-head { margin: 6px 0 0; font-family: var(--pixel); font-size: 11px; color: var(--muted); font-weight: 400; }
+.lg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.lg-card { text-align: left; background: var(--panel); border: 3px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+.lg-card:hover { border-color: var(--line2); }
+.lg-card.mine { border-color: var(--yel); }
+.lg-name { font-family: var(--display); font-size: 24px; color: var(--text); overflow-wrap: anywhere; }
+.lg-lead { font-size: 17px; }
+.back { align-self: flex-start; font-family: var(--pixel); font-size: 10px; text-decoration: none; min-height: 40px; }
+.invite-box { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; padding-top: 16px; border-top: 2px solid var(--line); }
+.invite-box .invite { flex-direction: column; align-items: stretch; }
+.invite-box .invite .invite-link { flex: none; min-height: 44px; }
+.invite-box .invite .m-actions { justify-content: flex-start; }
+.ava-pick { border: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.ava-pick legend { font-family: var(--pixel); font-size: 10px; color: var(--soft); margin-bottom: 8px; padding: 0; }
+.ava-opt { display: flex; justify-content: center; padding: 4px; border: 3px solid transparent; border-radius: 10px; cursor: pointer; }
+.ava-opt input { position: absolute; opacity: 0; pointer-events: none; }
+.ava-opt:has(input:checked) { border-color: var(--yel); background: var(--panel2); }
+.ava-opt:has(input:focus-visible) { outline: 3px solid var(--yel); outline-offset: 2px; }
+.ava-opt .ava { width: 100%; height: auto; max-width: 48px; }
+.m-who { display: flex; align-items: center; gap: 14px; padding-right: 36px; }
+.m-who h2 { padding-right: 0; }
+@media (max-width: 700px) {
+  .rank-chip.big { font-size: 11px; }
+  .rank-chip.big .rc-rank { font-size: 12px; }
+  .ava-pick { grid-template-columns: repeat(4, 1fr); }
+  .lb-name .ava { width: 28px; height: 28px; }
+}

@@ -1,14 +1,17 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=93327fe';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=93327fe';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=93327fe';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=93327fe';
-import { defaultDir } from './filters.js?v=93327fe';
-import { renderStats } from './render-stats.js?v=93327fe';
-import { renderScore } from './render-score.js?v=93327fe';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveName, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, friendly } from './cloud.js?v=93327fe';
-import { openModal, closeModal, renderModal } from './render-account.js?v=93327fe';
-import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=93327fe';
+import { S, ui } from './state.js?v=11e9431';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=11e9431';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=11e9431';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=11e9431';
+import { defaultDir } from './filters.js?v=11e9431';
+import { renderStats } from './render-stats.js?v=11e9431';
+import { renderScore } from './render-score.js?v=11e9431';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, friendly } from './cloud.js?v=11e9431';
+import { openModal, closeModal, renderModal } from './render-account.js?v=11e9431';
+import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=11e9431';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=11e9431';
+import { avatar } from './avatars.js?v=11e9431';
+import { LABELS } from './util.js?v=11e9431';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -32,12 +35,14 @@ function renderHeader() {
     $('#capBonusNote').textContent = bonus > 1.001 ? 'boosts tonight’s score' : 'no cap left over';
   }
   document.querySelectorAll('.tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tab === S.tab)));
-  ['build', 'stats', 'score', 'leagues'].forEach((t) => { $('#view-' + t).hidden = S.tab !== t; });
+  ['build', 'stats', 'score', 'leagues', 'world'].forEach((t) => { $('#view-' + t).hidden = S.tab !== t; });
   // Account button + where the lineup is saved.
   const cloudOn = CLOUD && S.cloudOk;
   $('#leaguesTab').hidden = !cloudOn;
+  $('#worldTab').hidden = !cloudOn;
   $('#acctBtn').hidden = !cloudOn;
-  $('#acctBtn').textContent = signedIn() ? S.profile.display_name.toUpperCase() : 'SIGN IN';
+  $('#acctBtn').textContent = signedIn() ? 'ACCOUNT' : 'SIGN IN';
+  renderRankChip(cloudOn);
   $('#acctBtn').classList.toggle('on', signedIn());
   $('#syncNote').textContent = !cloudOn ? '' : !signedIn() ? 'Saved on this device only · sign in to save it to your account'
     : { saving: 'Saving…', saved: 'Saved to your account ✓', error: 'Couldn’t save to your account', local: '' }[S.sync] || '';
@@ -46,12 +51,31 @@ function renderHeader() {
   $('#soundBtn').setAttribute('aria-pressed', String(S.sound));
 }
 
+/* Header chip on every tab: [avatar] NAME · #47 WORLD ▲3 (season world rank). Biggest on BUILD. */
+function renderRankChip(cloudOn) {
+  const chip = $('#rankChip');
+  chip.hidden = !cloudOn;
+  if (!cloudOn) return;
+  chip.classList.toggle('big', S.tab === 'build');
+  if (!signedIn()) {
+    chip.dataset.act = 'acct';
+    chip.innerHTML = `<span class="rc-name">SIGN IN TO GET RANKED</span>`;
+    chip.setAttribute('aria-label', 'Sign in to get ranked');
+    return;
+  }
+  const t = rankText();
+  chip.dataset.act = 'rankchip';
+  chip.innerHTML = `${avatar(S.profile.avatar, S.tab === 'build' ? 48 : 36)}<span class="rc-name">${esc(S.profile.display_name.toUpperCase())}</span><span class="rc-dot">·</span><span class="rc-rank">${t.rank}</span>${t.move}`;
+  chip.setAttribute('aria-label', `${S.profile.display_name}, ${t.rank.replace('#', 'number ')}. Open ${LABELS.world}`);
+}
+
 function renderAll() {
   renderHeader();
   if (S.tab === 'build') { renderSlots(); renderPool(); }
   if (S.tab === 'stats') renderStats();
   if (S.tab === 'score') renderScore();
   if (S.tab === 'leagues') renderLeagues();
+  if (S.tab === 'world') renderWorld();
 }
 ui.renderAll = renderAll;
 
@@ -77,26 +101,34 @@ document.addEventListener('click', (e) => {
   switch (b.dataset.act) {
     case 'tab': S.tab = b.dataset.tab; beep([[988, 0.05]]); renderAll(); window.scrollTo({ top: 0 });
       if (S.tab === 'leagues') loadBoards().then(renderAll);
+      if (S.tab === 'world') loadWorld().then(renderAll);
       if (S.tab === 'score') pollLive().then(renderAll);
       break;
     case 'acct': signedIn() ? openModal('account') : S.user ? openModal('name') : openModal('signin'); break;
     case 'modal': openModal(b.dataset.k, b.dataset.k === 'signin' && S.modal ? { email: S.modal.email } : null); break;
     case 'closemodal': closeModal(); break;
     case 'signout': signOut().then(() => { closeModal(); afterAuth(); flash('SIGNED OUT', '#A9A7C2', '#3D8BFF'); }); break;
-    case 'lbscope': S.lbScope = b.dataset.v; S.lbRows = null; renderLeagues(); loadBoards().then(renderAll); break;
+    case 'rankchip': S.tab = 'world'; S.wPeriod = 'season'; S.wRows = null; beep([[988, 0.05]]); renderAll(); window.scrollTo({ top: 0 }); loadWorld().then(renderAll); break;
+    case 'league': S.lbLeague = b.dataset.v || null; store('bb-league', S.lbLeague); S.lbRows = null; S.inviteOpen = false;
+      renderLeagues(); window.scrollTo({ top: 0 }); loadBoards().then(renderAll); break;
     case 'lbperiod': S.lbPeriod = b.dataset.v; S.lbRows = null; renderLeagues(); loadBoards().then(renderAll); break;
-    case 'copyinvite': {
-      const lg = S.leagues.find((l) => l.id === S.lbScope);
+    case 'wperiod': S.wPeriod = b.dataset.v; S.wRows = null; renderWorld(); loadWorld().then(renderAll); break;
+    case 'worldrefresh': pollLive().then(loadWorld).then(() => { renderAll(); flash(S.live && !allFinal() ? 'LIVE!' : 'UPDATED!', '#FFD23F', '#3D8BFF'); }); break;
+    case 'invitetoggle': S.inviteOpen = !S.inviteOpen; renderLeagues(); break;
+    case 'copyinvite': case 'shareinvite': {
+      const lg = S.leagues.find((l) => l.id === S.lbLeague);
       if (!lg) break;
       const text = `Join my BIG BALLIN league "${lg.name}": ${inviteLink(lg.code)} (code ${lg.code})`;
-      (navigator.share ? navigator.share({ text }).catch(() => {}) : navigator.clipboard.writeText(text).then(() => flash('COPIED!', '#FFD23F', '#3D8BFF')))
-        .catch(() => flash('COPY FAILED', '#FF4A3D', '#3D8BFF'));
+      const act = b.dataset.act === 'shareinvite' && navigator.share
+        ? navigator.share({ text }).catch(() => {})
+        : navigator.clipboard.writeText(text).then(() => flash('COPIED!', '#FFD23F', '#3D8BFF'));
+      act.catch(() => flash('COPY FAILED', '#FF4A3D', '#3D8BFF'));
       break;
     }
     case 'leave': {
-      const lg = S.leagues.find((l) => l.id === S.lbScope);
+      const lg = S.leagues.find((l) => l.id === S.lbLeague);
       if (!lg || !confirm(`Leave ${lg.name}? You can rejoin later with the code ${lg.code}.`)) break;
-      leaveLeague(lg.id).then(() => { S.lbScope = 'ALL'; return loadBoards(); }).then(renderAll)
+      leaveLeague(lg.id).then(() => { S.lbLeague = null; store('bb-league', null); return loadBoards(); }).then(renderAll)
         .catch((e) => { const f = friendly(e); flash(f.title, '#FF4A3D', '#3D8BFF'); });
       break;
     }
@@ -144,6 +176,7 @@ $('#statsSearch').addEventListener('input', (e) => { S.statsQuery = e.target.val
 
 /* ---------- Account pop-up forms ---------- */
 $('#modal').addEventListener('close', () => { S.modal = null; });
+$('#modal').addEventListener('change', (e) => { if (e.target.name === 'avatar' && S.modal) S.modal.avatar = Number(e.target.value); });
 $('#modal').addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target, kind = form.dataset.form, fd = new FormData(form), m = S.modal || {};
@@ -157,14 +190,15 @@ $('#modal').addEventListener('submit', async (e) => {
     }
     if (kind === 'code') { await verifyCode(m.email, String(fd.get('code')).trim()); closeModal(); return; }   // sign-in finishes in afterAuth()
     if (kind === 'name') {
-      await saveName(String(fd.get('name')));
+      S.modal.name = String(fd.get('name'));   // kept if the save fails
+      await saveProfile(String(fd.get('name')), Number(fd.get('avatar')));
       closeModal(); flash('WELCOME, ' + S.profile.display_name.toUpperCase() + '!', '#FFD23F', '#FF4A3D');
       await afterAuth(); return;
     }
     if (kind === 'create' || kind === 'join') {
       const lg = kind === 'create' ? await createLeague(String(fd.get('name'))) : await joinLeague(String(fd.get('code')).trim().toUpperCase());
       closeModal();
-      S.lbScope = lg.id; S.tab = 'leagues'; S.lbRows = null;
+      S.lbLeague = lg.id; store('bb-league', lg.id); S.tab = 'leagues'; S.lbRows = null; S.inviteOpen = kind === 'create';
       await loadBoards(); renderAll();
       beep([[660, 0.07], [880, 0.07], [1320, 0.12]]);
       flash(kind === 'create' ? 'LEAGUE CREATED!' : 'YOU’RE IN!', '#FFD23F', '#3D8BFF');
@@ -179,7 +213,7 @@ $('#modal').addEventListener('submit', async (e) => {
 
 /* After sign-in, sign-out or on load: pick up the account's lineup and any pending invite. */
 async function afterAuth() {
-  if (!S.user) { S.sync = 'local'; S.leagues = []; S.lbScope = 'ALL'; renderAll(); return; }
+  if (!S.user) { S.sync = 'local'; S.leagues = []; S.rank = null; S.inviteOpen = false; if (S.tab === 'leagues') await loadBoards(); renderAll(); return; }
   if (!S.profile) { renderAll(); openModal('name'); return; }
   try {
     const lu = await loadLineup(S.slate.date);
@@ -196,15 +230,17 @@ async function afterAuth() {
     store('bb-join', null);
     try {
       const lg = await joinLeague(code);
-      S.lbScope = lg.id; S.tab = 'leagues';
+      S.lbLeague = lg.id; store('bb-league', lg.id); S.tab = 'leagues';
       flash('YOU’RE IN!', '#FFD23F', '#3D8BFF');
     } catch (e) { const f = friendly(e); flash(f.title, '#FF4A3D', '#3D8BFF'); }
   }
+  try { S.rank = await myWorldRank(); } catch (e) { S.rank = null; }
   if (S.tab === 'leagues') await loadBoards();
+  if (S.tab === 'world') await loadWorld();
   renderAll();
 }
 
-/* ---------- Live points (Supabase live_feed, refreshed by the server every ~2 min) ---------- */
+/* ---------- Live points (Supabase live_feed, refreshed by the server about every minute) ---------- */
 const anyStarted = () => (S.slate.games || []).some((g) => Date.parse(g.tip_utc) <= Date.now());
 let liveSeeded = false;
 async function pollLive() {
@@ -227,14 +263,20 @@ async function pollLive() {
   } catch (e) { /* try again next minute */ }
 }
 
-let ticks = 0;
+/* Every minute while the page is visible (a background tab doesn't download anything). */
 async function tick() {
   if (document.hidden) return;
-  ticks += 1;
   await pollLive();
-  if (S.tab === 'leagues' && S.live && !allFinal() && ticks % 2 === 0) await loadBoards();
+  const liveNow = S.live && !allFinal();
+  if (liveNow && S.tab === 'leagues' && S.lbLeague && S.lbPeriod === 'night') await loadBoards();
+  if (liveNow && S.tab === 'world' && S.wPeriod === 'night') await loadWorld();
   renderAll();
 }
+let lastTick = 0;
+document.addEventListener('visibilitychange', () => {
+  // Coming back to the tab: catch up right away instead of waiting for the next minute.
+  if (!document.hidden && S.slate && Date.now() - lastTick > 30000) { lastTick = Date.now(); tick(); }
+});
 
 /* ---------- Loading ---------- */
 async function loadResults() {
@@ -287,6 +329,8 @@ async function load() {
   const view = recall('bb-view'); if (view === 'cards' || view === 'list') S.view = view;
   const win = recall('bb-win'); if (['l5', 'l10', 'season'].includes(win)) S.win = win;
   const ho = recall('bb-hideout'); if (ho !== null) S.hideOut = !!ho;
+  const lgSaved = recall('bb-league'); if (typeof lgSaved === 'string' && lgSaved) S.lbLeague = lgSaved;
+  $('#worldTab').textContent = LABELS.world;
   setupPoolControls();
   const nextEmpty = POS.find((pos) => !S.lineup[pos]); S.poolPos = nextEmpty || 'ALL';
 
@@ -318,6 +362,6 @@ async function load() {
     await pollLive();
     renderAll();
   }
-  setInterval(tick, 60000); // keeps locks and live points current
+  setInterval(() => { lastTick = Date.now(); tick(); }, 60000); // keeps locks and live points current
 }
 load();

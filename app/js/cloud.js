@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=93327fe';
-import { POS } from './util.js?v=93327fe';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=93327fe';
+import { S } from './state.js?v=11e9431';
+import { POS } from './util.js?v=11e9431';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=11e9431';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -59,13 +59,14 @@ export async function verifyCode(email, token) {
 export async function signOut() { if (sb) await sb.auth.signOut(); S.user = null; S.profile = null; }
 
 export async function loadProfile() {
-  const { data } = await sb.from('profiles').select('display_name').eq('id', S.user.id).maybeSingle();
+  const { data } = await sb.from('profiles').select('display_name,avatar').eq('id', S.user.id).maybeSingle();
   S.profile = data || null;
 }
-export async function saveName(name) {
-  const { error } = await sb.from('profiles').upsert({ id: S.user.id, display_name: name.trim() });
+export async function saveProfile(name, avatar) {
+  const row = { id: S.user.id, display_name: name.trim(), avatar: Number(avatar) || 0 };
+  const { error } = await sb.from('profiles').upsert(row);
   if (error) throw error;
-  S.profile = { display_name: name.trim() };
+  S.profile = { display_name: row.display_name, avatar: row.avatar };
 }
 
 /* ---------- Lineups ---------- */
@@ -114,6 +115,13 @@ export async function leaveLeague(id) {
   if (error) throw error;
 }
 
+/* Every league (public list: names, member counts, tonight's leader; no invite codes). */
+export async function leagueList(date) {
+  const { data, error } = await sb.rpc('league_list', { p_date: date });
+  if (error) throw error;
+  return data || [];
+}
+
 /* ---------- Leaderboards ---------- */
 export async function leaderboard(period, date, league) {
   const { data, error } = await sb.rpc('leaderboard', { p_period: period, p_date: date, p_league: league || null });
@@ -126,7 +134,7 @@ export async function nightLineups(date, league) {
   return data || [];
 }
 
-/* ---------- Live points (written by the server's live job every ~2 minutes) ---------- */
+/* ---------- Live points (written by the server's live job about every minute) ---------- */
 export async function liveFeed(date) {
   const { data, error } = await sb.from('live_feed').select('data,updated_at').eq('slate_date', date).maybeSingle();
   if (error) throw error;
@@ -137,7 +145,14 @@ export async function liveFeed(date) {
   return { at: f.at || data.updated_at, games: f.games || {}, p };
 }
 
-/* Most recent winner of each kind (night, week, month, season) for a league, or everyone. */
+/* My season world rank after the latest scored night, and the night before (for ▲/▼). */
+export async function myWorldRank() {
+  const { data, error } = await sb.rpc('my_world_rank');
+  if (error) throw error;
+  return (data && data[0]) || null;
+}
+
+/* Most recent badge of each kind for a league, or the world (league null). */
 export async function latestWinners(league) {
   let q = sb.from('badges').select('kind,period,score,user_id,profiles(display_name)')
     .order('period', { ascending: false }).limit(40);
