@@ -92,7 +92,10 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
 .pcard.on { border-color: var(--blu); }
 .pc-top { display: flex; gap: 14px; align-items: center; }
 .pc-id { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
-.pc-id .pname { overflow-wrap: anywhere; }
+.fit { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.fit .inj { vertical-align: 2px; }
+@keyframes rowflash { 0%, 40% { background: rgba(255, 210, 63, 0.35); } 100% { background: #2A2A48; } }
+tbody tr.flash-row, tbody tr.flash-row th { animation: rowflash 1.6s ease-out; }
 .pc-pr { display: flex; align-items: baseline; gap: 10px; margin-top: 3px; }
 .pc-pr .chg { display: inline; }
 .pc-price { font-family: var(--display); font-size: 28px; line-height: 1; white-space: nowrap; }
@@ -177,4 +180,79 @@ td:last-child { padding-right: 16px; }
   .stats-layout { grid-template-columns: minmax(0, 1fr); }
   .pcard-big { position: static; order: -1; }
   .table-box { max-height: none; }
+}
+
+/* ---------- Phase 3: fill bar, filters, list view, injury tags ---------- */
+.fillbar { position: sticky; top: 0; z-index: 20; background: var(--bg); border: 3px solid var(--yel); border-radius: 12px; padding: 10px 12px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; justify-content: space-between; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); }
+.fb-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.fb-chip { min-height: 40px; min-width: 52px; padding: 0 10px; border-radius: 8px; border: 2px dashed var(--line2); background: transparent; color: var(--muted); font-family: var(--pixel); font-size: 10px; }
+.fb-chip.has { border-style: solid; border-color: var(--blu); color: var(--soft); }
+.fb-chip[aria-pressed="true"] { background: var(--yel); border: 2px solid var(--yel); color: var(--bg); }
+.fb-info { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 17px; color: var(--soft); align-items: baseline; }
+.fb-info b { font-family: var(--display); font-weight: 400; }
+.fb-now { font-family: var(--pixel); font-size: 11px; }
+.fb-now b { font-family: var(--pixel); }
+.filters { display: flex; flex-direction: column; gap: 10px; }
+.filters .search { max-width: none; }
+.filters select.search { flex: 0 1 220px; }
+.tog { min-height: 44px; padding: 0 12px; border-radius: 8px; border: 2px solid var(--line2); background: transparent; color: var(--muted); font-family: var(--pixel); font-size: 9px; white-space: nowrap; }
+.tog[aria-pressed="true"] { border-color: var(--blu); background: rgba(61, 139, 255, 0.18); color: var(--text); }
+.segs { display: inline-flex; border: 2px solid var(--line2); border-radius: 8px; overflow: hidden; }
+.seg-b { min-height: 40px; padding: 0 12px; border: none; background: transparent; color: var(--muted); font-family: var(--pixel); font-size: 9px; }
+.seg-b + .seg-b { border-left: 2px solid var(--line2); }
+.seg-b[aria-pressed="true"] { background: var(--blu); color: var(--bg); }
+.inj { display: inline-block; vertical-align: middle; font-family: var(--pixel); font-size: 8px; padding: 3px 5px; border-radius: 4px; margin-left: 2px; }
+.inj-out { background: var(--red); color: var(--bg); }
+.inj-gtd { background: var(--yel); color: var(--bg); }
+.is-out { opacity: 0.6; }
+.pc-line b { font-weight: 700; }
+
+.plist { display: flex; flex-direction: column; gap: 6px; }
+.prow { display: grid; grid-template-columns: 44px minmax(0, 1fr) 96px 70px 70px 80px 190px 112px; gap: 12px; align-items: center; background: var(--panel); border: 2px solid var(--line); border-radius: 10px; padding: 6px 10px; }
+.prow.on { border-color: var(--blu); }
+.pr-id { min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 6px; }
+.pr-id .sub { flex-basis: 100%; font-size: 15px; }
+.pr-name { background: none; border: none; padding: 0; text-align: left; font-size: 20px; font-weight: 700; line-height: 1.15; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pr-name:hover { text-decoration: underline; }
+.pr-price { font-family: var(--display); font-size: 19px; white-space: nowrap; }
+.pr-price .chg { display: block; font-size: 13px; text-align: left; }
+.pr-n { display: flex; flex-direction: column; align-items: flex-end; }
+.pr-n span { font-family: var(--pixel); font-size: 8px; color: var(--muted); }
+.pr-n b { font-size: 20px; }
+.pr-stats { font-size: 15px; color: var(--muted); white-space: nowrap; }
+.pr-btn { min-height: 40px; font-size: 9px; }
+
+@media (max-width: 1100px) {
+  .prow { grid-template-columns: 44px minmax(0, 1fr) 90px 64px 64px 72px 104px; }
+  .pr-stats { display: none; }
+}
+/* Phones: the fill bar docks to the bottom of the screen; list rows fold into two lines. */
+@media (max-width: 700px) {
+  .fillbar { position: fixed; top: auto; bottom: 0; left: 0; right: 0; border-radius: 12px 12px 0 0; border-width: 3px 0 0; padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); gap: 6px; }
+  .fb-chips { width: 100%; flex-wrap: nowrap; }
+  .fb-chip { flex: 1; min-width: 0; padding: 0 4px; }
+  .fb-info { font-size: 15px; gap: 2px 10px; }
+  body { padding-bottom: 130px; }
+  .filters .toolbar-group > * { flex: 1 1 140px; }
+  .prow { grid-template-columns: 44px repeat(3, minmax(0, 1fr)) 104px; grid-template-areas: "av id id id price" "n1 n1 n2 n3 btn"; gap: 6px 8px; padding: 8px 10px; }
+  .pr-av { grid-area: av; } .pr-id { grid-area: id; } .pr-price { grid-area: price; text-align: right; }
+  .pr-price .chg { text-align: right; }
+  .n1 { grid-area: n1; } .n2 { grid-area: n2; } .n3 { grid-area: n3; }
+  .pr-n { flex-direction: column; gap: 2px; align-items: center; background: var(--panel2); border-radius: 6px; padding: 4px 4px; min-width: 0; }
+  .pr-n b { font-size: 16px; }
+  .pr-n span { white-space: nowrap; font-size: 7px; }
+  .pr-stats { display: none; }
+  .pr-btn { grid-area: btn; min-height: 36px; }
+}
+
+/* Phase 3 polish: FILTERS button (phones only), segment and button sizing. */
+.filters-btn { display: none; }
+.segs .seg-b { flex: 1; }
+.pr-btn { white-space: nowrap; }
+@media (max-width: 700px) {
+  .filters-btn { display: inline-block; flex: 0 0 auto !important; }
+  .filters:not(.open) .fx { display: none !important; }
+  .filters .toolbar-group > .segs { flex: 1 1 100%; display: flex; }
+  .pr-btn { padding: 0 4px; }
+  .prow .pr-n { min-width: 0; }
 }

@@ -1,10 +1,11 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=d6ea804';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=d6ea804';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=d6ea804';
-import { renderSlots, renderPool } from './render-build.js?v=d6ea804';
-import { renderStats } from './render-stats.js?v=d6ea804';
-import { renderScore } from './render-score.js?v=d6ea804';
+import { S, ui } from './state.js?v=c35ea33';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches, fitNames } from './util.js?v=c35ea33';
+import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=c35ea33';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=c35ea33';
+import { defaultDir } from './filters.js?v=c35ea33';
+import { renderStats } from './render-stats.js?v=c35ea33';
+import { renderScore } from './render-score.js?v=c35ea33';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -41,6 +42,20 @@ function renderAll() {
 }
 ui.renderAll = renderAll;
 
+/* Scroll the Stat Center table so the selected player's row is in view, and flash it. */
+function showStatsRow() {
+  const row = document.querySelector('#statsBody tr.sel');
+  const box = document.querySelector('.table-box');
+  if (!row || !box) return;
+  const head = box.querySelector('thead');
+  // Put his row just under the sticky header (the table can extend below the screen edge).
+  if (box.scrollHeight > box.clientHeight) box.scrollTop = Math.max(0, row.offsetTop - (head ? head.offsetHeight : 48) - 4);
+  row.classList.remove('flash-row'); void row.offsetWidth; row.classList.add('flash-row');
+}
+
+let fitTimer = null;
+window.addEventListener('resize', () => { clearTimeout(fitTimer); fitTimer = setTimeout(() => fitNames(document), 150); });
+
 /* ---------- Events ---------- */
 document.addEventListener('click', (e) => {
   const b = e.target.closest('[data-act]');
@@ -49,13 +64,27 @@ document.addEventListener('click', (e) => {
   switch (b.dataset.act) {
     case 'tab': S.tab = b.dataset.tab; beep([[988, 0.05]]); renderAll(); window.scrollTo({ top: 0 }); break;
     case 'sound': S.sound = !S.sound; store('bb-sound', S.sound); renderHeader(); break;
-    case 'choose': S.poolPos = b.dataset.pos; S.poolLimit = 36; renderAll(); $('#poolSearch').scrollIntoView({ block: 'center', behavior: 'smooth' }); break;
+    case 'choose': S.poolPos = b.dataset.pos; S.poolLimit = 36; renderAll(); $('#faTitle').scrollIntoView({ block: 'start', behavior: 'smooth' }); break;
     case 'poolpos': S.poolPos = b.dataset.v; S.poolLimit = 36; renderAll(); break;
     case 'statspos': S.statsPos = b.dataset.v; renderStats(); break;
     case 'more': S.poolLimit += 36; renderPool(); break;
+    case 'dir': S.poolDir = -S.poolDir; renderPool(); break;
+    case 'filters': S.filtersOpen = !S.filtersOpen; renderPool(); break;
+    case 'toggle': S[b.dataset.k] = !S[b.dataset.k]; S.poolLimit = 36; if (b.dataset.k === 'hideOut') store('bb-hideout', S.hideOut); renderPool(); break;
+    case 'win': S.win = b.dataset.v; store('bb-win', S.win); S.tab === 'stats' ? renderStats() : renderPool(); break;
+    case 'view': S.view = b.dataset.v; store('bb-view', S.view); renderPool(); break;
     case 'sign': sign(S.byId[id]); break;
     case 'cut': cut(b.dataset.pos); break;
-    case 'stats': S.selId = id; S.tab = 'stats'; renderAll(); window.scrollTo({ top: 0 }); break;
+    case 'stats': {
+      // Open the Stat Center on this player: his card, and his row highlighted in the table.
+      const p = S.byId[id];
+      S.selId = id; S.tab = 'stats';
+      if (S.statsPos !== 'ALL' && !slotsFor(p).includes(S.statsPos)) S.statsPos = 'ALL';
+      if (S.statsQuery && !matches(p, S.statsQuery)) { S.statsQuery = ''; $('#statsSearch').value = ''; }
+      renderAll(); window.scrollTo({ top: 0 });
+      showStatsRow();
+      break;
+    }
     case 'select': S.selId = id; renderStats(); if (window.innerWidth <= 900) $('#card').scrollIntoView({ behavior: 'smooth' }); break;
     case 'sort': {
       const k = b.dataset.k;
@@ -66,7 +95,9 @@ document.addEventListener('click', (e) => {
   }
 });
 $('#poolSearch').addEventListener('input', (e) => { S.poolQuery = e.target.value; S.poolLimit = 36; renderPool(); });
-$('#poolSort').addEventListener('change', (e) => { S.poolSort = e.target.value; S.poolLimit = 36; renderPool(); });
+$('#poolSort').addEventListener('change', (e) => { S.poolSort = e.target.value; S.poolDir = defaultDir(S.poolSort); S.poolLimit = 36; renderPool(); });
+$('#poolGame').addEventListener('change', (e) => { S.poolGame = e.target.value; S.poolLimit = 36; renderPool(); });
+$('#poolPrice').addEventListener('change', (e) => { S.poolPrice = e.target.value; S.poolLimit = 36; renderPool(); });
 $('#statsSearch').addEventListener('input', (e) => { S.statsQuery = e.target.value; renderStats(); });
 
 /* ---------- Loading ---------- */
@@ -117,6 +148,10 @@ async function load() {
   const saved = recall('bb-lineup-' + S.slate.date);
   if (saved) POS.forEach((pos) => { S.lineup[pos] = saved[pos] && S.byId[saved[pos]] ? saved[pos] : null; });
   const snd = recall('bb-sound'); if (snd !== null) S.sound = !!snd;
+  const view = recall('bb-view'); if (view === 'cards' || view === 'list') S.view = view;
+  const win = recall('bb-win'); if (['l5', 'l10', 'season'].includes(win)) S.win = win;
+  const ho = recall('bb-hideout'); if (ho !== null) S.hideOut = !!ho;
+  setupPoolControls();
   const nextEmpty = POS.find((pos) => !S.lineup[pos]); S.poolPos = nextEmpty || 'ALL';
 
   const vals = S.slate.players.filter((p) => p.proj >= 20).map((p) => p.value).sort((a, b) => a - b);

@@ -1,5 +1,5 @@
 /* BIG BALLIN: constants, formatting, storage, sound, callouts, small render helpers. */
-import { S } from './state.js?v=d6ea804';
+import { S } from './state.js?v=c35ea33';
 
 export const POS = ['PG', 'SG', 'SF', 'PF', 'C'];
 export const POSNAME = { PG: 'Point guard', SG: 'Shooting guard', SF: 'Small forward', PF: 'Power forward', C: 'Center' };
@@ -56,3 +56,16 @@ export function pills(cur, act) {
   return ['ALL'].concat(POS).map((v) => `<button class="pill" data-act="${act}" data-v="${v}" aria-pressed="${cur === v}">${v}</button>`).join('');
 }
 export function matches(p, q) { if (!q) return true; const f = fold(q.trim()); return fold(p.name).includes(f) || p.team.toLowerCase() === f || p.opp.toLowerCase() === f; }
+
+/* Shrink long player names to fit on one line (cards and slots), so every card
+   lines up the same way. Elements with class "fit" are measured after render. */
+export function fitNames(root) {
+  (root || document).querySelectorAll('.fit').forEach((el) => {
+    el.style.fontSize = '';
+    let size = parseFloat(getComputedStyle(el).fontSize);
+    while (el.scrollWidth > el.clientWidth + 1 && size > 14) {
+      size -= 1;
+      el.style.fontSize = size + 'px';
+    }
+  });
+}

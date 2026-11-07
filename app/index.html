@@ -6,7 +6,7 @@
 <title>BIG BALLIN</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=d6ea804">
+<link rel="stylesheet" href="styles.css?v=c35ea33">
 </head>
 <body>
 <div class="wrap">
@@ -39,21 +39,26 @@
   <section id="view-build" aria-label="Build your lineup" style="display:flex;flex-direction:column;gap:26px">
     <div class="slots" id="slots"></div>
     <div style="display:flex;flex-direction:column;gap:14px">
-      <div class="toolbar">
-        <h2>Free agents <span class="blu" id="poolTitle"></span></h2>
-        <div class="toolbar-group" role="group" aria-label="Filter by position" id="poolPills"></div>
-      </div>
-      <div class="toolbar">
-        <div class="toolbar-group" style="flex:1">
+      <h2 id="faTitle">Free agents</h2>
+      <div class="fillbar" id="fillbar"></div>
+      <div class="filters" id="filters">
+        <div class="toolbar-group">
           <input class="search" id="poolSearch" type="search" placeholder="Search a player or team (e.g. DEN)" aria-label="Search players">
-          <select class="search" id="poolSort" aria-label="Sort players">
-            <option value="proj">Highest projection</option>
-            <option value="value">Best value (FP per $1M)</option>
-            <option value="price">Most expensive</option>
-            <option value="cheap">Cheapest</option>
-          </select>
+          <button class="tog filters-btn" id="filtersBtn" data-act="filters" aria-expanded="false" aria-controls="filters">FILTERS</button>
+          <select class="search fx" id="poolGame" aria-label="Filter by game"></select>
+          <select class="search fx" id="poolPrice" aria-label="Filter by price"></select>
         </div>
-        <span class="muted" id="poolCount"></span>
+        <div class="toolbar-group fx">
+          <select class="search" id="poolSort" aria-label="Sort players"></select>
+          <button class="tog" id="poolDir" data-act="dir" aria-label="Flip sort order">HIGH ▼</button>
+          <button class="tog" id="fitsBtn" data-act="toggle" data-k="poolFits" aria-pressed="false">FITS MY CAP</button>
+          <button class="tog" id="outBtn" data-act="toggle" data-k="hideOut" aria-pressed="true">HIDE OUT</button>
+        </div>
+        <div class="toolbar-group fx">
+          <div class="segs" role="group" aria-label="Stats window" id="poolWin"></div>
+          <div class="segs" role="group" aria-label="Card or list view" id="poolView"></div>
+          <span class="muted" id="poolCount"></span>
+        </div>
       </div>
       <div class="pool" id="pool"></div>
       <button class="btn btn-plain more" data-act="more" id="moreBtn">SHOW MORE</button>
@@ -70,6 +75,7 @@
         </div>
         <div class="toolbar">
           <input class="search" id="statsSearch" type="search" placeholder="Search a player or team" aria-label="Search stats">
+          <div class="segs" role="group" aria-label="Stats window" id="statsWin"></div>
           <span class="muted">Tap a column to sort. Tap a name for the full card.</span>
         </div>
         <div class="table-box"><table><thead><tr id="statsHead"></tr></thead><tbody id="statsBody"></tbody></table></div>
@@ -94,6 +100,6 @@
 
 <div class="callout" id="callout" role="status" aria-live="assertive"></div>
 
-<script type="module" src="js/main.js?v=d6ea804"></script>
+<script type="module" src="js/main.js?v=c35ea33"></script>
 </body>
 </html>

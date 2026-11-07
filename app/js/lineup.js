@@ -1,6 +1,6 @@
 /* BIG BALLIN: lineup rules: locks, cap, cap bonus, sign and cut. */
-import { S, ui } from './state.js?v=d6ea804';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=d6ea804';
+import { S, ui } from './state.js?v=c35ea33';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, beep, flash, jersey, pills, matches } from './util.js?v=c35ea33';
 
 /* ---------- Lineup logic ---------- */
 export function isLocked(p) {
@@ -32,10 +32,22 @@ export function costAfter(p) {
   const already = slotOf(p.id) ? p.price : 0;
   return spent() - (occ ? occ.price : 0) - already + p.price;
 }
+/* Most you can spend on a slot right now, still leaving the price floor for every
+   other empty slot (so the lineup can always be finished). */
+export function maxForSlot(pos) {
+  const occ = S.lineup[pos] ? S.byId[S.lineup[pos]] : null;
+  const otherEmpty = POS.filter((x) => x !== pos && !S.lineup[x]).length;
+  return S.slate.cap - spent() + (occ ? occ.price : 0) - otherEmpty * (S.slate.price_floor ?? 3);
+}
+export function fits(p) {
+  if (slotOf(p.id)) return true;
+  return p.price <= maxForSlot(targetSlot(p)) + 1e-6;
+}
 export function signState(p) {
   if (slotOf(p.id)) return { label: 'ON ROSTER', cls: 'btn-off', off: true };
   if (isLocked(p)) return { label: 'LOCKED', cls: 'btn-off', off: true };
   if (costAfter(p) > S.slate.cap + 1e-6) return { label: 'OVER CAP', cls: 'btn-danger', off: false };
+  if (!fits(p)) return { label: 'NO ROOM', cls: 'btn-danger', off: false };
   return { label: S.lineup[targetSlot(p)] ? 'SWAP IN' : 'SIGN', cls: 'btn-primary', off: false };
 }
 export function saveLineup() { store('bb-lineup-' + S.slate.date, S.lineup); }
@@ -46,6 +58,7 @@ export function sign(p) {
   const occ = S.lineup[t] ? S.byId[S.lineup[t]] : null;
   if (occ && isLocked(occ)) { beep([[110, 0.3]]); flash('LOCKED!', '#A9A7C2', '#FF4A3D'); return; }
   if (costAfter(p) > S.slate.cap + 1e-6) { beep([[110, 0.35], [92, 0.3]]); flash('OVER THE CAP!', '#FF4A3D', '#3D8BFF'); return; }
+  if (!fits(p)) { beep([[110, 0.35], [92, 0.3]]); flash('NO ROOM!', '#FF4A3D', '#3D8BFF'); return; }
   const cur = slotOf(p.id);
   if (cur) S.lineup[cur] = null;
   S.lineup[t] = p.id;
