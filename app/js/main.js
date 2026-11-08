@@ -1,20 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=60a815f';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=60a815f';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=60a815f';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=60a815f';
-import { defaultDir } from './filters.js?v=60a815f';
-import { renderStats } from './render-stats.js?v=60a815f';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=60a815f';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=60a815f';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=60a815f';
-import { openModal, closeModal, renderModal } from './render-account.js?v=60a815f';
-import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=60a815f';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=60a815f';
-import { avatar } from './avatars.js?v=60a815f';
-import { play, SOUNDS, styleFor } from './sound.js?v=60a815f';
-import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=60a815f';
-import { LABELS } from './util.js?v=60a815f';
+import { S, ui } from './state.js?v=b874395';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=b874395';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=b874395';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=b874395';
+import { defaultDir } from './filters.js?v=b874395';
+import { renderStats } from './render-stats.js?v=b874395';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=b874395';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=b874395';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=b874395';
+import { openModal, closeModal, renderModal } from './render-account.js?v=b874395';
+import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=b874395';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=b874395';
+import { avatar } from './avatars.js?v=b874395';
+import { play, SOUNDS, styleFor } from './sound.js?v=b874395';
+import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=b874395';
+import { LABELS } from './util.js?v=b874395';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -55,23 +55,21 @@ function renderHeader() {
   renderSoundPanel();
 }
 
-/* Header chip on every tab: [avatar] NAME · #47 WORLD ▲3 (season world rank). Biggest on BUILD LINEUP.
-   The World Rankings button sits next to it, under the logo (not in the tab row). */
+/* Header chip on every tab: [avatar] NAME · #47 WORLD ▲3 + MY TEAM ▸. Tapping it opens MY TEAM
+   (there's no MY TEAM tab in the tab row). Biggest on BUILD LINEUP. The World Rankings button sits next to it. */
 function renderRankChip(cloudOn) {
   const chip = $('#rankChip');
-  chip.hidden = !cloudOn;
-  if (!cloudOn) return;
   chip.classList.toggle('big', S.tab === 'build');
-  if (!signedIn()) {
-    chip.dataset.act = 'acct';
-    chip.innerHTML = `<span class="rc-name">SIGN IN TO GET RANKED</span>`;
-    chip.setAttribute('aria-label', 'Sign in to get ranked');
+  chip.setAttribute('aria-pressed', String(S.tab === 'score'));
+  const tag = `<span class="rc-team">${esc(LABELS.score)} ▸</span>`;
+  if (!cloudOn || !signedIn()) {
+    chip.innerHTML = tag;
+    chip.setAttribute('aria-label', `Open ${LABELS.score}`);
     return;
   }
   const t = rankText();
-  chip.dataset.act = 'rankchip';
-  chip.innerHTML = `${avatar(S.profile.avatar, S.tab === 'build' ? 48 : 36)}<span class="rc-name">${esc(S.profile.display_name.toUpperCase())}</span><span class="rc-dot">·</span><span class="rc-rank">${t.rank}</span>${t.move}`;
-  chip.setAttribute('aria-label', `${S.profile.display_name}, ${t.rank.replace('#', 'number ')}. Open ${LABELS.world}`);
+  chip.innerHTML = `${avatar(S.profile.avatar, S.tab === 'build' ? 48 : 36)}<span class="rc-name">${esc(S.profile.display_name.toUpperCase())}</span><span class="rc-dot">·</span><span class="rc-rank">${t.rank.replace(' ' + LABELS.worldShort, `<span class="rc-w"> ${LABELS.worldShort}</span>`)}</span>${t.move}${tag}`;
+  chip.setAttribute('aria-label', `${S.profile.display_name}, ${t.rank.replace('#', 'number ')}. Open ${LABELS.score}`);
 }
 
 /* SOUND panel: on/off and volume (remembered per device). With #soundtest at the end of
@@ -139,7 +137,6 @@ document.addEventListener('click', (e) => {
     case 'modal': openModal(b.dataset.k, b.dataset.k === 'signin' && S.modal ? { email: S.modal.email } : null); break;
     case 'closemodal': closeModal(); break;
     case 'signout': signOut().then(() => { closeModal(); afterAuth(); flash('SIGNED OUT', '#A9A7C2', '#3D8BFF'); }); break;
-    case 'rankchip': S.tab = 'world'; S.wPeriod = 'season'; S.wRows = null; play('tap'); renderAll(); window.scrollTo({ top: 0 }); loadWorld().then(renderAll); break;
     case 'league': S.lbLeague = b.dataset.v || null; store('bb-league', S.lbLeague); S.lbRows = null; S.inviteOpen = false;
       renderLeagues(); window.scrollTo({ top: 0 }); loadBoards().then(renderAll); break;
     case 'scoreview': S.scoreView = b.dataset.v; play('tap'); renderScore();
@@ -442,7 +439,6 @@ async function load() {
   const lgSaved = recall('bb-league'); if (typeof lgSaved === 'string' && lgSaved) S.lbLeague = lgSaved;
   $('#buildTab').textContent = LABELS.build;
   $('#statsTab').textContent = LABELS.stats;
-  $('#scoreTab').textContent = LABELS.score;
   $('#worldBtnLabel').textContent = LABELS.world;
   if (!anyStarted() || lastIsCurrent()) { S.lbPeriod = 'last'; S.lbAuto = true; }   // mornings: open the boards on last night
   setupPoolControls();

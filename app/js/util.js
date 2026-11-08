@@ -1,8 +1,8 @@
 /* BIG BALLIN: constants, formatting, storage, sound, callouts, small render helpers. */
-import { S } from './state.js?v=60a815f';
+import { S } from './state.js?v=b874395';
 
 export const POS = ['PG', 'SG', 'SF', 'PF', 'C'];
-export { LABELS, WORLD_ROWS } from './app-config.js?v=60a815f';
+export { LABELS, WORLD_ROWS } from './app-config.js?v=b874395';
 export const POSNAME = { PG: 'Point guard', SG: 'Shooting guard', SF: 'Small forward', PF: 'Power forward', C: 'Center' };
 export const TEAM_COLORS = { ATL:'#C8102E', BOS:'#007A33', BKN:'#2A2A2A', CHA:'#1D1160', CHI:'#CE1141', CLE:'#860038', DAL:'#00538C', DEN:'#0E2240', DET:'#C8102E', GSW:'#1D428A', HOU:'#CE1141', IND:'#002D62', LAC:'#C8102E', LAL:'#552583', MEM:'#5D76A9', MIA:'#98002E', MIL:'#00471B', MIN:'#0C2340', NOP:'#0C2340', NYK:'#006BB6', OKC:'#007AC1', ORL:'#0077C0', PHI:'#006BB6', PHX:'#E56020', POR:'#E03A3E', SAC:'#5A2D81', SAS:'#5A5D60', TOR:'#CE1141', UTA:'#3E2680', WAS:'#002B5C' };
 
