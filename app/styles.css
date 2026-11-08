@@ -697,3 +697,31 @@ button.mt-who:hover .mt-name { color: var(--yel); }
   .pc-fp { font-size: 22px; }
   .lt-detail td { position: sticky; left: 0; }
 }
+
+/* League board: LIVE and PROJ scoreboard columns (Nov 8b) */
+.lt-c1 { width: 118px; }
+.lt-c2 { width: 136px; }
+.lt-hn { text-align: right; }
+.lt-num { background: #000; border-top: 2px solid var(--line); border-bottom: 2px solid var(--line); border-left: 1px solid var(--line); padding: 6px 10px; text-align: right; vertical-align: middle; white-space: nowrap; }
+.lt-num b { display: block; font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1; }
+.lt-num i { display: block; font-style: normal; font-size: 13px; color: var(--muted); margin-top: 6px; }
+.lt-num em { font-style: normal; font-size: 14px; color: var(--muted); margin-left: 2px; }
+.lt-live b { color: var(--yel); text-shadow: 0 0 10px rgba(255, 210, 63, 0.35); }
+.lt-proj b { color: var(--soft); }
+.lt-proj i.on { color: var(--red); }
+.lt-open { font-family: var(--pixel); font-size: 7px; color: var(--muted); margin-top: 6px; }
+.lt-tb:hover .lt-open { color: var(--yel); }
+.lt-row.me .lt-num { border-top-color: var(--blu); border-bottom-color: var(--blu); }
+.lt-row.lead .lt-num { border-top-color: var(--yel); border-bottom-color: var(--yel); }
+.lt-row.open .lt-num { border-bottom-color: var(--blu); }
+.pc-fp.pre { color: var(--line2); }
+.pc.hid { vertical-align: middle; text-align: center; background: repeating-linear-gradient(135deg, var(--panel2) 0 10px, #1a1a2e 10px 20px); }
+.pc.hid .pc-q { font-size: 22px; color: var(--soft); margin: 2px 0 8px; }
+.pc.hid .pc-st { font-family: var(--pixel); font-size: 7px; white-space: normal; line-height: 1.6; }
+@media (max-width: 767px) {
+  .lt { min-width: 860px; }
+  .lt-c1, .lt-c2 { width: 92px; }
+  .lt-num { padding: 6px 7px; }
+  .lt-num b { font-size: 22px; }
+  .lt-num i { font-size: 11px; white-space: normal; }
+}

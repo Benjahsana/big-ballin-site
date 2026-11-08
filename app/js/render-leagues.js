@@ -2,12 +2,12 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=bf76d6b';
-import { $, POS, esc, money, store, jersey } from './util.js?v=bf76d6b';
-import { avatar } from './avatars.js?v=bf76d6b';
-import { mtTable, rowData, statLine, tipText, FLAME } from './render-score.js?v=bf76d6b';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=bf76d6b';
-import { L, asLast, lastDate, loadLast } from './night.js?v=bf76d6b';
+import { S } from './state.js?v=2b5a0d9';
+import { $, POS, esc, money, store, jersey } from './util.js?v=2b5a0d9';
+import { avatar } from './avatars.js?v=2b5a0d9';
+import { mtTable, rowData, statLine, tipText, FLAME } from './render-score.js?v=2b5a0d9';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=2b5a0d9';
+import { L, asLast, lastDate, loadLast } from './night.js?v=2b5a0d9';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -114,7 +114,7 @@ function playerCell(p, isLast) {
   return `<td class="pc${d.hot ? ' hot' : ''}" data-act="pcell" data-pid="${p.id}"${isLast ? ' data-n="last"' : ''} tabindex="0" aria-label="${esc(p.name)}: ${d.fp != null ? d.fp.toFixed(1) : 'not started'} of ${p.proj.toFixed(1)} projected, ${money(p.price)}">
     <span class="tc-head">${jersey(p, 'xs')}<span class="tc-id"><span class="pc-name">${esc(shortName(p))}</span>
       <span class="pc-st${d.state === 2 ? ' on' : ''}">${st}</span></span></span>
-    <b class="pc-fp">${d.fp != null ? d.fp.toFixed(1) : '–'}${d.hot ? FLAME : ''}</b>
+    <b class="pc-fp${d.fp == null ? ' pre' : ''}">${d.fp != null ? d.fp.toFixed(1) : '0.0'}${d.hot ? FLAME : ''}</b>
     <span class="pc-bar"><i style="width:${pct.toFixed(0)}%"></i></span>
     <span class="pc-sub"><span>${p.proj.toFixed(1)} PROJ</span><span>${money(p.price)}</span></span></td>`;
 }
@@ -136,28 +136,54 @@ function tonightTable(rows, night, o) {
   const byUser = Object.fromEntries((night || []).map((r) => [r.user_id, r]));
   const body = rows.map((r) => {
     const n = byUser[r.user_id];
-    const open = !!S.lbOpen[(o.last ? 'L' : '') + r.user_id];
-    const team = `<th class="lt-team" scope="row"><button class="lt-tb" data-act="ltopen" data-v="${o.last ? 'L' : ''}${esc(r.user_id)}" aria-expanded="${open}">
+    const key = (o.last ? 'L' : '') + r.user_id;
+    const open = !!S.lbOpen[key];
+    const team = `<th class="lt-team" scope="row"><button class="lt-tb" data-act="ltopen" data-v="${esc(key)}" aria-expanded="${open}">
         <span class="lt-rank">${r.rank}</span>${avatar(r.avatar, 30)}
-        <span class="lt-who"><span class="lt-name">${esc(r.display_name)}</span>
-          <span class="lt-score"><b>${Number(r.total).toFixed(1)}</b>${n && n.bonus ? `<i>${Number(n.raw).toFixed(1)}×${Number(n.bonus).toFixed(2)}</i>` : ''}</span></span></button></th>`;
+        <span class="lt-who"><span class="lt-name">${esc(r.display_name)}</span><span class="lt-open">${open ? '▲ CLOSE' : '▼ BOX SCORE'}</span></span></button></th>`;
+    const t = teamNums(n, o.last);
+    const live = `<td class="lt-num lt-live"><b>${Number(r.total).toFixed(1)}</b>${n && n.bonus ? `<i>${Number(n.raw).toFixed(1)} × ${Number(n.bonus).toFixed(2)}</i>` : ''}</td>`;
+    const proj = `<td class="lt-num lt-proj">${!t ? '<b>–</b>' : t.hidden === t.picks ? `<b>?</b><i>${t.hidden} hidden</i>` : `<b>${t.proj.toFixed(1)}${t.hidden ? '<em>+?</em>' : ''}</b><i class="${t.liveN ? 'on' : ''}">${t.line}</i>`}</td>`;
     let cells;
     if (!n) cells = `<td class="pc none" colspan="5">No lineup ${when} (counts as 0)</td>`;
     else cells = POS.map((pos) => {
       const v = (n.slots || {})[pos];
       if (v == null) return `<td class="pc empty"><span class="pc-name">Empty</span></td>`;
-      if (v === 'hidden') return `<td class="pc hid"><span class="pc-name">Picked</span><b class="pc-q">?</b><span class="pc-st">Shows at tip-off</span></td>`;
+      if (v === 'hidden') return `<td class="pc hid"><b class="pc-q">?</b><span class="pc-st">PICKED<br>SHOWS AT TIP-OFF</span></td>`;
       const p = S.byId[v];
       return p ? playerCell(p, o.last) : `<td class="pc"><span class="pc-name">#${esc(v)}</span></td>`;
     }).join('');
-    const detail = open && n ? `<tr class="lt-detail"><td colspan="6">${miniLineup(n, (o.last ? 'L' : '') + r.user_id)}</td></tr>` : '';
-    return `<tr class="lt-row${r.user_id === me ? ' me' : ''}${Number(r.rank) === 1 && Number(r.total) > 0 ? ' lead' : ''}${open ? ' open' : ''}">${team}${cells}</tr>${detail}`;
+    const detail = open && n ? `<tr class="lt-detail"><td colspan="8">${miniLineup(n, key)}</td></tr>` : '';
+    return `<tr class="lt-row${r.user_id === me ? ' me' : ''}${Number(r.rank) === 1 && Number(r.total) > 0 ? ' lead' : ''}${open ? ' open' : ''}">${team}${live}${proj}${cells}</tr>${detail}`;
   }).join('');
   return `<div class="lt-wrap"><table class="lt">
-    <colgroup><col class="lt-c0">${POS.map(() => '<col>').join('')}</colgroup>
-    <thead><tr><th class="lt-h" scope="col">TEAM</th>${POS.map((p) => `<th class="lt-h" scope="col">${p}</th>`).join('')}</tr></thead>
+    <colgroup><col class="lt-c0"><col class="lt-c1"><col class="lt-c2">${POS.map(() => '<col>').join('')}</colgroup>
+    <thead><tr><th class="lt-h" scope="col">TEAM</th><th class="lt-h lt-hn" scope="col">${o.last ? 'FINAL' : 'LIVE'}</th><th class="lt-h lt-hn" scope="col">PROJ</th>${POS.map((p) => `<th class="lt-h" scope="col">${p}</th>`).join('')}</tr></thead>
     <tbody>${body}</tbody></table></div>
-    <p class="muted lb-note">Hover or tap a player for his full line. Tap a team for its full box score.${total > rows.length ? ` Showing the top ${o.limit} of ${total}.` : ''}</p>`;
+    <p class="muted lb-note">${o.last ? 'FINAL = fantasy points × cap bonus. PROJ = what the lineup was projected to score before the games.' : 'LIVE = fantasy points so far × cap bonus. PROJ = where the team is headed: finished players’ points, live players’ pace, everyone else’s projection (× cap bonus). +? = picks not shown yet.'}
+      Hover or tap a player for his full line. Tap a team for its full box score.${total > rows.length ? ` Showing the top ${o.limit} of ${total}.` : ''}</p>`;
+}
+
+/* A team's projected score and where its players stand, from the picks we can see.
+   Tonight: final FP, else pace, else projection (same as MY TEAM); last night: the pre-game projection. */
+function teamNums(n, last) {
+  if (!n) return null;
+  const slots = n.slots || {};
+  let exp = 0, hidden = 0, liveN = 0, toGo = 0, done = 0, picks = 0;
+  POS.forEach((pos) => {
+    const v = slots[pos];
+    if (v != null) picks++;
+    if (v === 'hidden') { hidden++; toGo++; return; }
+    const p = v != null ? S.byId[v] : null;
+    if (!p) return;
+    const d = rowData(p);
+    exp += last ? p.proj : d.expect;
+    if (d.state === 2) liveN++; else if (d.state === 3) done++; else toGo++;
+  });
+  const bonus = Number(n.bonus) || 1;
+  const line = last ? 'pre-game' : !liveN && !done ? `${toGo} to play` : !liveN && !toGo ? 'ALL FINAL'
+    : [liveN ? `${liveN} LIVE` : '', toGo ? `${toGo} to go` : '', done ? `${done} done` : ''].filter(Boolean).join(' · ');
+  return { proj: exp * bonus, hidden, picks, liveN, line };
 }
 
 /* Popover for a player cell: headshot, matchup, FP vs projection, cost, value, stat line. */
