@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=2b5a0d9';
-import { POS } from './util.js?v=2b5a0d9';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=2b5a0d9';
+import { S } from './state.js?v=ded6fe7';
+import { POS } from './util.js?v=ded6fe7';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=ded6fe7';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -177,8 +177,9 @@ export async function latestWinners(league) {
   (data || []).forEach((b) => {
     const cur = out[b.kind];
     if (!cur || cur.period === b.period) {
-      if (!cur) out[b.kind] = { period: b.period, score: b.score, names: [] };
+      if (!cur) out[b.kind] = { period: b.period, score: b.score, names: [], ids: [] };
       out[b.kind].names.push(b.profiles ? b.profiles.display_name : '?');
+      out[b.kind].ids.push(b.user_id);
     }
   });
   return out;

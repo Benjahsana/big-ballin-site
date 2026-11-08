@@ -2,12 +2,12 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=2b5a0d9';
-import { $, POS, esc, money, store, jersey } from './util.js?v=2b5a0d9';
-import { avatar } from './avatars.js?v=2b5a0d9';
-import { mtTable, rowData, statLine, tipText, FLAME } from './render-score.js?v=2b5a0d9';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=2b5a0d9';
-import { L, asLast, lastDate, loadLast } from './night.js?v=2b5a0d9';
+import { S } from './state.js?v=ded6fe7';
+import { $, POS, esc, money, store, jersey } from './util.js?v=ded6fe7';
+import { avatar } from './avatars.js?v=ded6fe7';
+import { mtTable, rowData, statLine, tipText, FLAME } from './render-score.js?v=ded6fe7';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=ded6fe7';
+import { L, asLast, lastDate, loadLast } from './night.js?v=ded6fe7';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -60,10 +60,16 @@ export function periodSegs(cur, act) {
     `<button class="seg-b" data-act="${act}" data-v="${v}" aria-pressed="${cur === v}">${l}</button>`).join('')}</div>`;
 }
 
-export function winnersBox(w, kinds) {
-  const html = kinds.filter((k) => w && w[k]).map((k) =>
-    `<div class="winner"><span class="cap-label">${WINNER[k]}</span><b>${esc(w[k].names.slice(0, 10).join(' · '))}</b>${w[k].names.length === 1 ? `<span class="muted">${Number(w[k].score).toFixed(1)} pts</span>` : ''}</div>`).join('');
-  return html ? `<div class="winners">${html}</div>` : '';
+/* The latest winners (night / week / month / season, or the world kinds) as trophy badges next to
+   the winner's avatar on the board. w = latestWinners(); a badge shows only on the winner's row. */
+export const LEAGUE_KINDS = ['night', 'week', 'month', 'season'];
+export const WORLD_KINDS = ['w_night1', 'w_week10', 'w_month10'];
+const TROPHY = `<svg aria-hidden="true" width="10" height="10" viewBox="0 0 10 10" shape-rendering="crispEdges" fill="currentColor"><rect x="2" y="0" width="6" height="4"/><rect x="0" y="1" width="2" height="1"/><rect x="0" y="1" width="1" height="3"/><rect x="8" y="1" width="2" height="1"/><rect x="9" y="1" width="1" height="3"/><rect x="3" y="4" width="4" height="1"/><rect x="4" y="5" width="2" height="2"/><rect x="2" y="8" width="6" height="2"/></svg>`;
+const SHORT = { night: 'NIGHT', week: 'WEEK', month: 'MONTH', season: 'CHAMP', w_night1: '#1', w_week10: 'TOP 10', w_month10: 'TOP 10' };
+export function winBadges(uid, w, kinds) {
+  if (!w || !uid) return '';
+  return (kinds || []).filter((k) => w[k] && (w[k].ids || []).includes(uid)).map((k) =>
+    `<span class="wbdg wbdg-${k}" title="${esc(WINNER[k] || BADGE[k])}${w[k].period ? ' (' + esc(w[k].period) + ')' : ''}">${TROPHY}<span class="wl">${esc(BADGE[k] || k)}</span><span class="ws">${esc(SHORT[k] || k)}</span></span>`).join('');
 }
 
 /* Another player's lineup for Tonight: the same box score as MY TEAM (render-score.js mtTable).
@@ -140,7 +146,7 @@ function tonightTable(rows, night, o) {
     const open = !!S.lbOpen[key];
     const team = `<th class="lt-team" scope="row"><button class="lt-tb" data-act="ltopen" data-v="${esc(key)}" aria-expanded="${open}">
         <span class="lt-rank">${r.rank}</span>${avatar(r.avatar, 30)}
-        <span class="lt-who"><span class="lt-name">${esc(r.display_name)}</span><span class="lt-open">${open ? '▲ CLOSE' : '▼ BOX SCORE'}</span></span></button></th>`;
+        <span class="lt-who"><span class="lt-name">${esc(r.display_name)}</span>${(() => { const wb = winBadges(r.user_id, o.winners, o.kinds); return wb ? `<span class="lt-bdgs">${wb}</span>` : ''; })()}<span class="lt-open">${open ? '▲ CLOSE' : '▼ BOX SCORE'}</span></span></button></th>`;
     const t = teamNums(n, o.last);
     const live = `<td class="lt-num lt-live"><b>${Number(r.total).toFixed(1)}</b>${n && n.bonus ? `<i>${Number(n.raw).toFixed(1)} × ${Number(n.bonus).toFixed(2)}</i>` : ''}</td>`;
     const proj = `<td class="lt-num lt-proj">${!t ? '<b>–</b>' : t.hidden === t.picks ? `<b>?</b><i>${t.hidden} hidden</i>` : `<b>${t.proj.toFixed(1)}${t.hidden ? '<em>+?</em>' : ''}</b><i class="${t.liveN ? 'on' : ''}">${t.line}</i>`}</td>`;
@@ -235,7 +241,7 @@ function leaguePage(lg) {
   if (S.lbErr) board = `<div class="empty"><span>${esc(S.lbErr)}</span></div>`;
   else if (!rows) board = `<p class="muted">Loading…</p>`;
   else if (!rows.length) board = `<div class="empty"><span>${S.lbPeriod === 'last' ? 'No one in this league played last night.' : 'No one in this league has a lineup yet for this stretch.'}</span></div>`;
-  else board = S.lbPeriod === 'night' || S.lbPeriod === 'last' ? nightTable(rows, S.lbNight, { last: S.lbPeriod === 'last' }) : boardList(rows, S.lbPeriod, null, { lineups: true });
+  else board = S.lbPeriod === 'night' || S.lbPeriod === 'last' ? nightTable(rows, S.lbNight, { last: S.lbPeriod === 'last', winners: S.lbWinners, kinds: LEAGUE_KINDS }) : boardList(rows, S.lbPeriod, null, { lineups: true, winners: S.lbWinners, kinds: LEAGUE_KINDS });
 
   const invite = member && my ? `<div class="invite-box">
       <div class="m-actions">
@@ -260,7 +266,6 @@ function leaguePage(lg) {
     <p class="muted lb-note">Ranked by final score (fantasy points × cap bonus). A night without a lineup counts as 0.
       Other players’ picks show once their game tips off.</p>
     ${board}
-    ${winnersBox(S.lbWinners, ['night', 'week', 'month', 'season'])}
     ${invite}`;
 }
 
