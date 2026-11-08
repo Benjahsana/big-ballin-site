@@ -65,6 +65,12 @@
   "style": "40px-16c",
   "team": "CLE"
  },
+ "1626220": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
  "1627734": {
   "date": "2026-11-08",
   "kind": "photo",
@@ -106,6 +112,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "DEN"
+ },
+ "1627751": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
  },
  "1627752": {
   "date": "2026-11-08",
@@ -245,6 +257,12 @@
   "style": "40px-16c",
   "team": "OKC"
  },
+ "1628396": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
  "1628398": {
   "date": "2026-11-08",
   "kind": "photo",
@@ -280,6 +298,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "SAS"
+ },
+ "1628960": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
  },
  "1628963": {
   "date": "2026-11-07",
@@ -479,6 +503,18 @@
   "style": "40px-16c",
   "team": "DET"
  },
+ "1629162": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAS"
+ },
+ "1629605": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
  "1629611": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -509,6 +545,12 @@
   "style": "40px-16c",
   "team": "NOP"
  },
+ "1629628": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
+ },
  "1629630": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -520,6 +562,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "SAC"
+ },
+ "1629632": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
  },
  "1629636": {
   "date": "2026-11-08",
@@ -581,6 +629,12 @@
   "style": "40px-16c",
   "team": "LAL"
  },
+ "1629660": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
  "1629661": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -599,11 +653,23 @@
   "style": "40px-16c",
   "team": "BOS"
  },
+ "1629675": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
  "1629680": {
   "date": "2026-11-08",
   "kind": "photo",
   "style": "40px-16c",
   "team": "LAL"
+ },
+ "1629684": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
  },
  "1629731": {
   "date": "2026-11-08",
@@ -719,11 +785,23 @@
   "style": "40px-16c",
   "team": "CHI"
  },
+ "1630191": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
  "1630192": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "DEN"
+ },
+ "1630193": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
  },
  "1630194": {
   "date": "2026-11-08",
@@ -796,6 +874,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "POR"
+ },
+ "1630256": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "HOU"
  },
  "1630264": {
   "date": "2026-11-07",
@@ -911,6 +995,12 @@
   "style": "40px-16c",
   "team": "LAL"
  },
+ "1630567": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
+ },
  "1630568": {
   "date": "2026-11-08",
   "kind": "photo",
@@ -934,6 +1024,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "BOS"
+ },
+ "1630574": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
  },
  "1630577": {
   "date": "2026-11-07",
@@ -964,6 +1060,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "DAL"
+ },
+ "1630590": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
  },
  "1630591": {
   "date": "2026-11-07",
@@ -1001,6 +1103,12 @@
   "style": "40px-16c",
   "team": "GSW"
  },
+ "1630619": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
+ },
  "1630631": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1012,6 +1120,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "IND"
+ },
+ "1630658": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "ORL"
  },
  "1630692": {
   "date": "2026-11-07",
@@ -1157,6 +1271,12 @@
   "style": "40px-16c",
   "team": "PHI"
  },
+ "1631127": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
  "1631128": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1193,6 +1313,12 @@
   "style": "40px-16c",
   "team": "BKN"
  },
+ "1631166": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHX"
+ },
  "1631169": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1211,6 +1337,18 @@
   "style": "40px-16c",
   "team": "MIL"
  },
+ "1631199": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
+ "1631200": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
  "1631204": {
   "date": "2026-11-08",
   "kind": "photo",
@@ -1228,6 +1366,18 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "CLE"
+ },
+ "1631217": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
+ "1631218": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
  },
  "1631221": {
   "date": "2026-11-07",
@@ -1307,11 +1457,29 @@
   "style": "40px-16c",
   "team": "SAC"
  },
+ "1631457": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "ORL"
+ },
  "1641705": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "SAS"
+ },
+ "1641706": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
+ "1641707": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
  },
  "1641708": {
   "date": "2026-11-07",
@@ -1343,6 +1511,12 @@
   "style": "40px-16c",
   "team": "PHI"
  },
+ "1641713": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
  "1641715": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1372,6 +1546,18 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "CHI"
+ },
+ "1641723": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
+ "1641724": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
  },
  "1641725": {
   "date": "2026-11-08",
@@ -1403,6 +1589,12 @@
   "style": "40px-16c",
   "team": "WAS"
  },
+ "1641736": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "WAS"
+ },
  "1641737": {
   "date": "2026-11-08",
   "kind": "photo",
@@ -1427,17 +1619,65 @@
   "style": "40px-16c",
   "team": "MIN"
  },
+ "1641744": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
+ "1641747": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DEN"
+ },
+ "1641750": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
+ "1641755": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
+ },
  "1641757": {
   "date": "2026-11-08",
   "kind": "photo",
   "style": "40px-16c",
   "team": "LAC"
  },
+ "1641759": {
+  "date": "2026-11-08",
+  "kind": "silhouette",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
+ "1641761": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BKN"
+ },
+ "1641763": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "HOU"
+ },
  "1641764": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "GSW"
+ },
+ "1641765": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
  },
  "1641767": {
   "date": "2026-11-07",
@@ -1481,11 +1721,23 @@
   "style": "40px-16c",
   "team": "ORL"
  },
+ "1641790": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
  "1641796": {
   "date": "2026-11-08",
   "kind": "photo",
   "style": "40px-16c",
   "team": "MIA"
+ },
+ "1641807": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CLE"
  },
  "1641824": {
   "date": "2026-11-08",
@@ -1505,11 +1757,29 @@
   "style": "40px-16c",
   "team": "CLE"
  },
+ "1641869": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
+ },
+ "1641871": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHX"
+ },
  "1641989": {
   "date": "2026-11-08",
   "kind": "photo",
   "style": "40px-16c",
   "team": "DET"
+ },
+ "1642066": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
  },
  "1642258": {
   "date": "2026-11-08",
@@ -1552,6 +1822,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "SAS"
+ },
+ "1642266": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
  },
  "1642267": {
   "date": "2026-11-07",
@@ -1601,6 +1877,12 @@
   "style": "40px-16c",
   "team": "NOP"
  },
+ "1642275": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
  "1642276": {
   "date": "2026-11-08",
   "kind": "photo",
@@ -1625,6 +1907,18 @@
   "style": "40px-16c",
   "team": "CLE"
  },
+ "1642284": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
+ "1642285": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
  "1642345": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1636,6 +1930,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "PHX"
+ },
+ "1642347": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
  },
  "1642348": {
   "date": "2026-11-08",
@@ -1655,6 +1955,42 @@
   "style": "40px-16c",
   "team": "DEN"
  },
+ "1642352": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
+ "1642353": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
+ "1642355": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
+ "1642357": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAS"
+ },
+ "1642358": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
+ "1642359": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NYK"
+ },
  "1642363": {
   "date": "2026-11-08",
   "kind": "photo",
@@ -1667,6 +2003,24 @@
   "style": "40px-16c",
   "team": "WAS"
  },
+ "1642366": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
+ "1642367": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
+ "1642377": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
  "1642382": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1678,6 +2032,60 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "DAL"
+ },
+ "1642384": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "HOU"
+ },
+ "1642389": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
+ },
+ "1642394": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
+ "1642400": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CLE"
+ },
+ "1642403": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
+ "1642404": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
+ "1642419": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
+ },
+ "1642434": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CLE"
+ },
+ "1642449": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
  },
  "1642450": {
   "date": "2026-11-08",
@@ -1696,6 +2104,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "ATL"
+ },
+ "1642502": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "GSW"
  },
  "1642504": {
   "date": "2026-11-08",
@@ -1745,6 +2159,12 @@
   "style": "40px-16c",
   "team": "BKN"
  },
+ "1642851": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
  "1642852": {
   "date": "2026-11-08",
   "kind": "photo",
@@ -1762,6 +2182,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "ATL"
+ },
+ "1642855": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
  },
  "1642856": {
   "date": "2026-11-07",
@@ -1787,6 +2213,12 @@
   "style": "40px-16c",
   "team": "WAS"
  },
+ "1642862": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
  "1642863": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1811,6 +2243,12 @@
   "style": "40px-16c",
   "team": "MIN"
  },
+ "1642867": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
+ },
  "1642868": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1823,6 +2261,12 @@
   "style": "40px-16c",
   "team": "ORL"
  },
+ "1642873": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
  "1642874": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1834,6 +2278,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "SAC"
+ },
+ "1642876": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
  },
  "1642877": {
   "date": "2026-11-07",
@@ -1859,17 +2309,89 @@
   "style": "40px-16c",
   "team": "MIL"
  },
+ "1642881": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
  "1642882": {
   "date": "2026-11-08",
   "kind": "photo",
   "style": "40px-16c",
   "team": "NOP"
  },
+ "1642883": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
+ "1642884": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
+ "1642885": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NYK"
+ },
+ "1642889": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
  "1642892": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "OKC"
+ },
+ "1642905": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "POR"
+ },
+ "1642907": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
+ "1642910": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "POR"
+ },
+ "1642911": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
+ },
+ "1642912": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
+ },
+ "1642914": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
+ "1642918": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
  },
  "1642920": {
   "date": "2026-11-08",
@@ -1889,6 +2411,12 @@
   "style": "40px-16c",
   "team": "ATL"
  },
+ "1642942": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
  "1642948": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1901,11 +2429,23 @@
   "style": "40px-16c",
   "team": "LAC"
  },
+ "1642951": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
  "1642954": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "GSW"
+ },
+ "1642959": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "POR"
  },
  "1642962": {
   "date": "2026-11-07",
@@ -1913,11 +2453,29 @@
   "style": "40px-16c",
   "team": "BKN"
  },
+ "1642964": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "OKC"
+ },
  "1643018": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "GSW"
+ },
+ "1643022": {
+  "date": "2026-11-08",
+  "kind": "silhouette",
+  "style": "40px-16c",
+  "team": "NYK"
+ },
+ "1643024": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
  },
  "1643052": {
   "date": "2026-11-07",
@@ -1931,6 +2489,12 @@
   "style": "40px-16c",
   "team": "LAL"
  },
+ "1643257": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "POR"
+ },
  "1643407": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1942,6 +2506,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "UTA"
+ },
+ "1643409": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
  },
  "1643410": {
   "date": "2026-11-08",
@@ -1979,11 +2549,29 @@
   "style": "40px-16c",
   "team": "MIL"
  },
+ "1643416": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
  "1643417": {
   "date": "2026-11-08",
   "kind": "photo",
   "style": "40px-16c",
   "team": "MIL"
+ },
+ "1643418": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
+ "1643419": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
  },
  "1643509": {
   "date": "2026-11-07",
@@ -1991,17 +2579,65 @@
   "style": "40px-16c",
   "team": "CLE"
  },
+ "1643510": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
+ "1643512": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
+ },
+ "1643515": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
  "1643516": {
   "date": "2026-11-08",
   "kind": "photo",
   "style": "40px-16c",
   "team": "DAL"
  },
+ "1643517": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
+ "1643520": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHX"
+ },
  "1643530": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "OKC"
+ },
+ "1643536": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
+ "1643538": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BKN"
+ },
+ "1643542": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAS"
  },
  "1643544": {
   "date": "2026-11-07",
@@ -2015,6 +2651,12 @@
   "style": "40px-16c",
   "team": "DAL"
  },
+ "1643551": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAS"
+ },
  "1643552": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -2027,11 +2669,47 @@
   "style": "40px-16c",
   "team": "MIA"
  },
+ "1643558": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
+ },
  "1643567": {
   "date": "2026-11-08",
   "kind": "photo",
   "style": "40px-16c",
   "team": "SAC"
+ },
+ "1643568": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
+ "1643570": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "HOU"
+ },
+ "1643576": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAS"
+ },
+ "1643588": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
+ },
+ "1643590": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "WAS"
  },
  "1643591": {
   "date": "2026-11-08",
@@ -2044,6 +2722,18 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "DEN"
+ },
+ "1643633": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "GSW"
+ },
+ "1643637": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
  },
  "1643717": {
   "date": "2026-11-07",
@@ -2129,6 +2819,12 @@
   "style": "40px-16c",
   "team": "MIA"
  },
+ "202695": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
+ },
  "202696": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -2195,6 +2891,12 @@
   "style": "40px-16c",
   "team": "ATL"
  },
+ "203471": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHA"
+ },
  "203484": {
   "date": "2026-11-08",
   "kind": "photo",
@@ -2237,6 +2939,12 @@
   "style": "40px-16c",
   "team": "NYK"
  },
+ "203924": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MEM"
+ },
  "203932": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -2248,6 +2956,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "HOU"
+ },
+ "203937": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "TOR"
  },
  "203944": {
   "date": "2026-11-07",
