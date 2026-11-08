@@ -23,6 +23,36 @@
   "style": "40px-16c",
   "team": "PHX"
  },
+ "1626167": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1626168": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
+ },
+ "1626171": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
+ "1626172": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
+ "1626181": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
  "1626204": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -35,11 +65,59 @@
   "style": "40px-16c",
   "team": "CLE"
  },
+ "1627734": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
+ "1627739": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
+ "1627741": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
+ "1627742": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
+ "1627747": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1627749": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
  "1627750": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "DEN"
+ },
+ "1627752": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
+ "1627759": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
  },
  "1627777": {
   "date": "2026-11-07",
@@ -77,6 +155,12 @@
   "style": "40px-16c",
   "team": "HOU"
  },
+ "1627884": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
  "1627936": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -89,11 +173,29 @@
   "style": "40px-16c",
   "team": "SAS"
  },
+ "1628369": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
+ "1628370": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
  "1628371": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "ORL"
+ },
+ "1628374": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
  },
  "1628378": {
   "date": "2026-11-07",
@@ -107,6 +209,18 @@
   "style": "40px-16c",
   "team": "PHX"
  },
+ "1628380": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
+ "1628381": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
  "1628384": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -119,11 +233,29 @@
   "style": "40px-16c",
   "team": "CLE"
  },
+ "1628389": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
  "1628392": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "OKC"
+ },
+ "1628398": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1628401": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
  },
  "1628404": {
   "date": "2026-11-07",
@@ -155,6 +287,12 @@
   "style": "40px-16c",
   "team": "DEN"
  },
+ "1628964": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
  "1628969": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -185,11 +323,35 @@
   "style": "40px-16c",
   "team": "ORL"
  },
+ "1628978": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
+ },
  "1628983": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "OKC"
+ },
+ "1628989": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
+ "1628991": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
+ "1628997": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
  },
  "1629001": {
   "date": "2026-11-07",
@@ -197,11 +359,35 @@
   "style": "40px-16c",
   "team": "GSW"
  },
+ "1629004": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
+ "1629006": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
  "1629008": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "BKN"
+ },
+ "1629011": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
+ "1629012": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
  },
  "1629013": {
   "date": "2026-11-07",
@@ -209,11 +395,35 @@
   "style": "40px-16c",
   "team": "NYK"
  },
+ "1629014": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
+ "1629018": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1629020": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
  "1629021": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "BKN"
+ },
+ "1629023": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
  },
  "1629026": {
   "date": "2026-11-07",
@@ -233,6 +443,12 @@
   "style": "40px-16c",
   "team": "WAS"
  },
+ "1629029": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
  "1629048": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -245,11 +461,23 @@
   "style": "40px-16c",
   "team": "POR"
  },
+ "1629060": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
  "1629111": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "ATL"
+ },
+ "1629130": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
  },
  "1629611": {
   "date": "2026-11-07",
@@ -263,17 +491,59 @@
   "style": "40px-16c",
   "team": "IND"
  },
+ "1629618": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
+ "1629622": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
+ "1629627": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
  "1629630": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "POR"
  },
+ "1629631": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
+ "1629636": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
+ "1629637": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
  "1629638": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "ATL"
+ },
+ "1629639": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
  },
  "1629640": {
   "date": "2026-11-07",
@@ -287,17 +557,77 @@
   "style": "40px-16c",
   "team": "GSW"
  },
+ "1629651": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
  "1629652": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "ATL"
  },
+ "1629655": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
+ },
+ "1629656": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
  "1629661": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "DEN"
+ },
+ "1629673": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
+ "1629674": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
+ "1629680": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
+ "1629731": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
+ "1629750": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
+ "1630162": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
+ },
+ "1630163": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
  },
  "1630164": {
   "date": "2026-11-07",
@@ -335,17 +665,95 @@
   "style": "40px-16c",
   "team": "SAS"
  },
+ "1630171": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
+ "1630172": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
+ "1630173": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
  "1630174": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "IND"
  },
+ "1630178": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
+ "1630180": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
+ "1630182": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
+ "1630183": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
+ },
+ "1630188": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
  "1630192": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "DEN"
+ },
+ "1630194": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
+ "1630198": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
+ "1630200": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
+ "1630202": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
+ "1630208": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
  },
  "1630217": {
   "date": "2026-11-07",
@@ -359,11 +767,29 @@
   "style": "40px-16c",
   "team": "PHX"
  },
+ "1630228": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
+ },
+ "1630230": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
+ },
  "1630241": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "CLE"
+ },
+ "1630245": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
  },
  "1630249": {
   "date": "2026-11-07",
@@ -389,11 +815,35 @@
   "style": "40px-16c",
   "team": "GSW"
  },
+ "1630529": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
+ "1630530": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
  "1630532": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "ORL"
+ },
+ "1630533": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
+ "1630538": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
  },
  "1630540": {
   "date": "2026-11-07",
@@ -407,11 +857,23 @@
   "style": "40px-16c",
   "team": "GSW"
  },
+ "1630543": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
  "1630544": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "WAS"
+ },
+ "1630545": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
  },
  "1630549": {
   "date": "2026-11-07",
@@ -437,6 +899,42 @@
   "style": "40px-16c",
   "team": "ATL"
  },
+ "1630558": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
+ "1630559": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
+ "1630568": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
+ "1630570": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
+ "1630572": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
+ "1630573": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
  "1630577": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -449,6 +947,24 @@
   "style": "40px-16c",
   "team": "HOU"
  },
+ "1630579": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1630581": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
+ "1630583": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
+ },
  "1630591": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -460,6 +976,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "ATL"
+ },
+ "1630595": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
  },
  "1630596": {
   "date": "2026-11-07",
@@ -503,11 +1025,23 @@
   "style": "40px-16c",
   "team": "POR"
  },
+ "1630696": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
  "1630700": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "ATL"
+ },
+ "1630702": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
  },
  "1630703": {
   "date": "2026-11-07",
@@ -533,17 +1067,47 @@
   "style": "40px-16c",
   "team": "OKC"
  },
+ "1631097": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
+ "1631099": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
  "1631101": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "POR"
  },
+ "1631105": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
  "1631106": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "HOU"
+ },
+ "1631107": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
+ "1631108": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
  },
  "1631109": {
   "date": "2026-11-07",
@@ -557,11 +1121,23 @@
   "style": "40px-16c",
   "team": "OKC"
  },
+ "1631117": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
  "1631119": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "OKC"
+ },
+ "1631121": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
  },
  "1631123": {
   "date": "2026-11-07",
@@ -575,6 +1151,12 @@
   "style": "40px-16c",
   "team": "DEN"
  },
+ "1631126": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
  "1631128": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -587,6 +1169,24 @@
   "style": "40px-16c",
   "team": "HOU"
  },
+ "1631133": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
+ "1631157": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1631159": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
  "1631165": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -598,6 +1198,24 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "BKN"
+ },
+ "1631170": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1631172": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1631204": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
  },
  "1631207": {
   "date": "2026-11-07",
@@ -617,6 +1235,18 @@
   "style": "40px-16c",
   "team": "PHX"
  },
+ "1631222": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
+ "1631230": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
  "1631243": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -628,6 +1258,30 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "IND"
+ },
+ "1631248": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
+ "1631250": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1631255": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
+ "1631260": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
  },
  "1631288": {
   "date": "2026-11-07",
@@ -641,6 +1295,18 @@
   "style": "40px-16c",
   "team": "POR"
  },
+ "1631323": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
+ "1631342": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
  "1641705": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -653,11 +1319,29 @@
   "style": "40px-16c",
   "team": "HOU"
  },
+ "1641709": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
  "1641710": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "ORL"
+ },
+ "1641711": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
+ "1641712": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
  },
  "1641715": {
   "date": "2026-11-07",
@@ -677,6 +1361,36 @@
   "style": "40px-16c",
   "team": "OKC"
  },
+ "1641718": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
+ "1641722": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
+ "1641725": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
+ "1641726": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
+ },
+ "1641729": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
  "1641730": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -689,6 +1403,12 @@
   "style": "40px-16c",
   "team": "WAS"
  },
+ "1641737": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
  "1641738": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -700,6 +1420,18 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "POR"
+ },
+ "1641740": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
+ },
+ "1641757": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
  },
  "1641764": {
   "date": "2026-11-07",
@@ -731,17 +1463,59 @@
   "style": "40px-16c",
   "team": "WAS"
  },
+ "1641775": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
+ "1641778": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
  "1641783": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "ORL"
  },
+ "1641796": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
+ "1641824": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
+ "1641842": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
  "1641854": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "CLE"
+ },
+ "1641989": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
+ "1642258": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
  },
  "1642259": {
   "date": "2026-11-07",
@@ -761,6 +1535,12 @@
   "style": "40px-16c",
   "team": "NYK"
  },
+ "1642262": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
+ },
  "1642263": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -779,11 +1559,29 @@
   "style": "40px-16c",
   "team": "WAS"
  },
+ "1642268": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
+ "1642269": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
  "1642270": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "POR"
+ },
+ "1642271": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
  },
  "1642272": {
   "date": "2026-11-07",
@@ -796,6 +1594,18 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "WAS"
+ },
+ "1642274": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
+ "1642276": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
  },
  "1642277": {
   "date": "2026-11-07",
@@ -827,6 +1637,12 @@
   "style": "40px-16c",
   "team": "PHX"
  },
+ "1642348": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
  "1642349": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -838,6 +1654,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "DEN"
+ },
+ "1642363": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
  },
  "1642364": {
   "date": "2026-11-07",
@@ -851,6 +1673,18 @@
   "style": "40px-16c",
   "team": "POR"
  },
+ "1642383": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
+ },
+ "1642450": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DET"
+ },
  "1642461": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -863,11 +1697,41 @@
   "style": "40px-16c",
   "team": "ATL"
  },
+ "1642504": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1642843": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
+ },
  "1642844": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "SAS"
+ },
+ "1642845": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
+ "1642846": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
+ "1642847": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
  },
  "1642848": {
   "date": "2026-11-07",
@@ -880,6 +1744,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "BKN"
+ },
+ "1642852": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
  },
  "1642853": {
   "date": "2026-11-07",
@@ -899,6 +1769,12 @@
   "style": "40px-16c",
   "team": "BKN"
  },
+ "1642857": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
  "1642859": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -917,11 +1793,23 @@
   "style": "40px-16c",
   "team": "PHX"
  },
+ "1642864": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
  "1642865": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "GSW"
+ },
+ "1642866": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
  },
  "1642868": {
   "date": "2026-11-07",
@@ -941,6 +1829,12 @@
   "style": "40px-16c",
   "team": "BKN"
  },
+ "1642875": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
  "1642877": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -959,11 +1853,35 @@
   "style": "40px-16c",
   "team": "BKN"
  },
+ "1642880": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1642882": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
  "1642892": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "OKC"
+ },
+ "1642920": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
+ "1642928": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
  },
  "1642933": {
   "date": "2026-11-07",
@@ -976,6 +1894,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "DEN"
+ },
+ "1642949": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
  },
  "1642954": {
   "date": "2026-11-07",
@@ -1001,11 +1925,35 @@
   "style": "40px-16c",
   "team": "BKN"
  },
+ "1643133": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAL"
+ },
  "1643407": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "WAS"
+ },
+ "1643408": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
+ },
+ "1643410": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
+ "1643411": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
  },
  "1643412": {
   "date": "2026-11-07",
@@ -1013,17 +1961,41 @@
   "style": "40px-16c",
   "team": "ATL"
  },
+ "1643413": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
  "1643414": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "BKN"
  },
+ "1643415": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
+ "1643417": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIL"
+ },
  "1643509": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "CLE"
+ },
+ "1643516": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
  },
  "1643530": {
   "date": "2026-11-07",
@@ -1037,11 +2009,35 @@
   "style": "40px-16c",
   "team": "ATL"
  },
+ "1643547": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
+ },
  "1643552": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "IND"
+ },
+ "1643553": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
+ "1643567": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
+ "1643591": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
  },
  "1643624": {
   "date": "2026-11-07",
@@ -1073,6 +2069,24 @@
   "style": "40px-16c",
   "team": "GSW"
  },
+ "201144": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
+ "201572": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
+ },
+ "201599": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
+ },
  "201935": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1097,6 +2111,24 @@
   "style": "40px-16c",
   "team": "POR"
  },
+ "202331": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "BOS"
+ },
+ "202681": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "DAL"
+ },
+ "202691": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
  "202696": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1120,6 +2152,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "WAS"
+ },
+ "203078": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "LAC"
  },
  "203081": {
   "date": "2026-11-07",
@@ -1157,11 +2195,41 @@
   "style": "40px-16c",
   "team": "ATL"
  },
+ "203484": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
+ "203497": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
+ },
  "203500": {
   "date": "2026-11-07",
   "kind": "photo",
   "style": "40px-16c",
   "team": "HOU"
+ },
+ "203501": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
+ "203507": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
+ "203897": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
  },
  "203903": {
   "date": "2026-11-07",
@@ -1187,6 +2255,18 @@
   "style": "40px-16c",
   "team": "BKN"
  },
+ "203952": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
+ },
+ "203954": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
+ },
  "203991": {
   "date": "2026-11-07",
   "kind": "photo",
@@ -1198,6 +2278,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "HOU"
+ },
+ "203994": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
  },
  "203999": {
   "date": "2026-11-07",
@@ -1216,5 +2302,11 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "IND"
+ },
+ "2544": {
+  "date": "2026-11-08",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "PHI"
  }
 }
