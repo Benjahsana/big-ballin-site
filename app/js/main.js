@@ -1,19 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=e026dd1';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=e026dd1';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=e026dd1';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=e026dd1';
-import { defaultDir } from './filters.js?v=e026dd1';
-import { renderStats } from './render-stats.js?v=e026dd1';
-import { renderScore, loadTonightRanks } from './render-score.js?v=e026dd1';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=e026dd1';
-import { openModal, closeModal, renderModal } from './render-account.js?v=e026dd1';
-import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=e026dd1';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=e026dd1';
-import { avatar } from './avatars.js?v=e026dd1';
-import { play, SOUNDS, styleFor } from './sound.js?v=e026dd1';
-import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=e026dd1';
-import { LABELS } from './util.js?v=e026dd1';
+import { S, ui } from './state.js?v=eaf3fca';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=eaf3fca';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=eaf3fca';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=eaf3fca';
+import { defaultDir } from './filters.js?v=eaf3fca';
+import { renderStats } from './render-stats.js?v=eaf3fca';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=eaf3fca';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=eaf3fca';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=eaf3fca';
+import { openModal, closeModal, renderModal } from './render-account.js?v=eaf3fca';
+import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=eaf3fca';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=eaf3fca';
+import { avatar } from './avatars.js?v=eaf3fca';
+import { play, SOUNDS, styleFor } from './sound.js?v=eaf3fca';
+import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=eaf3fca';
+import { LABELS } from './util.js?v=eaf3fca';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -41,7 +42,8 @@ function renderHeader() {
   // Account button + where the lineup is saved.
   const cloudOn = CLOUD && S.cloudOk;
   $('#leaguesTab').hidden = !cloudOn;
-  $('#worldTab').hidden = !cloudOn;
+  $('#worldBtn').hidden = !cloudOn;
+  $('#worldBtn').setAttribute('aria-pressed', String(S.tab === 'world'));
   $('#acctBtn').hidden = !cloudOn;
   $('#acctBtn').textContent = signedIn() ? 'ACCOUNT' : 'SIGN IN';
   renderRankChip(cloudOn);
@@ -53,7 +55,8 @@ function renderHeader() {
   renderSoundPanel();
 }
 
-/* Header chip on every tab: [avatar] NAME · #47 WORLD ▲3 (season world rank). Biggest on TODAY’S LINEUP. */
+/* Header chip on every tab: [avatar] NAME · #47 WORLD ▲3 (season world rank). Biggest on BUILD LINEUP.
+   The World Rankings button sits next to it, under the logo (not in the tab row). */
 function renderRankChip(cloudOn) {
   const chip = $('#rankChip');
   chip.hidden = !cloudOn;
@@ -128,7 +131,7 @@ document.addEventListener('click', (e) => {
     case 'tab': S.tab = b.dataset.tab; play('tap'); renderAll(); window.scrollTo({ top: 0 });
       if (S.tab === 'leagues') loadBoards().then(renderAll);
       if (S.tab === 'world') loadWorld().then(renderAll);
-      if (S.tab === 'score') pollLive().then(loadTonightRanks).then(renderAll);
+      if (S.tab === 'score') { pollLive().then(loadTonightRanks).then(renderAll); loadLast().then(loadLastRanks).then(renderAll); }
       break;
     case 'acct': signedIn() ? openModal('account') : S.user ? openModal('name') : openModal('signin'); break;
     case 'modal': openModal(b.dataset.k, b.dataset.k === 'signin' && S.modal ? { email: S.modal.email } : null); break;
@@ -137,7 +140,10 @@ document.addEventListener('click', (e) => {
     case 'rankchip': S.tab = 'world'; S.wPeriod = 'season'; S.wRows = null; play('tap'); renderAll(); window.scrollTo({ top: 0 }); loadWorld().then(renderAll); break;
     case 'league': S.lbLeague = b.dataset.v || null; store('bb-league', S.lbLeague); S.lbRows = null; S.inviteOpen = false;
       renderLeagues(); window.scrollTo({ top: 0 }); loadBoards().then(renderAll); break;
-    case 'lbperiod': S.lbPeriod = b.dataset.v; S.lbRows = null; renderLeagues(); loadBoards().then(renderAll); break;
+    case 'scoreview': S.scoreView = b.dataset.v; play('tap'); renderScore();
+      if (S.scoreView === 'last') loadLast().then(loadLastRanks).then(renderAll);
+      break;
+    case 'lbperiod': S.lbAuto = false; S.lbPeriod = b.dataset.v; S.lbRows = null; renderLeagues(); loadBoards().then(renderAll); break;
     case 'wperiod': S.wPeriod = b.dataset.v; S.wRows = null; renderWorld(); loadWorld().then(renderAll); break;
     case 'worldrefresh': pollLive().then(loadWorld).then(() => { renderAll(); flash(S.live && !allFinal() ? 'LIVE!' : 'UPDATED!', '#FFD23F', '#3D8BFF'); }); break;
     case 'ltopen': S.lbOpen[b.dataset.v] = !S.lbOpen[b.dataset.v]; renderLeagues(); break;
@@ -190,7 +196,11 @@ document.addEventListener('click', (e) => {
       S.sortDir = S.sortKey === k ? -S.sortDir : (k === 'tov' ? 1 : -1);
       S.sortKey = k; renderStats(); break;
     }
-    case 'refresh': loadResults().then(pollLive).then(loadTonightRanks).then(() => {
+    case 'refresh': if (scoreView() === 'last' && !lastIsCurrent()) {
+      loadLast(true).then(loadLastRanks).then(() => { renderScore(); flash(L.results ? 'FINAL!' : 'NOT YET!', L.results ? '#FFD23F' : '#A9A7C2', '#3D8BFF'); });
+      break;
+    }
+    loadResults().then(pollLive).then(loadTonightRanks).then(() => {
       renderScore();
       if (S.results) flash('FINAL!', '#FFD23F', '#3D8BFF');
       else if (S.live) flash('LIVE!', '#FF4A3D', '#FFD23F');
@@ -250,6 +260,7 @@ $('#modal').addEventListener('submit', async (e) => {
 
 /* After sign-in, sign-out or on load: pick up the account's lineup and any pending invite. */
 async function afterAuth() {
+  resetLastLineup();   // last night's saved lineup depends on who is signed in
   if (!S.user) { S.sync = 'local'; S.leagues = []; S.rank = null; S.tRanks = null; S.inviteOpen = false; if (S.tab === 'leagues') await loadBoards(); renderAll(); return; }
   if (!S.profile) { renderAll(); openModal('name'); return; }
   try {
@@ -284,7 +295,7 @@ let popFor = null;
 function showPop(cell, tapped) {
   const box = $('#pcPop');
   if (tapped && popFor === cell && !box.hidden) { hidePop(); return; }
-  box.innerHTML = playerPop(Number(cell.dataset.pid));
+  box.innerHTML = cell.dataset.n === 'last' ? asLast(() => playerPop(Number(cell.dataset.pid))) : playerPop(Number(cell.dataset.pid));
   box.hidden = false;
   popFor = cell;
   const r = cell.getBoundingClientRect(), w = box.offsetWidth, h = box.offsetHeight;
@@ -327,7 +338,6 @@ async function checkBadges() {
 }
 
 /* ---------- Live points (Supabase live_feed, refreshed by the server about every minute) ---------- */
-const anyStarted = () => (S.slate.games || []).some((g) => Date.parse(g.tip_utc) <= Date.now());
 let liveSeeded = false;
 async function pollLive() {
   if (!CLOUD || !S.cloudOk || S.results || !anyStarted() || (allFinal() && liveSeeded)) return;
@@ -353,6 +363,8 @@ async function pollLive() {
 async function tick() {
   if (document.hidden) return;
   await pollLive();
+  // Boards opened on LAST NIGHT before tonight's games switch to TONIGHT at the first tip-off (unless picked by hand).
+  if (S.lbAuto && anyStarted() && !lastIsCurrent()) { S.lbAuto = false; S.lbPeriod = 'night'; S.lbRows = null; if (S.tab === 'leagues') await loadBoards(); }
   const liveNow = S.live && !allFinal();
   if (liveNow && S.tab === 'leagues' && S.lbLeague && S.lbPeriod === 'night') await loadBoards();
   if (liveNow && S.tab === 'world' && S.wPeriod === 'night') await loadWorld();
@@ -421,7 +433,8 @@ async function load() {
   const lgSaved = recall('bb-league'); if (typeof lgSaved === 'string' && lgSaved) S.lbLeague = lgSaved;
   $('#buildTab').textContent = LABELS.build;
   $('#statsTab').textContent = LABELS.stats;
-  $('#worldTab').textContent = LABELS.world;
+  $('#worldBtnLabel').textContent = LABELS.world;
+  if (!anyStarted() || lastIsCurrent()) { S.lbPeriod = 'last'; S.lbAuto = true; }   // mornings: open the boards on last night
   setupPoolControls();
   const nextEmpty = POS.find((pos) => !S.lineup[pos]); S.poolPos = nextEmpty || 'ALL';
 

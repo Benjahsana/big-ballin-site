@@ -1,19 +1,15 @@
 /* BIG BALLIN: World Rankings tab. Every signed-in player who played in the stretch is ranked
    automatically, by final score (FP × cap bonus); a skipped night counts as 0; ties share a rank. */
-import { S } from './state.js?v=e026dd1';
-import { $, esc, LABELS, WORLD_ROWS } from './util.js?v=e026dd1';
-import { avatar } from './avatars.js?v=e026dd1';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, friendly } from './cloud.js?v=e026dd1';
-import { boardList, periodSegs, winnersBox } from './render-leagues.js?v=e026dd1';
+import { S } from './state.js?v=eaf3fca';
+import { $, esc, LABELS, WORLD_ROWS } from './util.js?v=eaf3fca';
+import { avatar } from './avatars.js?v=eaf3fca';
+import { CLOUD, signedIn, latestWinners, friendly } from './cloud.js?v=eaf3fca';
+import { boardList, periodSegs, winnersBox, boardQuery, nightTable } from './render-leagues.js?v=eaf3fca';
 
 export async function loadWorld() {
   if (!CLOUD || !S.cloudOk) return;
   try {
-    const [rows, night, win] = await Promise.all([
-      leaderboard(S.wPeriod, S.slate.date, null),
-      S.wPeriod === 'night' ? nightLineups(S.slate.date, null) : Promise.resolve(null),
-      latestWinners(null),
-    ]);
+    const [[rows, night], win] = await Promise.all([boardQuery(S.wPeriod, null), latestWinners(null)]);
     S.wRows = rows; S.wNight = night; S.wWinners = win; S.wErr = null;
   } catch (e) { S.wErr = friendly(e).text; }
 }
@@ -35,7 +31,8 @@ export function renderWorld() {
   let board;
   if (S.wErr) board = `<div class="empty"><span>${esc(S.wErr)}</span></div>`;
   else if (!rows) board = `<p class="muted">Loading…</p>`;
-  else if (!rows.length) board = `<div class="empty"><span>No scores yet for this stretch. Build a lineup tonight to get on the board.</span></div>`;
+  else if (!rows.length) board = `<div class="empty"><span>${S.wPeriod === 'last' ? 'No one played last night.' : 'No scores yet for this stretch. Build a lineup tonight to get on the board.'}</span></div>`;
+  else if (S.wPeriod === 'last') board = nightTable(rows, S.wNight, { last: true, limit: WORLD_ROWS });
   else board = boardList(rows, S.wPeriod, S.wPeriod === 'night' ? S.wNight : null, { limit: WORLD_ROWS });
 
   const me = signedIn()

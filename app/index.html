@@ -6,7 +6,7 @@
 <title>BIG BALLIN</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=e026dd1">
+<link rel="stylesheet" href="styles.css?v=eaf3fca">
 </head>
 <body>
 <div class="wrap">
@@ -14,7 +14,12 @@
     <div>
       <h1 class="logo">BIG BALLIN</h1>
       <p class="slate-line" id="slateLine">Loading tonight’s slate…</p>
-      <button class="rank-chip" id="rankChip" data-act="acct" hidden></button>
+      <div class="hdr-row">
+        <button class="rank-chip" id="rankChip" data-act="acct" hidden></button>
+        <button class="world-btn" id="worldBtn" data-act="tab" data-tab="world" aria-pressed="false" hidden>
+          <svg class="trophy" aria-hidden="true" width="20" height="20" viewBox="0 0 10 10" shape-rendering="crispEdges" fill="currentColor"><rect x="2" y="0" width="6" height="4"/><rect x="0" y="1" width="1" height="3"/><rect x="1" y="1" width="1" height="1"/><rect x="1" y="3" width="1" height="1"/><rect x="9" y="1" width="1" height="3"/><rect x="8" y="1" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/><rect x="3" y="4" width="4" height="1"/><rect x="4" y="5" width="2" height="2"/><rect x="3" y="7" width="4" height="1"/><rect x="2" y="8" width="6" height="2"/></svg>
+          <span id="worldBtnLabel">TOP WORLD RANKINGS</span></button>
+      </div>
     </div>
     <div class="cap" aria-live="polite">
       <div class="cap-top"><span class="cap-label">CAP SPACE</span><span class="cap-left" id="capLeft">$100.0M</span></div>
@@ -31,17 +36,16 @@
   <div class="banner" id="banner" hidden></div>
 
   <nav aria-label="Sections">
-    <button class="tab" data-act="tab" data-tab="build" aria-pressed="true" id="buildTab">TODAY’S LINEUP</button>
+    <button class="tab" data-act="tab" data-tab="build" aria-pressed="true" id="buildTab">BUILD LINEUP</button>
     <button class="tab" data-act="tab" data-tab="stats" aria-pressed="false" id="statsTab">PLAYERS</button>
     <button class="tab" data-act="tab" data-tab="score" aria-pressed="false">SCOREBOARD</button>
     <button class="tab" data-act="tab" data-tab="leagues" aria-pressed="false" id="leaguesTab" hidden>LEAGUES</button>
-    <button class="tab" data-act="tab" data-tab="world" aria-pressed="false" id="worldTab" hidden>WORLD RANKINGS</button>
     <button class="acct" data-act="acct" id="acctBtn" hidden>SIGN IN</button>
     <button class="sound" data-act="soundpanel" id="soundBtn" aria-expanded="false" aria-controls="soundPanel">SOUND ON</button>
   </nav>
   <div class="sound-panel" id="soundPanel" hidden></div>
 
-  <!-- TODAY’S LINEUP (build) -->
+  <!-- BUILD LINEUP (build) -->
   <section id="view-build" aria-label="Build your lineup" style="display:flex;flex-direction:column;gap:26px">
     <div class="slots" id="slots"></div>
     <div style="display:flex;flex-direction:column;gap:14px">
@@ -118,6 +122,6 @@
 <dialog class="modal" id="modal" aria-label="Account"></dialog>
 <div class="pc-pop" id="pcPop" role="tooltip" hidden></div>
 
-<script type="module" src="js/main.js?v=e026dd1"></script>
+<script type="module" src="js/main.js?v=eaf3fca"></script>
 </body>
 </html>

@@ -2,13 +2,14 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=e026dd1';
-import { $, POS, esc, money, store } from './util.js?v=e026dd1';
-import { avatar } from './avatars.js?v=e026dd1';
-import { leagueRow, hiddenRow, rowData, statLine, tipText, FLAME } from './render-score.js?v=e026dd1';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=e026dd1';
+import { S } from './state.js?v=eaf3fca';
+import { $, POS, esc, money, store } from './util.js?v=eaf3fca';
+import { avatar } from './avatars.js?v=eaf3fca';
+import { leagueRow, hiddenRow, rowData, statLine, tipText, FLAME } from './render-score.js?v=eaf3fca';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=eaf3fca';
+import { L, asLast, lastDate, loadLast } from './night.js?v=eaf3fca';
 
-export const PERIODS = [['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
+export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
   night: 'NIGHT WINNER', week: 'WEEK WINNER', month: 'MONTH WINNER', season: 'SEASON CHAMP',
   w_night1: 'WORLD #1 NIGHT', w_week10: 'TOP 10 WEEK', w_month10: 'TOP 10 MONTH',
@@ -23,6 +24,17 @@ export const inviteLink = (code) => `${location.origin}${location.pathname}?join
 export const league = () => S.leagues.find((l) => l.id === S.lbLeague) || (S.allLeagues || []).find((l) => l.id === S.lbLeague) || null;
 export const isMine = (id) => S.leagues.some((l) => l.id === id);
 
+/* A board's period → what the database is asked: LAST NIGHT is a 'night' board for last night's date. */
+export async function boardQuery(period, league) {
+  if (period !== 'last') {
+    return Promise.all([leaderboard(period, S.slate.date, league), period === 'night' ? nightLineups(S.slate.date, league) : Promise.resolve(null)]);
+  }
+  await loadLast();
+  const d = lastDate();
+  if (!d) return [[], []];
+  return Promise.all([leaderboard('night', d, league), nightLineups(d, league)]);
+}
+
 /* Fetch what the tab shows. Called on open, on league/period change, and every minute while live. */
 export async function loadBoards() {
   if (!CLOUD || !S.cloudOk) return;
@@ -32,11 +44,7 @@ export async function loadBoards() {
     const lg = S.lbLeague;
     if (lg && !all.some((l) => l.id === lg)) { S.lbLeague = null; store('bb-league', null); }
     if (!S.lbLeague) { S.lbRows = null; S.lbNight = null; S.lbWinners = null; S.lbErr = null; return; }
-    const [rows, night, win] = await Promise.all([
-      leaderboard(S.lbPeriod, S.slate.date, S.lbLeague),
-      S.lbPeriod === 'night' ? nightLineups(S.slate.date, S.lbLeague) : Promise.resolve(null),
-      latestWinners(S.lbLeague),
-    ]);
+    const [[rows, night], win] = await Promise.all([boardQuery(S.lbPeriod, S.lbLeague), latestWinners(S.lbLeague)]);
     S.lbRows = rows; S.lbNight = night; S.lbWinners = win; S.lbErr = null;
   } catch (e) { S.lbErr = friendly(e).text; }
 }
@@ -102,11 +110,11 @@ export function boardList(rows, period, night, opts) {
 /* ---------- Tonight table: one row per team, one column per position ---------- */
 const shortName = (p) => { const parts = p.name.split(' '); return parts.length > 1 ? parts.slice(1).join(' ') : p.name; };
 
-function playerCell(p, uid, pos) {
+function playerCell(p, isLast) {
   const d = rowData(p);
   const pct = d.fp != null && p.proj > 0 ? Math.min(100, (d.fp / p.proj) * 100) : 0;
   const st = d.state === 1 ? `Tips ${esc(tipText(p).replace(/ (AM|PM)$/, ''))}` : d.state === 3 ? 'Final' : esc(d.status);
-  return `<td class="pc${d.hot ? ' hot' : ''}" data-act="pcell" data-pid="${p.id}" tabindex="0" aria-label="${esc(p.name)}: ${d.fp != null ? d.fp.toFixed(1) : 'not started'} of ${p.proj.toFixed(1)} projected, ${money(p.price)}">
+  return `<td class="pc${d.hot ? ' hot' : ''}" data-act="pcell" data-pid="${p.id}"${isLast ? ' data-n="last"' : ''} tabindex="0" aria-label="${esc(p.name)}: ${d.fp != null ? d.fp.toFixed(1) : 'not started'} of ${p.proj.toFixed(1)} projected, ${money(p.price)}">
     <span class="pc-name">${esc(shortName(p))}</span>
     <b class="pc-fp">${d.fp != null ? d.fp.toFixed(1) : '–'}${d.hot ? FLAME : ''}</b>
     <span class="pc-bar"><i style="width:${pct.toFixed(0)}%"></i></span>
@@ -114,24 +122,36 @@ function playerCell(p, uid, pos) {
     <span class="pc-st${d.state === 2 ? ' on' : ''}">${st}</span></td>`;
 }
 
-function tonightTable(rows, night) {
+/* Tonight (or LAST NIGHT, opts.last) table. Also used by World Rankings, with opts.limit rows plus mine. */
+export function nightTable(rows, night, opts) {
+  const o = opts || {};
+  return o.last ? asLast(() => tonightTable(rows, night, o)) : tonightTable(rows, night, o);
+}
+function tonightTable(rows, night, o) {
   const me = S.user ? S.user.id : null;
+  const when = o.last ? 'last night' : 'tonight';
+  const total = rows.length;
+  if (o.limit && rows.length > o.limit) {
+    const mine = rows.find((r) => r.user_id === me);
+    const top = rows.slice(0, o.limit);
+    rows = mine && !top.includes(mine) ? top.concat([mine]) : top;
+  }
   const byUser = Object.fromEntries((night || []).map((r) => [r.user_id, r]));
   const body = rows.map((r) => {
     const n = byUser[r.user_id];
-    const open = !!S.lbOpen[r.user_id];
-    const team = `<th class="lt-team" scope="row"><button class="lt-tb" data-act="ltopen" data-v="${esc(r.user_id)}" aria-expanded="${open}">
+    const open = !!S.lbOpen[(o.last ? 'L' : '') + r.user_id];
+    const team = `<th class="lt-team" scope="row"><button class="lt-tb" data-act="ltopen" data-v="${o.last ? 'L' : ''}${esc(r.user_id)}" aria-expanded="${open}">
         <span class="lt-rank">${r.rank}</span>${avatar(r.avatar, 30)}
         <span class="lt-who"><span class="lt-name">${esc(r.display_name)}</span>
           <span class="lt-score"><b>${Number(r.total).toFixed(1)}</b>${n && n.bonus ? `<i>${Number(n.raw).toFixed(1)}×${Number(n.bonus).toFixed(2)}</i>` : ''}</span></span></button></th>`;
     let cells;
-    if (!n) cells = `<td class="pc none" colspan="5">No lineup tonight (counts as 0)</td>`;
+    if (!n) cells = `<td class="pc none" colspan="5">No lineup ${when} (counts as 0)</td>`;
     else cells = POS.map((pos) => {
       const v = (n.slots || {})[pos];
       if (v == null) return `<td class="pc empty"><span class="pc-name">Empty</span></td>`;
       if (v === 'hidden') return `<td class="pc hid"><span class="pc-name">Picked</span><b class="pc-q">?</b><span class="pc-st">Shows at tip-off</span></td>`;
       const p = S.byId[v];
-      return p ? playerCell(p, r.user_id, pos) : `<td class="pc"><span class="pc-name">#${esc(v)}</span></td>`;
+      return p ? playerCell(p, o.last) : `<td class="pc"><span class="pc-name">#${esc(v)}</span></td>`;
     }).join('');
     const detail = open && n ? `<tr class="lt-detail"><td colspan="6">${miniLineup(n)}</td></tr>` : '';
     return `<tr class="lt-row${r.user_id === me ? ' me' : ''}">${team}${cells}</tr>${detail}`;
@@ -140,7 +160,7 @@ function tonightTable(rows, night) {
     <colgroup><col class="lt-c0">${POS.map(() => '<col>').join('')}</colgroup>
     <thead><tr><th class="lt-h" scope="col">TEAM</th>${POS.map((p) => `<th class="lt-h" scope="col">${p}</th>`).join('')}</tr></thead>
     <tbody>${body}</tbody></table></div>
-    <p class="muted lb-note">Hover or tap a player for his full line. Tap a team to open its lineup.</p>`;
+    <p class="muted lb-note">Hover or tap a player for his full line. Tap a team to open its lineup.${total > rows.length ? ` Showing the top ${o.limit} of ${total}.` : ''}</p>`;
 }
 
 /* Popover for a player cell: headshot, matchup, FP vs projection, cost, value, stat line. */
@@ -191,8 +211,8 @@ function leaguePage(lg) {
   let board;
   if (S.lbErr) board = `<div class="empty"><span>${esc(S.lbErr)}</span></div>`;
   else if (!rows) board = `<p class="muted">Loading…</p>`;
-  else if (!rows.length) board = `<div class="empty"><span>No one in this league has a lineup yet for this stretch.</span></div>`;
-  else board = S.lbPeriod === 'night' ? tonightTable(rows, S.lbNight) : boardList(rows, S.lbPeriod, null, { lineups: true });
+  else if (!rows.length) board = `<div class="empty"><span>${S.lbPeriod === 'last' ? 'No one in this league played last night.' : 'No one in this league has a lineup yet for this stretch.'}</span></div>`;
+  else board = S.lbPeriod === 'night' || S.lbPeriod === 'last' ? nightTable(rows, S.lbNight, { last: S.lbPeriod === 'last' }) : boardList(rows, S.lbPeriod, null, { lineups: true });
 
   const invite = member && my ? `<div class="invite-box">
       <div class="m-actions">

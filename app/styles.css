@@ -319,8 +319,25 @@ nav .acct { margin-left: auto; }
 }
 
 /* Phase 5: avatars, header rank chip, World Rankings, league list and page */
+/* Under the logo: my rank chip + the World Rankings button (not a tab: it's about where I stand). */
+.hdr-row { margin-top: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.hdr-row:not(:has(> :not([hidden]))) { display: none; }
+.world-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 16px; border: 3px solid var(--yel);
+  border-radius: 12px; background: var(--panel); color: var(--yel); font-family: var(--pixel); font-size: 10px; }
+.world-btn:hover { background: var(--panel2); }
+.world-btn[aria-pressed="true"] { background: var(--yel); color: var(--bg); }
+.world-btn .trophy { flex: none; image-rendering: pixelated; }
+/* SCOREBOARD: LAST NIGHT | TONIGHT */
+.night-segs { align-self: flex-start; margin-bottom: 14px; }
+.night-segs .seg-b { min-height: 48px; padding: 0 16px; font-size: 11px; white-space: nowrap; }
+.night-segs .seg-b i { font-style: normal; opacity: 0.75; font-size: 9px; margin-left: 6px; }
+@media (max-width: 700px) {
+  .night-segs { display: flex; width: 100%; }
+  .night-segs .seg-b { flex: 1; padding: 6px 8px; font-size: 10px; }
+  .night-segs .seg-b i { display: block; margin: 4px 0 0; }
+}
 .ava { display: block; flex: none; border-radius: 6px; image-rendering: pixelated; }
-.rank-chip { margin-top: 12px; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 6px 14px 6px 6px;
+.rank-chip { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 6px 14px 6px 6px;
   border: 3px solid var(--blu); border-radius: 12px; background: var(--panel); font-family: var(--pixel); font-size: 10px; max-width: 100%; }
 .rank-chip:not(:has(.ava)) { padding: 0 14px; border-color: var(--yel); color: var(--yel); }
 .rank-chip .rc-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
@@ -424,6 +441,8 @@ nav .acct { margin-left: auto; }
 @media (max-width: 700px) {
   .sumbar { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "score math" "ranks ranks" "btn btn"; padding: 10px 12px; }
   .sb-math { font-size: 15px; }
+  .sb-score { max-width: 50vw; }
+  .sb-score .cap-label { white-space: normal; line-height: 1.4; }
   .sb-math b { font-size: 18px; }
   .sb-proj { margin-left: 0; flex-basis: 100%; }
   .prow { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "who who" "fp nums"; padding: 8px 10px; gap: 6px 12px; }

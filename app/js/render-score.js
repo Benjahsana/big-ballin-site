@@ -2,12 +2,13 @@
    final, my rank tonight in the world and my leagues) and one compact row per player:
    who/where/status + live stat line, FP tonight with a bar toward his projection, and
    cost / value tonight / pace. */
-import { S } from './state.js?v=e026dd1';
-import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=e026dd1';
-import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=e026dd1';
-import { PACE_MIN_MINUTES } from './app-config.js?v=e026dd1';
-import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=e026dd1';
-import { play } from './sound.js?v=e026dd1';
+import { S } from './state.js?v=eaf3fca';
+import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=eaf3fca';
+import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=eaf3fca';
+import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=eaf3fca';
+import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=eaf3fca';
+import { play } from './sound.js?v=eaf3fca';
+import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=eaf3fca';
 
 export const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
 
@@ -95,22 +96,24 @@ export function hiddenRow(slots) {
 
 /* ---------- My rank tonight (world + my leagues), refreshed with the live points ---------- */
 const MAX_LEAGUE_RANKS = 3;
+/* My rank on one night in the world and up to 3 of my leagues; move = places gained since prev. */
+async function ranksFor(date, prev) {
+  if (!S.leagues.length) S.leagues = await myLeagues();
+  const scopes = [{ id: null, name: 'WORLD' }, ...S.leagues.slice(0, MAX_LEAGUE_RANKS).map((l) => ({ id: l.id, name: l.name.toUpperCase() }))];
+  const boards = await Promise.all(scopes.map((s) => leaderboard('night', date, s.id).catch(() => null)));
+  const me = S.user.id;
+  return scopes.map((s, i) => {
+    const row = boards[i] && boards[i].find((r) => r.user_id === me);
+    const p = prev && prev.find((x) => x.id === s.id);
+    const rank = row ? Number(row.rank) : null;
+    const move = p && p.rank != null && rank != null ? p.rank - rank : p ? p.move : 0;
+    return { id: s.id, name: s.name, rank, of: boards[i] ? boards[i].length : null, move };
+  });
+}
 export async function loadTonightRanks() {
-  if (!CLOUD || !S.cloudOk || !signedIn() || !S.slate) return;
-  const anyStarted = (S.slate.games || []).some((g) => Date.parse(g.tip_utc) <= Date.now());
-  if (!anyStarted) return;
+  if (!CLOUD || !S.cloudOk || !signedIn() || !S.slate || !anyStarted()) return;
   try {
-    if (!S.leagues.length) S.leagues = await myLeagues();
-    const scopes = [{ id: null, name: 'WORLD' }, ...S.leagues.slice(0, MAX_LEAGUE_RANKS).map((l) => ({ id: l.id, name: l.name.toUpperCase() }))];
-    const boards = await Promise.all(scopes.map((s) => leaderboard('night', S.slate.date, s.id).catch(() => null)));
-    const me = S.user.id;
-    const next = scopes.map((s, i) => {
-      const row = boards[i] && boards[i].find((r) => r.user_id === me);
-      const prev = S.tRanks && S.tRanks.find((x) => x.id === s.id);
-      const rank = row ? Number(row.rank) : null;
-      const move = prev && prev.rank != null && rank != null ? prev.rank - rank : prev ? prev.move : 0;
-      return { id: s.id, name: s.name, rank, of: boards[i] ? boards[i].length : null, move };
-    });
+    const next = await ranksFor(S.slate.date, S.tRanks);
     const climbed = S.tRanks && S.live && !allFinal() && next.some((x) => {
       const prev = S.tRanks.find((y) => y.id === x.id);
       return prev && prev.rank != null && x.rank != null && x.rank < prev.rank;
@@ -118,6 +121,11 @@ export async function loadTonightRanks() {
     S.tRanks = next;
     if (climbed) play('climb');       // at most once per refresh, only when I went up
   } catch (e) { /* keep the last ranks */ }
+}
+/* Last night's final ranks (no sounds). */
+export async function loadLastRanks() {
+  if (!CLOUD || !S.cloudOk || !signedIn() || lastIsCurrent() || L.state !== 'ready') return;
+  try { L.tRanks = (await ranksFor(L.date, null)).map((x) => ({ ...x, move: 0 })); } catch (e) { /* keep */ }
 }
 
 function rankChips() {
@@ -128,7 +136,36 @@ function rankChips() {
   }).join('')}</div>`;
 }
 
+/* Which night the SCOREBOARD shows: the one picked, else last night until tonight's first tip-off. */
+export function scoreView() {
+  if (S.scoreView) return S.scoreView;
+  return lastIsCurrent() || (!anyStarted() && hasLast()) ? 'last' : 'tonight';
+}
+const nightName = (iso) => new Date(iso + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase();
+
+function nightSwitch(view) {
+  const last = lastDate();
+  return `<div class="segs night-segs" role="group" aria-label="Which night">
+    <button class="seg-b" data-act="scoreview" data-v="last" aria-pressed="${view === 'last'}">LAST NIGHT${last ? ` <i>${nightName(last)}</i>` : ''}</button>
+    <button class="seg-b" data-act="scoreview" data-v="tonight" aria-pressed="${view === 'tonight'}">TONIGHT${!lastIsCurrent() ? ` <i>${nightName(S.slate.date)}</i>` : ''}</button></div>`;
+}
+
 export function renderScore() {
+  const view = scoreView();
+  const sw = nightSwitch(view);
+  let html;
+  if (view === 'last') {
+    if (L.state === 'none' && !lastIsCurrent()) html = `<div class="empty"><span>No games found for last night.</span></div>`;
+    else if (!hasLast()) html = `<p class="muted">Loading last night…</p>`;
+    else html = asLast(() => scoreBody(true));
+  } else if (lastIsCurrent()) {
+    html = `<div class="empty"><span>Tonight’s players and prices post around 10 AM on game days. Last night’s scores are under LAST NIGHT.</span>
+      <button class="btn btn-primary" data-act="scoreview" data-v="last">SEE LAST NIGHT</button></div>`;
+  } else html = scoreBody(false);
+  $('#score').innerHTML = sw + html;
+}
+
+function scoreBody(isLast) {
   const rows = POS.filter((pos) => S.lineup[pos]).map((pos) => ({ pos, p: S.byId[S.lineup[pos]] }));
   const res = S.results;
   const live = !res && S.live;
@@ -137,7 +174,7 @@ export function renderScore() {
   rows.forEach(({ p }) => { const d = rowData(p); raw += d.fp || 0; expect += d.expect; });
   const bonus = capBonusFor(spent(), rows.length);
   const has = res || live;
-  const label = res ? 'FINAL SCORE' : done ? 'UNOFFICIAL FINAL' : live ? 'LIVE SCORE' : 'TONIGHT’S SCORE';
+  const label = (isLast ? 'LAST NIGHT · ' : '') + (res ? 'FINAL SCORE' : done ? 'UNOFFICIAL FINAL' : live ? 'LIVE SCORE' : isLast ? 'NO SCORES YET' : 'TONIGHT’S SCORE');
   const when = live && live.at ? `updated ${new Date(live.at).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}` : '';
 
   const bar = `<div class="sumbar">
@@ -153,12 +190,14 @@ export function renderScore() {
       <button class="btn btn-primary sb-btn" data-act="refresh">CHECK FOR SCORES</button>
     </div>`;
 
-  const help = res ? '' : done
+  const help = res ? '' : isLast && !live ? `<p class="muted sb-note">Official scores post around 6 AM.</p>` : done
     ? `<p class="muted sb-note">All games are over. Official scores post automatically in the morning.</p>`
     : live ? ''
     : HOSTED
     ? `<p class="muted sb-note">Points go live a few minutes after tip-off and update every minute; final scores post the morning after.</p>`
     : `<p class="muted sb-note">Final scores appear after the games once you run <code>python pipeline/score_night.py --date ${esc(S.slate.date)}</code>, then press Check for scores.</p>`;
-  const empty = rows.length ? '' : `<div class="empty"><span>No one on the floor yet. Sign at least one player to fill the scoreboard.</span><button class="btn btn-primary" data-act="tab" data-tab="build">SET TODAY’S LINEUP</button></div>`;
-  $('#score').innerHTML = bar + empty + (rows.length ? `<ol class="prows">${rows.map(({ pos, p }) => playerRow(pos, p)).join('')}</ol>` : '') + help;
+  const empty = rows.length ? '' : isLast
+    ? `<div class="empty"><span>You didn’t have a lineup last night.</span><button class="btn btn-primary" data-act="tab" data-tab="build">${esc(LABELS.build)}</button></div>`
+    : `<div class="empty"><span>No one on the floor yet. Sign at least one player to fill the scoreboard.</span><button class="btn btn-primary" data-act="tab" data-tab="build">${esc(LABELS.build)}</button></div>`;
+  return (isLast && !rows.length ? '' : bar) + empty + (rows.length ? `<ol class="prows">${rows.map(({ pos, p }) => playerRow(pos, p)).join('')}</ol>` : '') + (isLast && !rows.length ? '' : help);
 }

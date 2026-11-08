@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=e026dd1';
-import { POS } from './util.js?v=e026dd1';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=e026dd1';
+import { S } from './state.js?v=eaf3fca';
+import { POS } from './util.js?v=eaf3fca';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=eaf3fca';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -132,6 +132,13 @@ export async function nightLineups(date, league) {
   const { data, error } = await sb.rpc('night_lineups', { p_date: date, p_league: league || null });
   if (error) throw error;
   return data || [];
+}
+
+/* The latest slate date before this one (last night), from the public slates table. */
+export async function prevSlateDate(before) {
+  const { data, error } = await sb.from('slates').select('slate_date').lt('slate_date', before).order('slate_date', { ascending: false }).limit(1);
+  if (error) throw error;
+  return data && data[0] ? data[0].slate_date : null;
 }
 
 /* ---------- Live points (written by the server's live job about every minute) ---------- */
