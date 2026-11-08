@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=7f8465c';
-import { POS } from './util.js?v=7f8465c';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=7f8465c';
+import { S } from './state.js?v=60a815f';
+import { POS } from './util.js?v=60a815f';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=60a815f';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';

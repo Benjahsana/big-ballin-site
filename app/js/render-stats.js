@@ -1,10 +1,10 @@
 /* BIG BALLIN: PLAYERS tab (data-tab "stats"; once called the Stat Center): stats table and the big player card.
    Shows every NBA player: tonight's slate (with prices) plus data/players-all.json (everyone else,
    stats only), loaded the first time the tab opens. ALL NBA | PLAYING TONIGHT switches between them. */
-import { S } from './state.js?v=7f8465c';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=7f8465c';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=7f8465c';
-import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=7f8465c';
+import { S } from './state.js?v=60a815f';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=60a815f';
+import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=60a815f';
+import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=60a815f';
 
 const n1 = (v) => (v == null ? '–' : Number(v).toFixed(1));
 const tonight = (p) => p.price != null;     // on tonight's slate (has a price); others are stats only

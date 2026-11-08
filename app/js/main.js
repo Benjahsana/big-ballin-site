@@ -1,20 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=7f8465c';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=7f8465c';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=7f8465c';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=7f8465c';
-import { defaultDir } from './filters.js?v=7f8465c';
-import { renderStats } from './render-stats.js?v=7f8465c';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=7f8465c';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=7f8465c';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=7f8465c';
-import { openModal, closeModal, renderModal } from './render-account.js?v=7f8465c';
-import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=7f8465c';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=7f8465c';
-import { avatar } from './avatars.js?v=7f8465c';
-import { play, SOUNDS, styleFor } from './sound.js?v=7f8465c';
-import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=7f8465c';
-import { LABELS } from './util.js?v=7f8465c';
+import { S, ui } from './state.js?v=60a815f';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=60a815f';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=60a815f';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=60a815f';
+import { defaultDir } from './filters.js?v=60a815f';
+import { renderStats } from './render-stats.js?v=60a815f';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=60a815f';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=60a815f';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=60a815f';
+import { openModal, closeModal, renderModal } from './render-account.js?v=60a815f';
+import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=60a815f';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=60a815f';
+import { avatar } from './avatars.js?v=60a815f';
+import { play, SOUNDS, styleFor } from './sound.js?v=60a815f';
+import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=60a815f';
+import { LABELS } from './util.js?v=60a815f';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -34,7 +34,7 @@ function renderHeader() {
     $('#capBonusNote').textContent = filled ? 'if you fill all 5 now' : 'Leave cap unused to boost your score';
   } else {
     bEl.textContent = 'CAP BONUS ' + bonusText(bonus);
-    bEl.className = 'cap-bonus-val' + (bonus >= 1.15 ? ' big' : bonus > 1.001 ? ' on' : '');
+    bEl.className = 'cap-bonus-val' + (bonusMaxed(bonus) ? ' big' : bonus > 1.001 ? ' on' : '');
     $('#capBonusNote').textContent = bonus > 1.001 ? 'boosts tonight’s score' : 'no cap left over';
   }
   document.querySelectorAll('.tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tab === S.tab)));

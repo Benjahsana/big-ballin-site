@@ -1,8 +1,8 @@
 /* BIG BALLIN: lineup rules: locks, cap, cap bonus, sign and cut. */
-import { S, ui } from './state.js?v=7f8465c';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=7f8465c';
-import { play } from './sound.js?v=7f8465c';
-import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=7f8465c';
+import { S, ui } from './state.js?v=60a815f';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=60a815f';
+import { play } from './sound.js?v=60a815f';
+import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=60a815f';
 
 /* ---------- Live points (S.live, from Supabase) ---------- */
 export const liveOf = (p) => (S.live && S.live.p[String(p.id)]) || null;
@@ -28,6 +28,8 @@ export function capBonusFor(spentM, filled) {
 }
 export function potentialBonus() { const cb = S.slate.cap_bonus || { rate: 0.5, max: 1.25 }; return Math.min(cb.max, 1 + (Math.max(S.slate.cap - spent(), 0) / 100) * cb.rate); }
 export const bonusText = (b) => '×' + b.toFixed(2);
+/* At (or within a hair of) the night's maximum bonus: the big callout and glow. */
+export const bonusMaxed = (b) => b > 1.001 && b >= (S.slate.cap_bonus || { max: 1.25 }).max - 0.0005;
 export function targetSlot(p) {
   const elig = slotsFor(p);
   if (elig.includes(S.poolPos)) return S.poolPos;
@@ -95,7 +97,7 @@ export function sign(p) {
   if (next) S.poolPos = next;
   const bonus = capBonusFor(spent(), filledCount());
   play(filledCount() === 5 ? 'complete' : 'sign');   // the 5th signing plays the jingle instead of the blip
-  if (filledCount() === 5 && bonus >= 1.15) { flash('CAP BONUS ' + bonusText(bonus) + '!', '#FFD23F', '#3D8BFF'); }
+  if (filledCount() === 5 && bonusMaxed(bonus)) { flash('CAP BONUS ' + bonusText(bonus) + '!', '#FFD23F', '#3D8BFF'); }
   else if (p.price >= 40) flash('MAX CONTRACT!', '#FFD23F', '#FF4A3D');
   else if (p.value >= S.crushLine) flash('CAP CRUSHER!', '#FFD23F', '#3D8BFF');
   else flash('SIGNED!', '#FFD23F', '#FF4A3D');
