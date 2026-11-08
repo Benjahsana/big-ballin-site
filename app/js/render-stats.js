@@ -1,8 +1,8 @@
 /* BIG BALLIN: PLAYERS tab (data-tab "stats"; once called the Stat Center): stats table and the big player card. */
-import { S } from './state.js?v=c02171c';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=c02171c';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=c02171c';
-import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=c02171c';
+import { S } from './state.js?v=c3e073b';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=c3e073b';
+import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=c3e073b';
+import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=c3e073b';
 
 const n1 = (v) => (v == null ? '–' : Number(v).toFixed(1));
 export const COLS = [
@@ -37,7 +37,7 @@ export function renderStats() {
   $('#statsBody').innerHTML = rows.length ? rows.map((p) => `<tr class="${p.id === S.selId ? 'sel' : ''}">
       <th scope="row"><button class="namebtn" data-act="select" data-id="${p.id}">${esc(p.name)}</button> ${injuryTag(p)}</th>
       <td class="l">${esc(slotsFor(p).join('/'))}</td><td class="l">${esc(where(p))}</td>
-      ${COLS.map((c) => `<td class="${c.c || ''}"${c.b ? ' style="font-weight:700"' : ''}>${c.f ? c.f(p) : c.v(p)}</td>`).join('')}
+      ${COLS.map((c) => `<td class="${c.c || ''}${c.b || c.k === 'price' ? ' k' : ''}${S.sortKey === c.k ? ' on' : ''}">${c.f ? c.f(p) : c.v(p)}</td>`).join('')}
     </tr>`).join('') : `<tr><td class="l" colspan="18" style="padding:16px">No players match.</td></tr>`;
   renderCard();
 }
@@ -78,7 +78,7 @@ export function renderCard() {
   const adj = p.matchup_adj || 0;
   const s = W(p), n = (v) => (v == null ? '–' : Number(v).toFixed(1));
   $('#card').innerHTML = `
-    <div class="who">${jersey(p, 'lg')}<div class="who-text"><h3 class="big-name">${esc(p.name)} ${injuryTag(p)}</h3><span class="sub">${esc(slotsFor(p).join('/'))} · ${esc(where(p))}</span></div></div>
+    <div class="ac-top" style="background:${color(p.team)}">${jersey(p, 'lg')}<div class="ac-id"><h3 class="ac-name">${esc(p.name)}</h3><span class="ac-sub">${esc(slotsFor(p).join('/'))} · ${esc(where(p))}</span>${injuryTag(p) ? `<span>${injuryTag(p)}</span>` : ''}</div></div>
     <div class="tiles">
       <div class="tile"><div class="tile-k">PRICE</div><div class="tile-v">${money(p.price)}</div><div class="muted" style="font-size:15px">${chg(p) || 'no change'}</div></div>
       <div class="tile"><div class="tile-k">PROJ</div><div class="tile-v yel">${p.proj.toFixed(1)}</div></div>

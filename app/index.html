@@ -6,7 +6,7 @@
 <title>BIG BALLIN</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=c02171c">
+<link rel="stylesheet" href="styles.css?v=c3e073b">
 </head>
 <body>
 <div class="wrap">
@@ -50,6 +50,8 @@
     <div class="slots" id="slots"></div>
     <div style="display:flex;flex-direction:column;gap:14px">
       <h2 id="faTitle">Free agents</h2>
+      <!-- Sticky control deck: fill bar, filters, and (list view) the column headers stay on screen while scrolling. -->
+      <div class="deck" id="deck">
       <div class="fillbar" id="fillbar"></div>
       <div class="filters" id="filters">
         <div class="toolbar-group">
@@ -69,6 +71,8 @@
           <div class="segs" role="group" aria-label="Card or list view" id="poolView"></div>
           <span class="muted" id="poolCount"></span>
         </div>
+      </div>
+      <div class="lhead" id="poolHead" hidden></div>
       </div>
       <div class="pool" id="pool"></div>
       <button class="btn btn-plain more" data-act="more" id="moreBtn">SHOW MORE</button>
@@ -122,6 +126,6 @@
 <dialog class="modal" id="modal" aria-label="Account"></dialog>
 <div class="pc-pop" id="pcPop" role="tooltip" hidden></div>
 
-<script type="module" src="js/main.js?v=c02171c"></script>
+<script type="module" src="js/main.js?v=c3e073b"></script>
 </body>
 </html>

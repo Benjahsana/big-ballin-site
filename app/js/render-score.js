@@ -2,13 +2,13 @@
    final, my rank tonight in the world and my leagues) and one compact row per player:
    who/where/status + live stat line, FP tonight with a bar toward his projection, and
    cost / value tonight / pace. */
-import { S } from './state.js?v=c02171c';
-import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=c02171c';
-import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=c02171c';
-import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=c02171c';
-import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=c02171c';
-import { play } from './sound.js?v=c02171c';
-import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=c02171c';
+import { S } from './state.js?v=c3e073b';
+import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=c3e073b';
+import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=c3e073b';
+import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=c3e073b';
+import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=c3e073b';
+import { play } from './sound.js?v=c3e073b';
+import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=c3e073b';
 
 export const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
 

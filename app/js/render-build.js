@@ -1,8 +1,8 @@
 /* BIG BALLIN: Build tab: lineup slots, fill bar, filters and free agents (cards or list). */
-import { S } from './state.js?v=c02171c';
-import { $, POS, POSNAME, esc, money, where, slotsFor, chg, jersey, fitNames } from './util.js?v=c02171c';
-import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState } from './lineup.js?v=c02171c';
-import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=c02171c';
+import { S } from './state.js?v=c3e073b';
+import { $, POS, POSNAME, esc, money, where, slotsFor, chg, jersey, fitNames, color } from './util.js?v=c3e073b';
+import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState } from './lineup.js?v=c3e073b';
+import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=c3e073b';
 
 export function renderSlots() {
   $('#slots').innerHTML = POS.map((pos) => {
@@ -71,59 +71,83 @@ function renderControls() {
   $('#poolView').innerHTML = seg([['cards', 'CARDS'], ['list', 'LIST']], S.view, 'view');
 }
 
-/* The stat line under each player: window label + core stats, plus the sorted stat if it isn't shown. */
-function statLine(p) {
-  const w = W(p), sort = sortDef();
-  const base = ['fp', 'pts', 'reb', 'ast', 'min'];
-  const extra = !['proj', 'price', 'value', 'chg', ...base].includes(sort.k) ? ` · <b class="yel">${sort.f(p)} ${sort.s}</b>` : '';
-  const n = (v) => (v == null ? '–' : Number(v).toFixed(1));
-  return `${winLabel()}${w.g ? ` (${w.g}g)` : ''} · ${n(w.fp)} FP · ${n(w.pts)} PTS · ${n(w.reb)} REB · ${n(w.ast)} AST · ${n(w.min)} MIN${extra}`;
+/* Tip time for a player's game ("7:30 PM"), from the slate. */
+function tip(p) {
+  const g = S.games[p.game_id];
+  const d = g && g.tip_utc ? new Date(g.tip_utc) : null;
+  return d && !isNaN(d) ? d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) : '';
 }
+const one = (v) => (v == null ? '–' : Number(v).toFixed(1));
+const WIN_SHORT = { l5: 'L5', l10: 'L10', season: 'SZN' };
 
+/* Arcade card: team-color banner, big price, three scoreboard boxes, big stat digits, buttons. */
 function card(p) {
   const st = signState(p);
   const over = st.cls === 'btn-danger';
-  return `<article class="pcard${slotOf(p.id) ? ' on' : ''}${p.injury === 'OUT' ? ' is-out' : ''}">
-      <div class="pc-top">${jersey(p, 'md')}
-        <div class="pc-id">
-          <h3 class="pname fit">${esc(p.name)} ${injuryTag(p)}</h3>
-          <span class="sub">${esc(slotsFor(p).join('/'))} · ${esc(where(p))}</span>
-          <div class="pc-pr"><span class="pc-price${over ? ' red' : ''}">${money(p.price)}</span><span class="chg">${chg(p)}</span></div>
-        </div>
+  const w = W(p), sort = sortDef();
+  // Four big stat digits: PTS REB AST + the stat you sorted by (else MIN).
+  const fourth = ['proj', 'price', 'value', 'fp', 'pts', 'reb', 'ast', 'chg'].includes(sort.k) ? SORTS.find((x) => x.k === 'min') : sort;
+  const dig = (l, v, on) => `<div${on ? ' class="on"' : ''}><b>${v}</b><span>${l}</span></div>`;
+  return `<article class="acard${slotOf(p.id) ? ' on' : ''}${p.injury === 'OUT' ? ' is-out' : ''}">
+      <div class="ac-top" style="background:${color(p.team)}">${jersey(p, 'md')}
+        <div class="ac-id"><h3 class="ac-name fit">${esc(p.name)}</h3>
+          <span class="ac-sub">${esc(slotsFor(p).join('/'))} · ${esc(where(p))}${tip(p) ? ' · ' + esc(tip(p)) : ''}</span>
+          ${injuryTag(p) ? `<span>${injuryTag(p)}</span>` : ''}</div>
       </div>
-      <div class="pc-key">
-        <div><span>PROJ</span><b class="yel">${p.proj.toFixed(1)}</b></div>
-        <div><span>FP/$M</span><b class="blu">${p.value.toFixed(2)}</b></div>
+      <div class="ac-price"><span class="lab">PRICE</span><span class="chg">${chg(p)}</span><b class="${over ? 'red' : 'yel'}${sort.k === 'price' ? ' on' : ''}">${money(p.price)}</b></div>
+      <div class="ac-boxes">
+        <div${sort.k === 'proj' ? ' class="on"' : ''}><span>PROJ</span><b class="yel">${p.proj.toFixed(1)}</b></div>
+        <div${sort.k === 'value' ? ' class="on"' : ''}><span>FP/$M</span><b class="blu">${p.value.toFixed(2)}</b></div>
+        <div${sort.k === 'fp' ? ' class="on"' : ''}><span>${WIN_SHORT[S.win] || ''} FP</span><b>${one(w.fp)}</b></div>
       </div>
-      <p class="pc-line">${statLine(p)}</p>
+      <div class="ac-digits">${dig('PTS', one(w.pts), sort.k === 'pts')}${dig('REB', one(w.reb), sort.k === 'reb')}${dig('AST', one(w.ast), sort.k === 'ast')}${dig(fourth.s, fourth.f(p), fourth.k === sort.k)}</div>
       <div class="row-btns">
         <button class="btn btn-ghost" data-act="stats" data-id="${p.id}">STATS</button>
         <button class="btn ${st.cls}" data-act="sign" data-id="${p.id}" ${st.off ? 'disabled' : ''}>${st.label}</button>
       </div></article>`;
 }
 
+/* LIST view: the same columns in the same order for every row; tap a header to sort by it.
+   A sort that isn't one of these columns (blocks, FT%...) gets one extra column at the end. */
+const LCOLS = ['price', 'proj', 'value', 'fp', 'pts', 'reb', 'ast', 'min'];
+const LCLS = { price: 'c-price', proj: 'yel', value: 'blu', fp: 'k-hide', pts: 'k-hide', reb: 'k-hide', ast: 'k-hide', min: 'k-hide' };
+function listCols() {
+  const cols = LCOLS.map((k) => SORTS.find((x) => x.k === k));
+  if (!LCOLS.includes(S.poolSort)) cols.push(sortDef());
+  return cols;
+}
+function renderListHead() {
+  const head = $('#poolHead');
+  head.hidden = S.view !== 'list';
+  if (head.hidden) return;
+  const cols = listCols();
+  head.innerHTML = `<span class="lc-av"></span><span class="lc-name">PLAYER</span>${cols.map((c) => {
+    const on = S.poolSort === c.k;
+    const lab = c.k === 'fp' ? `${WIN_SHORT[S.win] || ''} FP` : c.s;
+    return `<button class="lc ${LCLS[c.k] || ''}${on ? ' on' : ''}" data-act="lsort" data-k="${c.k}" aria-sort="${on ? (S.poolDir < 0 ? 'descending' : 'ascending') : 'none'}">${lab}${on ? (S.poolDir < 0 ? ' ▼' : ' ▲') : ''}</button>`;
+  }).join('')}<span class="lc-btn"></span>`;
+}
 function row(p) {
   const st = signState(p);
   const over = st.cls === 'btn-danger';
-  const w = W(p), sort = sortDef();
-  const n = (v) => (v == null ? '–' : Number(v).toFixed(1));
-  const show = ['proj', 'price', 'value'].includes(sort.k) ? SORTS.find((s) => s.k === 'fp') : sort;
-  return `<div class="prow${slotOf(p.id) ? ' on' : ''}${p.injury === 'OUT' ? ' is-out' : ''}">
-      <div class="pr-av">${jersey(p, 'sm')}</div>
-      <div class="pr-id"><button class="pr-name" data-act="stats" data-id="${p.id}">${esc(p.name)}</button> ${injuryTag(p)}
-        <span class="sub">${esc(slotsFor(p).join('/'))} · ${esc(where(p))}</span></div>
-      <div class="pr-price${over ? ' red' : ''}">${money(p.price)}<span class="chg">${chg(p)}</span></div>
-      <div class="pr-n n1"><span>PROJ</span><b class="yel">${p.proj.toFixed(1)}</b></div>
-      <div class="pr-n n2"><span>FP/$M</span><b class="blu">${p.value.toFixed(2)}</b></div>
-      <div class="pr-n n3"><span>${show.s}</span><b>${show.f(p)}</b></div>
-      <div class="pr-stats">${n(w.pts)} PTS · ${n(w.reb)} REB · ${n(w.ast)} AST</div>
-      <button class="btn ${st.cls} pr-btn" data-act="sign" data-id="${p.id}" ${st.off ? 'disabled' : ''}>${st.label}</button>
+  const cells = listCols().map((c) => {
+    const on = S.poolSort === c.k ? ' on' : '';
+    if (c.k === 'price') return `<span class="lc c-price${on}${over ? ' red' : ''}">${money(p.price)}</span>`;
+    return `<span class="lc ${LCLS[c.k] || ''}${on}">${c.f(p)}</span>`;
+  }).join('');
+  return `<div class="lrowp${slotOf(p.id) ? ' on' : ''}${p.injury === 'OUT' ? ' is-out' : ''}">
+      <span class="lc-av">${jersey(p, 'sm')}</span>
+      <span class="lc-name"><button class="pr-name" data-act="stats" data-id="${p.id}">${esc(p.name)}</button> ${injuryTag(p)}
+        <span class="sub">${esc(slotsFor(p).join('/'))} · ${esc(where(p))}${tip(p) ? ' · ' + esc(tip(p)) : ''}</span></span>
+      ${cells}
+      <button class="btn ${st.cls} pr-btn" data-act="sign" data-id="${p.id}" ${st.off ? 'disabled' : ''}>${slotOf(p.id) ? 'ON TEAM' : st.label}</button>
     </div>`;
 }
 
 export function renderPool() {
   renderFillBar();
   renderControls();
+  renderListHead();
   const list = filteredPool();
   const shown = list.slice(0, S.poolLimit);
   const hiddenOut = S.hideOut ? S.slate.players.filter((p) => p.injury === 'OUT').length : 0;

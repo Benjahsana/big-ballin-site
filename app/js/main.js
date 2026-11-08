@@ -1,20 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=c02171c';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=c02171c';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=c02171c';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=c02171c';
-import { defaultDir } from './filters.js?v=c02171c';
-import { renderStats } from './render-stats.js?v=c02171c';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=c02171c';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=c02171c';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=c02171c';
-import { openModal, closeModal, renderModal } from './render-account.js?v=c02171c';
-import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=c02171c';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=c02171c';
-import { avatar } from './avatars.js?v=c02171c';
-import { play, SOUNDS, styleFor } from './sound.js?v=c02171c';
-import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=c02171c';
-import { LABELS } from './util.js?v=c02171c';
+import { S, ui } from './state.js?v=c3e073b';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=c3e073b';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=c3e073b';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=c3e073b';
+import { defaultDir } from './filters.js?v=c3e073b';
+import { renderStats } from './render-stats.js?v=c3e073b';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=c3e073b';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=c3e073b';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=c3e073b';
+import { openModal, closeModal, renderModal } from './render-account.js?v=c3e073b';
+import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=c3e073b';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=c3e073b';
+import { avatar } from './avatars.js?v=c3e073b';
+import { play, SOUNDS, styleFor } from './sound.js?v=c3e073b';
+import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=c3e073b';
+import { LABELS } from './util.js?v=c3e073b';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -121,6 +121,8 @@ function showStatsRow() {
 
 let fitTimer = null;
 window.addEventListener('resize', () => { clearTimeout(fitTimer); fitTimer = setTimeout(() => fitNames(document), 150); });
+// Names are measured to fit on one line; measure again once the arcade fonts have loaded.
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => fitNames(document));
 
 /* ---------- Events ---------- */
 document.addEventListener('click', (e) => {
@@ -174,6 +176,11 @@ document.addEventListener('click', (e) => {
     case 'statspos': S.statsPos = b.dataset.v; renderStats(); break;
     case 'more': S.poolLimit += 36; renderPool(); break;
     case 'dir': S.poolDir = -S.poolDir; renderPool(); break;
+    case 'lsort': {   // LIST view column header: same column flips the order, a new one starts at its natural order
+      const k = b.dataset.k;
+      if (S.poolSort === k) S.poolDir = -S.poolDir; else { S.poolSort = k; S.poolDir = defaultDir(k); }
+      S.poolLimit = 36; play('tap'); renderPool(); break;
+    }
     case 'filters': S.filtersOpen = !S.filtersOpen; renderPool(); break;
     case 'toggle': S[b.dataset.k] = !S[b.dataset.k]; S.poolLimit = 36; if (b.dataset.k === 'hideOut') store('bb-hideout', S.hideOut); renderPool(); break;
     case 'win': S.win = b.dataset.v; store('bb-win', S.win); S.tab === 'stats' ? renderStats() : renderPool(); break;
