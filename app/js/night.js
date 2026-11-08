@@ -4,9 +4,9 @@
    posts, that is the slate already loaded, so nothing extra is fetched.
    Rendering code reads S.slate / S.byId / S.games / S.results / S.live / S.lineup, so asLast()
    swaps last night's copies in for one synchronous render, then puts today's back. */
-import { S } from './state.js?v=c3e073b';
-import { POS, recall } from './util.js?v=c3e073b';
-import { CLOUD, signedIn, loadLineup, liveFeed, prevSlateDate } from './cloud.js?v=c3e073b';
+import { S } from './state.js?v=bf76d6b';
+import { POS, recall } from './util.js?v=bf76d6b';
+import { CLOUD, signedIn, loadLineup, liveFeed, prevSlateDate } from './cloud.js?v=bf76d6b';
 
 const LOOKBACK_DAYS = 10;      // without the database: how far back to look for a slate file
 
@@ -57,7 +57,8 @@ export function loadLast(force) {
       (slate.games || []).forEach((g) => { games[g.game_id] = g; });
       const res = await getJson(`../data/results/results-${date}.json`);
       let live = null;
-      if (!res && CLOUD && S.cloudOk) { try { live = await liveFeed(date); } catch (e) { live = null; } }
+      // The live feed also when official results exist: it has the game scores for MY TEAM's game strip.
+      if (CLOUD && S.cloudOk) { try { live = await liveFeed(date); } catch (e) { live = null; } }
       let lu = null;
       if (signedIn()) { try { lu = await loadLineup(date); } catch (e) { lu = null; } }
       if (!lu) lu = recall('bb-lineup-' + date);

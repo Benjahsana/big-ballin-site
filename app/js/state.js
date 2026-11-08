@@ -17,7 +17,8 @@ export const S = {
   hotSeen: {},          // players we already shouted HEATING UP for tonight
   // Leagues tab: my leagues (with invite codes), every league (public list), the one being viewed.
   leagues: [], allLeagues: null, lbLeague: null, lbPeriod: 'night', lbRows: null, lbNight: null, lbWinners: null, lbErr: null,
-  inviteOpen: false, lbOpen: {},   // lbOpen: Tonight table rows opened to the detailed lineup (by user id)
+  inviteOpen: false, lbOpen: {},
+  mtOpen: {},           // MY TEAM / league lineups: player rows opened to the FP breakdown (by 'scope:player id')   // lbOpen: Tonight table rows opened to the detailed lineup (by user id)
   // World Rankings tab, and my season world rank for the header ({rank, prev_rank, total, nights, players}).
   scoreView: null,      // Scoreboard: 'last' | 'tonight', or null = last night until tonight's first tip-off
   lbAuto: false,        // league boards opened on LAST NIGHT automatically (switch to TONIGHT at tip-off)

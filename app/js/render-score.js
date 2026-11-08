@@ -1,14 +1,15 @@
-/* BIG BALLIN: Scoreboard tab. A summary bar (raw FP × cap bonus = final score, projected
-   final, my rank tonight in the world and my leagues) and one compact row per player:
-   who/where/status + live stat line, FP tonight with a bar toward his projection, and
-   cost / value tonight / pace. */
-import { S } from './state.js?v=c3e073b';
-import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=c3e073b';
-import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=c3e073b';
-import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=c3e073b';
-import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=c3e073b';
-import { play } from './sound.js?v=c3e073b';
-import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=c3e073b';
+/* BIG BALLIN: MY TEAM tab (data-tab="score"). Arcade summary boxes (final score = raw FP ×
+   cap bonus, projected final, my rank tonight in the world and my leagues), the scores of my
+   players' games, and a box score: one row per player with FP (bar toward his projection),
+   PROJ, PACE, COST, FP/$M, then MIN PTS REB AST STL BLK TOV FG 3PT FT +/- PF. Tap a player
+   for where his points came from. League boards reuse mtTable() for a team's lineup. */
+import { S } from './state.js?v=bf76d6b';
+import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=bf76d6b';
+import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=bf76d6b';
+import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=bf76d6b';
+import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=bf76d6b';
+import { play } from './sound.js?v=bf76d6b';
+import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=bf76d6b';
 
 export const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
 
@@ -22,11 +23,13 @@ export const tipText = (p) => {
   return g && g.status ? g.status.replace(/\s*ET$/i, '').toUpperCase() : '';
 };
 
-/* Everything a row needs, for official results, live points or before tip-off. */
+/* Everything a row needs, for official results, live points or before tip-off.
+   Official results win; the live feed fills in box-score extras (FG, FT, +/-) the results may lack. */
 export function rowData(p) {
   const res = S.results;
-  const r = res ? res[String(p.id)] : liveOf(p);
-  const g = !res ? gameOf(p) : null;
+  const lv = liveOf(p);
+  const r = res ? (res[String(p.id)] ? { ...(lv || {}), ...res[String(p.id)] } : null) : lv;
+  const g = gameOf(p);
   const state = res ? 3 : g ? g.s : isLocked(p) ? 2 : 1;          // 1 not started, 2 live, 3 final
   const status = res ? 'FINAL' : g && g.s >= 2 ? (g.t || (g.s === 3 ? 'Final' : 'Live')) : tipText(p) || 'NOT STARTED';
   const fp = r ? Number(r.fp) : state >= 2 ? 0 : null;
@@ -42,56 +45,127 @@ export function statLine(d, p) {
   const r = d.r;
   if (!r) return d.state === 3 ? 'Did not play' : d.state === 2 ? 'Not in yet' : `Tips at ${esc(tipText(p) || '?')}`;
   const n = (k) => (r[k] == null ? 0 : r[k]);
-  return `<b>${n('pts')}</b> PTS · <b>${n('reb')}</b> REB · <b>${n('ast')}</b> AST · <b>${n('stl')}</b> STL · <b>${n('blk')}</b> BLK · <b>${n('fg3m')}</b> 3PM · <b>${n('tov')}</b> TOV · <b>${n('min')}</b> MIN`;
+  const sh = r.fga != null ? ` · <b>${r.fgm}-${r.fga}</b> FG · <b>${r.ftm}-${r.fta}</b> FT` : '';
+  return `<b>${n('pts')}</b> PTS · <b>${n('reb')}</b> REB · <b>${n('ast')}</b> AST · <b>${n('stl')}</b> STL · <b>${n('blk')}</b> BLK · <b>${n('fg3m')}</b> 3PM · <b>${n('tov')}</b> TOV · <b>${n('min')}</b> MIN${sh}`;
 }
 
-function playerRow(pos, p) {
+/* ---------- MY TEAM box score: one arcade row per player, fixed columns ----------
+   Fantasy columns (FP, PROJ, PACE, COST, FP/$M), then the full box score. Shooting, +/- and
+   fouls come from the live feed / results (older nights don't have them: shown as –). */
+const ma = (m, a) => (a == null || m == null ? '–' : `${m}-${a}`);
+const BOX = [
+  ['min', 'MIN', (r) => r.min], ['pts', 'PTS', (r) => r.pts], ['reb', 'REB', (r) => r.reb], ['ast', 'AST', (r) => r.ast],
+  ['stl', 'STL', (r) => r.stl], ['blk', 'BLK', (r) => r.blk], ['tov', 'TOV', (r) => r.tov],
+  ['fg', 'FG', (r) => ma(r.fgm, r.fga)], ['tp', '3PT', (r) => (r.fg3a != null ? ma(r.fg3m, r.fg3a) : r.fg3m)],
+  ['ft', 'FT', (r) => ma(r.ftm, r.fta)],
+  ['pm', '+/-', (r) => (r.pm == null ? '–' : r.pm > 0 ? '+' + r.pm : String(r.pm))], ['pf', 'PF', (r) => r.pf],
+];
+const dash = (v) => (v == null || v === '' ? '–' : v);
+
+function mtHead(withTotal) {
+  return `<div class="mt-head" aria-hidden="true">
+    <span class="mt-who">PLAYER</span>
+    <span class="mc mc-fp">FP</span><span class="mc">PROJ</span><span class="mc">PACE</span><span class="mc mc-cost">COST</span><span class="mc">FP/$M</span>
+    ${BOX.map(([k, h]) => `<span class="mc mb mb-${k}">${h}</span>`).join('')}</div>`;
+}
+
+/* Where his fantasy points came from: each stat × its weight (slate.scoring, from config.py);
+   anything left over is the double-/triple-double bonus. */
+function breakdown(d, p) {
+  const r = d.r, s = S.slate.scoring;
+  if (!r) return `<div class="mt-break"><span class="muted">${d.state === 1 ? `No stats until he tips off (${esc(tipText(p) || '?')}).` : 'No stats for him yet.'}</span></div>`;
+  if (!s) return '';
+  const parts = [['pts', 'PTS'], ['fg3m', '3PM BONUS'], ['reb', 'REB'], ['ast', 'AST'], ['stl', 'STL'], ['blk', 'BLK'], ['tov', 'TOV']]
+    .filter(([k]) => r[k] && s[k]).map(([k, l]) => ({ l: `${r[k]} ${l}`, v: r[k] * s[k] }));
+  const extra = Number(r.fp) - parts.reduce((t, x) => t + x.v, 0);
+  if (extra > 0.01) {
+    const tens = ['pts', 'reb', 'ast', 'stl', 'blk'].filter((k) => (r[k] || 0) >= 10).length;
+    parts.push({ l: tens >= 3 ? 'TRIPLE-DOUBLE' : 'DOUBLE-DOUBLE', v: extra });
+  }
+  const sw = (p.windows && p.windows.season) || {};
+  return `<div class="mt-break">
+    ${parts.map((x) => `<span class="fpb"><i>${esc(x.l)}</i><b class="${x.v < 0 ? 'neg' : ''}">${x.v > 0 ? '+' : ''}${+x.v.toFixed(2)}</b></span>`).join('<span class="fpb-op">+</span>')}
+    <span class="fpb-op">=</span><span class="fpb tot"><i>FANTASY POINTS</i><b>${Number(r.fp).toFixed(1)}</b></span>
+    ${sw.fp ? `<span class="muted fpb-avg">Season avg ${Number(sw.fp).toFixed(1)} FP in ${Number(sw.min || 0).toFixed(0)} min</span>` : ''}
+  </div>`;
+}
+
+function mtRow(pos, p, key) {
   const d = rowData(p);
+  const r = d.r;
   const pct = d.fp != null && p.proj > 0 ? Math.min(100, (d.fp / p.proj) * 100) : 0;
   const stCls = d.state === 2 ? ' on' : d.state === 3 ? ' fin' : '';
   const value = d.fp != null && d.state >= 2 ? (d.fp / p.price).toFixed(2) : '–';
-  return `<li class="srow${d.hot ? ' hot' : ''}">
-    <div class="pr-who">${jersey(p, 'sm')}
-      <div class="sr-id">
-        <div class="pr-top"><span class="pr-slot">${pos}</span><span class="pname">${esc(p.name)}</span></div>
-        <div class="pr-sub">${esc(where(p))} <span class="gstat${stCls}">${esc(d.status)}</span></div>
-        <div class="pr-line">${statLine(d, p)}</div>
-      </div></div>
-    <div class="pr-fp">
-      <div class="pr-fpnum ${d.hot ? 'red' : 'yel'}">${d.fp != null ? d.fp.toFixed(1) : '–'}${d.hot ? FLAME : ''}</div>
-      <div class="pr-bar" role="img" aria-label="${d.fp != null ? d.fp.toFixed(1) : 0} of ${p.proj.toFixed(1)} projected"><i style="width:${pct.toFixed(0)}%"></i></div>
-      <div class="pr-proj">${d.fp != null ? d.fp.toFixed(1) + ' / ' : ''}${p.proj.toFixed(1)} PROJ</div>
-    </div>
-    <div class="pr-nums">
-      <div><span>COST</span><b>${money(p.price)}</b></div>
-      <div><span>VALUE</span><b>${value}</b></div>
-      ${d.state === 3 ? '' : `<div title="Projected finish from his minutes so far vs his usual ${usualMin(p) ? usualMin(p).toFixed(0) : '?'} minutes"><span>PACE</span><b>${d.pace != null ? d.pace.toFixed(1) : '–'}</b></div>`}
-    </div>
-  </li>`;
+  const open = !!S.mtOpen[key];
+  return `<div class="mt-row${d.hot ? ' hot' : ''}${open ? ' open' : ''}" data-act="mtopen" data-v="${esc(key)}">
+    <button class="mt-who" data-act="mtopen" data-v="${esc(key)}" aria-expanded="${open}" title="Where his points came from">${jersey(p, 'sm')}
+      <span class="mt-id"><span class="mt-top"><span class="pr-slot">${pos}</span><span class="mt-name">${esc(p.name)}</span></span>
+        <span class="mt-sub">${esc(where(p))} <span class="gstat${stCls}">${esc(d.status)}</span></span></span></button>
+    <span class="mc mc-fp"><b class="${d.hot ? 'red' : 'yel'}">${d.fp != null ? d.fp.toFixed(1) : '–'}${d.hot ? FLAME : ''}</b>
+      <span class="pr-bar" role="img" aria-label="${d.fp != null ? d.fp.toFixed(1) : 0} of ${p.proj.toFixed(1)} projected"><i style="width:${pct.toFixed(0)}%"></i></span></span>
+    <span class="mc">${p.proj.toFixed(1)}</span>
+    <span class="mc" title="Projected finish from his minutes so far vs his usual ${usualMin(p) ? usualMin(p).toFixed(0) : '?'}">${d.pace != null ? d.pace.toFixed(1) : '–'}</span>
+    <span class="mc mc-cost">${money(p.price)}</span>
+    <span class="mc">${value}</span>
+    ${BOX.map(([k, , f]) => { const v = r ? dash(f(r)) : '–'; return `<span class="mc mb mb-${k}${k === 'pm' && r && r.pm < 0 ? ' neg' : ''}">${v}</span>`; }).join('')}
+  </div>${open ? breakdown(d, p) : ''}`;
 }
 
-/* League boards: one readable row per pick, for everyone in the league.
-   Same numbers as the SCOREBOARD tab, a little tighter. */
-export function leagueRow(pos, p) {
-  const d = rowData(p);
-  const pct = d.fp != null && p.proj > 0 ? Math.min(100, (d.fp / p.proj) * 100) : 0;
-  const stCls = d.state === 2 ? ' on' : d.state === 3 ? ' fin' : '';
-  return `<li class="lrow${d.hot ? ' hot' : ''}">
-    <span class="lr-slot">${pos}</span>
-    <div class="lr-who">${p.sprite ? `<img src="../data/${esc(p.sprite)}" alt="" loading="lazy">` : ''}
-      <div class="lr-id"><span class="lr-name">${esc(p.name)}</span>
-        <span class="lr-sub">${esc(where(p))} <span class="gstat${stCls}">${esc(d.status)}</span></span></div></div>
-    <div class="lr-fp"><b class="${d.hot ? 'red' : 'yel'}">${d.fp != null ? d.fp.toFixed(1) : '–'}${d.hot ? FLAME : ''}</b>
-      <div class="pr-bar"><i style="width:${pct.toFixed(0)}%"></i></div>
-      <span class="lr-proj">${p.proj.toFixed(1)} PROJ</span></div>
-    <div class="lr-cost"><span>COST</span><b>${money(p.price)}</b></div>
-    <div class="lr-line">${statLine(d, p)}</div>
-  </li>`;
+/* Team totals under the rows. */
+function mtTotal(items) {
+  const ds = items.map(({ p }) => ({ p, d: rowData(p) }));
+  const sum = (f) => ds.reduce((t, { d }) => t + (d.r && d.r[f] != null ? Number(d.r[f]) : 0), 0);
+  const has = (f) => ds.some(({ d }) => d.r && d.r[f] != null);
+  const raw = ds.reduce((t, { d }) => t + (d.fp || 0), 0);
+  const cost = ds.reduce((t, { p }) => t + p.price, 0);
+  const any = ds.some(({ d }) => d.r);
+  const v = (k) => {
+    if (!any) return '–';
+    if (k === 'fg') return has('fga') ? `${sum('fgm')}-${sum('fga')}` : '–';
+    if (k === 'tp') return has('fg3a') ? `${sum('fg3m')}-${sum('fg3a')}` : sum('fg3m');
+    if (k === 'ft') return has('fta') ? `${sum('ftm')}-${sum('fta')}` : '–';
+    if (k === 'pm') return '';
+    if (k === 'pf') return has('pf') ? sum('pf') : '–';
+    return sum(k);
+  };
+  return `<div class="mt-row mt-tot">
+    <span class="mt-who"><span class="mt-name">TEAM</span></span>
+    <span class="mc mc-fp"><b class="yel">${raw.toFixed(1)}</b></span>
+    <span class="mc">${ds.reduce((t, { p }) => t + p.proj, 0).toFixed(1)}</span><span class="mc"></span>
+    <span class="mc mc-cost">${money(cost)}</span><span class="mc">${any && cost ? (raw / cost).toFixed(2) : '–'}</span>
+    ${BOX.map(([k]) => `<span class="mc mb mb-${k}">${v(k)}</span>`).join('')}</div>`;
 }
-/* All of a lineup's not-yet-tipped picks on one line. */
-export function hiddenRow(slots) {
-  return `<li class="lrow hid"><span class="lr-q">?</span>
-    <span class="lr-hidtxt"><b>${slots.join(' · ')}</b> picked · shown when ${slots.length === 1 ? 'his game tips' : 'their games tip'} off</span></li>`;
+
+/* The box score for a lineup. items: [{pos, p}]; hidden: slots not shown yet; key: prefix for open rows. */
+export function mtTable(items, opts) {
+  const o = opts || {};
+  const key = o.key || 'me';
+  const hidden = o.hidden || [];
+  return `<div class="mt-scroll"><div class="mt">
+    ${items.length ? mtHead() : ''}
+    ${items.map(({ pos, p }) => mtRow(pos, p, `${key}:${p.id}`)).join('')}
+    ${hidden.length ? `<div class="mt-row mt-hid"><span class="mt-who"><span class="mt-q">?</span><span class="mt-name">${hidden.join(' · ')}</span></span><span class="mt-hidtxt">Picked · shown when ${hidden.length === 1 ? 'his game tips' : 'their games tip'} off</span></div>` : ''}
+    ${items.length > 1 && !o.noTotal ? mtTotal(items) : ''}
+  </div></div>`;
+}
+
+/* Scores of the real games my players are in. */
+function gameStrip(items) {
+  const ids = [...new Set(items.map(({ p }) => p.game_id))];
+  const chips = ids.map((gid) => {
+    const g = S.games[gid];
+    if (!g) return '';
+    const lv = S.live && S.live.games && S.live.games[gid];
+    const st = S.results && (!lv || lv.s === 3) ? 'FINAL' : lv && lv.s >= 2 ? (lv.t || 'LIVE') : (g.status || '').replace(/\s*ET$/i, '');
+    const on = lv && lv.s === 2 && !S.results;
+    const sc = lv && lv.s >= 2;
+    const win = (side) => sc && lv.s === 3 && (side === 'a' ? lv.a > lv.h : lv.h > lv.a) ? ' w' : '';
+    return `<div class="gchip${on ? ' on' : ''}">
+      <span class="gc-t${win('a')}"><i>${esc(g.away)}</i><b>${sc ? lv.a : ''}</b></span>
+      <span class="gc-t${win('h')}"><i>${esc(g.home)}</i><b>${sc ? lv.h : ''}</b></span>
+      <span class="gc-st">${esc(String(st).toUpperCase())}</span></div>`;
+  }).join('');
+  return chips ? `<div class="gstrip" aria-label="Games">${chips}</div>` : '';
 }
 
 /* ---------- My rank tonight (world + my leagues), refreshed with the live points ---------- */
@@ -128,15 +202,7 @@ export async function loadLastRanks() {
   try { L.tRanks = (await ranksFor(L.date, null)).map((x) => ({ ...x, move: 0 })); } catch (e) { /* keep */ }
 }
 
-function rankChips() {
-  if (!signedIn() || !S.tRanks) return '';
-  return `<div class="sb-ranks">${S.tRanks.filter((x) => x.rank != null).map((x) => {
-    const mv = x.move > 0 ? `<span class="up">▲${x.move}</span>` : x.move < 0 ? `<span class="down">▼${-x.move}</span>` : '';
-    return `<span class="sb-rank"><i>${esc(x.name)}</i><b>#${x.rank}</b>${x.of ? `<em>of ${x.of}</em>` : ''}${mv}</span>`;
-  }).join('')}</div>`;
-}
-
-/* Which night the SCOREBOARD shows: the one picked, else last night until tonight's first tip-off. */
+/* Which night MY TEAM shows: the one picked, else last night until tonight's first tip-off. */
 export function scoreView() {
   if (S.scoreView) return S.scoreView;
   return lastIsCurrent() || (!anyStarted() && hasLast()) ? 'last' : 'tonight';
@@ -177,17 +243,19 @@ function scoreBody(isLast) {
   const label = (isLast ? 'LAST NIGHT · ' : '') + (res ? 'FINAL SCORE' : done ? 'UNOFFICIAL FINAL' : live ? 'LIVE SCORE' : isLast ? 'NO SCORES YET' : 'TONIGHT’S SCORE');
   const when = live && live.at ? `updated ${new Date(live.at).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}` : '';
 
-  const bar = `<div class="sumbar">
-      <div class="sb-score">
+  const rk = signedIn() && S.tRanks ? S.tRanks.filter((x) => x.rank != null) : [];
+  const bar = `<div class="mt-sum">
+      <div class="ms-box ms-final">
         <span class="cap-label">${label}${live && !done ? ' <span class="live-tag blink">LIVE</span>' : ''}</span>
-        <span class="sb-final">${has ? (raw * bonus).toFixed(1) : '0.0'}</span>
+        <b>${has ? (raw * bonus).toFixed(1) : '0.0'}</b>
+        <span class="ms-math">${raw.toFixed(1)} FP × <i class="blu">${bonusText(bonus).slice(1)}</i> CAP BONUS</span>
       </div>
-      <div class="sb-math">
-        <span><b>${raw.toFixed(1)}</b> FP</span><span class="sb-x">×</span><span><b class="blu">${bonusText(bonus).slice(1)}</b> CAP BONUS</span>
-        <span class="sb-proj">${res ? 'Official' : 'Projected final'} <b>${(res ? raw * bonus : expect * bonus).toFixed(1)}</b>${when ? ` · ${esc(when)}` : ''}</span>
-      </div>
-      ${rankChips()}
-      <button class="btn btn-primary sb-btn" data-act="refresh">CHECK FOR SCORES</button>
+      <div class="ms-box"><span>${res ? 'OFFICIAL' : 'PROJECTED'}</span><b>${(res ? raw * bonus : expect * bonus).toFixed(1)}</b><em>${when ? esc(when) : res ? 'final' : 'final score'}</em></div>
+      ${rk.map((x) => {
+        const mv = x.move > 0 ? `<em class="up">▲${x.move}</em>` : x.move < 0 ? `<em class="down">▼${-x.move}</em>` : `<em>${x.of ? 'of ' + x.of : ''}</em>`;
+        return `<div class="ms-box ms-rank"><span>${esc(x.name)}</span><b>#${x.rank}</b>${mv}</div>`;
+      }).join('')}
+      <button class="btn btn-primary ms-btn" data-act="refresh">CHECK FOR SCORES</button>
     </div>`;
 
   const help = res ? '' : isLast && !live ? `<p class="muted sb-note">Official scores post around 6 AM.</p>` : done
@@ -198,6 +266,7 @@ function scoreBody(isLast) {
     : `<p class="muted sb-note">Final scores appear after the games once you run <code>python pipeline/score_night.py --date ${esc(S.slate.date)}</code>, then press Check for scores.</p>`;
   const empty = rows.length ? '' : isLast
     ? `<div class="empty"><span>You didn’t have a lineup last night.</span><button class="btn btn-primary" data-act="tab" data-tab="build">${esc(LABELS.build)}</button></div>`
-    : `<div class="empty"><span>No one on the floor yet. Sign at least one player to fill the scoreboard.</span><button class="btn btn-primary" data-act="tab" data-tab="build">${esc(LABELS.build)}</button></div>`;
-  return (isLast && !rows.length ? '' : bar) + empty + (rows.length ? `<ol class="prows">${rows.map(({ pos, p }) => playerRow(pos, p)).join('')}</ol>` : '') + (isLast && !rows.length ? '' : help);
+    : `<div class="empty"><span>No one on the floor yet. Sign at least one player to see your team here.</span><button class="btn btn-primary" data-act="tab" data-tab="build">${esc(LABELS.build)}</button></div>`;
+  const table = rows.length ? `${gameStrip(rows)}${mtTable(rows, { key: isLast ? 'L' : 'me' })}<p class="muted lb-note">Tap a player to see where his points came from.${!res && !live ? '' : ' Swipe sideways on a phone for the full box score.'}</p>` : '';
+  return (isLast && !rows.length ? '' : bar) + empty + table + (isLast && !rows.length ? '' : help);
 }

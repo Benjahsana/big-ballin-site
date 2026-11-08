@@ -1,20 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=c3e073b';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=c3e073b';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=c3e073b';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=c3e073b';
-import { defaultDir } from './filters.js?v=c3e073b';
-import { renderStats } from './render-stats.js?v=c3e073b';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=c3e073b';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=c3e073b';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=c3e073b';
-import { openModal, closeModal, renderModal } from './render-account.js?v=c3e073b';
-import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=c3e073b';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=c3e073b';
-import { avatar } from './avatars.js?v=c3e073b';
-import { play, SOUNDS, styleFor } from './sound.js?v=c3e073b';
-import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=c3e073b';
-import { LABELS } from './util.js?v=c3e073b';
+import { S, ui } from './state.js?v=bf76d6b';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=bf76d6b';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=bf76d6b';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=bf76d6b';
+import { defaultDir } from './filters.js?v=bf76d6b';
+import { renderStats } from './render-stats.js?v=bf76d6b';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=bf76d6b';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=bf76d6b';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=bf76d6b';
+import { openModal, closeModal, renderModal } from './render-account.js?v=bf76d6b';
+import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=bf76d6b';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=bf76d6b';
+import { avatar } from './avatars.js?v=bf76d6b';
+import { play, SOUNDS, styleFor } from './sound.js?v=bf76d6b';
+import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=bf76d6b';
+import { LABELS } from './util.js?v=bf76d6b';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -148,7 +148,8 @@ document.addEventListener('click', (e) => {
     case 'lbperiod': S.lbAuto = false; S.lbPeriod = b.dataset.v; S.lbRows = null; renderLeagues(); loadBoards().then(renderAll); break;
     case 'wperiod': S.wPeriod = b.dataset.v; S.wRows = null; renderWorld(); loadWorld().then(renderAll); break;
     case 'worldrefresh': pollLive().then(loadWorld).then(() => { renderAll(); flash(S.live && !allFinal() ? 'LIVE!' : 'UPDATED!', '#FFD23F', '#3D8BFF'); }); break;
-    case 'ltopen': S.lbOpen[b.dataset.v] = !S.lbOpen[b.dataset.v]; renderLeagues(); break;
+    case 'ltopen': S.lbOpen[b.dataset.v] = !S.lbOpen[b.dataset.v]; renderAll(); break;
+    case 'mtopen': S.mtOpen[b.dataset.v] = !S.mtOpen[b.dataset.v]; play('tap'); renderAll(); break;
     case 'pcell': showPop(b, true); break;
     case 'invitetoggle': S.inviteOpen = !S.inviteOpen; renderLeagues(); break;
     case 'copyinvite': case 'shareinvite': {
@@ -440,6 +441,7 @@ async function load() {
   const lgSaved = recall('bb-league'); if (typeof lgSaved === 'string' && lgSaved) S.lbLeague = lgSaved;
   $('#buildTab').textContent = LABELS.build;
   $('#statsTab').textContent = LABELS.stats;
+  $('#scoreTab').textContent = LABELS.score;
   $('#worldBtnLabel').textContent = LABELS.world;
   if (!anyStarted() || lastIsCurrent()) { S.lbPeriod = 'last'; S.lbAuto = true; }   // mornings: open the boards on last night
   setupPoolControls();

@@ -2,7 +2,7 @@
    the browser can't read that file). Change a number here, push, and it's live. */
 
 /* Tab names shown in the app. The world board's may become 'WORLD HIGH SCORES'. */
-export const LABELS = { build: 'BUILD LINEUP', stats: 'PLAYERS', world: 'TOP WORLD RANKINGS', worldShort: 'WORLD' };
+export const LABELS = { build: 'BUILD LINEUP', stats: 'PLAYERS', score: 'MY TEAM', world: 'TOP WORLD RANKINGS', worldShort: 'WORLD' };
 
 /* How many rows the World Rankings board shows (plus your own row if you're further down). */
 export const WORLD_ROWS = 100;

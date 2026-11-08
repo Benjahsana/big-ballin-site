@@ -6,7 +6,7 @@
 <title>BIG BALLIN</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=c3e073b">
+<link rel="stylesheet" href="styles.css?v=bf76d6b">
 </head>
 <body>
 <div class="wrap">
@@ -38,7 +38,7 @@
   <nav aria-label="Sections">
     <button class="tab" data-act="tab" data-tab="build" aria-pressed="true" id="buildTab">BUILD LINEUP</button>
     <button class="tab" data-act="tab" data-tab="stats" aria-pressed="false" id="statsTab">PLAYERS</button>
-    <button class="tab" data-act="tab" data-tab="score" aria-pressed="false">SCOREBOARD</button>
+    <button class="tab" data-act="tab" data-tab="score" aria-pressed="false" id="scoreTab">MY TEAM</button>
     <button class="tab" data-act="tab" data-tab="leagues" aria-pressed="false" id="leaguesTab" hidden>LEAGUES</button>
     <button class="acct" data-act="acct" id="acctBtn" hidden>SIGN IN</button>
     <button class="sound" data-act="soundpanel" id="soundBtn" aria-expanded="false" aria-controls="soundPanel">SOUND ON</button>
@@ -108,8 +108,8 @@
     <div class="leagues-wrap" id="world"></div>
   </section>
 
-  <!-- SCOREBOARD -->
-  <section id="view-score" aria-label="Scoreboard" hidden>
+  <!-- MY TEAM (score): my lineup's live/final box score -->
+  <section id="view-score" aria-label="My team" hidden>
     <div class="score-wrap" id="score"></div>
   </section>
 </div>
@@ -126,6 +126,6 @@
 <dialog class="modal" id="modal" aria-label="Account"></dialog>
 <div class="pc-pop" id="pcPop" role="tooltip" hidden></div>
 
-<script type="module" src="js/main.js?v=c3e073b"></script>
+<script type="module" src="js/main.js?v=bf76d6b"></script>
 </body>
 </html>
