@@ -337,9 +337,7 @@ nav .acct { margin-left: auto; }
 .rank-chip .rc-rank { color: var(--yel); white-space: nowrap; }
 .rank-chip { cursor: pointer; }
 .rank-chip:hover { background: var(--panel2); }
-.rank-chip .rc-team { white-space: nowrap; font-size: 10px; background: var(--yel); color: var(--bg); border-radius: 6px; padding: 7px 9px; margin-left: 4px; }
-.rank-chip.big .rc-team { font-size: 11px; }
-.rank-chip:not(:has(.ava)) .rc-team { background: none; color: inherit; padding: 0; margin: 0; font-size: inherit; }
+.rank-chip .rc-team { white-space: nowrap; }
 .rank-chip[aria-pressed="true"] { border-color: var(--yel); background: var(--panel2); }
 .rank-chip.big { font-size: 13px; gap: 12px; padding: 8px 18px 8px 8px; box-shadow: 4px 4px 0 var(--red); }
 .rank-chip.big .rc-rank { font-size: 15px; }
@@ -380,12 +378,11 @@ nav .acct { margin-left: auto; }
   .rank-chip.big { font-size: 11px; }
   .rank-chip.big .rc-rank { font-size: 12px; }
   .rank-chip, .rank-chip.big { max-width: calc(100vw - 32px); gap: 8px; }
-  .rank-chip .rc-dot, .rank-chip .rc-w { display: none; }
+  .rank-chip .rc-dot { display: none; }
   .rank-chip.big { font-size: 10px; }
   .rank-chip.big .rc-rank { font-size: 11px; }
   .rank-chip .rc-name { flex: 1 1 auto; min-width: 3.5em; }
   .rank-chip .rc-rank, .rank-chip .up, .rank-chip .down { flex: none; }
-  .rank-chip .rc-team, .rank-chip.big .rc-team { font-size: 9px; padding: 6px 7px; margin-left: auto; }
   .ava-pick { grid-template-columns: repeat(4, 1fr); }
   .lb-name .ava { width: 28px; height: 28px; }
 }

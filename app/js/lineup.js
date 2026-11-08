@@ -1,8 +1,8 @@
 /* BIG BALLIN: lineup rules: locks, cap, cap bonus, sign and cut. */
-import { S, ui } from './state.js?v=b874395';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=b874395';
-import { play } from './sound.js?v=b874395';
-import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=b874395';
+import { S, ui } from './state.js?v=d9ce35b';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=d9ce35b';
+import { play } from './sound.js?v=d9ce35b';
+import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=d9ce35b';
 
 /* ---------- Live points (S.live, from Supabase) ---------- */
 export const liveOf = (p) => (S.live && S.live.p[String(p.id)]) || null;

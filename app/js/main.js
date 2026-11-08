@@ -1,20 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=b874395';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=b874395';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=b874395';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=b874395';
-import { defaultDir } from './filters.js?v=b874395';
-import { renderStats } from './render-stats.js?v=b874395';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=b874395';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=b874395';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=b874395';
-import { openModal, closeModal, renderModal } from './render-account.js?v=b874395';
-import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=b874395';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=b874395';
-import { avatar } from './avatars.js?v=b874395';
-import { play, SOUNDS, styleFor } from './sound.js?v=b874395';
-import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=b874395';
-import { LABELS } from './util.js?v=b874395';
+import { S, ui } from './state.js?v=d9ce35b';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=d9ce35b';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=d9ce35b';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=d9ce35b';
+import { defaultDir } from './filters.js?v=d9ce35b';
+import { renderStats } from './render-stats.js?v=d9ce35b';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=d9ce35b';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=d9ce35b';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=d9ce35b';
+import { openModal, closeModal, renderModal } from './render-account.js?v=d9ce35b';
+import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=d9ce35b';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=d9ce35b';
+import { avatar } from './avatars.js?v=d9ce35b';
+import { play, SOUNDS, styleFor } from './sound.js?v=d9ce35b';
+import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=d9ce35b';
+import { LABELS } from './util.js?v=d9ce35b';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -55,7 +55,7 @@ function renderHeader() {
   renderSoundPanel();
 }
 
-/* Header chip on every tab: [avatar] NAME · #47 WORLD ▲3 + MY TEAM ▸. Tapping it opens MY TEAM
+/* Header chip on every tab: [avatar] NAME · #47 WORLD ▲3 (signed out: MY TEAM ▸). Tapping it opens MY TEAM
    (there's no MY TEAM tab in the tab row). Biggest on BUILD LINEUP. The World Rankings button sits next to it. */
 function renderRankChip(cloudOn) {
   const chip = $('#rankChip');
@@ -68,7 +68,7 @@ function renderRankChip(cloudOn) {
     return;
   }
   const t = rankText();
-  chip.innerHTML = `${avatar(S.profile.avatar, S.tab === 'build' ? 48 : 36)}<span class="rc-name">${esc(S.profile.display_name.toUpperCase())}</span><span class="rc-dot">·</span><span class="rc-rank">${t.rank.replace(' ' + LABELS.worldShort, `<span class="rc-w"> ${LABELS.worldShort}</span>`)}</span>${t.move}${tag}`;
+  chip.innerHTML = `${avatar(S.profile.avatar, S.tab === 'build' ? 48 : 36)}<span class="rc-name">${esc(S.profile.display_name.toUpperCase())}</span><span class="rc-dot">·</span><span class="rc-rank">${t.rank.replace(' ' + LABELS.worldShort, `<span class="rc-w"> ${LABELS.worldShort}</span>`)}</span>${t.move}`;
   chip.setAttribute('aria-label', `${S.profile.display_name}, ${t.rank.replace('#', 'number ')}. Open ${LABELS.score}`);
 }
 
