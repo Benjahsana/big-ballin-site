@@ -2,13 +2,13 @@
    final, my rank tonight in the world and my leagues) and one compact row per player:
    who/where/status + live stat line, FP tonight with a bar toward his projection, and
    cost / value tonight / pace. */
-import { S } from './state.js?v=eaf3fca';
-import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=eaf3fca';
-import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=eaf3fca';
-import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=eaf3fca';
-import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=eaf3fca';
-import { play } from './sound.js?v=eaf3fca';
-import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=eaf3fca';
+import { S } from './state.js?v=8c16d8e';
+import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=8c16d8e';
+import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=8c16d8e';
+import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=8c16d8e';
+import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=8c16d8e';
+import { play } from './sound.js?v=8c16d8e';
+import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=8c16d8e';
 
 export const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
 
@@ -159,7 +159,7 @@ export function renderScore() {
     else if (!hasLast()) html = `<p class="muted">Loading last night…</p>`;
     else html = asLast(() => scoreBody(true));
   } else if (lastIsCurrent()) {
-    html = `<div class="empty"><span>Tonight’s players and prices post around 10 AM on game days. Last night’s scores are under LAST NIGHT.</span>
+    html = `<div class="empty"><span>Tonight’s players and prices post around 6:30 AM on game days. Last night’s scores are under LAST NIGHT.</span>
       <button class="btn btn-primary" data-act="scoreview" data-v="last">SEE LAST NIGHT</button></div>`;
   } else html = scoreBody(false);
   $('#score').innerHTML = sw + html;
