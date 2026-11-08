@@ -1,16 +1,16 @@
 /* BIG BALLIN: PLAYERS tab (data-tab "stats"; once called the Stat Center): stats table and the big player card.
    Shows every NBA player: tonight's slate (with prices) plus data/players-all.json (everyone else,
    stats only), loaded the first time the tab opens. ALL NBA | PLAYING TONIGHT switches between them. */
-import { S } from './state.js?v=8dda3df';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=8dda3df';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=8dda3df';
-import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=8dda3df';
+import { S } from './state.js?v=7f8465c';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=7f8465c';
+import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=7f8465c';
+import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=7f8465c';
 
 const n1 = (v) => (v == null ? '–' : Number(v).toFixed(1));
 const tonight = (p) => p.price != null;     // on tonight's slate (has a price); others are stats only
 export const COLS = [
   { k: 'price', l: 'PRICE', v: (p) => p.price, f: (p) => (tonight(p) ? money(p.price) : '–') },
-  { k: 'chg', l: '+/−', v: (p) => (tonight(p) ? p.price_change || 0 : null), f: (p) => chg(p) || '–', c: 'muted' },
+  { k: 'chg', l: 'PRICE CHG', v: (p) => (tonight(p) ? p.price_change || 0 : null), f: (p) => chg(p) || '–', c: 'muted' },
   { k: 'proj', l: 'PROJ', v: (p) => p.proj, f: (p) => (tonight(p) ? p.proj.toFixed(1) : '–'), c: 'yel', b: 1 },
   { k: 'avg', l: 'AVG FP', v: (p) => W(p).fp, f: (p) => n1(W(p).fp), b: 1 },
   { k: 'value', l: 'FP/$M', v: (p) => p.value, f: (p) => (tonight(p) ? p.value.toFixed(2) : '–'), c: 'blu', b: 1 },

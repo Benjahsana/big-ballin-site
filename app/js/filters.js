@@ -1,7 +1,7 @@
 /* BIG BALLIN: stat windows, sorting, filters and "what fits my cap". */
-import { S } from './state.js?v=8dda3df';
-import { POS, slotsFor, matches } from './util.js?v=8dda3df';
-import { slotOf, maxForSlot, fits } from './lineup.js?v=8dda3df';
+import { S } from './state.js?v=7f8465c';
+import { POS, slotsFor, matches } from './util.js?v=7f8465c';
+import { slotOf, maxForSlot, fits } from './lineup.js?v=7f8465c';
 
 export const WINDOWS = [['l5', 'L5'], ['l10', 'L10'], ['season', 'SEASON']];
 export const winLabel = () => ({ l5: 'Last 5', l10: 'Last 10', season: 'Season' })[S.win] || 'Season';
@@ -35,7 +35,7 @@ export const SORTS = [
   { k: 'fgpct', l: 'Field goal %', s: 'FG%', v: fgPct, f: (p) => fmtPct(fgPct(p)) },
   { k: 'ftpct', l: 'Free throw %', s: 'FT%', v: ftPct, f: (p) => fmtPct(ftPct(p)) },
   { k: 'min', l: 'Minutes', s: 'MIN', v: (p) => W(p).min, f: (p) => one(W(p).min) },
-  { k: 'chg', l: 'Price change', s: '+/−', v: (p) => p.price_change || 0, f: (p) => (p.price_change ? (p.price_change > 0 ? '+' : '') + p.price_change.toFixed(1) : '–') },
+  { k: 'chg', l: 'Price change', s: 'PRICE CHG', v: (p) => p.price_change || 0, f: (p) => (p.price_change ? (p.price_change > 0 ? '+' : '') + p.price_change.toFixed(1) : '–') },
 ];
 export const sortDef = () => SORTS.find((s) => s.k === S.poolSort) || SORTS[0];
 export const defaultDir = (k) => ((SORTS.find((s) => s.k === k) || {}).low ? 1 : -1);

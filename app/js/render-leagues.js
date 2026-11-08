@@ -2,12 +2,12 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=8dda3df';
-import { $, POS, esc, money, store, jersey } from './util.js?v=8dda3df';
-import { avatar } from './avatars.js?v=8dda3df';
-import { mtTable, rowData, statLine, tipText, FLAME } from './render-score.js?v=8dda3df';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=8dda3df';
-import { L, asLast, lastDate, loadLast } from './night.js?v=8dda3df';
+import { S } from './state.js?v=7f8465c';
+import { $, POS, esc, money, store, jersey } from './util.js?v=7f8465c';
+import { avatar } from './avatars.js?v=7f8465c';
+import { mtTable, rowData, statLine, tipText, FLAME } from './render-score.js?v=7f8465c';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=7f8465c';
+import { L, asLast, lastDate, loadLast } from './night.js?v=7f8465c';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
