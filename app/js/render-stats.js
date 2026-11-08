@@ -1,8 +1,8 @@
 /* BIG BALLIN: PLAYERS tab (data-tab "stats"; once called the Stat Center): stats table and the big player card. */
-import { S } from './state.js?v=a654624';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=a654624';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=a654624';
-import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=a654624';
+import { S } from './state.js?v=2dee99a';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=2dee99a';
+import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=2dee99a';
+import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=2dee99a';
 
 const n1 = (v) => (v == null ? '–' : Number(v).toFixed(1));
 export const COLS = [

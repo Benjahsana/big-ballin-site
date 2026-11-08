@@ -5,8 +5,8 @@
    Rules: nothing plays before the first tap on the page; one sound at a time; after a
    reward/alert sound, others wait SOUND.cooldownMs (quick taps don't start that wait, and
    are simply skipped if something is playing). On/off and volume are remembered per device. */
-import { S } from './state.js?v=a654624';
-import { SOUND } from './app-config.js?v=a654624';
+import { S } from './state.js?v=2dee99a';
+import { SOUND } from './app-config.js?v=2dee99a';
 
 let ctx = null;
 let noiseBuf = null;
@@ -105,13 +105,6 @@ export const SOUNDS = {
       [1760, 2093, 2637].forEach((f, i) => tone(o, t + 0.28 + i * 0.06, { type: 'sine', f, dur: 0.12, vol: 0.5 }));
       return 0.5;
     }],
-  heat: ['Heating up (passed projection)', false,
-    (o, t) => notes(o, t, 'triangle', [[523, 0.07], [784, 0.07], [1047, 0.14]]),
-    (o, t) => {   // rising siren with wobble + a little sizzle
-      tone(o, t, { type: 'triangle', f: 500, f1: 1300, dur: 0.55, vol: 1, vib: 40, vibRate: 9 });
-      noise(o, t + 0.1, { dur: 0.45, freq: 6000, type: 'highpass', vol: 0.12, swell: 0.3 });
-      return 0.6;
-    }],
   climb: ['Rank up during live games', false,
     (o, t) => notes(o, t, 'triangle', [[659, 0.06], [784, 0.06], [988, 0.06], [1319, 0.14]]),
     (o, t) => {   // quick climb + crowd "ooh"
@@ -131,6 +124,9 @@ export const SOUNDS = {
       return 1.7;
     }],
 };
+
+// Heating up (a player passes his projection) uses the lineup-complete sound, both versions.
+SOUNDS.heat = ['Heating up (same as lineup complete)', false, SOUNDS.complete[2], SOUNDS.complete[3]];
 
 /* Browsers only allow audio after a tap; until then every sound is skipped (not queued). */
 function unlock() {
