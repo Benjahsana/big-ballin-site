@@ -6,7 +6,7 @@
 <title>BIG BALLIN</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=ded6fe7">
+<link rel="stylesheet" href="styles.css?v=8dda3df">
 </head>
 <body>
 <div class="wrap">
@@ -89,9 +89,11 @@
         </div>
         <div class="toolbar">
           <input class="search" id="statsSearch" type="search" placeholder="Search a player or team" aria-label="Search stats">
+          <div class="segs" role="group" aria-label="Which players" id="statsScope"></div>
           <div class="segs" role="group" aria-label="Stats window" id="statsWin"></div>
-          <span class="muted">Tap a column to sort. Tap a name for the full card.</span>
+          <span class="muted" id="statsCount"></span>
         </div>
+        <p class="muted stats-tip">Tap a column to sort. Tap a name for the full card.</p>
         <div class="table-box"><table><thead><tr id="statsHead"></tr></thead><tbody id="statsBody"></tbody></table></div>
       </div>
       <aside class="pcard-big" id="card" aria-label="Player card"></aside>
@@ -126,6 +128,6 @@
 <dialog class="modal" id="modal" aria-label="Account"></dialog>
 <div class="pc-pop" id="pcPop" role="tooltip" hidden></div>
 
-<script type="module" src="js/main.js?v=ded6fe7"></script>
+<script type="module" src="js/main.js?v=8dda3df"></script>
 </body>
 </html>

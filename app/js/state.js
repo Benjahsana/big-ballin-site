@@ -8,7 +8,8 @@ export const S = {
   filtersOpen: false,  // phones: filter panel folded away until FILTERS is tapped
   view: 'cards',        // 'cards' | 'list' (remembered)
   win: 'season',        // stats window: 'l5' | 'l10' | 'season' (remembered)
-  statsPos: 'ALL', statsQuery: '', sortKey: 'proj', sortDir: -1, selId: null,
+  statsPos: 'ALL', statsQuery: '', sortKey: 'avg', sortDir: -1, selId: null,
+  statsScope: 'all', all: null, allById: null,   // PLAYERS: 'all' NBA or 'tonight'; all = data/players-all.json (no game tonight)
   sound: true, volume: 0.35, crushLine: 99,   // volume: 0–1, remembered per device (bb-vol)
   // Phase 4 (Supabase): account, sync, live points, leagues and leaderboards.
   user: null, profile: null, cloudOk: false,

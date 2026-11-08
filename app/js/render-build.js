@@ -1,8 +1,8 @@
 /* BIG BALLIN: Build tab: lineup slots, fill bar, filters and free agents (cards or list). */
-import { S } from './state.js?v=ded6fe7';
-import { $, POS, POSNAME, esc, money, where, slotsFor, chg, jersey, fitNames, color } from './util.js?v=ded6fe7';
-import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState } from './lineup.js?v=ded6fe7';
-import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=ded6fe7';
+import { S } from './state.js?v=8dda3df';
+import { $, POS, POSNAME, esc, money, where, slotsFor, chg, jersey, fitNames, color } from './util.js?v=8dda3df';
+import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState } from './lineup.js?v=8dda3df';
+import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=8dda3df';
 
 export function renderSlots() {
   $('#slots').innerHTML = POS.map((pos) => {
