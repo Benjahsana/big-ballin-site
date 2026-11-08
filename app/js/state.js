@@ -17,7 +17,7 @@ export const S = {
   hotSeen: {},          // players we already shouted HEATING UP for tonight
   // Leagues tab: my leagues (with invite codes), every league (public list), the one being viewed.
   leagues: [], allLeagues: null, lbLeague: null, lbPeriod: 'night', lbRows: null, lbNight: null, lbWinners: null, lbErr: null,
-  inviteOpen: false,
+  inviteOpen: false, lbOpen: {},   // lbOpen: Tonight table rows opened to the detailed lineup (by user id)
   // World Rankings tab, and my season world rank for the header ({rank, prev_rank, total, nights, players}).
   tRanks: null,        // Scoreboard: my rank tonight [{id (null = world), name, rank, of, move}]
   wPeriod: 'season', wRows: null, wNight: null, wWinners: null, wErr: null, rank: null,

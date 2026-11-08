@@ -1,19 +1,19 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=2dee99a';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=2dee99a';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=2dee99a';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=2dee99a';
-import { defaultDir } from './filters.js?v=2dee99a';
-import { renderStats } from './render-stats.js?v=2dee99a';
-import { renderScore, loadTonightRanks } from './render-score.js?v=2dee99a';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=2dee99a';
-import { openModal, closeModal, renderModal } from './render-account.js?v=2dee99a';
-import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=2dee99a';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=2dee99a';
-import { avatar } from './avatars.js?v=2dee99a';
-import { play, SOUNDS, styleFor } from './sound.js?v=2dee99a';
-import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=2dee99a';
-import { LABELS } from './util.js?v=2dee99a';
+import { S, ui } from './state.js?v=e026dd1';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=e026dd1';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=e026dd1';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=e026dd1';
+import { defaultDir } from './filters.js?v=e026dd1';
+import { renderStats } from './render-stats.js?v=e026dd1';
+import { renderScore, loadTonightRanks } from './render-score.js?v=e026dd1';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=e026dd1';
+import { openModal, closeModal, renderModal } from './render-account.js?v=e026dd1';
+import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=e026dd1';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=e026dd1';
+import { avatar } from './avatars.js?v=e026dd1';
+import { play, SOUNDS, styleFor } from './sound.js?v=e026dd1';
+import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=e026dd1';
+import { LABELS } from './util.js?v=e026dd1';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -100,7 +100,7 @@ function renderAll() {
   if (S.tab === 'build') { renderSlots(); renderPool(); }
   if (S.tab === 'stats') renderStats();
   if (S.tab === 'score') renderScore();
-  if (S.tab === 'leagues') renderLeagues();
+  if (S.tab === 'leagues') { renderLeagues(); hidePop(); }
   if (S.tab === 'world') renderWorld();
 }
 ui.renderAll = renderAll;
@@ -140,6 +140,8 @@ document.addEventListener('click', (e) => {
     case 'lbperiod': S.lbPeriod = b.dataset.v; S.lbRows = null; renderLeagues(); loadBoards().then(renderAll); break;
     case 'wperiod': S.wPeriod = b.dataset.v; S.wRows = null; renderWorld(); loadWorld().then(renderAll); break;
     case 'worldrefresh': pollLive().then(loadWorld).then(() => { renderAll(); flash(S.live && !allFinal() ? 'LIVE!' : 'UPDATED!', '#FFD23F', '#3D8BFF'); }); break;
+    case 'ltopen': S.lbOpen[b.dataset.v] = !S.lbOpen[b.dataset.v]; renderLeagues(); break;
+    case 'pcell': showPop(b, true); break;
     case 'invitetoggle': S.inviteOpen = !S.inviteOpen; renderLeagues(); break;
     case 'copyinvite': case 'shareinvite': {
       const lg = S.leagues.find((l) => l.id === S.lbLeague);
@@ -275,6 +277,34 @@ async function afterAuth() {
   if (S.tab === 'world') await loadWorld();
   renderAll();
 }
+
+/* Player popover on the league Tonight table: hover (mouse) or tap. One floating box,
+   placed next to the cell, so the table's sideways scroll on phones can't clip it. */
+let popFor = null;
+function showPop(cell, tapped) {
+  const box = $('#pcPop');
+  if (tapped && popFor === cell && !box.hidden) { hidePop(); return; }
+  box.innerHTML = playerPop(Number(cell.dataset.pid));
+  box.hidden = false;
+  popFor = cell;
+  const r = cell.getBoundingClientRect(), w = box.offsetWidth, h = box.offsetHeight;
+  let x = r.left + r.width / 2 - w / 2, y = r.bottom + 6;
+  x = Math.max(8, Math.min(x, window.innerWidth - w - 8));
+  if (y + h > window.innerHeight - 8) y = Math.max(8, r.top - h - 6);
+  box.style.left = x + 'px'; box.style.top = y + 'px';
+}
+function hidePop() { const box = $('#pcPop'); if (box) box.hidden = true; popFor = null; }
+document.addEventListener('mouseover', (e) => {
+  if (!window.matchMedia('(hover: hover)').matches) return;
+  const cell = e.target.closest('td[data-act="pcell"]');
+  if (cell) { if (cell !== popFor) showPop(cell, false); } else if (popFor && !e.target.closest('#pcPop')) hidePop();
+});
+document.addEventListener('click', (e) => { if (popFor && !e.target.closest('td[data-act="pcell"]') && !e.target.closest('#pcPop')) hidePop(); }, true);
+window.addEventListener('scroll', hidePop, { passive: true });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') hidePop();
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('td[data-act="pcell"]')) { e.preventDefault(); showPop(e.target, true); }
+});
 
 /* Fanfare (once) for a badge I haven't seen yet on this device. The first time an account is
    seen here, its existing badges are just marked as seen. */

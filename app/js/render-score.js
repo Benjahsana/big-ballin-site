@@ -2,21 +2,21 @@
    final, my rank tonight in the world and my leagues) and one compact row per player:
    who/where/status + live stat line, FP tonight with a bar toward his projection, and
    cost / value tonight / pace. */
-import { S } from './state.js?v=2dee99a';
-import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=2dee99a';
-import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=2dee99a';
-import { PACE_MIN_MINUTES } from './app-config.js?v=2dee99a';
-import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=2dee99a';
-import { play } from './sound.js?v=2dee99a';
+import { S } from './state.js?v=e026dd1';
+import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=e026dd1';
+import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=e026dd1';
+import { PACE_MIN_MINUTES } from './app-config.js?v=e026dd1';
+import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=e026dd1';
+import { play } from './sound.js?v=e026dd1';
 
-const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
+export const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
 
 /* His usual minutes: season average (for pace). */
 function usualMin(p) {
   const w = (p.windows && p.windows.season) || p.stats || {};
   return Number(w.min) || null;
 }
-const tipText = (p) => {
+export const tipText = (p) => {
   const g = S.games[p.game_id];
   return g && g.status ? g.status.replace(/\s*ET$/i, '').toUpperCase() : '';
 };

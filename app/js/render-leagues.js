@@ -2,11 +2,11 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=2dee99a';
-import { $, POS, esc, store } from './util.js?v=2dee99a';
-import { avatar } from './avatars.js?v=2dee99a';
-import { leagueRow, hiddenRow } from './render-score.js?v=2dee99a';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=2dee99a';
+import { S } from './state.js?v=e026dd1';
+import { $, POS, esc, money, store } from './util.js?v=e026dd1';
+import { avatar } from './avatars.js?v=e026dd1';
+import { leagueRow, hiddenRow, rowData, statLine, tipText, FLAME } from './render-score.js?v=e026dd1';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=e026dd1';
 
 export const PERIODS = [['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -99,6 +99,62 @@ export function boardList(rows, period, night, opts) {
   }).join('')}</ol>${o.limit && rows.length > o.limit ? `<p class="muted lb-note">Showing the top ${o.limit} of ${rows.length}.</p>` : ''}`;
 }
 
+/* ---------- Tonight table: one row per team, one column per position ---------- */
+const shortName = (p) => { const parts = p.name.split(' '); return parts.length > 1 ? parts.slice(1).join(' ') : p.name; };
+
+function playerCell(p, uid, pos) {
+  const d = rowData(p);
+  const pct = d.fp != null && p.proj > 0 ? Math.min(100, (d.fp / p.proj) * 100) : 0;
+  const st = d.state === 1 ? `Tips ${esc(tipText(p).replace(/ (AM|PM)$/, ''))}` : d.state === 3 ? 'Final' : esc(d.status);
+  return `<td class="pc${d.hot ? ' hot' : ''}" data-act="pcell" data-pid="${p.id}" tabindex="0" aria-label="${esc(p.name)}: ${d.fp != null ? d.fp.toFixed(1) : 'not started'} of ${p.proj.toFixed(1)} projected, ${money(p.price)}">
+    <span class="pc-name">${esc(shortName(p))}</span>
+    <b class="pc-fp">${d.fp != null ? d.fp.toFixed(1) : '–'}${d.hot ? FLAME : ''}</b>
+    <span class="pc-bar"><i style="width:${pct.toFixed(0)}%"></i></span>
+    <span class="pc-sub"><span>${p.proj.toFixed(1)}</span><span>${money(p.price)}</span></span>
+    <span class="pc-st${d.state === 2 ? ' on' : ''}">${st}</span></td>`;
+}
+
+function tonightTable(rows, night) {
+  const me = S.user ? S.user.id : null;
+  const byUser = Object.fromEntries((night || []).map((r) => [r.user_id, r]));
+  const body = rows.map((r) => {
+    const n = byUser[r.user_id];
+    const open = !!S.lbOpen[r.user_id];
+    const team = `<th class="lt-team" scope="row"><button class="lt-tb" data-act="ltopen" data-v="${esc(r.user_id)}" aria-expanded="${open}">
+        <span class="lt-rank">${r.rank}</span>${avatar(r.avatar, 30)}
+        <span class="lt-who"><span class="lt-name">${esc(r.display_name)}</span>
+          <span class="lt-score"><b>${Number(r.total).toFixed(1)}</b>${n && n.bonus ? `<i>${Number(n.raw).toFixed(1)}×${Number(n.bonus).toFixed(2)}</i>` : ''}</span></span></button></th>`;
+    let cells;
+    if (!n) cells = `<td class="pc none" colspan="5">No lineup tonight (counts as 0)</td>`;
+    else cells = POS.map((pos) => {
+      const v = (n.slots || {})[pos];
+      if (v == null) return `<td class="pc empty"><span class="pc-name">Empty</span></td>`;
+      if (v === 'hidden') return `<td class="pc hid"><span class="pc-name">Picked</span><b class="pc-q">?</b><span class="pc-st">Shows at tip-off</span></td>`;
+      const p = S.byId[v];
+      return p ? playerCell(p, r.user_id, pos) : `<td class="pc"><span class="pc-name">#${esc(v)}</span></td>`;
+    }).join('');
+    const detail = open && n ? `<tr class="lt-detail"><td colspan="6">${miniLineup(n)}</td></tr>` : '';
+    return `<tr class="lt-row${r.user_id === me ? ' me' : ''}">${team}${cells}</tr>${detail}`;
+  }).join('');
+  return `<div class="lt-wrap"><table class="lt">
+    <colgroup><col class="lt-c0">${POS.map(() => '<col>').join('')}</colgroup>
+    <thead><tr><th class="lt-h" scope="col">TEAM</th>${POS.map((p) => `<th class="lt-h" scope="col">${p}</th>`).join('')}</tr></thead>
+    <tbody>${body}</tbody></table></div>
+    <p class="muted lb-note">Hover or tap a player for his full line. Tap a team to open its lineup.</p>`;
+}
+
+/* Popover for a player cell: headshot, matchup, FP vs projection, cost, value, stat line. */
+export function playerPop(pid) {
+  const p = S.byId[pid];
+  if (!p) return '';
+  const d = rowData(p);
+  const val = d.fp != null && d.state >= 2 ? ` · ${(d.fp / p.price).toFixed(2)} FP/$M` : '';
+  return `<div class="pp-top">${p.sprite ? `<img src="../data/${esc(p.sprite)}" alt="">` : ''}
+      <div><b>${esc(p.name)}</b><span>${esc(`${p.team} ${p.home ? 'vs' : '@'} ${p.opp}`)} · ${esc(d.status)}</span></div></div>
+    <div class="pp-num"><b class="${d.hot ? 'red' : 'yel'}">${d.fp != null ? d.fp.toFixed(1) : '–'}</b> FP of ${p.proj.toFixed(1)} proj · ${money(p.price)}${val}</div>
+    <div class="pp-line">${statLine(d, p)}</div>`;
+}
+
 /* ---------- Leagues tab ---------- */
 function leagueCard(l) {
   const lead = l.leader ? `Tonight: <b>${esc(l.leader)}</b> ${Number(l.leader_score || 0).toFixed(1)}` : 'No lineups tonight yet';
@@ -136,7 +192,7 @@ function leaguePage(lg) {
   if (S.lbErr) board = `<div class="empty"><span>${esc(S.lbErr)}</span></div>`;
   else if (!rows) board = `<p class="muted">Loading…</p>`;
   else if (!rows.length) board = `<div class="empty"><span>No one in this league has a lineup yet for this stretch.</span></div>`;
-  else board = boardList(rows, S.lbPeriod, S.lbPeriod === 'night' ? S.lbNight : null, { lineups: true });
+  else board = S.lbPeriod === 'night' ? tonightTable(rows, S.lbNight) : boardList(rows, S.lbPeriod, null, { lineups: true });
 
   const invite = member && my ? `<div class="invite-box">
       <div class="m-actions">
