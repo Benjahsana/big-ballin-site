@@ -2,10 +2,11 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=6739afe';
-import { $, POS, esc, money, store } from './util.js?v=6739afe';
-import { avatar } from './avatars.js?v=6739afe';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=6739afe';
+import { S } from './state.js?v=a654624';
+import { $, POS, esc, store } from './util.js?v=a654624';
+import { avatar } from './avatars.js?v=a654624';
+import { leagueRow, hiddenRow } from './render-score.js?v=a654624';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=a654624';
 
 export const PERIODS = [['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -57,21 +58,18 @@ export function winnersBox(w, kinds) {
   return html ? `<div class="winners">${html}</div>` : '';
 }
 
-/* Another player's lineup as compact chips: slot, tiny headshot, last name, points (or price
-   before tip-off). Picks show once their game has tipped, until then "?". */
+/* Another player's lineup for Tonight: one readable row per pick (render-score.js leagueRow).
+   Picks show once their game has tipped; until then a "Picked" row. */
 function miniLineup(r) {
   const slots = r.slots || {};
-  return `<div class="mini">${POS.map((pos) => {
+  const hidden = POS.filter((pos) => slots[pos] === 'hidden');
+  const shown = POS.filter((pos) => slots[pos] !== 'hidden').map((pos) => {
     const v = slots[pos];
-    if (v == null) return `<span class="mini-c empty"><i>${pos}</i>–</span>`;
-    if (v === 'hidden') return `<span class="mini-c hid" title="Hidden until his game tips off"><i>${pos}</i><b>?</b></span>`;
+    if (v == null) return `<li class="lrow empty"><span class="lr-slot">${pos}</span><span class="muted">Empty</span></li>`;
     const p = S.byId[v];
-    if (!p) return `<span class="mini-c"><i>${pos}</i>#${esc(v)}</span>`;
-    const lv = S.live && S.live.p[String(p.id)];
-    const fp = S.results && S.results[String(p.id)] ? S.results[String(p.id)].fp : lv ? lv.fp : null;
-    const hot = fp != null && fp >= p.proj;
-    return `<span class="mini-c${hot ? ' hot' : ''}" title="${esc(p.name)}"><i>${pos}</i>${p.sprite ? `<img src="../data/${esc(p.sprite)}" alt="" loading="lazy">` : ''}<b>${esc(p.name.split(' ').slice(-1)[0])}</b><em>${fp != null ? Number(fp).toFixed(1) : money(p.price)}</em></span>`;
-  }).join('')}</div>`;
+    return p ? leagueRow(pos, p) : `<li class="lrow"><span class="lr-slot">${pos}</span>#${esc(v)}</li>`;
+  }).join('');
+  return `<ol class="lrows">${shown}${hidden.length ? hiddenRow(hidden) : ''}</ol>`;
 }
 
 /* One leaderboard. night = night_lineups rows (Tonight only) for the raw × bonus line and mini lineups. */
@@ -93,9 +91,10 @@ export function boardList(rows, period, night, opts) {
     return `<li class="lb-row${r.user_id === me ? ' me' : ''}">
       <span class="lb-rank">${r.rank}</span>
       <div class="lb-who"><div class="lb-name">${avatar(r.avatar, 36)}<span class="pname">${esc(r.display_name)}</span></div>
-        <div class="bdgs">${badges(r.badges)}</div>${detail}</div>
+        <div class="bdgs">${badges(r.badges)}</div>${period === 'night' && n && o.lineups ? '' : detail}</div>
       <div class="lb-score"><b class="yel">${Number(r.total).toFixed(1)}</b>${r.unofficial ? '<span class="live-tag">LIVE</span>' : ''}
         ${period === 'night' && n && n.bonus ? `<span class="muted">${Number(n.raw).toFixed(1)} FP × ${Number(n.bonus).toFixed(2)}</span>` : ''}</div>
+      ${period === 'night' && n && o.lineups ? `<div class="lb-detail">${detail}</div>` : ''}
     </li>`;
   }).join('')}</ol>${o.limit && rows.length > o.limit ? `<p class="muted lb-note">Showing the top ${o.limit} of ${rows.length}.</p>` : ''}`;
 }

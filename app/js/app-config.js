@@ -15,6 +15,8 @@ export const SOUND = {
   volume: 0.35,          // default volume, 0–1 (each device can change it in the SOUND panel)
   master: 0.12,          // overall loudness at volume 1 (keeps even "full" volume gentle)
   cooldownMs: 3000,      // after a reward/alert sound, others wait this long (quick taps don't start it)
+  style: 'classic',      // 'classic' (plain beeps) or 'fun' (slides, swish, echo, crowd) for every sound
+  pick: {},              // per-sound override, e.g. { sign: 'fun', fanfare: 'fun' } (hear both at #soundtest)
 };
 
 /* Pace: projected finish = FP so far ÷ minutes played × usual minutes (season average).

@@ -2,12 +2,12 @@
    final, my rank tonight in the world and my leagues) and one compact row per player:
    who/where/status + live stat line, FP tonight with a bar toward his projection, and
    cost / value tonight / pace. */
-import { S } from './state.js?v=6739afe';
-import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=6739afe';
-import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=6739afe';
-import { PACE_MIN_MINUTES } from './app-config.js?v=6739afe';
-import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=6739afe';
-import { play } from './sound.js?v=6739afe';
+import { S } from './state.js?v=a654624';
+import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=a654624';
+import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=a654624';
+import { PACE_MIN_MINUTES } from './app-config.js?v=a654624';
+import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=a654624';
+import { play } from './sound.js?v=a654624';
 
 const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
 
@@ -22,7 +22,7 @@ const tipText = (p) => {
 };
 
 /* Everything a row needs, for official results, live points or before tip-off. */
-function rowData(p) {
+export function rowData(p) {
   const res = S.results;
   const r = res ? res[String(p.id)] : liveOf(p);
   const g = !res ? gameOf(p) : null;
@@ -37,7 +37,7 @@ function rowData(p) {
   return { r, g, state, status, fp, pace, expect, hot: fp != null && fp >= p.proj && p.proj > 0 };
 }
 
-function statLine(d, p) {
+export function statLine(d, p) {
   const r = d.r;
   if (!r) return d.state === 3 ? 'Did not play' : d.state === 2 ? 'Not in yet' : `Tips at ${esc(tipText(p) || '?')}`;
   const n = (k) => (r[k] == null ? 0 : r[k]);
@@ -67,6 +67,30 @@ function playerRow(pos, p) {
       ${d.state === 3 ? '' : `<div title="Projected finish from his minutes so far vs his usual ${usualMin(p) ? usualMin(p).toFixed(0) : '?'} minutes"><span>PACE</span><b>${d.pace != null ? d.pace.toFixed(1) : '–'}</b></div>`}
     </div>
   </li>`;
+}
+
+/* League boards: one readable row per pick, for everyone in the league.
+   Same numbers as the SCOREBOARD tab, a little tighter. */
+export function leagueRow(pos, p) {
+  const d = rowData(p);
+  const pct = d.fp != null && p.proj > 0 ? Math.min(100, (d.fp / p.proj) * 100) : 0;
+  const stCls = d.state === 2 ? ' on' : d.state === 3 ? ' fin' : '';
+  return `<li class="lrow${d.hot ? ' hot' : ''}">
+    <span class="lr-slot">${pos}</span>
+    <div class="lr-who">${p.sprite ? `<img src="../data/${esc(p.sprite)}" alt="" loading="lazy">` : ''}
+      <div class="lr-id"><span class="lr-name">${esc(p.name)}</span>
+        <span class="lr-sub">${esc(where(p))} <span class="gstat${stCls}">${esc(d.status)}</span></span></div></div>
+    <div class="lr-fp"><b class="${d.hot ? 'red' : 'yel'}">${d.fp != null ? d.fp.toFixed(1) : '–'}${d.hot ? FLAME : ''}</b>
+      <div class="pr-bar"><i style="width:${pct.toFixed(0)}%"></i></div>
+      <span class="lr-proj">${p.proj.toFixed(1)} PROJ</span></div>
+    <div class="lr-cost"><span>COST</span><b>${money(p.price)}</b></div>
+    <div class="lr-line">${statLine(d, p)}</div>
+  </li>`;
+}
+/* All of a lineup's not-yet-tipped picks on one line. */
+export function hiddenRow(slots) {
+  return `<li class="lrow hid"><span class="lr-q">?</span>
+    <span class="lr-hidtxt"><b>${slots.join(' · ')}</b> picked · shown when ${slots.length === 1 ? 'his game tips' : 'their games tip'} off</span></li>`;
 }
 
 /* ---------- My rank tonight (world + my leagues), refreshed with the live points ---------- */

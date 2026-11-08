@@ -1,19 +1,19 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=6739afe';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=6739afe';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=6739afe';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=6739afe';
-import { defaultDir } from './filters.js?v=6739afe';
-import { renderStats } from './render-stats.js?v=6739afe';
-import { renderScore, loadTonightRanks } from './render-score.js?v=6739afe';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=6739afe';
-import { openModal, closeModal, renderModal } from './render-account.js?v=6739afe';
-import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=6739afe';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=6739afe';
-import { avatar } from './avatars.js?v=6739afe';
-import { play, SOUNDS } from './sound.js?v=6739afe';
-import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=6739afe';
-import { LABELS } from './util.js?v=6739afe';
+import { S, ui } from './state.js?v=a654624';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=a654624';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=a654624';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=a654624';
+import { defaultDir } from './filters.js?v=a654624';
+import { renderStats } from './render-stats.js?v=a654624';
+import { renderScore, loadTonightRanks } from './render-score.js?v=a654624';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=a654624';
+import { openModal, closeModal, renderModal } from './render-account.js?v=a654624';
+import { renderLeagues, loadBoards, inviteLink } from './render-leagues.js?v=a654624';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=a654624';
+import { avatar } from './avatars.js?v=a654624';
+import { play, SOUNDS, styleFor } from './sound.js?v=a654624';
+import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=a654624';
+import { LABELS } from './util.js?v=a654624';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -81,8 +81,10 @@ function renderSoundPanel() {
   if (!soundOpen) return;
   const vol = Math.round(S.volume * 100);
   const test = location.hash === '#soundtest'
-    ? `<div class="snd-test"><span class="cap-label">SOUND TEST (tap one; cooldown skipped here)</span>
-        <div class="snd-grid">${Object.entries(SOUNDS).map(([k, v]) => `<button class="btn btn-plain" data-act="soundtest" data-k="${k}">${esc(v[0])}</button>`).join('')}</div></div>` : '';
+    ? `<div class="snd-test"><span class="cap-label">SOUND TEST: CLASSIC vs FUN (cooldown skipped here; ★ = what players hear now)</span>
+        <div class="snd-grid">${Object.entries(SOUNDS).map(([k, v]) => `<div class="snd-pair"><span>${esc(v[0])}</span>
+          <button class="btn btn-plain" data-act="soundtest" data-k="${k}" data-style="classic">${styleFor(k) === 'classic' ? '<i class="star">★</i> ' : ''}CLASSIC</button>
+          <button class="btn btn-primary" data-act="soundtest" data-k="${k}" data-style="fun">${styleFor(k) === 'fun' ? '<i class="star">★</i> ' : ''}FUN</button></div>`).join('')}</div></div>` : '';
   if (box.dataset.vol === String(vol) && box.dataset.on === String(S.sound) && box.dataset.test === String(!!test)) return;  // keep the slider steady while dragging
   box.dataset.vol = vol; box.dataset.on = S.sound; box.dataset.test = !!test;
   box.innerHTML = `<div class="snd-row">
@@ -158,7 +160,7 @@ document.addEventListener('click', (e) => {
     }
     case 'soundpanel': soundOpen = !soundOpen; renderHeader(); break;
     case 'sound': S.sound = !S.sound; store('bb-sound', S.sound); renderHeader(); if (S.sound) play('tap'); break;
-    case 'soundtest': play(b.dataset.k, { force: true }); break;
+    case 'soundtest': play(b.dataset.k, { force: true, style: b.dataset.style }); break;
     case 'choose': S.poolPos = b.dataset.pos; S.poolLimit = 36; renderAll(); $('#faTitle').scrollIntoView({ block: 'start', behavior: 'smooth' }); break;
     case 'poolpos': S.poolPos = b.dataset.v; S.poolLimit = 36; renderAll(); break;
     case 'statspos': S.statsPos = b.dataset.v; renderStats(); break;
