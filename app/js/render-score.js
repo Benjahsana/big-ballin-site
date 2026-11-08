@@ -2,13 +2,13 @@
    final, my rank tonight in the world and my leagues) and one compact row per player:
    who/where/status + live stat line, FP tonight with a bar toward his projection, and
    cost / value tonight / pace. */
-import { S } from './state.js?v=8c16d8e';
-import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=8c16d8e';
-import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=8c16d8e';
-import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=8c16d8e';
-import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=8c16d8e';
-import { play } from './sound.js?v=8c16d8e';
-import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=8c16d8e';
+import { S } from './state.js?v=c02171c';
+import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=c02171c';
+import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=c02171c';
+import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=c02171c';
+import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=c02171c';
+import { play } from './sound.js?v=c02171c';
+import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=c02171c';
 
 export const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
 
@@ -50,9 +50,9 @@ function playerRow(pos, p) {
   const pct = d.fp != null && p.proj > 0 ? Math.min(100, (d.fp / p.proj) * 100) : 0;
   const stCls = d.state === 2 ? ' on' : d.state === 3 ? ' fin' : '';
   const value = d.fp != null && d.state >= 2 ? (d.fp / p.price).toFixed(2) : '–';
-  return `<li class="prow${d.hot ? ' hot' : ''}">
+  return `<li class="srow${d.hot ? ' hot' : ''}">
     <div class="pr-who">${jersey(p, 'sm')}
-      <div class="pr-id">
+      <div class="sr-id">
         <div class="pr-top"><span class="pr-slot">${pos}</span><span class="pname">${esc(p.name)}</span></div>
         <div class="pr-sub">${esc(where(p))} <span class="gstat${stCls}">${esc(d.status)}</span></div>
         <div class="pr-line">${statLine(d, p)}</div>

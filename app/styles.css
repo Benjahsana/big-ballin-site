@@ -415,11 +415,11 @@ nav .acct { margin-left: auto; }
 .sb-btn { grid-area: btn; font-size: 10px; min-height: 44px; padding: 0 14px; }
 .sb-note { margin: 0; font-size: 16px; }
 .prows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-.prow { background: var(--panel); border: 2px solid var(--line); border-radius: 10px; padding: 8px 12px; display: grid;
+.srow { background: var(--panel); border: 2px solid var(--line); border-radius: 10px; padding: 8px 12px; display: grid;
   grid-template-columns: minmax(0, 1fr) 190px auto; gap: 6px 16px; align-items: center; }
-.prow.hot { border-color: var(--red); }
+.srow.hot { border-color: var(--red); }
 .pr-who { display: flex; gap: 10px; align-items: center; min-width: 0; }
-.pr-id { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.sr-id { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
 .pr-top { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
 .pr-top .pname { font-size: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pr-slot { font-family: var(--pixel); font-size: 9px; color: var(--yel); flex: none; }
@@ -432,7 +432,7 @@ nav .acct { margin-left: auto; }
 .pr-fpnum .flame { color: var(--red); }
 .pr-bar { height: 8px; background: var(--panel2); border: 1px solid var(--line2); border-radius: 2px; overflow: hidden; }
 .pr-bar i { display: block; height: 100%; background: var(--yel); }
-.prow.hot .pr-bar i { background: var(--red); }
+.srow.hot .pr-bar i { background: var(--red); }
 .pr-proj { font-family: var(--pixel); font-size: 8px; color: var(--muted); }
 .pr-nums { display: flex; gap: 14px; }
 .pr-nums div { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; min-width: 52px; }
@@ -445,7 +445,7 @@ nav .acct { margin-left: auto; }
   .sb-score .cap-label { white-space: normal; line-height: 1.4; }
   .sb-math b { font-size: 18px; }
   .sb-proj { margin-left: 0; flex-basis: 100%; }
-  .prow { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "who who" "fp nums"; padding: 8px 10px; gap: 6px 12px; }
+  .srow { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "who who" "fp nums"; padding: 8px 10px; gap: 6px 12px; }
   .pr-who { grid-area: who; }
   .pr-fp { grid-area: fp; }
   .pr-nums { grid-area: nums; gap: 10px; }
