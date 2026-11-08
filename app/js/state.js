@@ -7,7 +7,7 @@ export const S = {
   poolGame: 'ALL', poolPrice: 'ALL', poolFits: false, hideOut: true,
   filtersOpen: false,  // phones: filter panel folded away until FILTERS is tapped
   view: 'cards',        // 'cards' | 'list' (remembered)
-  win: 'season',        // stats window: 'l5' | 'l10' | 'season' (remembered)
+  win: 'season',        // stats window: 'l2' | 'l5' | 'l10' | 'season' (remembered)
   statsPos: 'ALL', statsQuery: '', sortKey: 'avg', sortDir: -1, selId: null,
   statsScope: 'all', all: null, allById: null,   // PLAYERS: 'all' NBA or 'tonight'; all = data/players-all.json (no game tonight)
   sound: true, volume: 0.35, crushLine: 99,   // volume: 0–1, remembered per device (bb-vol)

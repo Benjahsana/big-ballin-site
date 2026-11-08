@@ -1,8 +1,8 @@
 /* BIG BALLIN: Build tab: lineup slots, fill bar, filters and free agents (cards or list). */
-import { S } from './state.js?v=d9ce35b';
-import { $, POS, POSNAME, esc, money, where, slotsFor, chg, jersey, fitNames, color } from './util.js?v=d9ce35b';
-import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState } from './lineup.js?v=d9ce35b';
-import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=d9ce35b';
+import { S } from './state.js?v=2f40b20';
+import { $, POS, POSNAME, esc, money, where, slotsFor, chg, jersey, fitNames, color } from './util.js?v=2f40b20';
+import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState } from './lineup.js?v=2f40b20';
+import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=2f40b20';
 
 export function renderSlots() {
   $('#slots').innerHTML = POS.map((pos) => {
@@ -78,7 +78,7 @@ function tip(p) {
   return d && !isNaN(d) ? d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) : '';
 }
 const one = (v) => (v == null ? '–' : Number(v).toFixed(1));
-const WIN_SHORT = { l5: 'L5', l10: 'L10', season: 'SZN' };
+const WIN_SHORT = { l2: 'L2', l5: 'L5', l10: 'L10', season: 'SZN' };
 
 /* Arcade card: team-color banner, big price, three scoreboard boxes, big stat digits, buttons. */
 function card(p) {

@@ -1,10 +1,10 @@
 /* BIG BALLIN: stat windows, sorting, filters and "what fits my cap". */
-import { S } from './state.js?v=d9ce35b';
-import { POS, slotsFor, matches } from './util.js?v=d9ce35b';
-import { slotOf, maxForSlot, fits } from './lineup.js?v=d9ce35b';
+import { S } from './state.js?v=2f40b20';
+import { POS, slotsFor, matches } from './util.js?v=2f40b20';
+import { slotOf, maxForSlot, fits } from './lineup.js?v=2f40b20';
 
-export const WINDOWS = [['l5', 'L5'], ['l10', 'L10'], ['season', 'SEASON']];
-export const winLabel = () => ({ l5: 'Last 5', l10: 'Last 10', season: 'Season' })[S.win] || 'Season';
+export const WINDOWS = [['l2', 'L2'], ['l5', 'L5'], ['l10', 'L10'], ['season', 'SEASON']];
+export const winLabel = () => ({ l2: 'Last 2', l5: 'Last 5', l10: 'Last 10', season: 'Season' })[S.win] || 'Season';
 
 /* A player's per-game numbers for the chosen window (falls back to the old season block). */
 export function W(p) {
