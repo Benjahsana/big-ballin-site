@@ -383,7 +383,8 @@ nav .acct { margin-left: auto; }
   .rank-chip.big .rc-rank { font-size: 11px; }
   .rank-chip .rc-name { flex: 1 1 auto; min-width: 3.5em; }
   .rank-chip .rc-rank, .rank-chip .up, .rank-chip .down { flex: none; }
-  .ava-pick { grid-template-columns: repeat(4, 1fr); }
+  .ava-pick { grid-template-columns: repeat(6, 1fr); gap: 4px; }
+  .ava-opt { padding: 2px; border-width: 2px; }
   .lb-name .ava { width: 28px; height: 28px; }
 }
 
