@@ -1,15 +1,17 @@
-/* BIG BALLIN: sounds, made with Web Audio (no files, no voice).
+/* BIG BALLIN: sounds, made with Web Audio. A few (SOUND.files: cut, point) play short mp3 files from
+   app/sounds/ instead, loaded after the first tap; until a file has loaded, the built-in version plays.
    Every sound has two versions: "classic" (plain beeps) and "fun" (pitch slides, net swish,
    two-voice tunes, echo, crowd roar). app-config.js SOUND.style picks one for everything,
    SOUND.pick can choose per sound, and #soundtest plays both side by side.
    Rules: nothing plays before the first tap on the page; one sound at a time; after a
    reward/alert sound, others wait SOUND.cooldownMs (quick taps don't start that wait, and
    are simply skipped if something is playing). On/off and volume are remembered per device. */
-import { S } from './state.js?v=2f40b20';
-import { SOUND } from './app-config.js?v=2f40b20';
+import { S } from './state.js?v=b5a2265';
+import { SOUND } from './app-config.js?v=b5a2265';
 
 let ctx = null;
 let noiseBuf = null;
+const fileBuf = {};      // name → decoded audio from SOUND.files
 let busyUntil = 0;       // ms: a sound is playing until then
 let coolUntil = 0;       // ms: reward/alert sounds wait until then
 
@@ -125,6 +127,9 @@ export const SOUNDS = {
     }],
 };
 
+// My team scored during live games (checked about once a minute). Only a file version; silent until it loads.
+SOUNDS.point = ['My team scores (live)', false, () => 0, () => 0];
+
 // Heating up (a player passes his projection) uses the lineup-complete sound, both versions.
 SOUNDS.heat = ['Heating up (same as lineup complete)', false, SOUNDS.complete[2], SOUNDS.complete[3]];
 
@@ -135,6 +140,22 @@ function unlock() {
     const AC = window.AudioContext || window.webkitAudioContext;
     if (AC) ctx = new AC();
   } catch (e) { ctx = null; }
+  if (ctx) loadFiles();
+}
+/* Fetch and decode the mp3s once (about 15 KB in all). A failure just leaves the built-in sound. */
+function loadFiles() {
+  Object.entries(SOUND.files || {}).forEach(([name, url]) => {
+    fetch(url).then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(r.status))))
+      .then((b) => new Promise((ok, bad) => ctx.decodeAudioData(b, ok, bad)))
+      .then((buf) => { fileBuf[name] = buf; })
+      .catch((e) => console.warn('BIG BALLIN sound file:', url, e));
+  });
+}
+function playFile(out, t, buf) {
+  const src = ctx.createBufferSource(), g = ctx.createGain();
+  src.buffer = buf; g.gain.value = SOUND.fileGain || 1;
+  src.connect(g); g.connect(out); src.start(t);
+  return buf.duration;
 }
 ['pointerdown', 'keydown', 'touchstart'].forEach((ev) => window.addEventListener(ev, unlock, { passive: true, capture: true }));
 
@@ -155,7 +176,9 @@ export function play(name, opts) {
     out.gain.value = Math.max(0.0001, SOUND.master * S.volume);
     out.connect(ctx.destination);
     const fn = ((opts && opts.style) || styleFor(name)) === 'fun' ? snd[3] : snd[2];
-    const len = fn(out, ctx.currentTime + 0.01) * 1000;
+    const buf = fileBuf[name];
+    const len = (buf ? playFile(out, ctx.currentTime + 0.01, buf) : fn(out, ctx.currentTime + 0.01)) * 1000;
+    if (!len) { out.disconnect(); return; }
     setTimeout(() => { try { out.disconnect(); } catch (e) {} }, len + 2500);   // let echoes ring out, then tidy up
     busyUntil = now + len + 30;
     if (!quick) coolUntil = now + Math.max(len, SOUND.cooldownMs);

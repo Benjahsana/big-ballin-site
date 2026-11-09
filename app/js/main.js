@@ -1,20 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=2f40b20';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=2f40b20';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=2f40b20';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=2f40b20';
-import { defaultDir } from './filters.js?v=2f40b20';
-import { renderStats } from './render-stats.js?v=2f40b20';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=2f40b20';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=2f40b20';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=2f40b20';
-import { openModal, closeModal, renderModal } from './render-account.js?v=2f40b20';
-import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=2f40b20';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=2f40b20';
-import { avatar } from './avatars.js?v=2f40b20';
-import { play, SOUNDS, styleFor } from './sound.js?v=2f40b20';
-import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=2f40b20';
-import { LABELS } from './util.js?v=2f40b20';
+import { S, ui } from './state.js?v=b5a2265';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=b5a2265';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=b5a2265';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=b5a2265';
+import { defaultDir } from './filters.js?v=b5a2265';
+import { renderStats } from './render-stats.js?v=b5a2265';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=b5a2265';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=b5a2265';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=b5a2265';
+import { openModal, closeModal, renderModal } from './render-account.js?v=b5a2265';
+import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=b5a2265';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=b5a2265';
+import { avatar } from './avatars.js?v=b5a2265';
+import { play, SOUNDS, styleFor } from './sound.js?v=b5a2265';
+import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=b5a2265';
+import { LABELS } from './util.js?v=b5a2265';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -345,6 +345,7 @@ async function checkBadges() {
 
 /* ---------- Live points (Supabase live_feed, refreshed by the server about every minute) ---------- */
 let liveSeeded = false;
+let teamFp = null;       // my lineup's live FP at the last check (for the "we scored" sound)
 async function pollLive() {
   if (!CLOUD || !S.cloudOk || S.results || !anyStarted() || (allFinal() && liveSeeded)) return;
   try {
@@ -360,8 +361,13 @@ async function pollLive() {
       S.hotSeen[p.id] = true;
       if (liveSeeded && !shout) shout = p;
     });
+    // My team's live FP: if it went up since the last check, play the point sound (HEATING UP wins if both).
+    const fp = POS.reduce((sum, pos) => { const lv = S.lineup[pos] && f.p[String(S.lineup[pos])]; return sum + (lv ? lv.fp : 0); }, 0);
+    const scored = liveSeeded && teamFp != null && fp > teamFp + 0.01;
+    teamFp = fp;
     liveSeeded = true;
     if (shout) { play('heat'); flash(shout.name.split(' ').slice(-1)[0].toUpperCase() + ' IS HEATING UP!', '#FF4A3D', '#FFD23F'); }
+    else if (scored) play('point');
   } catch (e) { /* try again next minute */ }
 }
 
