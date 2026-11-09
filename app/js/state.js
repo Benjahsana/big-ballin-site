@@ -15,7 +15,7 @@ export const S = {
   user: null, profile: null, cloudOk: false,
   sync: 'local',        // 'local' (this device only) | 'saving' | 'saved' | 'error'
   live: null,           // { at, games: {game_id: {s, t, a, h}}, p: {player id: {fp, pts, ...}} }
-  hotSeen: {},          // players we already shouted HEATING UP for tonight
+  hotSeen: {},          // player id → highest HOT_LEVELS shout already made tonight (1, 2, 3)
   // Leagues tab: my leagues (with invite codes), every league (public list), the one being viewed.
   leagues: [], allLeagues: null, lbLeague: null, lbPeriod: 'night', lbRows: null, lbNight: null, lbWinners: null, lbErr: null,
   inviteOpen: false, lbOpen: {},

@@ -6,8 +6,8 @@
    Rules: nothing plays before the first tap on the page; one sound at a time; after a
    reward/alert sound, others wait SOUND.cooldownMs (quick taps don't start that wait, and
    are simply skipped if something is playing). On/off and volume are remembered per device. */
-import { S } from './state.js?v=b5a2265';
-import { SOUND } from './app-config.js?v=b5a2265';
+import { S } from './state.js?v=e53101f';
+import { SOUND } from './app-config.js?v=e53101f';
 
 let ctx = null;
 let noiseBuf = null;
@@ -115,7 +115,7 @@ export const SOUNDS = {
       noise(o, t + 0.1, { dur: 0.6, freq: 900, q: 0.7, vol: 0.18, swell: 0.3 });
       return 0.7;
     }],
-  fanfare: ['Badge / won the night', false,
+  fanfare: ['Badge (week / month / season)', false,
     (o, t) => notes(o, t, 'square', [[523, 0.1], [523, 0.1], [523, 0.1], [698, 0.32], [880, 0.12], [1047, 0.42]]),
     (o, t) => {   // victory tune in the arena: two voices, echo, crowd roar
       const e = echo(o, 0.18, 0.3);
@@ -130,8 +130,12 @@ export const SOUNDS = {
 // My team scored during live games (checked about once a minute). Only a file version; silent until it loads.
 SOUNDS.point = ['My team scores (live)', false, () => 0, () => 0];
 
-// Heating up (a player passes his projection) uses the lineup-complete sound, both versions.
-SOUNDS.heat = ['Heating up (same as lineup complete)', false, SOUNDS.complete[2], SOUNDS.complete[3]];
+// Heating up (a player passes his projection): the hesheatingup voice clip; built-in fallback = lineup complete.
+SOUNDS.heat = ['Heating up (projection reached)', false, SOUNDS.complete[2], SOUNDS.complete[3]];
+// Voice clips with no built-in version (silent until the file loads), and the night-win clip (fallback: fanfare).
+SOUNDS.fire = ['On fire (projection +10)', false, SOUNDS.complete[2], SOUNDS.complete[3]];
+SOUNDS.insane = ['This is insane (projection +20)', false, SOUNDS.fanfare[2], SOUNDS.fanfare[3]];
+SOUNDS.nightwin = ['Won the night (badge)', false, SOUNDS.fanfare[2], SOUNDS.fanfare[3]];
 
 /* Browsers only allow audio after a tap; until then every sound is skipped (not queued). */
 function unlock() {

@@ -17,10 +17,19 @@ export const SOUND = {
   cooldownMs: 3000,      // after a reward/alert sound, others wait this long (quick taps don't start it)
   style: 'classic',      // 'classic' (plain beeps) or 'fun' (slides, swish, echo, crowd) for every sound
   pick: {},              // per-sound override, e.g. { sign: 'fun', fanfare: 'fun' } (hear both at #soundtest)
-  // Sounds that play an audio file instead (both classic and fun). Keep ?v=b5a2265 so phones fetch new versions.
-  files: { cut: 'sounds/cut.mp3?v=b5a2265', point: 'sounds/point.mp3?v=b5a2265' },
+  // Sounds that play an audio file instead (both classic and fun). Keep ?v=e53101f so phones fetch new versions.
+  files: { cut: 'sounds/cut.mp3?v=e53101f', point: 'sounds/point.mp3?v=e53101f', heat: 'sounds/heat.mp3?v=e53101f',
+    fire: 'sounds/fire.mp3?v=e53101f', insane: 'sounds/insane.mp3?v=e53101f', nightwin: 'sounds/nightwin.mp3?v=e53101f' },
   fileGain: 1.5,         // file loudness vs the made-in-browser sounds (raise if the files sound quieter)
 };
+
+/* Live shouts for a player in my lineup, each once a night: FP ≥ projection + over.
+   The highest level reached on a check wins (one shout per check). */
+export const HOT_LEVELS = [
+  { over: 0, sound: 'heat', text: (n) => n + ' IS HEATING UP!' },
+  { over: 10, sound: 'fire', text: (n) => n + ' IS ON FIRE!' },
+  { over: 20, sound: 'insane', text: (n) => 'THIS IS INSANE! ' + n },
+];
 
 /* Pace: projected finish = FP so far ÷ minutes played × usual minutes (season average).
    Shown only after he's played this many minutes, so 1 minute of play doesn't project 150 FP. */

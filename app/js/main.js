@@ -1,20 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=b5a2265';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=b5a2265';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=b5a2265';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=b5a2265';
-import { defaultDir } from './filters.js?v=b5a2265';
-import { renderStats } from './render-stats.js?v=b5a2265';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=b5a2265';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=b5a2265';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=b5a2265';
-import { openModal, closeModal, renderModal } from './render-account.js?v=b5a2265';
-import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=b5a2265';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=b5a2265';
-import { avatar } from './avatars.js?v=b5a2265';
-import { play, SOUNDS, styleFor } from './sound.js?v=b5a2265';
-import { SOUND, LIVE_REFRESH_MS } from './app-config.js?v=b5a2265';
-import { LABELS } from './util.js?v=b5a2265';
+import { S, ui } from './state.js?v=e53101f';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=e53101f';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=e53101f';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=e53101f';
+import { defaultDir } from './filters.js?v=e53101f';
+import { renderStats } from './render-stats.js?v=e53101f';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=e53101f';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=e53101f';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=e53101f';
+import { openModal, closeModal, renderModal } from './render-account.js?v=e53101f';
+import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=e53101f';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=e53101f';
+import { avatar } from './avatars.js?v=e53101f';
+import { play, SOUNDS, styleFor } from './sound.js?v=e53101f';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=e53101f';
+import { LABELS } from './util.js?v=e53101f';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -338,7 +338,7 @@ async function checkBadges() {
     const fresh = mine.filter((b) => !seen.includes(b.id));
     if (!fresh.length) return;
     const best = fresh.find((b) => b.kind === 'night' || b.kind === 'w_night1') || fresh[0];
-    play('fanfare');
+    play(best.kind === 'night' || best.kind === 'w_night1' ? 'nightwin' : 'fanfare');
     flash(BADGE_SHOUT[best.kind] || 'BADGE!', '#FFD23F', '#FF4A3D');
   } catch (e) { /* try again next visit */ }
 }
@@ -352,21 +352,26 @@ async function pollLive() {
     const f = await liveFeed(S.slate.date);
     if (!f) return;
     S.live = f;
-    // HEATING UP: one shout per player, the first time he passes his projection tonight.
+    // HEATING UP (projection) → ON FIRE (+10) → THIS IS INSANE (+20): each level once per player a night.
     let shout = null;
     POS.forEach((pos) => {
       const p = S.lineup[pos] ? S.byId[S.lineup[pos]] : null;
       const lv = p && f.p[String(p.id)];
-      if (!lv || lv.fp < p.proj || S.hotSeen[p.id]) return;
-      S.hotSeen[p.id] = true;
-      if (liveSeeded && !shout) shout = p;
+      if (!lv) return;
+      const level = HOT_LEVELS.filter((h) => lv.fp >= p.proj + h.over).length;
+      if (level <= (S.hotSeen[p.id] || 0)) return;
+      S.hotSeen[p.id] = level;
+      if (liveSeeded && (!shout || level > shout.level)) shout = { p, level };
     });
     // My team's live FP: if it went up since the last check, play the point sound (HEATING UP wins if both).
     const fp = POS.reduce((sum, pos) => { const lv = S.lineup[pos] && f.p[String(S.lineup[pos])]; return sum + (lv ? lv.fp : 0); }, 0);
     const scored = liveSeeded && teamFp != null && fp > teamFp + 0.01;
     teamFp = fp;
     liveSeeded = true;
-    if (shout) { play('heat'); flash(shout.name.split(' ').slice(-1)[0].toUpperCase() + ' IS HEATING UP!', '#FF4A3D', '#FFD23F'); }
+    if (shout) {
+      const h = HOT_LEVELS[shout.level - 1];
+      play(h.sound); flash(h.text(shout.p.name.split(' ').slice(-1)[0].toUpperCase()), '#FF4A3D', '#FFD23F');
+    }
     else if (scored) play('point');
   } catch (e) { /* try again next minute */ }
 }
