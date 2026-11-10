@@ -1,4 +1,4 @@
-/* BIG BALLIN: sounds, made with Web Audio. A few (SOUND.files: cut, point) play short mp3 files from
+/* BIG BALLIN: sounds, made with Web Audio. A few (SOUND.files: cut, point, the announcer clips) play short mp3 files from
    app/sounds/ instead, loaded after the first tap; until a file has loaded, the built-in version plays.
    Every sound has two versions: "classic" (plain beeps) and "fun" (pitch slides, net swish,
    two-voice tunes, echo, crowd roar). app-config.js SOUND.style picks one for everything,
@@ -6,8 +6,8 @@
    Rules: nothing plays before the first tap on the page; one sound at a time; after a
    reward/alert sound, others wait SOUND.cooldownMs (quick taps don't start that wait, and
    are simply skipped if something is playing). On/off and volume are remembered per device. */
-import { S } from './state.js?v=7425f06';
-import { SOUND } from './app-config.js?v=7425f06';
+import { S } from './state.js?v=0dfab1e';
+import { SOUND } from './app-config.js?v=0dfab1e';
 
 let ctx = null;
 let noiseBuf = null;
@@ -136,6 +136,11 @@ SOUNDS.heat = ['Heating up (projection reached)', false, SOUNDS.complete[2], SOU
 SOUNDS.fire = ['On fire (projection +10)', false, SOUNDS.complete[2], SOUNDS.complete[3]];
 SOUNDS.insane = ['This is insane (projection +20)', false, SOUNDS.fanfare[2], SOUNDS.fanfare[3]];
 SOUNDS.nightwin = ['Won the night (badge)', false, SOUNDS.fanfare[2], SOUNDS.fanfare[3]];
+// Announcer callouts when signing (fallback: the sign blip) and on the 5th signing (fallback: lineup-complete jingle).
+SOUNDS.signed = ['Announcer: SIGNED!', false, SOUNDS.sign[2], SOUNDS.sign[3]];
+SOUNDS.maxcontract = ['Announcer: MAX CONTRACT! ($40M+)', false, SOUNDS.sign[2], SOUNDS.sign[3]];
+SOUNDS.capcrusher = ['Announcer: CAP CRUSHER! (great value)', false, SOUNDS.sign[2], SOUNDS.sign[3]];
+SOUNDS.bigballin = ['Announcer: BIG BALLIN! (lineup complete)', false, SOUNDS.complete[2], SOUNDS.complete[3]];
 
 /* Browsers only allow audio after a tap; until then every sound is skipped (not queued). */
 function unlock() {

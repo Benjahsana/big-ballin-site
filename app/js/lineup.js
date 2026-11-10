@@ -1,8 +1,8 @@
 /* BIG BALLIN: lineup rules: locks, cap, cap bonus, sign and cut. */
-import { S, ui } from './state.js?v=7425f06';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=7425f06';
-import { play } from './sound.js?v=7425f06';
-import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=7425f06';
+import { S, ui } from './state.js?v=0dfab1e';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=0dfab1e';
+import { play } from './sound.js?v=0dfab1e';
+import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=0dfab1e';
 
 /* ---------- Live points (S.live, from Supabase) ---------- */
 export const liveOf = (p) => (S.live && S.live.p[String(p.id)]) || null;
@@ -96,11 +96,12 @@ export function sign(p) {
   const next = POS.find((pos) => !S.lineup[pos]);
   if (next) S.poolPos = next;
   const bonus = capBonusFor(spent(), filledCount());
-  play(filledCount() === 5 ? 'complete' : 'sign');   // the 5th signing plays the jingle instead of the blip
-  if (filledCount() === 5 && bonusMaxed(bonus)) { flash('CAP BONUS ' + bonusText(bonus) + '!', '#FFD23F', '#3D8BFF'); }
-  else if (p.price >= 40) flash('MAX CONTRACT!', '#FFD23F', '#FF4A3D');
-  else if (p.value >= S.crushLine) flash('CAP CRUSHER!', '#FFD23F', '#3D8BFF');
-  else flash('SIGNED!', '#FFD23F', '#FF4A3D');
+  // Announcer: the 5th signing shouts BIG BALLIN!, otherwise he calls the same line as the callout.
+  const full = filledCount() === 5;
+  if (full && bonusMaxed(bonus)) { play('bigballin'); flash('CAP BONUS ' + bonusText(bonus) + '!', '#FFD23F', '#3D8BFF'); }
+  else if (p.price >= 40) { play(full ? 'bigballin' : 'maxcontract'); flash('MAX CONTRACT!', '#FFD23F', '#FF4A3D'); }
+  else if (p.value >= S.crushLine) { play(full ? 'bigballin' : 'capcrusher'); flash('CAP CRUSHER!', '#FFD23F', '#3D8BFF'); }
+  else { play(full ? 'bigballin' : 'signed'); flash('SIGNED!', '#FFD23F', '#FF4A3D'); }
   ui.renderAll();
 }
 export function cut(pos) {
