@@ -1,20 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=0dfab1e';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=0dfab1e';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=0dfab1e';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=0dfab1e';
-import { defaultDir } from './filters.js?v=0dfab1e';
-import { renderStats } from './render-stats.js?v=0dfab1e';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=0dfab1e';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=0dfab1e';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=0dfab1e';
-import { openModal, closeModal, renderModal } from './render-account.js?v=0dfab1e';
-import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=0dfab1e';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=0dfab1e';
-import { avatar } from './avatars.js?v=0dfab1e';
-import { play, SOUNDS, styleFor } from './sound.js?v=0dfab1e';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=0dfab1e';
-import { LABELS } from './util.js?v=0dfab1e';
+import { S, ui } from './state.js?v=7b2e585';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=7b2e585';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=7b2e585';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=7b2e585';
+import { defaultDir } from './filters.js?v=7b2e585';
+import { renderStats } from './render-stats.js?v=7b2e585';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=7b2e585';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=7b2e585';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=7b2e585';
+import { openModal, closeModal, renderModal } from './render-account.js?v=7b2e585';
+import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=7b2e585';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=7b2e585';
+import { avatar } from './avatars.js?v=7b2e585';
+import { play, SOUNDS, styleFor } from './sound.js?v=7b2e585';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=7b2e585';
+import { LABELS } from './util.js?v=7b2e585';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -53,6 +53,7 @@ function renderHeader() {
   $('#syncNote').className = 'sync' + (S.sync === 'error' && signedIn() ? ' red' : '');
   $('#soundBtn').textContent = S.sound ? 'SOUND ON' : 'SOUND OFF';
   renderSoundPanel();
+  renderHowTo();
 }
 
 /* Header chip on every tab: [avatar] NAME · #47 WORLD ▲3 (signed out: MY TEAM ▸). Tapping it opens MY TEAM
@@ -70,6 +71,22 @@ function renderRankChip(cloudOn) {
   const t = rankText();
   chip.innerHTML = `${avatar(S.profile.avatar, S.tab === 'build' ? 48 : 36)}<span class="rc-name">${esc(S.profile.display_name.toUpperCase())}</span><span class="rc-dot">·</span><span class="rc-rank">${t.rank.replace(' ' + LABELS.worldShort, `<span class="rc-w"> ${LABELS.worldShort}</span>`)}</span>${t.move}`;
   chip.setAttribute('aria-label', `${S.profile.display_name}, ${t.rank.replace('#', 'number ')}. Open ${LABELS.score}`);
+}
+
+/* HOW TO PLAY (fold-out above the footer). Numbers come from tonight's slate, so it matches the rules in force. */
+function renderHowTo() {
+  const box = $('#howto');
+  if (!box || !S.slate) return;
+  const cb = S.slate.cap_bonus || { rate: 1, max: 1.1 };
+  const fullAt = S.slate.cap - (cb.max - 1) * 100 / cb.rate;
+  const bench = S.slate.bench_budget != null
+    ? `<li><b>6TH MAN (bench insurance).</b> One extra pick, any position, costing ${money(S.slate.bench_budget)} or less from a separate bench budget. He isn't part of the ${money(S.slate.cap)} cap and never changes your cap bonus. He scores only if one of your five doesn't play at all (rested, inactive, a late scratch): then his points replace that starter's. If two sit, he covers the first in PG, SG, SF, PF, C order. A starter who plays even a minute isn't replaced. If nobody sits, his points don't count.</li>` : '';
+  box.innerHTML = `<summary>HOW TO PLAY</summary><ul>
+    <li><b>Pick five:</b> a PG, SG, SF, PF and C from tonight's games, under the ${money(S.slate.cap)} cap.</li>
+    <li><b>Score:</b> your players' fantasy points × the cap bonus.</li>
+    <li><b>Cap bonus:</b> every $1M you don't spend adds ${cb.rate === 1 ? '1%' : (cb.rate).toFixed(2) + '%'}, up to ×${cb.max.toFixed(2)} (spending ${money(fullAt)} or less). You need all five slots filled to earn it.</li>
+    ${bench}
+    <li><b>Locks:</b> each pick locks when his game tips off. Other players' picks show once their games start.</li></ul>`;
 }
 
 /* SOUND panel: on/off and volume (remembered per device). With #soundtest at the end of
@@ -273,7 +290,7 @@ async function afterAuth() {
     const lu = await loadLineup(S.slate.date);
     if (lu && POS.some((pos) => lu[pos])) {
       // The account's lineup wins over this device's (it's the one the database checked).
-      POS.forEach((pos) => { S.lineup[pos] = lu[pos] && S.byId[lu[pos]] ? lu[pos] : null; });
+      [...POS, BN].forEach((pos) => { S.lineup[pos] = lu[pos] && S.byId[lu[pos]] ? lu[pos] : null; });
       store('bb-lineup-' + S.slate.date, S.lineup);
       S.sync = 'saved';
     } else if (filledCount()) saveLineup();
@@ -346,6 +363,7 @@ async function checkBadges() {
 /* ---------- Live points (Supabase live_feed, refreshed by the server about every minute) ---------- */
 let liveSeeded = false;
 let teamFp = null;       // my lineup's live FP at the last check (for the "we scored" sound)
+let subShown = null;     // the starter slot my 6th man was last shown covering (SUBBED IN! once)
 async function pollLive() {
   if (!CLOUD || !S.cloudOk || S.results || !anyStarted() || (allFinal() && liveSeeded)) return;
   try {
@@ -354,7 +372,9 @@ async function pollLive() {
     S.live = f;
     // HEATING UP (projection) → ON FIRE (+10) → THIS IS INSANE (+20): each level once per player a night.
     let shout = null;
-    POS.forEach((pos) => {
+    const sub = subSlot(S.lineup);              // 6th man covering a starter who isn't playing
+    const counted = sub ? [...POS.filter((pos) => pos !== sub), BN] : POS;
+    counted.forEach((pos) => {
       const p = S.lineup[pos] ? S.byId[S.lineup[pos]] : null;
       const lv = p && f.p[String(p.id)];
       if (!lv) return;
@@ -364,11 +384,17 @@ async function pollLive() {
       if (liveSeeded && (!shout || level > shout.level)) shout = { p, level };
     });
     // My team's live FP: if it went up since the last check, play the point sound (HEATING UP wins if both).
-    const fp = POS.reduce((sum, pos) => { const lv = S.lineup[pos] && f.p[String(S.lineup[pos])]; return sum + (lv ? lv.fp : 0); }, 0);
+    const fp = counted.reduce((sum, pos) => { const lv = S.lineup[pos] && f.p[String(S.lineup[pos])]; return sum + (lv ? lv.fp : 0); }, 0);
     const scored = liveSeeded && teamFp != null && fp > teamFp + 0.01;
     teamFp = fp;
+    const subNews = liveSeeded && sub && sub !== subShown;
+    subShown = sub;
     liveSeeded = true;
-    if (shout) {
+    if (subNews) {
+      const out = S.byId[S.lineup[sub]], inn = S.byId[S.lineup[BN]];
+      play('league');
+      flash(`SUBBED IN! ${inn.name.split(' ').slice(-1)[0].toUpperCase()} FOR ${out.name.split(' ').slice(-1)[0].toUpperCase()}`, '#FFD23F', '#3D8BFF');
+    } else if (shout) {
       const h = HOT_LEVELS[shout.level - 1];
       play(h.sound); flash(h.text(shout.p.name.split(' ').slice(-1)[0].toUpperCase()), '#FF4A3D', '#FFD23F');
     }
@@ -441,7 +467,7 @@ async function load() {
   (S.slate.games || []).forEach((g) => { S.games[g.game_id] = g; });
 
   const saved = recall('bb-lineup-' + S.slate.date);
-  if (saved) POS.forEach((pos) => { S.lineup[pos] = saved[pos] && S.byId[saved[pos]] ? saved[pos] : null; });
+  if (saved) [...POS, BN].forEach((pos) => { S.lineup[pos] = saved[pos] && S.byId[saved[pos]] ? saved[pos] : null; });
   const snd = recall('bb-sound'); if (snd !== null) S.sound = !!snd;
   const vol = recall('bb-vol'); if (typeof vol === 'number' && vol >= 0 && vol <= 1) S.volume = vol; else S.volume = SOUND.volume;
   const view = recall('bb-view'); if (view === 'cards' || view === 'list') S.view = view;

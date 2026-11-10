@@ -68,6 +68,15 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; 
 .slot.is-active { border-color: var(--yel); box-shadow: 0 0 18px rgba(255, 210, 63, 0.45); }
 .slot-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .slot-pos { font-family: var(--pixel); font-size: 15px; color: var(--yel); }
+/* 6th Man: the bench card (striped "bench" look, green accent) after the five starters. */
+.slot.bench { background: repeating-linear-gradient(135deg, var(--panel) 0 14px, var(--panel2) 14px 28px); border-style: dashed; border-color: #2FBF71; }
+.slot.bench.is-filled { border-style: solid; border-color: #2FBF71; box-shadow: 0 0 14px rgba(47, 191, 113, 0.3); }
+.slot.bench.is-active { border-color: var(--yel); }
+.slot.bench .slot-pos { color: #2FBF71; font-size: 12px; white-space: nowrap; }
+.bench-meter { white-space: nowrap; font-family: var(--pixel); font-size: 9px; color: #2FBF71; background: var(--bg); border: 2px solid #2FBF71; border-radius: 6px; padding: 6px 8px; align-self: flex-start; }
+.slot-empty small { display: block; margin-top: 8px; font-family: var(--body); font-size: 15px; color: var(--muted); }
+.fb-chip.bench { border-color: #2FBF71; color: #2FBF71; }
+.fb-chip.bench[aria-pressed="true"] { background: #2FBF71; border-color: #2FBF71; color: var(--bg); }
 .slot-empty { flex: 1; min-height: 120px; border: 3px dashed var(--line2); background: transparent; color: var(--muted); border-radius: 10px; font-family: var(--pixel); font-size: 11px; line-height: 1.8; }
 .slot.is-active .slot-empty { border-color: var(--yel); }
 .slot-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
@@ -748,3 +757,26 @@ button.mt-who:hover .mt-name { color: var(--yel); }
   .wbdg .ws { display: inline; }
 }
 .stats-tip { margin: 0; font-size: 15px; }
+
+/* ---------- 6th Man in MY TEAM and the league boards ---------- */
+.pr-slot.bn { background: #2FBF71; color: var(--bg); }
+.bn-tag { display: block; margin-top: 3px; font-family: var(--pixel); font-size: 8px; line-height: 1.5; color: var(--muted); }
+.bn-tag.in { color: #2FBF71; }
+.bn-tag.out { color: var(--red); }
+.mt-row.t-bench { opacity: 0.55; }
+.mt-row.t-bench .mc-fp b { text-decoration: line-through; color: var(--muted); }
+.mt-row.t-covered .mc-fp b { color: var(--muted); }
+.mt-row.t-in { box-shadow: inset 4px 0 0 #2FBF71; }
+.lt-h.bn { color: #2FBF71; }
+.pc.t-bench { opacity: 0.5; }
+.pc.t-covered { opacity: 0.6; }
+.pc.t-in { box-shadow: inset 0 0 0 2px #2FBF71; }
+.pc-tag { display: block; margin-top: 4px; font-family: var(--pixel); font-size: 7px; line-height: 1.4; color: var(--muted); }
+.pc.t-in .pc-tag { color: #2FBF71; }
+.pc.t-covered .pc-tag { color: var(--red); }
+
+/* HOW TO PLAY fold-out above the footer */
+.howto { background: var(--panel); border: 3px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-bottom: 18px; }
+.howto summary { cursor: pointer; font-family: var(--pixel); font-size: 11px; color: var(--yel); min-height: 28px; display: flex; align-items: center; }
+.howto ul { margin: 10px 0 4px; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 17px; line-height: 1.35; color: var(--soft); }
+.howto b { color: var(--text); }

@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=0dfab1e';
-import { POS } from './util.js?v=0dfab1e';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=0dfab1e';
+import { S } from './state.js?v=7b2e585';
+import { POS } from './util.js?v=7b2e585';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=7b2e585';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -70,14 +70,14 @@ export async function saveProfile(name, avatar) {
 }
 
 /* ---------- Lineups ---------- */
-const COLS = { PG: 'pg', SG: 'sg', SF: 'sf', PF: 'pf', C: 'c' };
+const COLS = { PG: 'pg', SG: 'sg', SF: 'sf', PF: 'pf', C: 'c', BN: 'bn' };
 
 export async function loadLineup(date) {
-  const { data, error } = await sb.from('lineups').select('pg,sg,sf,pf,c,spent,final_score').eq('slate_date', date).maybeSingle();
+  const { data, error } = await sb.from('lineups').select('pg,sg,sf,pf,c,bn,spent,final_score').eq('slate_date', date).maybeSingle();
   if (error) throw error;
   if (!data) return null;
   const lu = {};
-  POS.forEach((pos) => { lu[pos] = data[COLS[pos]] ?? null; });
+  Object.keys(COLS).forEach((pos) => { lu[pos] = data[COLS[pos]] ?? null; });
   return lu;
 }
 
@@ -85,7 +85,7 @@ export async function loadLineup(date) {
 let chain = Promise.resolve();
 export function pushLineup(date, lineup) {
   const row = { user_id: S.user.id, slate_date: date };
-  POS.forEach((pos) => { row[COLS[pos]] = lineup[pos] ?? null; });
+  Object.keys(COLS).forEach((pos) => { row[COLS[pos]] = lineup[pos] ?? null; });
   const run = chain.then(async () => {
     const { error } = await sb.from('lineups').upsert(row, { onConflict: 'user_id,slate_date' });
     if (error) throw error;

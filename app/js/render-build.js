@@ -1,15 +1,21 @@
 /* BIG BALLIN: Build tab: lineup slots, fill bar, filters and free agents (cards or list). */
-import { S } from './state.js?v=0dfab1e';
-import { $, POS, POSNAME, esc, money, where, slotsFor, chg, jersey, fitNames, color } from './util.js?v=0dfab1e';
-import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState } from './lineup.js?v=0dfab1e';
-import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=0dfab1e';
+import { S } from './state.js?v=7b2e585';
+import { $, POS, BN, POSNAME, slotLabel, esc, money, where, slotsFor, chg, jersey, fitNames, color } from './util.js?v=7b2e585';
+import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState, benchOn, benchBudget, benchSpent } from './lineup.js?v=7b2e585';
+import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=7b2e585';
 
 export function renderSlots() {
-  $('#slots').innerHTML = POS.map((pos) => {
+  const slots = benchOn() ? [...POS, BN] : POS;
+  $('#slots').innerHTML = slots.map((pos) => {
     const p = S.lineup[pos] ? S.byId[S.lineup[pos]] : null;
-    const active = S.poolPos === pos ? ' is-active' : '';
-    const head = `<div class="slot-head"><span class="slot-pos">${pos}</span><span class="muted">${POSNAME[pos]}</span></div>`;
-    if (!p) return `<div class="slot${active}">${head}<button class="slot-empty" data-act="choose" data-pos="${pos}">+ SIGN A ${pos}</button></div>`;
+    const bench = pos === BN;
+    const active = (S.poolPos === pos ? ' is-active' : '') + (bench ? ' bench' : '');
+    const head = bench
+      ? `<div class="slot-head"><span class="slot-pos">6TH MAN</span><span class="muted">Any position</span></div>
+         <div class="bench-meter" title="A separate ${money(benchBudget())} bench budget, not part of the $${S.slate.cap}M cap: it never changes your cap bonus">BENCH ${money(benchBudget() - benchSpent())} LEFT</div>`
+      : `<div class="slot-head"><span class="slot-pos">${pos}</span><span class="muted">${POSNAME[pos]}</span></div>`;
+    if (!p) return `<div class="slot${active}">${head}<button class="slot-empty" data-act="choose" data-pos="${pos}">${bench
+      ? '+ SIGN A 6TH MAN<small>Plays only if a starter sits out</small>' : `+ SIGN A ${pos}`}</button></div>`;
     const locked = isLocked(p);
     return `<div class="slot is-filled${active}">${head}
       <div class="who">${jersey(p, 'sm')}<div class="who-text"><span class="pname fit" style="font-size:21px">${esc(p.name)} ${injuryTag(p)}</span><span class="sub">${esc(where(p))}</span></div></div>
@@ -30,16 +36,19 @@ export function renderSlots() {
 function renderFillBar() {
   const filled = filledCount();
   const left = S.slate.cap - spent();
-  const chips = ['ALL', ...POS].map((v) => {
+  const chips = ['ALL', ...POS, ...(benchOn() ? [BN] : [])].map((v) => {
     const has = v !== 'ALL' && S.lineup[v];
-    return `<button class="fb-chip${has ? ' has' : ''}" data-act="poolpos" data-v="${v}" aria-pressed="${S.poolPos === v}"
-      aria-label="${v === 'ALL' ? 'All positions' : `${POSNAME[v]}${has ? ', filled' : ', empty'}`}">${v}${has ? ' ✓' : ''}</button>`;
+    return `<button class="fb-chip${has ? ' has' : ''}${v === BN ? ' bench' : ''}" data-act="poolpos" data-v="${v}" aria-pressed="${S.poolPos === v}"
+      aria-label="${v === 'ALL' ? 'All positions' : `${POSNAME[v]}${has ? ', filled' : ', empty'}`}">${slotLabel(v)}${has ? ' ✓' : ''}</button>`;
   }).join('');
   const bonus = filled === 5 ? capBonusFor(spent(), 5) : potentialBonus();
   let info;
   if (S.poolPos === 'ALL') info = filled === 5
     ? `<b class="yel">LINEUP FULL</b> · ${money(left)} left · bonus <b class="blu">${bonusText(bonus)}</b>`
     : `Browsing all positions · ${money(left)} left`;
+  else if (S.poolPos === BN) info = `<span class="fb-now">NOW FILLING <b class="yel">6TH MAN</b></span>
+      <span>Any position · up to <b>${money(benchBudget())}</b> from the bench budget</span>
+      <span>Not part of the cap or the bonus · subs in only if a starter sits</span>`;
   else info = `<span class="fb-now">NOW FILLING <b class="yel">${S.poolPos}</b></span>
       <span>Max for this slot <b>${money(Math.max(0, maxForSlot(S.poolPos)))}</b></span>
       <span>${money(left)} left · bonus <b class="blu">${bonusText(bonus)}</b></span>`;
@@ -169,5 +178,6 @@ export function setupPoolControls() {
   $('#poolGame').innerHTML = `<option value="ALL">All games</option>` +
     (S.slate.games || []).map((g) => `<option value="${esc(g.game_id)}">${esc(g.away)} @ ${esc(g.home)}${t(g.tip_utc)}</option>`).join('');
   $('#poolSort').innerHTML = SORTS.map((s) => `<option value="${s.k}">Sort: ${s.l}</option>`).join('');
-  $('#poolPrice').innerHTML = PRICE_BANDS.map(([v, l]) => `<option value="${v}">${l}</option>`).join('');
+  const bands = benchOn() ? [...PRICE_BANDS, ['bench', `Fits bench (≤ ${money(benchBudget())})`]] : PRICE_BANDS;
+  $('#poolPrice').innerHTML = bands.map(([v, l]) => `<option value="${v}">${l}</option>`).join('');
 }

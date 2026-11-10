@@ -4,9 +4,9 @@
    posts, that is the slate already loaded, so nothing extra is fetched.
    Rendering code reads S.slate / S.byId / S.games / S.results / S.live / S.lineup, so asLast()
    swaps last night's copies in for one synchronous render, then puts today's back. */
-import { S } from './state.js?v=0dfab1e';
-import { POS, recall } from './util.js?v=0dfab1e';
-import { CLOUD, signedIn, loadLineup, liveFeed, prevSlateDate } from './cloud.js?v=0dfab1e';
+import { S } from './state.js?v=7b2e585';
+import { POS, BN, recall } from './util.js?v=7b2e585';
+import { CLOUD, signedIn, loadLineup, liveFeed, prevSlateDate } from './cloud.js?v=7b2e585';
 
 const LOOKBACK_DAYS = 10;      // without the database: how far back to look for a slate file
 
@@ -63,7 +63,7 @@ export function loadLast(force) {
       if (signedIn()) { try { lu = await loadLineup(date); } catch (e) { lu = null; } }
       if (!lu) lu = recall('bb-lineup-' + date);
       const lineup = {};
-      POS.forEach((pos) => { lineup[pos] = lu && lu[pos] && byId[lu[pos]] ? lu[pos] : null; });
+      [...POS, BN].forEach((pos) => { lineup[pos] = lu && lu[pos] && byId[lu[pos]] ? lu[pos] : null; });
       Object.assign(L, { state: 'ready', date, slate, byId, games, results: res ? res.players : null, live, lineup });
     } finally { loading = null; }
   })();

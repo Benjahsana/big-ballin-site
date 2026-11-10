@@ -1,7 +1,7 @@
 /* BIG BALLIN: stat windows, sorting, filters and "what fits my cap". */
-import { S } from './state.js?v=0dfab1e';
-import { POS, slotsFor, matches } from './util.js?v=0dfab1e';
-import { slotOf, maxForSlot, fits } from './lineup.js?v=0dfab1e';
+import { S } from './state.js?v=7b2e585';
+import { POS, slotsFor, matches } from './util.js?v=7b2e585';
+import { slotOf, maxForSlot, fits } from './lineup.js?v=7b2e585';
 
 export const WINDOWS = [['l2', 'L2'], ['l5', 'L5'], ['l10', 'L10'], ['season', 'SEASON']];
 export const winLabel = () => ({ l2: 'Last 2', l5: 'Last 5', l10: 'Last 10', season: 'Season' })[S.win] || 'Season';
@@ -48,10 +48,11 @@ export const PRICE_BANDS = [
 export { maxForSlot, fits };
 
 export function filteredPool() {
-  const band = PRICE_BANDS.find((b) => b[0] === S.poolPrice) || PRICE_BANDS[0];
+  const band = S.poolPrice === 'bench' ? ['bench', '', 0, (S.slate.bench_budget || 0) + 1e-6]
+    : PRICE_BANDS.find((b) => b[0] === S.poolPrice) || PRICE_BANDS[0];
   const sort = sortDef();
   const list = S.slate.players.filter((p) =>
-    (S.poolPos === 'ALL' || slotsFor(p).includes(S.poolPos))
+    (S.poolPos === 'ALL' || S.poolPos === 'BN' || slotsFor(p).includes(S.poolPos))
     && (S.poolGame === 'ALL' || p.game_id === S.poolGame)
     && (band[0] === 'ALL' || (p.price >= band[2] && p.price < band[3]))
     && (!S.hideOut || p.injury !== 'OUT' || slotOf(p.id))

@@ -3,13 +3,13 @@
    players' games, and a box score: one row per player with FP (bar toward his projection),
    PROJ, PACE, COST, FP/$M, then MIN PTS REB AST STL BLK TOV FG 3PT FT +/- PF. Tap a player
    for where his points came from. League boards reuse mtTable() for a team's lineup. */
-import { S } from './state.js?v=0dfab1e';
-import { $, POS, HOSTED, esc, money, where, jersey } from './util.js?v=0dfab1e';
-import { liveOf, gameOf, allFinal, isLocked, spent, capBonusFor, bonusText } from './lineup.js?v=0dfab1e';
-import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=0dfab1e';
-import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=0dfab1e';
-import { play } from './sound.js?v=0dfab1e';
-import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=0dfab1e';
+import { S } from './state.js?v=7b2e585';
+import { $, POS, BN, slotLabel, HOSTED, esc, money, where, jersey } from './util.js?v=7b2e585';
+import { liveOf, gameOf, allFinal, isLocked, spent, filledCount, capBonusFor, bonusText, subSlot } from './lineup.js?v=7b2e585';
+import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=7b2e585';
+import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=7b2e585';
+import { play } from './sound.js?v=7b2e585';
+import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=7b2e585';
 
 export const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
 
@@ -40,6 +40,19 @@ export function rowData(p) {
   const expect = state === 3 ? (fp || 0) : state === 2 ? (pace != null ? pace : Math.max(fp || 0, p.proj)) : p.proj;
   return { r, g, state, status, fp, pace, expect, hot: fp != null && fp >= p.proj && p.proj > 0 };
 }
+
+/* Rows for a lineup (slot -> player id, or 'hidden'), with the 6th man after the five.
+   sub = the starter slot he covers (or null). Each item: {pos, p, tag}; tag: 'in' (6th man counting),
+   'bench' (6th man not needed: his points don't count) or 'covered' (starter who didn't play). */
+export function lineupItems(slots, sub) {
+  const items = POS.filter((pos) => slots[pos] != null && slots[pos] !== 'hidden' && S.byId[slots[pos]])
+    .map((pos) => ({ pos, p: S.byId[slots[pos]], tag: pos === sub ? 'covered' : null }));
+  const bn = slots[BN];
+  if (bn != null && bn !== 'hidden' && S.byId[bn]) items.push({ pos: BN, p: S.byId[bn], tag: sub ? 'in' : 'bench', sub });
+  return items;
+}
+// Rows that make up the score: not a 6th man who wasn't needed, not the starter he covers (0 FP, no projection).
+const counts = (it) => it.tag !== 'bench' && it.tag !== 'covered';
 
 export function statLine(d, p) {
   const r = d.r;
@@ -90,17 +103,22 @@ function breakdown(d, p) {
   </div>`;
 }
 
-function mtRow(pos, p, key) {
+function mtRow(pos, p, key, it) {
+  const tag = it && it.tag;
   const d = rowData(p);
   const r = d.r;
   const pct = d.fp != null && p.proj > 0 ? Math.min(100, (d.fp / p.proj) * 100) : 0;
   const stCls = d.state === 2 ? ' on' : d.state === 3 ? ' fin' : '';
   const value = d.fp != null && d.state >= 2 ? (d.fp / p.price).toFixed(2) : '–';
   const open = !!S.mtOpen[key];
-  return `<div class="mt-row${d.hot ? ' hot' : ''}${open ? ' open' : ''}" data-act="mtopen" data-v="${esc(key)}">
+  const coverName = tag === 'in' && it.sub && S.lineupNames ? S.lineupNames[it.sub] : null;
+  const note = tag === 'bench' ? '<span class="bn-tag">ON THE BENCH · counts only if a starter sits</span>'
+    : tag === 'in' ? `<span class="bn-tag in">SUBBED IN · covering your ${slotLabel(it.sub)}${coverName ? ' (' + esc(coverName) + ')' : ''}</span>`
+    : tag === 'covered' ? '<span class="bn-tag out">DIDN’T PLAY · 6TH MAN COVERS HIM</span>' : '';
+  return `<div class="mt-row${d.hot ? ' hot' : ''}${open ? ' open' : ''}${tag ? ' t-' + tag : ''}" data-act="mtopen" data-v="${esc(key)}">
     <button class="mt-who" data-act="mtopen" data-v="${esc(key)}" aria-expanded="${open}" title="Where his points came from">${jersey(p, 'sm')}
-      <span class="mt-id"><span class="mt-top"><span class="pr-slot">${pos}</span><span class="mt-name">${esc(p.name)}</span></span>
-        <span class="mt-sub">${esc(where(p))} <span class="gstat${stCls}">${esc(d.status)}</span></span></span></button>
+      <span class="mt-id"><span class="mt-top"><span class="pr-slot${pos === BN ? ' bn' : ''}">${slotLabel(pos)}</span><span class="mt-name">${esc(p.name)}</span></span>
+        <span class="mt-sub">${esc(where(p))} <span class="gstat${stCls}">${esc(d.status)}</span></span>${note}</span></button>
     <span class="mc mc-fp"><b class="${d.hot ? 'red' : 'yel'}">${d.fp != null ? d.fp.toFixed(1) : '–'}${d.hot ? FLAME : ''}</b>
       <span class="pr-bar" role="img" aria-label="${d.fp != null ? d.fp.toFixed(1) : 0} of ${p.proj.toFixed(1)} projected"><i style="width:${pct.toFixed(0)}%"></i></span></span>
     <span class="mc">${p.proj.toFixed(1)}</span>
@@ -112,12 +130,13 @@ function mtRow(pos, p, key) {
 }
 
 /* Team totals under the rows. */
-function mtTotal(items) {
+function mtTotal(all) {
+  const items = all.filter(counts);
   const ds = items.map(({ p }) => ({ p, d: rowData(p) }));
   const sum = (f) => ds.reduce((t, { d }) => t + (d.r && d.r[f] != null ? Number(d.r[f]) : 0), 0);
   const has = (f) => ds.some(({ d }) => d.r && d.r[f] != null);
   const raw = ds.reduce((t, { d }) => t + (d.fp || 0), 0);
-  const cost = ds.reduce((t, { p }) => t + p.price, 0);
+  const cost = all.filter((it) => it.pos !== BN).reduce((t, { p }) => t + p.price, 0);
   const any = ds.some(({ d }) => d.r);
   const v = (k) => {
     if (!any) return '–';
@@ -143,7 +162,7 @@ export function mtTable(items, opts) {
   const hidden = o.hidden || [];
   return `<div class="mt-scroll"><div class="mt">
     ${items.length ? mtHead() : ''}
-    ${items.map(({ pos, p }) => mtRow(pos, p, `${key}:${p.id}`)).join('')}
+    ${items.map((it) => mtRow(it.pos, it.p, `${key}:${it.p.id}`, it)).join('')}
     ${hidden.length ? `<div class="mt-row mt-hid"><span class="mt-who"><span class="mt-q">?</span><span class="mt-name">${hidden.join(' · ')}</span></span><span class="mt-hidtxt">Picked · shown when ${hidden.length === 1 ? 'his game tips' : 'their games tip'} off</span></div>` : ''}
     ${items.length > 1 && !o.noTotal ? mtTotal(items) : ''}
   </div></div>`;
@@ -232,13 +251,15 @@ export function renderScore() {
 }
 
 function scoreBody(isLast) {
-  const rows = POS.filter((pos) => S.lineup[pos]).map((pos) => ({ pos, p: S.byId[S.lineup[pos]] }));
+  const sub = subSlot(S.lineup);
+  S.lineupNames = sub && S.byId[S.lineup[sub]] ? { [sub]: S.byId[S.lineup[sub]].name } : null;
+  const rows = lineupItems(S.lineup, sub);
   const res = S.results;
   const live = !res && S.live;
   const done = live && allFinal();
   let raw = 0, expect = 0;
-  rows.forEach(({ p }) => { const d = rowData(p); raw += d.fp || 0; expect += d.expect; });
-  const bonus = capBonusFor(spent(), rows.length);
+  rows.filter(counts).forEach(({ p }) => { const d = rowData(p); raw += d.fp || 0; expect += d.expect; });
+  const bonus = capBonusFor(spent(), filledCount());
   const has = res || live;
   const label = (isLast ? 'LAST NIGHT · ' : '') + (res ? 'FINAL SCORE' : done ? 'UNOFFICIAL FINAL' : live ? 'LIVE SCORE' : isLast ? 'NO SCORES YET' : 'TONIGHT’S SCORE');
   const when = live && live.at ? `updated ${new Date(live.at).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}` : '';
