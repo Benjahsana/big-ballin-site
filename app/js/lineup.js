@@ -1,8 +1,8 @@
 /* BIG BALLIN: lineup rules: locks, cap, cap bonus, sign and cut. */
-import { S, ui } from './state.js?v=68068ed';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=68068ed';
-import { play } from './sound.js?v=68068ed';
-import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=68068ed';
+import { S, ui } from './state.js?v=5b8b489';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=5b8b489';
+import { play } from './sound.js?v=5b8b489';
+import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=5b8b489';
 
 /* ---------- Live points (S.live, from Supabase) ---------- */
 export const liveOf = (p) => (S.live && S.live.p[String(p.id)]) || null;
@@ -21,21 +21,34 @@ export function slotOf(id) { return POS.find((pos) => S.lineup[pos] === id) || (
 export const benchOn = () => !!(S.slate && S.slate.bench_budget != null);
 export const benchBudget = () => (S.slate && S.slate.bench_budget) || 0;
 export const benchSpent = () => (S.lineup[BN] && S.byId[S.lineup[BN]] ? S.byId[S.lineup[BN]].price : 0);
-/* Which starter slot the 6th man covers, if any: the first starter (PG..C) who didn't play.
-   Official results: no stat line. Live: listed as not playing (feed "out"), or no stats once his game is final.
-   lu = a lineup {PG..C, BN} of player ids. Same rule as the database's bench_slot(). */
+/* The night's 6th man rule (slate.bench_rule; slates before Nov 12 had none = the first rule). */
+export const benchRule = () => (S.slate && S.slate.bench_rule) || { max_minutes: 0, pick: 'order' };
+/* Which starter slot the 6th man covers, if any. Same rule as the database's bench_slot():
+   a starter qualifies when he didn't play or played fewer than max_minutes, once that's settled
+   (official results, listed out in the live feed, or his game is final). Rule 'gain': only if the
+   6th man has MORE fantasy points; he replaces the lowest scorer. Rule 'order': first in PG..C.
+   lu = a lineup {PG..C, BN} of player ids. */
 export function subSlot(lu) {
   if (!lu || !lu[BN]) return null;
-  return POS.find((pos) => {
+  const rule = benchRule();
+  const line = (id) => (S.results ? S.results[String(id)] || null : (S.byId[id] && liveOf(S.byId[id])) || null);
+  const bench = line(lu[BN]);
+  const benchFp = bench ? Number(bench.fp) : 0;
+  const cands = POS.map((pos, o) => {
     const id = lu[pos];
-    if (!id) return false;
-    if (S.results) return !S.results[String(id)];
+    if (!id) return null;
+    const r = line(id);
+    if (r && !((r.min ?? 999) < rule.max_minutes)) return null;          // played enough
     const p = S.byId[id];
-    if (!p || liveOf(p)) return false;
-    if (S.live && (S.live.out || []).includes(id)) return true;
-    const g = gameOf(p);
-    return !!(g && g.s === 3);
-  }) || null;
+    const settled = !!S.results || (S.live && (S.live.out || []).includes(id)) || !!(p && gameOf(p) && gameOf(p).s === 3);
+    if (!settled) return null;
+    const fp = r ? Number(r.fp) : 0;
+    if (rule.pick !== 'order' && !(benchFp > fp)) return null;           // he must score more
+    return { pos, o, fp };
+  }).filter(Boolean);
+  if (!cands.length) return null;
+  if (rule.pick === 'gain') cands.sort((a, b) => a.fp - b.fp || a.o - b.o);
+  return cands[0].pos;
 }
 export function spent() { return POS.reduce((t, pos) => t + (S.lineup[pos] ? S.byId[S.lineup[pos]].price : 0), 0); }
 export function filledCount() { return POS.filter((pos) => S.lineup[pos]).length; }

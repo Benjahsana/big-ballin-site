@@ -3,13 +3,13 @@
    players' games, and a box score: one row per player with FP (bar toward his projection),
    PROJ, PACE, COST, FP/$M, then MIN PTS REB AST STL BLK TOV FG 3PT FT +/- PF. Tap a player
    for where his points came from. League boards reuse mtTable() for a team's lineup. */
-import { S } from './state.js?v=68068ed';
-import { $, POS, BN, slotLabel, HOSTED, esc, money, where, jersey } from './util.js?v=68068ed';
-import { liveOf, gameOf, allFinal, isLocked, spent, filledCount, capBonusFor, bonusText, subSlot } from './lineup.js?v=68068ed';
-import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=68068ed';
-import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=68068ed';
-import { play } from './sound.js?v=68068ed';
-import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=68068ed';
+import { S } from './state.js?v=5b8b489';
+import { $, POS, BN, slotLabel, HOSTED, esc, money, where, jersey } from './util.js?v=5b8b489';
+import { liveOf, gameOf, allFinal, isLocked, spent, filledCount, capBonusFor, bonusText, subSlot, benchRule } from './lineup.js?v=5b8b489';
+import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=5b8b489';
+import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=5b8b489';
+import { play } from './sound.js?v=5b8b489';
+import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=5b8b489';
 
 export const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
 
@@ -112,9 +112,11 @@ function mtRow(pos, p, key, it) {
   const value = d.fp != null && d.state >= 2 ? (d.fp / p.price).toFixed(2) : '–';
   const open = !!S.mtOpen[key];
   const coverName = tag === 'in' && it.sub && S.lineupNames ? S.lineupNames[it.sub] : null;
-  const note = tag === 'bench' ? '<span class="bn-tag">ON THE BENCH · counts only if a starter sits</span>'
+  const rule = benchRule();
+  const benchWhen = rule.max_minutes > 0 ? `a starter plays under ${rule.max_minutes} min and he outscores him` : 'a starter sits';
+  const note = tag === 'bench' ? `<span class="bn-tag">ON THE BENCH · counts only if ${benchWhen}</span>`
     : tag === 'in' ? `<span class="bn-tag in">SUBBED IN · covering your ${slotLabel(it.sub)}${coverName ? ' (' + esc(coverName) + ')' : ''}</span>`
-    : tag === 'covered' ? '<span class="bn-tag out">DIDN’T PLAY · 6TH MAN COVERS HIM</span>' : '';
+    : tag === 'covered' ? `<span class="bn-tag out">${d.r ? `UNDER ${rule.max_minutes} MIN · 6TH MAN SCORED MORE` : 'DIDN’T PLAY · 6TH MAN COVERS HIM'}</span>` : '';
   return `<div class="mt-row${d.hot ? ' hot' : ''}${open ? ' open' : ''}${tag ? ' t-' + tag : ''}" data-act="mtopen" data-v="${esc(key)}">
     <button class="mt-who" data-act="mtopen" data-v="${esc(key)}" aria-expanded="${open}" title="Where his points came from">${jersey(p, 'sm')}
       <span class="mt-id"><span class="mt-top"><span class="pr-slot${pos === BN ? ' bn' : ''}">${slotLabel(pos)}</span><span class="mt-name">${esc(p.name)}</span></span>

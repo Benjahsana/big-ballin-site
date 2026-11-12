@@ -1,20 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=68068ed';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=68068ed';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=68068ed';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=68068ed';
-import { defaultDir } from './filters.js?v=68068ed';
-import { renderStats } from './render-stats.js?v=68068ed';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=68068ed';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=68068ed';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=68068ed';
-import { openModal, closeModal, renderModal } from './render-account.js?v=68068ed';
-import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=68068ed';
-import { renderWorld, loadWorld, rankText } from './render-world.js?v=68068ed';
-import { avatar } from './avatars.js?v=68068ed';
-import { play, SOUNDS, styleFor } from './sound.js?v=68068ed';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=68068ed';
-import { LABELS } from './util.js?v=68068ed';
+import { S, ui } from './state.js?v=5b8b489';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=5b8b489';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=5b8b489';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=5b8b489';
+import { defaultDir } from './filters.js?v=5b8b489';
+import { renderStats } from './render-stats.js?v=5b8b489';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=5b8b489';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=5b8b489';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=5b8b489';
+import { openModal, closeModal, renderModal } from './render-account.js?v=5b8b489';
+import { renderLeagues, loadBoards, inviteLink, playerPop } from './render-leagues.js?v=5b8b489';
+import { renderWorld, loadWorld, rankText } from './render-world.js?v=5b8b489';
+import { avatar } from './avatars.js?v=5b8b489';
+import { play, SOUNDS, styleFor } from './sound.js?v=5b8b489';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=5b8b489';
+import { LABELS } from './util.js?v=5b8b489';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -80,7 +80,9 @@ function renderHowTo() {
   const cb = S.slate.cap_bonus || { rate: 1, max: 1.1 };
   const fullAt = S.slate.cap - (cb.max - 1) * 100 / cb.rate;
   const bench = S.slate.bench_budget != null
-    ? `<li><b>6TH MAN (bench insurance).</b> One extra pick, any position, costing ${money(S.slate.bench_budget)} or less from a separate bench budget. He isn't part of the ${money(S.slate.cap)} cap and never changes your cap bonus. He scores only if one of your five doesn't play at all (rested, inactive, a late scratch): then his points replace that starter's. If two sit, he covers the first in PG, SG, SF, PF, C order. A starter who plays even a minute isn't replaced. If nobody sits, his points don't count.</li>` : '';
+    ? `<li><b>6TH MAN (bench insurance).</b> One extra pick, any position, costing ${money(S.slate.bench_budget)} or less from a separate bench budget. He isn't part of the ${money(S.slate.cap)} cap and never changes your cap bonus. ${(S.slate.bench_rule || {}).max_minutes > 0
+      ? `If one of your five plays under ${S.slate.bench_rule.max_minutes} minutes (rested, inactive, hurt early, a late scratch) and your 6th man scores more than him, the 6th man's points replace his. If more than one qualifies, he replaces the one it helps most (the lowest scorer). It's settled when that starter's game ends. Otherwise his points don't count.`
+      : `He scores only if one of your five doesn't play at all (rested, inactive, a late scratch): then his points replace that starter's. If two sit, he covers the first in PG, SG, SF, PF, C order. If nobody sits, his points don't count.`}</li>` : '';
   box.innerHTML = `<summary>HOW TO PLAY</summary><ul>
     <li><b>Pick five:</b> a PG, SG, SF, PF and C from tonight's games, under the ${money(S.slate.cap)} cap.</li>
     <li><b>Score:</b> your players' fantasy points × the cap bonus.</li>

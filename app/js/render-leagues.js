@@ -2,13 +2,13 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=68068ed';
-import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=68068ed';
-import { avatar } from './avatars.js?v=68068ed';
-import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=68068ed';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=68068ed';
-import { L, asLast, lastDate, loadLast } from './night.js?v=68068ed';
-import { benchOn } from './lineup.js?v=68068ed';
+import { S } from './state.js?v=5b8b489';
+import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=5b8b489';
+import { avatar } from './avatars.js?v=5b8b489';
+import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=5b8b489';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=5b8b489';
+import { L, asLast, lastDate, loadLast } from './night.js?v=5b8b489';
+import { benchOn } from './lineup.js?v=5b8b489';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -119,7 +119,7 @@ function playerCell(p, isLast, tag, sub) {
   const d = rowData(p);
   const pct = d.fp != null && p.proj > 0 ? Math.min(100, (d.fp / p.proj) * 100) : 0;
   const st = d.state === 1 ? `Tips ${esc(tipText(p).replace(/ (AM|PM)$/, ''))}` : d.state === 3 ? 'Final' : esc(d.status);
-  const tagTxt = tag === 'bench' ? 'ON THE BENCH' : tag === 'in' ? `SUBBED IN · ${slotLabel(sub)}` : tag === 'covered' ? 'DNP · 6TH IN' : '';
+  const tagTxt = tag === 'bench' ? 'ON THE BENCH' : tag === 'in' ? `SUBBED IN · ${slotLabel(sub)}` : tag === 'covered' ? 'SUBBED OUT · 6TH IN' : '';
   return `<td class="pc${d.hot ? ' hot' : ''}${tag ? ' t-' + tag : ''}" data-act="pcell" data-pid="${p.id}"${isLast ? ' data-n="last"' : ''} tabindex="0" aria-label="${esc(p.name)}: ${d.fp != null ? d.fp.toFixed(1) : 'not started'} of ${p.proj.toFixed(1)} projected, ${money(p.price)}">
     <span class="tc-head">${jersey(p, 'xs')}<span class="tc-id"><span class="pc-name">${esc(shortName(p))}</span>
       <span class="pc-st${d.state === 2 ? ' on' : ''}">${st}</span></span></span>
