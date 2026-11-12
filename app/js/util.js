@@ -1,8 +1,8 @@
 /* BIG BALLIN: constants, formatting, storage, sound, callouts, small render helpers. */
-import { S } from './state.js?v=5b8b489';
+import { S } from './state.js?v=346e03e';
 
 export const POS = ['PG', 'SG', 'SF', 'PF', 'C'];
-export { LABELS, WORLD_ROWS } from './app-config.js?v=5b8b489';
+export { LABELS, WORLD_ROWS } from './app-config.js?v=346e03e';
 export const POSNAME = { PG: 'Point guard', SG: 'Shooting guard', SF: 'Small forward', PF: 'Power forward', C: 'Center', BN: '6th man' };
 /* 6th Man (bench insurance) slot key in S.lineup; the DB column is bn. Shown as "6TH". */
 export const BN = 'BN';

@@ -2,13 +2,13 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=5b8b489';
-import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=5b8b489';
-import { avatar } from './avatars.js?v=5b8b489';
-import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=5b8b489';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=5b8b489';
-import { L, asLast, lastDate, loadLast } from './night.js?v=5b8b489';
-import { benchOn } from './lineup.js?v=5b8b489';
+import { S } from './state.js?v=346e03e';
+import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=346e03e';
+import { avatar } from './avatars.js?v=346e03e';
+import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=346e03e';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=346e03e';
+import { L, asLast, lastDate, loadLast } from './night.js?v=346e03e';
+import { benchOn } from './lineup.js?v=346e03e';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -36,16 +36,32 @@ export async function boardQuery(period, league) {
   return Promise.all([leaderboard('night', d, league), nightLineups(d, league)]);
 }
 
-/* Fetch what the tab shows. Called on open, on league/period change, and every minute while live. */
+/* Boards already fetched this visit, by league + period: switching back shows one at once,
+   and the fresh copy replaces it a moment later. */
+const seen = new Map();
+const seenKey = (league, period) => `${league || 'world'}|${period}`;
+export function remember(league, period, rows, night, win) { seen.set(seenKey(league, period), { rows, night, win }); }
+export function recallBoard(league, period) { return seen.get(seenKey(league, period)) || null; }
+/* Before a league/period switch: show the kept copy (or "Loading…" if there is none). */
+export function showKeptBoard() {
+  const k = S.lbLeague ? recallBoard(S.lbLeague, S.lbPeriod) : null;
+  S.lbRows = k ? k.rows : null; S.lbNight = k ? k.night : null; if (k) S.lbWinners = k.win;
+}
+
+/* Fetch what the tab shows. Called on open, on league/period change, and every minute while live.
+   The league lists and the open league's board are fetched at the same time. */
 export async function loadBoards() {
   if (!CLOUD || !S.cloudOk) return;
   try {
-    const [mine, all] = await Promise.all([signedIn() ? myLeagues() : Promise.resolve([]), leagueList(S.slate.date)]);
+    const lg = S.lbLeague, period = S.lbPeriod;
+    const board = lg ? Promise.all([boardQuery(period, lg), latestWinners(lg)]) : Promise.resolve(null);
+    const [mine, all, b] = await Promise.all([signedIn() ? myLeagues() : Promise.resolve([]), leagueList(S.slate.date), board]);
     S.leagues = mine; S.allLeagues = all;
-    const lg = S.lbLeague;
     if (lg && !all.some((l) => l.id === lg)) { S.lbLeague = null; store('bb-league', null); }
     if (!S.lbLeague) { S.lbRows = null; S.lbNight = null; S.lbWinners = null; S.lbErr = null; return; }
-    const [[rows, night], win] = await Promise.all([boardQuery(S.lbPeriod, S.lbLeague), latestWinners(S.lbLeague)]);
+    if (S.lbLeague !== lg || S.lbPeriod !== period) return;   // switched while loading: that load fills it in
+    const [[rows, night], win] = b;
+    remember(lg, period, rows, night, win);
     S.lbRows = rows; S.lbNight = night; S.lbWinners = win; S.lbErr = null;
   } catch (e) { S.lbErr = friendly(e).text; }
 }

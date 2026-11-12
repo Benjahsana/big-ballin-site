@@ -4,9 +4,9 @@
    posts, that is the slate already loaded, so nothing extra is fetched.
    Rendering code reads S.slate / S.byId / S.games / S.results / S.live / S.lineup, so asLast()
    swaps last night's copies in for one synchronous render, then puts today's back. */
-import { S } from './state.js?v=5b8b489';
-import { POS, BN, recall } from './util.js?v=5b8b489';
-import { CLOUD, signedIn, loadLineup, liveFeed, prevSlateDate } from './cloud.js?v=5b8b489';
+import { S } from './state.js?v=346e03e';
+import { POS, BN, recall, store } from './util.js?v=346e03e';
+import { CLOUD, signedIn, loadLineup, liveFeed, prevSlateDate } from './cloud.js?v=346e03e';
 
 const LOOKBACK_DAYS = 10;      // without the database: how far back to look for a slate file
 
@@ -42,32 +42,46 @@ export function loadLast(force) {
   loading = (async () => {
     try {
       let date = L.date, slate = L.slate;
+      // Last night's date never changes for a given slate, so it's remembered on this device
+      // (saves one round trip to the database every time the page opens).
+      const prevKey = 'bb-prev-' + S.slate.date;
+      if (!date) date = recall(prevKey);
+      if (!date && CLOUD && S.cloudOk) { try { date = await prevSlateDate(S.slate.date); } catch (e) { date = null; } }
+      // Everything for that date at once, not one after another.
+      const cloudOn = CLOUD && S.cloudOk;
+      const [s1, res, live, saved] = date ? await Promise.all([
+        slate ? Promise.resolve(slate) : getJson(`../data/slates/slate-${date}.json`),
+        getJson(`../data/results/results-${date}.json`),
+        // The live feed also when official results exist: it has the game scores for MY TEAM's game strip.
+        cloudOn ? liveFeed(date).catch(() => null) : Promise.resolve(null),
+        signedIn() ? loadLineup(date).catch(() => null) : Promise.resolve(null),
+      ]) : [null, null, null, null];
+      slate = s1;
+      if (slate) store(prevKey, date);
       if (!slate) {
-        if (CLOUD && S.cloudOk) { try { date = await prevSlateDate(S.slate.date); } catch (e) { date = null; } }
-        if (date) slate = await getJson(`../data/slates/slate-${date}.json`);
         for (let i = 1; !slate && i <= LOOKBACK_DAYS; i++) {     // no database: look for the newest older slate file
           const d = shift(S.slate.date, -i);
           slate = await getJson(`../data/slates/slate-${d}.json`);
           if (slate) date = d;
         }
+        if (slate) return finish(date, slate, await getJson(`../data/results/results-${date}.json`), null, null);
       }
       if (!slate) { L.state = 'none'; return; }
+      finish(date, slate, res, live, saved);
+    } finally { loading = null; }
+  })();
+  return loading;
+}
+
+function finish(date, slate, res, live, saved) {
       const byId = {}, games = {};
       slate.players.forEach((p) => { byId[p.id] = p; });
       (slate.games || []).forEach((g) => { games[g.game_id] = g; });
-      const res = await getJson(`../data/results/results-${date}.json`);
-      let live = null;
-      // The live feed also when official results exist: it has the game scores for MY TEAM's game strip.
-      if (CLOUD && S.cloudOk) { try { live = await liveFeed(date); } catch (e) { live = null; } }
-      let lu = null;
-      if (signedIn()) { try { lu = await loadLineup(date); } catch (e) { lu = null; } }
+      let lu = saved;
       if (!lu) lu = recall('bb-lineup-' + date);
       const lineup = {};
       [...POS, BN].forEach((pos) => { lineup[pos] = lu && lu[pos] && byId[lu[pos]] ? lu[pos] : null; });
       Object.assign(L, { state: 'ready', date, slate, byId, games, results: res ? res.players : null, live, lineup });
-    } finally { loading = null; }
-  })();
-  return loading;
 }
 /* After sign-in/out the saved lineup for last night may differ. */
 export function resetLastLineup() { if (L.state === 'ready') { L.state = 'idle'; L.tRanks = null; } }

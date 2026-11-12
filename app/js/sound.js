@@ -6,8 +6,8 @@
    Rules: nothing plays before the first tap on the page; one sound at a time; after a
    reward/alert sound, others wait SOUND.cooldownMs (quick taps don't start that wait, and
    are simply skipped if something is playing). On/off and volume are remembered per device. */
-import { S } from './state.js?v=5b8b489';
-import { SOUND } from './app-config.js?v=5b8b489';
+import { S } from './state.js?v=346e03e';
+import { SOUND } from './app-config.js?v=346e03e';
 
 let ctx = null;
 let noiseBuf = null;
