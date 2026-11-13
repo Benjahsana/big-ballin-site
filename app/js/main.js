@@ -1,20 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=911abf6';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=911abf6';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=911abf6';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=911abf6';
-import { defaultDir } from './filters.js?v=911abf6';
-import { renderStats } from './render-stats.js?v=911abf6';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=911abf6';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=911abf6';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=911abf6';
-import { openModal, closeModal, renderModal } from './render-account.js?v=911abf6';
-import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=911abf6';
-import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=911abf6';
-import { avatar } from './avatars.js?v=911abf6';
-import { play, SOUNDS, styleFor } from './sound.js?v=911abf6';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=911abf6';
-import { LABELS } from './util.js?v=911abf6';
+import { S, ui } from './state.js?v=ef8d999';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=ef8d999';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=ef8d999';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=ef8d999';
+import { defaultDir } from './filters.js?v=ef8d999';
+import { renderStats } from './render-stats.js?v=ef8d999';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=ef8d999';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=ef8d999';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=ef8d999';
+import { openModal, closeModal, renderModal } from './render-account.js?v=ef8d999';
+import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=ef8d999';
+import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=ef8d999';
+import { avatar } from './avatars.js?v=ef8d999';
+import { play, SOUNDS, styleFor } from './sound.js?v=ef8d999';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=ef8d999';
+import { LABELS } from './util.js?v=ef8d999';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -288,6 +288,11 @@ async function afterAuth() {
   resetLastLineup();   // last night's saved lineup depends on who is signed in
   if (!S.user) { S.sync = 'local'; S.leagues = []; S.rank = null; S.tRanks = null; S.inviteOpen = false; if (S.tab === 'leagues') await loadBoards(); renderAll(); return; }
   if (!S.profile) { renderAll(); openModal('name'); return; }
+  // These don't depend on each other, so they all go out at once (each request takes ~0.4 s).
+  const code = recall('bb-join');
+  const rankP = myWorldRank().catch(() => null);
+  const badgeP = checkBadges();
+  const boardP = code ? null : S.tab === 'leagues' ? loadBoards() : S.tab === 'world' ? loadWorld() : null;
   try {
     const lu = await loadLineup(S.slate.date);
     if (lu && POS.some((pos) => lu[pos])) {
@@ -298,7 +303,6 @@ async function afterAuth() {
     } else if (filledCount()) saveLineup();
     else S.sync = 'saved';
   } catch (e) { S.sync = 'error'; }
-  const code = recall('bb-join');
   if (code) {
     store('bb-join', null);
     try {
@@ -307,10 +311,11 @@ async function afterAuth() {
       flash('YOU’RE IN!', '#FFD23F', '#3D8BFF');
     } catch (e) { const f = friendly(e); flash(f.title, '#FF4A3D', '#3D8BFF'); }
   }
-  try { S.rank = await myWorldRank(); } catch (e) { S.rank = null; }
-  await checkBadges();
-  if (S.tab === 'leagues') await loadBoards();
-  if (S.tab === 'world') await loadWorld();
+  S.rank = await rankP;
+  await badgeP;
+  if (boardP) await boardP;
+  else if (S.tab === 'leagues') await loadBoards();
+  else if (S.tab === 'world') await loadWorld();
   renderAll();
 }
 
@@ -511,6 +516,8 @@ async function load() {
     // Last night (slate file + live feed) loads in the background after sign-in is known, so
     // LEAGUES, World Rankings and MY TEAM's LAST NIGHT don't have to wait for it when opened.
     loadLast().catch(() => {});
+    // The LEAGUES tab (league list + the league last viewed) too, so opening it is instant.
+    if (S.tab !== 'leagues') loadBoards().then(() => { if (S.tab === 'leagues') renderAll(); });
     await pollLive();
     renderAll();
   }

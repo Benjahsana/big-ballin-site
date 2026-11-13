@@ -1,10 +1,10 @@
 /* BIG BALLIN: World Rankings tab. Every signed-in player who played in the stretch is ranked
    automatically, by final score (FP × cap bonus); a skipped night counts as 0; ties share a rank. */
-import { S } from './state.js?v=911abf6';
-import { $, esc, LABELS, WORLD_ROWS } from './util.js?v=911abf6';
-import { avatar } from './avatars.js?v=911abf6';
-import { CLOUD, signedIn, latestWinners, friendly } from './cloud.js?v=911abf6';
-import { boardList, periodSegs, winBadges, WORLD_KINDS, boardQuery, nightTable, remember, recallBoard } from './render-leagues.js?v=911abf6';
+import { S } from './state.js?v=ef8d999';
+import { $, esc, LABELS, WORLD_ROWS } from './util.js?v=ef8d999';
+import { avatar } from './avatars.js?v=ef8d999';
+import { CLOUD, signedIn, latestWinners, friendly } from './cloud.js?v=ef8d999';
+import { boardList, periodSegs, winBadges, WORLD_KINDS, boardQuery, nightTable, remember, recallBoard } from './render-leagues.js?v=ef8d999';
 
 export async function loadWorld() {
   if (!CLOUD || !S.cloudOk) return;
@@ -34,6 +34,7 @@ export function rankText() {
 export function renderWorld() {
   const box = $('#world');
   if (!CLOUD) { box.innerHTML = `<div class="empty"><span>World Rankings aren’t switched on for this copy of BIG BALLIN yet.</span></div>`; return; }
+  if (!S.cloudReady) { box.innerHTML = `<p class="muted">Loading…</p>`; return; }
   if (!S.cloudOk) { box.innerHTML = `<div class="empty"><span>Couldn’t reach the rankings server. Your lineup still works on this device.</span></div>`; return; }
   const rows = S.wRows;
   let board;

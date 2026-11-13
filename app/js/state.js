@@ -12,7 +12,7 @@ export const S = {
   statsScope: 'all', all: null, allById: null,   // PLAYERS: 'all' NBA or 'tonight'; all = data/players-all.json (no game tonight)
   sound: true, volume: 0.35, crushLine: 99,   // volume: 0–1, remembered per device (bb-vol)
   // Phase 4 (Supabase): account, sync, live points, leagues and leaderboards.
-  user: null, profile: null, cloudOk: false,
+  user: null, profile: null, cloudOk: false, cloudReady: false,   // cloudReady: the startup check has finished
   sync: 'local',        // 'local' (this device only) | 'saving' | 'saved' | 'error'
   live: null,           // { at, games: {game_id: {s, t, a, h}}, p: {player id: {fp, pts, ...}} }
   hotSeen: {},          // player id → highest HOT_LEVELS shout already made tonight (1, 2, 3)

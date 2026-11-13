@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=911abf6';
-import { POS } from './util.js?v=911abf6';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=911abf6';
+import { S } from './state.js?v=ef8d999';
+import { POS } from './util.js?v=ef8d999';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=ef8d999';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -31,7 +31,7 @@ export async function initCloud(onChange) {
     S.cloudOk = true;
   } catch (e) {
     S.cloudOk = false;   // offline or CDN blocked: local play only
-  }
+  } finally { S.cloudReady = true; }
 }
 
 /* Database error → short arcade callout + plain sentence. The database's own rules
