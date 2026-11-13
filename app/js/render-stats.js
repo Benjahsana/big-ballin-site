@@ -1,10 +1,10 @@
 /* BIG BALLIN: PLAYERS tab (data-tab "stats"; once called the Stat Center): stats table and the big player card.
    Shows every NBA player: tonight's slate (with prices) plus data/players-all.json (everyone else,
    stats only), loaded the first time the tab opens. ALL NBA | PLAYING TONIGHT switches between them. */
-import { S } from './state.js?v=41fe223';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=41fe223';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=41fe223';
-import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=41fe223';
+import { S } from './state.js?v=2f68c1e';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=2f68c1e';
+import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=2f68c1e';
+import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=2f68c1e';
 
 const n1 = (v) => (v == null ? '–' : Number(v).toFixed(1));
 const tonight = (p) => p.price != null;     // on tonight's slate (has a price); others are stats only
@@ -116,7 +116,7 @@ export function renderCard() {
     </div>
     <div class="note"><span>No game tonight, so no price. He gets one on a night his team plays.</span></div>`}
     <div style="display:flex;flex-direction:column;gap:10px">
-      <div class="bars-head"><h3>LAST ${l5.length || 5} GAMES · FP</h3><span class="muted" style="font-size:16px">avg ${p.avg_fp.toFixed(1)}</span></div>
+      <div class="bars-head"><h3>LAST ${l5.length || 5} GAMES · FP</h3><span class="muted" style="font-size:16px">${l5.length ? `last ${l5.length} avg ${(l5.reduce((a, v) => a + v, 0) / l5.length).toFixed(1)} · ` : ''}season avg ${p.avg_fp.toFixed(1)}${l5.length ? ' (yellow bars beat it)' : ''}</span></div>
       ${bars}
     </div>
     <div>
