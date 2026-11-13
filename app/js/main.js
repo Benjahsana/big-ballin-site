@@ -1,20 +1,20 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=ef8d999';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=ef8d999';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=ef8d999';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=ef8d999';
-import { defaultDir } from './filters.js?v=ef8d999';
-import { renderStats } from './render-stats.js?v=ef8d999';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=ef8d999';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=ef8d999';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=ef8d999';
-import { openModal, closeModal, renderModal } from './render-account.js?v=ef8d999';
-import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=ef8d999';
-import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=ef8d999';
-import { avatar } from './avatars.js?v=ef8d999';
-import { play, SOUNDS, styleFor } from './sound.js?v=ef8d999';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=ef8d999';
-import { LABELS } from './util.js?v=ef8d999';
+import { S, ui } from './state.js?v=41fe223';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=41fe223';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=41fe223';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=41fe223';
+import { defaultDir } from './filters.js?v=41fe223';
+import { renderStats } from './render-stats.js?v=41fe223';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=41fe223';
+import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=41fe223';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=41fe223';
+import { openModal, closeModal, renderModal } from './render-account.js?v=41fe223';
+import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=41fe223';
+import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=41fe223';
+import { avatar } from './avatars.js?v=41fe223';
+import { play, SOUNDS, styleFor } from './sound.js?v=41fe223';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=41fe223';
+import { LABELS } from './util.js?v=41fe223';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -85,6 +85,7 @@ function renderHowTo() {
       : `He scores only if one of your five doesn't play at all (rested, inactive, a late scratch): then his points replace that starter's. If two sit, he covers the first in PG, SG, SF, PF, C order. If nobody sits, his points don't count.`}</li>` : '';
   box.innerHTML = `<summary>HOW TO PLAY</summary><ul>
     <li><b>Pick five:</b> a PG, SG, SF, PF and C from tonight's games, under the ${money(S.slate.cap)} cap.</li>
+    ${S.slate.price_per_fp ? `<li><b>Prices:</b> every player costs $${S.slate.price_per_fp}M per projected point. Find the players who'll beat their projection.</li>` : ''}
     <li><b>Score:</b> your players' fantasy points × the cap bonus.</li>
     <li><b>Cap bonus:</b> every $1M you don't spend adds ${cb.rate === 1 ? '1%' : (cb.rate).toFixed(2) + '%'}, up to ×${cb.max.toFixed(2)} (spending ${money(fullAt)} or less). You need all five slots filled to earn it.</li>
     ${bench}
@@ -488,8 +489,11 @@ async function load() {
   setupPoolControls();
   const nextEmpty = POS.find((pos) => !S.lineup[pos]); S.poolPos = nextEmpty || 'ALL';
 
+  // CAP CRUSHER! = a top-10% value signing. With projection pricing every player starts at the same
+  // value (1 / price_per_fp), so it means a projection that rose 5%+ since the morning prices.
   const vals = S.slate.players.filter((p) => p.proj >= 20).map((p) => p.value).sort((a, b) => a - b);
-  S.crushLine = vals.length ? vals[Math.floor(vals.length * 0.9)] : 99;
+  S.crushLine = S.slate.price_per_fp ? 1.05 / S.slate.price_per_fp
+    : vals.length ? vals[Math.floor(vals.length * 0.9)] : 99;
   S.selId = [...S.slate.players].sort((a, b) => b.proj - a.proj)[0]?.id ?? null;
 
   const d = new Date(S.slate.date + 'T12:00:00');

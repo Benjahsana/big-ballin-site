@@ -1,10 +1,10 @@
 /* BIG BALLIN: PLAYERS tab (data-tab "stats"; once called the Stat Center): stats table and the big player card.
    Shows every NBA player: tonight's slate (with prices) plus data/players-all.json (everyone else,
    stats only), loaded the first time the tab opens. ALL NBA | PLAYING TONIGHT switches between them. */
-import { S } from './state.js?v=ef8d999';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=ef8d999';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=ef8d999';
-import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=ef8d999';
+import { S } from './state.js?v=41fe223';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=41fe223';
+import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=41fe223';
+import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=41fe223';
 
 const n1 = (v) => (v == null ? '–' : Number(v).toFixed(1));
 const tonight = (p) => p.price != null;     // on tonight's slate (has a price); others are stats only
@@ -71,32 +71,21 @@ export function renderStats() {
     : `${rows.length} of tonight’s ${S.slate.players.length} players`;
   renderCard();
 }
-/* "Why this price": the inputs the pipeline used (see CLAUDE.md, How prices work). */
+/* "Why this price": since the 2026-11-14 slate, price = this morning's projection x price_per_fp
+   (pipeline/config.py PRICE_PER_FP). Prices are set by the morning slate and don't move that day. */
 export function whyPrice(p) {
   if (S.slate.price_source === 'draftkings') return `<div class="why"><h3>WHY THIS PRICE</h3><div class="why-sub">Tonight’s prices come from DraftKings salaries, rescaled to the $${S.slate.cap}M cap.</div></div>`;
-  if (p.price_base == null) return '';
-  const pct = (v) => v == null ? '–' : (v >= 10 ? Math.round(v) : v.toFixed(1)) + '%';
-  const mod = p.pop_mod ?? 1;
-  const rule = S.slate.popularity_rule;     // from config.py (POP_STARTED_LOW/HIGH)
-  const popLine = p.popularity == null
-    ? 'No popularity data today, so no adjustment.'
-    : rule
-    ? `Started in ${pct(p.pct_started)} of ESPN leagues. ${rule.started_high}%+ started = ×${rule.mod_max.toFixed(2)}, ${rule.started_low}% or less = ×${rule.mod_min.toFixed(2)}. (Sleeper ${p.trend > 0 ? '+' : ''}${(p.trend || 0).toLocaleString('en-US')} net adds in 48h, not part of the price.)`
-    : `Started in ${pct(p.pct_started)} of ESPN leagues · rostered in ${pct(p.pct_rostered)} · Sleeper ${p.trend > 0 ? '+' : ''}${(p.trend || 0).toLocaleString('en-US')} net adds (48h)`;
-  const popWord = rule && p.pct_started != null
-    ? (p.pct_started >= rule.started_high ? 'Hot name' : p.pct_started <= rule.started_low ? 'Under the radar' : 'Popularity')
-    : 'Popularity';
-  const formula = p.price_base * mod;
-  const notes = [];
-  if (p.price <= 5.05 && formula < 5) notes.push('Cheap tier: nobody costs less than $3M.');
-  if (Math.abs(p.price - formula) > 0.35 && formula >= 5) notes.push('Prices move gradually, so part of the last slate’s price carries over.');
+  const rate = S.slate.price_per_fp;
+  if (!rate) return '';
+  const base = p.price_proj ?? p.proj;
+  const moved = p.price_proj != null && Math.abs(p.proj - p.price_proj) >= 0.5;
+  const espn = p.pct_started != null ? ` Started in ${p.pct_started >= 10 ? Math.round(p.pct_started) : p.pct_started.toFixed(1)}% of ESPN fantasy leagues.` : '';
   return `<div class="why">
       <h3>WHY THIS PRICE</h3>
-      <div class="why-row"><span>Long-term level · ${p.price_fp != null ? p.price_fp.toFixed(1) : p.avg_fp.toFixed(1)} FP/game</span><b>${money(p.price_base)}</b></div>
-      <div class="why-row"><span>${popWord}</span><b class="${mod > 1.001 ? 'red' : mod < 0.999 ? 'blu' : ''}">×${mod.toFixed(2)}</b></div>
-      <div class="why-sub">${esc(popLine)}</div>
+      <div class="why-row"><span>Projected this morning</span><b>${base.toFixed(1)} FP</b></div>
+      <div class="why-row"><span>Every player costs</span><b>$${rate}M per point</b></div>
       <div class="why-row why-total"><span>Tonight’s price</span><b class="yel">${money(p.price)}</b></div>
-      ${notes.length ? `<div class="why-sub">${notes.join(' ')}</div>` : ''}
+      <div class="why-sub">${moved ? `His projection is now ${p.proj.toFixed(1)} FP (news since this morning), but prices are set once in the morning and don’t move. ` : ''}Beat ${base.toFixed(1)} FP and he was a bargain.${espn}</div>
     </div>`;
 }
 

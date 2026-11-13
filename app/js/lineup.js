@@ -1,8 +1,8 @@
 /* BIG BALLIN: lineup rules: locks, cap, cap bonus, sign and cut. */
-import { S, ui } from './state.js?v=ef8d999';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=ef8d999';
-import { play } from './sound.js?v=ef8d999';
-import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=ef8d999';
+import { S, ui } from './state.js?v=41fe223';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=41fe223';
+import { play } from './sound.js?v=41fe223';
+import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=41fe223';
 
 /* ---------- Live points (S.live, from Supabase) ---------- */
 export const liveOf = (p) => (S.live && S.live.p[String(p.id)]) || null;
@@ -81,7 +81,7 @@ export function maxForSlot(pos) {
   if (pos === BN) return benchBudget();
   const occ = S.lineup[pos] ? S.byId[S.lineup[pos]] : null;
   const otherEmpty = POS.filter((x) => x !== pos && !S.lineup[x]).length;
-  return S.slate.cap - spent() + (occ ? occ.price : 0) - otherEmpty * (S.slate.price_floor ?? 3);
+  return S.slate.cap - spent() + (occ ? occ.price : 0) - otherEmpty * (S.slate.price_floor ?? 3);   // the cheapest healthy price tonight
 }
 export function fits(p) {
   if (slotOf(p.id)) return true;
