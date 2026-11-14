@@ -1235,6 +1235,12 @@
   "style": "40px-16c",
   "team": "OKC"
  },
+ "1631115": {
+  "date": "2026-11-14",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "CHI"
+ },
  "1631117": {
   "date": "2026-11-08",
   "kind": "photo",
@@ -1714,6 +1720,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "SAC"
+ },
+ "1641780": {
+  "date": "2026-11-14",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIN"
  },
  "1641783": {
   "date": "2026-11-07",
@@ -2752,6 +2764,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "LAL"
+ },
+ "1643738": {
+  "date": "2026-11-14",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "NOP"
  },
  "1643813": {
   "date": "2026-11-07",
