@@ -1656,7 +1656,7 @@
   "team": "LAC"
  },
  "1641759": {
-  "date": "2026-11-08",
+  "date": "2026-11-15",
   "kind": "silhouette",
   "style": "40px-16c",
   "team": "BOS"
@@ -2478,7 +2478,7 @@
   "team": "GSW"
  },
  "1643022": {
-  "date": "2026-11-08",
+  "date": "2026-11-15",
   "kind": "silhouette",
   "style": "40px-16c",
   "team": "NYK"
@@ -2734,6 +2734,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "CHI"
+ },
+ "1643621": {
+  "date": "2026-11-15",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "MIA"
  },
  "1643624": {
   "date": "2026-11-07",
