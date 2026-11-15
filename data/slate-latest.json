@@ -1,12 +1,12 @@
 {
   "date": "2026-11-15",
   "season": "2026-27",
-  "generated_at": "2026-11-15T21:02:09+00:00",
+  "generated_at": "2026-11-15T21:09:59+00:00",
   "cap": 100,
   "price_source": "formula",
   "price_formula": 3,
   "price_per_fp": 0.53,
-  "ref_lineup_cost": 87.0,
+  "ref_lineup_cost": 91.1,
   "scoring": {
     "pts": 1.0,
     "fg3m": 0.5,
@@ -107,7 +107,7 @@
         "SG",
         "SF"
       ],
-      "proj": 66.0,
+      "proj": 67.5,
       "avg_fp": 65.8,
       "matchup_adj": 1.0,
       "games_this_season": 11,
@@ -202,7 +202,7 @@
       "price_proj": 66.0,
       "price": 35.0,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.93,
       "sprite": "sprites/1629029.png"
     },
     {
@@ -217,7 +217,7 @@
         "PF",
         "C"
       ],
-      "proj": 62.0,
+      "proj": 63.3,
       "avg_fp": 59.8,
       "matchup_adj": 1.2,
       "games_this_season": 13,
@@ -312,7 +312,7 @@
       "price_proj": 62.0,
       "price": 32.9,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.92,
       "sprite": "sprites/1641705.png"
     },
     {
@@ -326,7 +326,7 @@
       "positions": [
         "C"
       ],
-      "proj": 51.7,
+      "proj": 53.6,
       "avg_fp": 51.3,
       "matchup_adj": 1.8,
       "games_this_season": 11,
@@ -421,7 +421,7 @@
       "price_proj": 51.7,
       "price": 27.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.96,
       "sprite": "sprites/1630578.png"
     },
     {
@@ -436,9 +436,9 @@
         "SF",
         "PF"
       ],
-      "proj": 50.7,
+      "proj": 48.4,
       "avg_fp": 44.8,
-      "matchup_adj": 3.8,
+      "matchup_adj": 3.6,
       "games_this_season": 10,
       "last5": [
         36.5,
@@ -531,7 +531,7 @@
       "price_proj": 50.7,
       "price": 26.9,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.8,
       "sprite": "sprites/1630552.png"
     },
     {
@@ -546,9 +546,9 @@
         "PG",
         "SG"
       ],
-      "proj": 48.8,
+      "proj": 48.2,
       "avg_fp": 46.2,
-      "matchup_adj": 2.1,
+      "matchup_adj": 2.0,
       "games_this_season": 13,
       "last5": [
         41.2,
@@ -641,7 +641,7 @@
       "price_proj": 48.8,
       "price": 25.9,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.86,
       "sprite": "sprites/1628983.png"
     },
     {
@@ -656,7 +656,7 @@
         "SG",
         "SF"
       ],
-      "proj": 48.0,
+      "proj": 48.5,
       "avg_fp": 47.9,
       "matchup_adj": -0.1,
       "games_this_season": 11,
@@ -751,7 +751,7 @@
       "price_proj": 48.0,
       "price": 25.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.91,
       "sprite": "sprites/1628369.png"
     },
     {
@@ -766,7 +766,7 @@
         "PF",
         "C"
       ],
-      "proj": 46.0,
+      "proj": 47.0,
       "avg_fp": 47.5,
       "matchup_adj": -1.2,
       "games_this_season": 12,
@@ -861,7 +861,7 @@
       "price_proj": 46.0,
       "price": 24.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.93,
       "sprite": "sprites/1626157.png"
     },
     {
@@ -985,7 +985,7 @@
         "PG",
         "SG"
       ],
-      "proj": 44.6,
+      "proj": 43.7,
       "avg_fp": 43.4,
       "matchup_adj": 0.8,
       "games_this_season": 13,
@@ -1080,7 +1080,7 @@
       "price_proj": 44.6,
       "price": 23.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.85,
       "sprite": "sprites/1630178.png"
     },
     {
@@ -1095,9 +1095,9 @@
         "SF",
         "PF"
       ],
-      "proj": 43.3,
+      "proj": 44.9,
       "avg_fp": 47.8,
-      "matchup_adj": -3.4,
+      "matchup_adj": -3.6,
       "games_this_season": 12,
       "last5": [
         52.5,
@@ -1190,7 +1190,7 @@
       "price_proj": 43.3,
       "price": 22.9,
       "price_change": -1.9,
-      "value": 1.89,
+      "value": 1.96,
       "sprite": "sprites/1642843.png"
     },
     {
@@ -1315,9 +1315,9 @@
         "SF",
         "PF"
       ],
-      "proj": 42.1,
+      "proj": 36.4,
       "avg_fp": 39.1,
-      "matchup_adj": -3.1,
+      "matchup_adj": -2.7,
       "games_this_season": 2,
       "last5": [
         44.5,
@@ -1407,7 +1407,7 @@
       "price_proj": 42.1,
       "price": 22.3,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.63,
       "sprite": "sprites/202695.png"
     },
     {
@@ -1422,9 +1422,9 @@
         "PF",
         "C"
       ],
-      "proj": 41.8,
+      "proj": 42.2,
       "avg_fp": 46.6,
-      "matchup_adj": -3.4,
+      "matchup_adj": -3.5,
       "games_this_season": 11,
       "last5": [
         45.8,
@@ -1517,7 +1517,7 @@
       "price_proj": 41.8,
       "price": 22.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.9,
       "sprite": "sprites/203076.png"
     },
     {
@@ -1642,9 +1642,9 @@
         "SG",
         "SF"
       ],
-      "proj": 40.8,
+      "proj": 38.9,
       "avg_fp": 38.3,
-      "matchup_adj": 0.8,
+      "matchup_adj": 0.7,
       "games_this_season": 12,
       "last5": [
         45.8,
@@ -1737,7 +1737,7 @@
       "price_proj": 40.8,
       "price": 21.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.8,
       "sprite": "sprites/1627759.png"
     },
     {
@@ -1752,9 +1752,9 @@
         "SG",
         "SF"
       ],
-      "proj": 40.6,
+      "proj": 42.0,
       "avg_fp": 45.1,
-      "matchup_adj": -3.0,
+      "matchup_adj": -3.1,
       "games_this_season": 8,
       "last5": [
         50.5,
@@ -1847,7 +1847,7 @@
       "price_proj": 40.6,
       "price": 21.5,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.95,
       "sprite": "sprites/1630567.png"
     },
     {
@@ -1862,7 +1862,7 @@
         "SF",
         "PF"
       ],
-      "proj": 39.9,
+      "proj": 38.1,
       "avg_fp": 37.4,
       "matchup_adj": 0.7,
       "games_this_season": 10,
@@ -1957,7 +1957,7 @@
       "price_proj": 39.9,
       "price": 21.1,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.81,
       "sprite": "sprites/2544.png"
     },
     {
@@ -1972,7 +1972,7 @@
         "PG",
         "SG"
       ],
-      "proj": 39.9,
+      "proj": 39.4,
       "avg_fp": 39.2,
       "matchup_adj": -0.1,
       "games_this_season": 11,
@@ -2067,7 +2067,7 @@
       "price_proj": 39.9,
       "price": 21.1,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.87,
       "sprite": "sprites/1626164.png"
     },
     {
@@ -2082,7 +2082,7 @@
         "PF",
         "C"
       ],
-      "proj": 39.7,
+      "proj": 37.3,
       "avg_fp": 37.1,
       "matchup_adj": 0.7,
       "games_this_season": 11,
@@ -2177,7 +2177,7 @@
       "price_proj": 39.7,
       "price": 21.0,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.78,
       "sprite": "sprites/203954.png"
     },
     {
@@ -2192,7 +2192,7 @@
         "SF",
         "PF"
       ],
-      "proj": 38.7,
+      "proj": 38.4,
       "avg_fp": 38.9,
       "matchup_adj": -0.9,
       "games_this_season": 12,
@@ -2287,7 +2287,7 @@
       "price_proj": 38.7,
       "price": 20.5,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.87,
       "sprite": "sprites/1627783.png"
     },
     {
@@ -2301,7 +2301,7 @@
       "positions": [
         "C"
       ],
-      "proj": 38.6,
+      "proj": 38.5,
       "avg_fp": 37.6,
       "matchup_adj": 0.6,
       "games_this_season": 13,
@@ -2411,7 +2411,7 @@
         "PG",
         "SG"
       ],
-      "proj": 38.7,
+      "proj": 38.1,
       "avg_fp": 38.2,
       "matchup_adj": 0.6,
       "games_this_season": 12,
@@ -2506,7 +2506,7 @@
       "price_proj": 38.7,
       "price": 20.5,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.86,
       "sprite": "sprites/1630559.png"
     },
     {
@@ -2521,7 +2521,7 @@
         "SF",
         "PF"
       ],
-      "proj": 38.7,
+      "proj": 37.8,
       "avg_fp": 36.7,
       "matchup_adj": 1.3,
       "games_this_season": 13,
@@ -2616,7 +2616,7 @@
       "price_proj": 38.7,
       "price": 20.5,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.84,
       "sprite": "sprites/201142.png"
     },
     {
@@ -2631,7 +2631,7 @@
         "PF",
         "C"
       ],
-      "proj": 38.1,
+      "proj": 38.7,
       "avg_fp": 41.3,
       "matchup_adj": -2.0,
       "games_this_season": 11,
@@ -2726,7 +2726,7 @@
       "price_proj": 38.1,
       "price": 20.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.92,
       "sprite": "sprites/1627734.png"
     },
     {
@@ -2741,7 +2741,7 @@
         "SF",
         "PF"
       ],
-      "proj": 37.7,
+      "proj": 39.5,
       "avg_fp": 39.6,
       "matchup_adj": -0.1,
       "games_this_season": 10,
@@ -2836,7 +2836,7 @@
       "price_proj": 37.7,
       "price": 20.0,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.98,
       "sprite": "sprites/202331.png"
     },
     {
@@ -2851,9 +2851,9 @@
         "PF",
         "C"
       ],
-      "proj": 37.1,
+      "proj": 34.5,
       "avg_fp": 33.0,
-      "matchup_adj": 1.6,
+      "matchup_adj": 1.5,
       "games_this_season": 3,
       "last5": [
         33.2,
@@ -2944,7 +2944,7 @@
       "price_proj": 37.1,
       "price": 19.7,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.75,
       "sprite": "sprites/1631096.png"
     },
     {
@@ -3179,7 +3179,7 @@
         "PG",
         "SG"
       ],
-      "proj": 36.6,
+      "proj": 36.5,
       "avg_fp": 34.4,
       "matchup_adj": 2.7,
       "games_this_season": 13,
@@ -3274,7 +3274,7 @@
       "price_proj": 36.6,
       "price": 19.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.88,
       "sprite": "sprites/1629638.png"
     },
     {
@@ -3289,9 +3289,9 @@
         "PG",
         "SG"
       ],
-      "proj": 36.0,
+      "proj": 35.6,
       "avg_fp": 37.9,
-      "matchup_adj": -2.5,
+      "matchup_adj": -2.4,
       "games_this_season": 12,
       "last5": [
         64.5,
@@ -3384,7 +3384,7 @@
       "price_proj": 36.0,
       "price": 19.1,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.86,
       "sprite": "sprites/1641718.png"
     },
     {
@@ -3613,7 +3613,7 @@
         "SF",
         "PF"
       ],
-      "proj": 35.0,
+      "proj": 34.6,
       "avg_fp": 34.1,
       "matchup_adj": 0.5,
       "games_this_season": 10,
@@ -3708,7 +3708,7 @@
       "price_proj": 35.0,
       "price": 18.6,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.86,
       "sprite": "sprites/1641706.png"
     },
     {
@@ -3723,9 +3723,9 @@
         "PF",
         "C"
       ],
-      "proj": 35.0,
+      "proj": 31.1,
       "avg_fp": 33.2,
-      "matchup_adj": -2.4,
+      "matchup_adj": -2.1,
       "games_this_season": 8,
       "last5": [
         2.0,
@@ -3818,7 +3818,7 @@
       "price_proj": 35.0,
       "price": 18.6,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.67,
       "sprite": "sprites/1628374.png"
     },
     {
@@ -3833,7 +3833,7 @@
         "PG",
         "SG"
       ],
-      "proj": 34.9,
+      "proj": 35.4,
       "avg_fp": 39.2,
       "matchup_adj": -2.9,
       "games_this_season": 13,
@@ -3928,7 +3928,7 @@
       "price_proj": 34.9,
       "price": 18.5,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.91,
       "sprite": "sprites/1629027.png"
     },
     {
@@ -3943,7 +3943,7 @@
         "PG",
         "SG"
       ],
-      "proj": 34.7,
+      "proj": 34.5,
       "avg_fp": 33.1,
       "matchup_adj": 2.6,
       "games_this_season": 13,
@@ -4038,7 +4038,7 @@
       "price_proj": 34.7,
       "price": 18.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.88,
       "sprite": "sprites/1630700.png"
     },
     {
@@ -4053,7 +4053,7 @@
         "SG",
         "SF"
       ],
-      "proj": 34.5,
+      "proj": 35.5,
       "avg_fp": 37.9,
       "matchup_adj": -2.6,
       "games_this_season": 12,
@@ -4148,7 +4148,7 @@
       "price_proj": 34.5,
       "price": 18.3,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.94,
       "sprite": "sprites/1629628.png"
     },
     {
@@ -4163,9 +4163,9 @@
         "SG",
         "SF"
       ],
-      "proj": 33.8,
+      "proj": 29.6,
       "avg_fp": 28.3,
-      "matchup_adj": 1.4,
+      "matchup_adj": 1.3,
       "games_this_season": 3,
       "last5": [
         28.2,
@@ -4256,7 +4256,7 @@
       "price_proj": 33.8,
       "price": 17.9,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.65,
       "sprite": "sprites/1631114.png"
     },
     {
@@ -4271,7 +4271,7 @@
         "SF",
         "PF"
       ],
-      "proj": 33.2,
+      "proj": 33.8,
       "avg_fp": 33.0,
       "matchup_adj": -0.1,
       "games_this_season": 11,
@@ -4366,7 +4366,7 @@
       "price_proj": 33.2,
       "price": 17.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.92,
       "sprite": "sprites/1628970.png"
     },
     {
@@ -4381,7 +4381,7 @@
         "PF",
         "C"
       ],
-      "proj": 33.3,
+      "proj": 34.2,
       "avg_fp": 34.1,
       "matchup_adj": 0.5,
       "games_this_season": 12,
@@ -4476,7 +4476,7 @@
       "price_proj": 33.3,
       "price": 17.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.94,
       "sprite": "sprites/1629675.png"
     },
     {
@@ -4491,7 +4491,7 @@
         "PF",
         "C"
       ],
-      "proj": 33.3,
+      "proj": 33.7,
       "avg_fp": 30.6,
       "matchup_adj": 1.4,
       "games_this_season": 13,
@@ -4586,7 +4586,7 @@
       "price_proj": 33.3,
       "price": 17.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.91,
       "sprite": "sprites/1628392.png"
     },
     {
@@ -4601,7 +4601,7 @@
         "PG",
         "SG"
       ],
-      "proj": 32.9,
+      "proj": 34.3,
       "avg_fp": 33.4,
       "matchup_adj": 0.6,
       "games_this_season": 13,
@@ -4696,7 +4696,7 @@
       "price_proj": 32.9,
       "price": 17.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.97,
       "sprite": "sprites/1642844.png"
     },
     {
@@ -4711,7 +4711,7 @@
         "PG",
         "SG"
       ],
-      "proj": 32.9,
+      "proj": 32.2,
       "avg_fp": 32.4,
       "matchup_adj": 0.6,
       "games_this_season": 13,
@@ -4806,7 +4806,7 @@
       "price_proj": 32.9,
       "price": 17.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.85,
       "sprite": "sprites/1642264.png"
     },
     {
@@ -4821,7 +4821,7 @@
         "SF",
         "PF"
       ],
-      "proj": 32.8,
+      "proj": 32.9,
       "avg_fp": 31.7,
       "matchup_adj": 1.1,
       "games_this_season": 13,
@@ -4931,7 +4931,7 @@
         "PG",
         "SG"
       ],
-      "proj": 32.6,
+      "proj": 32.2,
       "avg_fp": 31.0,
       "matchup_adj": 0.6,
       "games_this_season": 12,
@@ -5026,7 +5026,7 @@
       "price_proj": 32.6,
       "price": 17.3,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.86,
       "sprite": "sprites/1642845.png"
     },
     {
@@ -5041,9 +5041,9 @@
         "PG",
         "SG"
       ],
-      "proj": 32.6,
+      "proj": 32.5,
       "avg_fp": 34.0,
-      "matchup_adj": -1.2,
+      "matchup_adj": -1.1,
       "games_this_season": 11,
       "last5": [
         30.0,
@@ -5364,7 +5364,7 @@
         "SG",
         "SF"
       ],
-      "proj": 32.1,
+      "proj": 31.6,
       "avg_fp": 32.5,
       "matchup_adj": -0.7,
       "games_this_season": 11,
@@ -5459,7 +5459,7 @@
       "price_proj": 32.1,
       "price": 17.0,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.86,
       "sprite": "sprites/1629614.png"
     },
     {
@@ -5474,9 +5474,9 @@
         "SG",
         "SF"
       ],
-      "proj": 32.0,
+      "proj": 30.7,
       "avg_fp": 31.6,
-      "matchup_adj": 1.1,
+      "matchup_adj": 1.0,
       "games_this_season": 13,
       "last5": [
         21.0,
@@ -5569,114 +5569,8 @@
       "price_proj": 32.0,
       "price": 17.0,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.81,
       "sprite": "sprites/1641708.png"
-    },
-    {
-      "id": 1642851,
-      "name": "Kon Knueppel",
-      "num": "7",
-      "team": "CHA",
-      "opp": "LAC",
-      "home": false,
-      "game_id": "0022600238",
-      "positions": [
-        "SG",
-        "SF"
-      ],
-      "proj": 31.3,
-      "avg_fp": 2.0,
-      "matchup_adj": 0.5,
-      "games_this_season": 1,
-      "last5": [
-        2.0
-      ],
-      "stats": {
-        "pts": 3.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
-        "tov": 2.0,
-        "fg3m": 0.0,
-        "min": 6.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 3.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 2.0,
-          "fg3m": 0.0,
-          "min": 6.0,
-          "fgm": 0.0,
-          "fga": 1.0,
-          "ftm": 3.0,
-          "fta": 3.0,
-          "fp": 2.0,
-          "g": 1
-        },
-        "l5": {
-          "pts": 3.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 2.0,
-          "fg3m": 0.0,
-          "min": 6.0,
-          "fgm": 0.0,
-          "fga": 1.0,
-          "ftm": 3.0,
-          "fta": 3.0,
-          "fp": 2.0,
-          "g": 1
-        },
-        "l10": {
-          "pts": 3.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 2.0,
-          "fg3m": 0.0,
-          "min": 6.0,
-          "fgm": 0.0,
-          "fga": 1.0,
-          "ftm": 3.0,
-          "fta": 3.0,
-          "fp": 2.0,
-          "g": 1
-        },
-        "season": {
-          "pts": 3.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 2.0,
-          "fg3m": 0.0,
-          "min": 6.0,
-          "fgm": 0.0,
-          "fga": 1.0,
-          "ftm": 3.0,
-          "fta": 3.0,
-          "fp": 2.0,
-          "g": 1
-        }
-      },
-      "injury": "OUT",
-      "injury_src": "espn",
-      "pct_rostered": 80.2,
-      "pct_started": 32.1,
-      "price_proj": 31.3,
-      "price": 16.6,
-      "price_change": 0.0,
-      "value": 1.89,
-      "sprite": "sprites/1642851.png"
     },
     {
       "id": 1630193,
@@ -5690,7 +5584,7 @@
         "PG",
         "SG"
       ],
-      "proj": 31.4,
+      "proj": 31.3,
       "avg_fp": 33.6,
       "matchup_adj": -2.3,
       "games_this_season": 10,
@@ -5800,7 +5694,7 @@
         "SF",
         "PF"
       ],
-      "proj": 31.3,
+      "proj": 31.6,
       "avg_fp": 33.9,
       "matchup_adj": -2.6,
       "games_this_season": 13,
@@ -5895,7 +5789,7 @@
       "price_proj": 31.3,
       "price": 16.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.9,
       "sprite": "sprites/1642273.png"
     },
     {
@@ -5910,9 +5804,9 @@
         "PG",
         "SG"
       ],
-      "proj": 31.3,
+      "proj": 32.7,
       "avg_fp": 30.6,
-      "matchup_adj": 1.3,
+      "matchup_adj": 1.4,
       "games_this_season": 11,
       "last5": [
         29.8,
@@ -6005,7 +5899,7 @@
       "price_proj": 31.3,
       "price": 16.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.97,
       "sprite": "sprites/1642349.png"
     },
     {
@@ -6020,9 +5914,9 @@
         "PG",
         "SG"
       ],
-      "proj": 30.5,
+      "proj": 29.6,
       "avg_fp": 30.6,
-      "matchup_adj": 0.6,
+      "matchup_adj": 0.5,
       "games_this_season": 13,
       "last5": [
         20.5,
@@ -6115,7 +6009,7 @@
       "price_proj": 30.5,
       "price": 16.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.83,
       "sprite": "sprites/1628368.png"
     },
     {
@@ -6130,9 +6024,9 @@
         "PF",
         "C"
       ],
-      "proj": 30.6,
+      "proj": 26.2,
       "avg_fp": 28.0,
-      "matchup_adj": -2.1,
+      "matchup_adj": -1.8,
       "games_this_season": 4,
       "last5": [
         28.8,
@@ -6224,7 +6118,7 @@
       "price_proj": 30.6,
       "price": 16.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.62,
       "sprite": "sprites/1628991.png"
     },
     {
@@ -6349,9 +6243,9 @@
         "PG",
         "SG"
       ],
-      "proj": 30.4,
+      "proj": 29.8,
       "avg_fp": 26.8,
-      "matchup_adj": 2.3,
+      "matchup_adj": 2.2,
       "games_this_season": 13,
       "last5": [
         33.2,
@@ -6444,7 +6338,7 @@
       "price_proj": 30.4,
       "price": 16.1,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.85,
       "sprite": "sprites/203468.png"
     },
     {
@@ -6459,7 +6353,7 @@
         "PG",
         "SG"
       ],
-      "proj": 29.9,
+      "proj": 29.6,
       "avg_fp": 29.5,
       "matchup_adj": 1.4,
       "games_this_season": 13,
@@ -6554,7 +6448,7 @@
       "price_proj": 29.9,
       "price": 15.8,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.87,
       "sprite": "sprites/1631170.png"
     },
     {
@@ -6569,9 +6463,9 @@
         "PG",
         "SG"
       ],
-      "proj": 29.7,
+      "proj": 30.4,
       "avg_fp": 32.5,
-      "matchup_adj": -1.5,
+      "matchup_adj": -1.6,
       "games_this_season": 12,
       "last5": [
         32.0,
@@ -6664,7 +6558,7 @@
       "price_proj": 29.7,
       "price": 15.7,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.94,
       "sprite": "sprites/203897.png"
     },
     {
@@ -6679,7 +6573,7 @@
         "PG",
         "SG"
       ],
-      "proj": 29.2,
+      "proj": 27.7,
       "avg_fp": 28.0,
       "matchup_adj": -0.1,
       "games_this_season": 12,
@@ -6774,7 +6668,7 @@
       "price_proj": 29.2,
       "price": 15.5,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.79,
       "sprite": "sprites/1628401.png"
     },
     {
@@ -6789,7 +6683,7 @@
         "SG",
         "SF"
       ],
-      "proj": 28.6,
+      "proj": 28.0,
       "avg_fp": 29.2,
       "matchup_adj": -0.7,
       "games_this_season": 12,
@@ -6884,7 +6778,7 @@
       "price_proj": 28.6,
       "price": 15.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.84,
       "sprite": "sprites/1628384.png"
     },
     {
@@ -6898,7 +6792,7 @@
       "positions": [
         "C"
       ],
-      "proj": 28.4,
+      "proj": 25.2,
       "avg_fp": 25.7,
       "matchup_adj": -0.6,
       "games_this_season": 8,
@@ -6993,7 +6887,7 @@
       "price_proj": 28.4,
       "price": 15.1,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.67,
       "sprite": "sprites/1627826.png"
     },
     {
@@ -7008,7 +6902,7 @@
         "PG",
         "SG"
       ],
-      "proj": 27.6,
+      "proj": 26.9,
       "avg_fp": 26.4,
       "matchup_adj": 0.4,
       "games_this_season": 12,
@@ -7103,7 +6997,7 @@
       "price_proj": 27.6,
       "price": 14.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.84,
       "sprite": "sprites/1628960.png"
     },
     {
@@ -7118,7 +7012,7 @@
         "SF",
         "PF"
       ],
-      "proj": 27.1,
+      "proj": 27.9,
       "avg_fp": 27.5,
       "matchup_adj": 0.4,
       "games_this_season": 10,
@@ -7213,7 +7107,7 @@
       "price_proj": 27.1,
       "price": 14.4,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.94,
       "sprite": "sprites/1631217.png"
     },
     {
@@ -7228,7 +7122,7 @@
         "PG",
         "SG"
       ],
-      "proj": 27.1,
+      "proj": 25.9,
       "avg_fp": 25.0,
       "matchup_adj": -0.1,
       "games_this_season": 12,
@@ -7323,7 +7217,7 @@
       "price_proj": 27.1,
       "price": 14.4,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.8,
       "sprite": "sprites/1630202.png"
     },
     {
@@ -7338,9 +7232,9 @@
         "PG",
         "SG"
       ],
-      "proj": 27.0,
+      "proj": 24.6,
       "avg_fp": 25.2,
-      "matchup_adj": -0.7,
+      "matchup_adj": -0.6,
       "games_this_season": 9,
       "last5": [
         17.5,
@@ -7433,7 +7327,7 @@
       "price_proj": 27.0,
       "price": 14.3,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.72,
       "sprite": "sprites/1628404.png"
     },
     {
@@ -7448,7 +7342,7 @@
         "SG",
         "SF"
       ],
-      "proj": 26.8,
+      "proj": 25.7,
       "avg_fp": 25.1,
       "matchup_adj": -0.1,
       "games_this_season": 11,
@@ -7543,7 +7437,7 @@
       "price_proj": 26.8,
       "price": 14.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.81,
       "sprite": "sprites/1628415.png"
     },
     {
@@ -7661,9 +7555,9 @@
       "positions": [
         "C"
       ],
-      "proj": 26.8,
+      "proj": 25.4,
       "avg_fp": 26.9,
-      "matchup_adj": -2.2,
+      "matchup_adj": -2.1,
       "games_this_season": 12,
       "last5": [
         35.0,
@@ -7756,7 +7650,7 @@
       "price_proj": 26.8,
       "price": 14.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.79,
       "sprite": "sprites/1642259.png"
     },
     {
@@ -7771,9 +7665,9 @@
         "PG",
         "SG"
       ],
-      "proj": 26.7,
+      "proj": 25.1,
       "avg_fp": 24.5,
-      "matchup_adj": 1.3,
+      "matchup_adj": 1.2,
       "games_this_season": 13,
       "last5": [
         14.8,
@@ -7866,7 +7760,7 @@
       "price_proj": 26.7,
       "price": 14.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.77,
       "sprite": "sprites/1631157.png"
     },
     {
@@ -7881,7 +7775,7 @@
         "PG",
         "SG"
       ],
-      "proj": 26.6,
+      "proj": 27.6,
       "avg_fp": 25.8,
       "matchup_adj": 2.0,
       "games_this_season": 13,
@@ -7976,7 +7870,7 @@
       "price_proj": 26.6,
       "price": 14.1,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.96,
       "sprite": "sprites/1630598.png"
     },
     {
@@ -8094,7 +7988,7 @@
         "SF",
         "PF"
       ],
-      "proj": 26.4,
+      "proj": 26.9,
       "avg_fp": 28.8,
       "matchup_adj": -1.8,
       "games_this_season": 13,
@@ -8189,7 +8083,7 @@
       "price_proj": 26.4,
       "price": 14.0,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.92,
       "sprite": "sprites/1642846.png"
     },
     {
@@ -8314,9 +8208,9 @@
         "SF",
         "PF"
       ],
-      "proj": 26.0,
+      "proj": 25.8,
       "avg_fp": 27.8,
-      "matchup_adj": -2.1,
+      "matchup_adj": -2.0,
       "games_this_season": 13,
       "last5": [
         42.0,
@@ -8409,7 +8303,7 @@
       "price_proj": 26.0,
       "price": 13.8,
       "price_change": -1.5,
-      "value": 1.88,
+      "value": 1.87,
       "sprite": "sprites/1629023.png"
     },
     {
@@ -8424,7 +8318,7 @@
         "SG",
         "SF"
       ],
-      "proj": 25.8,
+      "proj": 25.6,
       "avg_fp": 24.4,
       "matchup_adj": 0.5,
       "games_this_season": 11,
@@ -8519,7 +8413,7 @@
       "price_proj": 25.8,
       "price": 13.7,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.87,
       "sprite": "sprites/1630170.png"
     },
     {
@@ -8534,7 +8428,7 @@
         "PF",
         "C"
       ],
-      "proj": 25.9,
+      "proj": 25.5,
       "avg_fp": 24.4,
       "matchup_adj": 1.2,
       "games_this_season": 12,
@@ -8629,7 +8523,7 @@
       "price_proj": 25.9,
       "price": 13.7,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.86,
       "sprite": "sprites/1626167.png"
     },
     {
@@ -8644,9 +8538,9 @@
         "PG",
         "SG"
       ],
-      "proj": 25.3,
+      "proj": 17.6,
       "avg_fp": 17.4,
-      "matchup_adj": 0.4,
+      "matchup_adj": 0.3,
       "games_this_season": 5,
       "last5": [
         10.5,
@@ -8739,7 +8633,7 @@
       "price_proj": 25.3,
       "price": 13.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.31,
       "sprite": "sprites/1629632.png"
     },
     {
@@ -8864,9 +8758,9 @@
         "SF",
         "PF"
       ],
-      "proj": 25.1,
+      "proj": 20.1,
       "avg_fp": 21.1,
-      "matchup_adj": -1.3,
+      "matchup_adj": -1.0,
       "games_this_season": 5,
       "last5": [
         9.0,
@@ -8959,7 +8853,7 @@
       "price_proj": 25.1,
       "price": 13.3,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.51,
       "sprite": "sprites/1631099.png"
     },
     {
@@ -8974,9 +8868,9 @@
         "PG",
         "SG"
       ],
-      "proj": 24.7,
+      "proj": 26.2,
       "avg_fp": 23.3,
-      "matchup_adj": 1.0,
+      "matchup_adj": 1.1,
       "games_this_season": 13,
       "last5": [
         38.2,
@@ -9069,7 +8963,7 @@
       "price_proj": 24.7,
       "price": 13.1,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 2.0,
       "sprite": "sprites/1642272.png"
     },
     {
@@ -9084,7 +8978,7 @@
         "SF",
         "PF"
       ],
-      "proj": 24.6,
+      "proj": 24.4,
       "avg_fp": 24.2,
       "matchup_adj": 1.2,
       "games_this_season": 13,
@@ -9179,7 +9073,7 @@
       "price_proj": 24.6,
       "price": 13.0,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.88,
       "sprite": "sprites/1628398.png"
     },
     {
@@ -9510,7 +9404,7 @@
         "PG",
         "SG"
       ],
-      "proj": 24.1,
+      "proj": 22.3,
       "avg_fp": 22.2,
       "matchup_adj": -0.1,
       "games_this_season": 11,
@@ -9605,7 +9499,7 @@
       "price_proj": 24.1,
       "price": 12.8,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.74,
       "sprite": "sprites/1630224.png"
     },
     {
@@ -9619,7 +9513,7 @@
       "positions": [
         "C"
       ],
-      "proj": 23.8,
+      "proj": 22.9,
       "avg_fp": 23.0,
       "matchup_adj": -0.1,
       "games_this_season": 12,
@@ -9714,7 +9608,7 @@
       "price_proj": 23.8,
       "price": 12.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.82,
       "sprite": "sprites/1629674.png"
     },
     {
@@ -9729,7 +9623,7 @@
         "PG",
         "SG"
       ],
-      "proj": 23.5,
+      "proj": 21.7,
       "avg_fp": 21.1,
       "matchup_adj": -0.1,
       "games_this_season": 11,
@@ -9824,7 +9718,7 @@
       "price_proj": 23.5,
       "price": 12.5,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.74,
       "sprite": "sprites/1631221.png"
     },
     {
@@ -9839,9 +9733,9 @@
         "SF",
         "PF"
       ],
-      "proj": 23.5,
+      "proj": 22.3,
       "avg_fp": 24.0,
-      "matchup_adj": -1.9,
+      "matchup_adj": -1.8,
       "games_this_season": 10,
       "last5": [
         19.2,
@@ -9934,7 +9828,7 @@
       "price_proj": 23.5,
       "price": 12.5,
       "price_change": -1.2,
-      "value": 1.88,
+      "value": 1.78,
       "sprite": "sprites/1630230.png"
     },
     {
@@ -10059,9 +9953,9 @@
         "PF",
         "C"
       ],
-      "proj": 23.3,
+      "proj": 14.0,
       "avg_fp": 15.1,
-      "matchup_adj": -1.9,
+      "matchup_adj": -1.1,
       "games_this_season": 5,
       "last5": [
         19.8,
@@ -10154,7 +10048,7 @@
       "price_proj": 23.3,
       "price": 12.3,
       "price_change": -1.7,
-      "value": 1.89,
+      "value": 1.14,
       "sprite": "sprites/1630583.png"
     },
     {
@@ -10169,7 +10063,7 @@
         "PG",
         "SG"
       ],
-      "proj": 23.1,
+      "proj": 22.9,
       "avg_fp": 22.6,
       "matchup_adj": 0.3,
       "games_this_season": 9,
@@ -10264,7 +10158,7 @@
       "price_proj": 23.1,
       "price": 12.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.88,
       "sprite": "sprites/203471.png"
     },
     {
@@ -10278,9 +10172,9 @@
       "positions": [
         "C"
       ],
-      "proj": 23.1,
+      "proj": 24.9,
       "avg_fp": 26.4,
-      "matchup_adj": -0.8,
+      "matchup_adj": -0.9,
       "games_this_season": 11,
       "last5": [
         25.5,
@@ -10373,7 +10267,7 @@
       "price_proj": 23.1,
       "price": 12.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 2.04,
       "sprite": "sprites/201572.png"
     },
     {
@@ -10388,9 +10282,9 @@
         "SF",
         "PF"
       ],
-      "proj": 23.0,
+      "proj": 26.0,
       "avg_fp": 26.9,
-      "matchup_adj": -0.8,
+      "matchup_adj": -0.9,
       "games_this_season": 9,
       "last5": [
         33.8,
@@ -10483,7 +10377,7 @@
       "price_proj": 23.0,
       "price": 12.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 2.13,
       "sprite": "sprites/1629060.png"
     },
     {
@@ -10498,7 +10392,7 @@
         "SF",
         "PF"
       ],
-      "proj": 22.9,
+      "proj": 23.0,
       "avg_fp": 24.4,
       "matchup_adj": -1.2,
       "games_this_season": 11,
@@ -10593,7 +10487,7 @@
       "price_proj": 22.9,
       "price": 12.1,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.9,
       "sprite": "sprites/1630173.png"
     },
     {
@@ -10608,7 +10502,7 @@
         "SG",
         "SF"
       ],
-      "proj": 22.6,
+      "proj": 22.7,
       "avg_fp": 23.3,
       "matchup_adj": -1.2,
       "games_this_season": 11,
@@ -10703,7 +10597,7 @@
       "price_proj": 22.6,
       "price": 12.0,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.89,
       "sprite": "sprites/1629631.png"
     },
     {
@@ -10717,9 +10611,9 @@
       "positions": [
         "C"
       ],
-      "proj": 22.5,
+      "proj": 21.4,
       "avg_fp": 21.0,
-      "matchup_adj": 1.1,
+      "matchup_adj": 1.0,
       "games_this_season": 13,
       "last5": [
         9.2,
@@ -10812,7 +10706,7 @@
       "price_proj": 22.5,
       "price": 11.9,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.8,
       "sprite": "sprites/1642276.png"
     },
     {
@@ -10827,7 +10721,7 @@
         "SF",
         "PF"
       ],
-      "proj": 22.3,
+      "proj": 23.5,
       "avg_fp": 24.4,
       "matchup_adj": -0.8,
       "games_this_season": 10,
@@ -10922,7 +10816,7 @@
       "price_proj": 22.3,
       "price": 11.8,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.99,
       "sprite": "sprites/1627884.png"
     },
     {
@@ -10937,7 +10831,7 @@
         "PG",
         "SG"
       ],
-      "proj": 22.0,
+      "proj": 22.9,
       "avg_fp": 24.2,
       "matchup_adj": -0.8,
       "games_this_season": 11,
@@ -11032,7 +10926,7 @@
       "price_proj": 22.0,
       "price": 11.7,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.96,
       "sprite": "sprites/1627739.png"
     },
     {
@@ -11047,7 +10941,7 @@
         "SF",
         "PF"
       ],
-      "proj": 22.0,
+      "proj": 21.6,
       "avg_fp": 21.5,
       "matchup_adj": 0.4,
       "games_this_season": 13,
@@ -11142,7 +11036,7 @@
       "price_proj": 22.0,
       "price": 11.7,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.85,
       "sprite": "sprites/1630577.png"
     },
     {
@@ -11157,9 +11051,9 @@
         "PG",
         "SG"
       ],
-      "proj": 22.1,
+      "proj": 19.1,
       "avg_fp": 18.4,
-      "matchup_adj": 0.8,
+      "matchup_adj": 0.7,
       "games_this_season": 10,
       "last5": [
         27.0,
@@ -11252,7 +11146,7 @@
       "price_proj": 22.1,
       "price": 11.7,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.63,
       "sprite": "sprites/1642263.png"
     },
     {
@@ -11487,7 +11381,7 @@
         "PG",
         "SG"
       ],
-      "proj": 21.4,
+      "proj": 21.0,
       "avg_fp": 21.0,
       "matchup_adj": -0.1,
       "games_this_season": 7,
@@ -11582,7 +11476,7 @@
       "price_proj": 21.4,
       "price": 11.3,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.86,
       "sprite": "sprites/1630692.png"
     },
     {
@@ -11597,9 +11491,9 @@
         "SG",
         "SF"
       ],
-      "proj": 21.4,
+      "proj": 20.9,
       "avg_fp": 21.6,
-      "matchup_adj": -0.8,
+      "matchup_adj": -0.7,
       "games_this_season": 5,
       "last5": [
         28.0,
@@ -11692,7 +11586,7 @@
       "price_proj": 21.4,
       "price": 11.3,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.85,
       "sprite": "sprites/1629622.png"
     },
     {
@@ -11817,9 +11711,9 @@
         "SG",
         "SF"
       ],
-      "proj": 21.1,
+      "proj": 20.0,
       "avg_fp": 20.2,
-      "matchup_adj": -0.5,
+      "matchup_adj": -0.4,
       "games_this_season": 11,
       "last5": [
         28.8,
@@ -11912,7 +11806,7 @@
       "price_proj": 21.1,
       "price": 11.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.79,
       "sprite": "sprites/1630174.png"
     },
     {
@@ -11927,7 +11821,7 @@
         "SG",
         "SF"
       ],
-      "proj": 21.2,
+      "proj": 20.8,
       "avg_fp": 20.2,
       "matchup_adj": 0.4,
       "games_this_season": 13,
@@ -12022,7 +11916,7 @@
       "price_proj": 21.2,
       "price": 11.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.86,
       "sprite": "sprites/1629640.png"
     },
     {
@@ -12037,7 +11931,7 @@
         "PG",
         "SG"
       ],
-      "proj": 21.1,
+      "proj": 21.9,
       "avg_fp": 22.5,
       "matchup_adj": -1.6,
       "games_this_season": 12,
@@ -12132,7 +12026,7 @@
       "price_proj": 21.1,
       "price": 11.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.96,
       "sprite": "sprites/1642347.png"
     },
     {
@@ -12146,9 +12040,9 @@
       "positions": [
         "C"
       ],
-      "proj": 21.2,
+      "proj": 20.1,
       "avg_fp": 21.6,
-      "matchup_adj": -1.6,
+      "matchup_adj": -1.5,
       "games_this_season": 10,
       "last5": [
         15.8,
@@ -12241,7 +12135,7 @@
       "price_proj": 21.2,
       "price": 11.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.79,
       "sprite": "sprites/1627751.png"
     },
     {
@@ -12256,9 +12150,9 @@
         "PG",
         "SG"
       ],
-      "proj": 21.1,
+      "proj": 17.1,
       "avg_fp": 16.3,
-      "matchup_adj": 0.9,
+      "matchup_adj": 0.7,
       "games_this_season": 3,
       "last5": [
         14.2,
@@ -12349,7 +12243,7 @@
       "price_proj": 21.1,
       "price": 11.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.53,
       "sprite": "sprites/1641717.png"
     },
     {
@@ -12364,9 +12258,9 @@
         "PF",
         "C"
       ],
-      "proj": 20.9,
+      "proj": 20.8,
       "avg_fp": 22.4,
-      "matchup_adj": -1.7,
+      "matchup_adj": -1.6,
       "games_this_season": 13,
       "last5": [
         13.2,
@@ -12459,113 +12353,8 @@
       "price_proj": 20.9,
       "price": 11.1,
       "price_change": -1.6,
-      "value": 1.88,
+      "value": 1.87,
       "sprite": "sprites/1629655.png"
-    },
-    {
-      "id": 203500,
-      "name": "Steven Adams",
-      "num": "12",
-      "team": "HOU",
-      "opp": "WAS",
-      "home": false,
-      "game_id": "0022600242",
-      "positions": [
-        "C"
-      ],
-      "proj": 20.9,
-      "avg_fp": 8.0,
-      "matchup_adj": 0.7,
-      "games_this_season": 1,
-      "last5": [
-        8.0
-      ],
-      "stats": {
-        "pts": 4.0,
-        "reb": 2.0,
-        "ast": 1.0,
-        "stl": 0.0,
-        "blk": 0.0,
-        "tov": 0.0,
-        "fg3m": 0.0,
-        "min": 8.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 4.0,
-          "reb": 2.0,
-          "ast": 1.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 8.0,
-          "fgm": 2.0,
-          "fga": 2.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 8.0,
-          "g": 1
-        },
-        "l5": {
-          "pts": 4.0,
-          "reb": 2.0,
-          "ast": 1.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 8.0,
-          "fgm": 2.0,
-          "fga": 2.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 8.0,
-          "g": 1
-        },
-        "l10": {
-          "pts": 4.0,
-          "reb": 2.0,
-          "ast": 1.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 8.0,
-          "fgm": 2.0,
-          "fga": 2.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 8.0,
-          "g": 1
-        },
-        "season": {
-          "pts": 4.0,
-          "reb": 2.0,
-          "ast": 1.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 8.0,
-          "fgm": 2.0,
-          "fga": 2.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 8.0,
-          "g": 1
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.3,
-      "pct_started": 0.1,
-      "price_proj": 20.9,
-      "price": 11.1,
-      "price_change": 0.0,
-      "value": 1.88,
-      "sprite": "sprites/203500.png"
     },
     {
       "id": 1626162,
@@ -12579,9 +12368,9 @@
         "SG",
         "SF"
       ],
-      "proj": 20.7,
+      "proj": 18.8,
       "avg_fp": 18.9,
-      "matchup_adj": -0.5,
+      "matchup_adj": -0.4,
       "games_this_season": 11,
       "last5": [
         18.0,
@@ -12674,7 +12463,7 @@
       "price_proj": 20.7,
       "price": 11.0,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.71,
       "sprite": "sprites/1626162.png"
     },
     {
@@ -12689,7 +12478,7 @@
         "SF",
         "PF"
       ],
-      "proj": 20.8,
+      "proj": 21.8,
       "avg_fp": 21.4,
       "matchup_adj": 0.3,
       "games_this_season": 10,
@@ -12784,7 +12573,7 @@
       "price_proj": 20.8,
       "price": 11.0,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.98,
       "sprite": "sprites/1630533.png"
     },
     {
@@ -12799,9 +12588,9 @@
         "PG",
         "SG"
       ],
-      "proj": 20.8,
+      "proj": 21.1,
       "avg_fp": 19.2,
-      "matchup_adj": 1.5,
+      "matchup_adj": 1.6,
       "games_this_season": 13,
       "last5": [
         17.2,
@@ -12894,7 +12683,7 @@
       "price_proj": 20.8,
       "price": 11.0,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.92,
       "sprite": "sprites/1629652.png"
     },
     {
@@ -12909,7 +12698,7 @@
         "PG",
         "SG"
       ],
-      "proj": 20.5,
+      "proj": 20.9,
       "avg_fp": 20.6,
       "matchup_adj": -0.5,
       "games_this_season": 13,
@@ -13004,7 +12793,7 @@
       "price_proj": 20.5,
       "price": 10.9,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.92,
       "sprite": "sprites/1631245.png"
     },
     {
@@ -13019,7 +12808,7 @@
         "SF",
         "PF"
       ],
-      "proj": 20.3,
+      "proj": 20.6,
       "avg_fp": 22.3,
       "matchup_adj": -1.5,
       "games_this_season": 11,
@@ -13114,7 +12903,7 @@
       "price_proj": 20.3,
       "price": 10.8,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.91,
       "sprite": "sprites/1642867.png"
     },
     {
@@ -13128,9 +12917,9 @@
       "positions": [
         "C"
       ],
-      "proj": 20.4,
+      "proj": 17.8,
       "avg_fp": 16.4,
-      "matchup_adj": 1.5,
+      "matchup_adj": 1.3,
       "games_this_season": 9,
       "last5": [
         16.0,
@@ -13223,7 +13012,7 @@
       "price_proj": 20.4,
       "price": 10.8,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.65,
       "sprite": "sprites/1629111.png"
     },
     {
@@ -13238,7 +13027,7 @@
         "PG",
         "SG"
       ],
-      "proj": 19.8,
+      "proj": 15.8,
       "avg_fp": 16.1,
       "matchup_adj": -0.4,
       "games_this_season": 4,
@@ -13332,7 +13121,7 @@
       "price_proj": 19.8,
       "price": 10.5,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.5,
       "sprite": "sprites/204456.png"
     },
     {
@@ -13347,7 +13136,7 @@
         "PG",
         "SG"
       ],
-      "proj": 19.9,
+      "proj": 18.4,
       "avg_fp": 17.9,
       "matchup_adj": 0.3,
       "games_this_season": 12,
@@ -13442,7 +13231,7 @@
       "price_proj": 19.9,
       "price": 10.5,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 1.75,
       "sprite": "sprites/1629012.png"
     },
     {
@@ -13457,9 +13246,9 @@
         "PG",
         "SG"
       ],
-      "proj": 19.9,
+      "proj": 21.3,
       "avg_fp": 23.0,
-      "matchup_adj": -1.5,
+      "matchup_adj": -1.6,
       "games_this_season": 12,
       "last5": [
         11.8,
@@ -13552,7 +13341,7 @@
       "price_proj": 19.9,
       "price": 10.5,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 2.03,
       "sprite": "sprites/1642266.png"
     },
     {
@@ -13677,7 +13466,7 @@
         "SF",
         "PF"
       ],
-      "proj": 19.6,
+      "proj": 18.6,
       "avg_fp": 17.8,
       "matchup_adj": -0.4,
       "games_this_season": 12,
@@ -13772,7 +13561,7 @@
       "price_proj": 19.6,
       "price": 10.4,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.79,
       "sprite": "sprites/1641716.png"
     },
     {
@@ -13787,7 +13576,7 @@
         "SG",
         "SF"
       ],
-      "proj": 19.7,
+      "proj": 17.5,
       "avg_fp": 17.1,
       "matchup_adj": -0.5,
       "games_this_season": 12,
@@ -13882,7 +13671,7 @@
       "price_proj": 19.7,
       "price": 10.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.68,
       "sprite": "sprites/1628969.png"
     },
     {
@@ -13897,9 +13686,9 @@
         "PG",
         "SG"
       ],
-      "proj": 19.7,
+      "proj": 21.3,
       "avg_fp": 20.4,
-      "matchup_adj": 0.8,
+      "matchup_adj": 0.9,
       "games_this_season": 10,
       "last5": [
         19.5,
@@ -13992,7 +13781,7 @@
       "price_proj": 19.7,
       "price": 10.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 2.05,
       "sprite": "sprites/1627936.png"
     },
     {
@@ -14007,9 +13796,9 @@
         "PG",
         "SG"
       ],
-      "proj": 19.2,
+      "proj": 18.5,
       "avg_fp": 17.1,
-      "matchup_adj": 0.4,
+      "matchup_adj": 0.3,
       "games_this_season": 13,
       "last5": [
         0.8,
@@ -14102,7 +13891,7 @@
       "price_proj": 19.2,
       "price": 10.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.81,
       "sprite": "sprites/1629014.png"
     },
     {
@@ -14117,7 +13906,7 @@
         "PG",
         "SG"
       ],
-      "proj": 19.2,
+      "proj": 16.8,
       "avg_fp": 16.9,
       "matchup_adj": 0.3,
       "games_this_season": 11,
@@ -14212,7 +14001,7 @@
       "price_proj": 19.2,
       "price": 10.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.65,
       "sprite": "sprites/1629656.png"
     },
     {
@@ -14227,9 +14016,9 @@
         "PF",
         "C"
       ],
-      "proj": 19.3,
+      "proj": 20.3,
       "avg_fp": 22.5,
-      "matchup_adj": -1.3,
+      "matchup_adj": -1.4,
       "games_this_season": 12,
       "last5": [
         23.5,
@@ -14322,7 +14111,7 @@
       "price_proj": 19.3,
       "price": 10.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.99,
       "sprite": "sprites/1629637.png"
     },
     {
@@ -14336,9 +14125,9 @@
       "positions": [
         "C"
       ],
-      "proj": 19.3,
+      "proj": 17.8,
       "avg_fp": 18.8,
-      "matchup_adj": -1.0,
+      "matchup_adj": -0.9,
       "games_this_season": 5,
       "last5": [
         13.5,
@@ -14431,7 +14220,7 @@
       "price_proj": 19.3,
       "price": 10.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.75,
       "sprite": "sprites/1642928.png"
     },
     {
@@ -14446,7 +14235,7 @@
         "SF",
         "PF"
       ],
-      "proj": 19.1,
+      "proj": 20.2,
       "avg_fp": 21.0,
       "matchup_adj": -0.7,
       "games_this_season": 10,
@@ -14541,7 +14330,7 @@
       "price_proj": 19.1,
       "price": 10.1,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 2.0,
       "sprite": "sprites/1630543.png"
     },
     {
@@ -14556,9 +14345,9 @@
         "PG",
         "SG"
       ],
-      "proj": 19.1,
+      "proj": 17.5,
       "avg_fp": 16.9,
-      "matchup_adj": 0.7,
+      "matchup_adj": 0.6,
       "games_this_season": 9,
       "last5": [
         23.0,
@@ -14651,7 +14440,7 @@
       "price_proj": 19.1,
       "price": 10.1,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.73,
       "sprite": "sprites/203935.png"
     },
     {
@@ -14666,7 +14455,7 @@
         "SG",
         "SF"
       ],
-      "proj": 19.1,
+      "proj": 19.5,
       "avg_fp": 21.1,
       "matchup_adj": -1.6,
       "games_this_season": 4,
@@ -14760,7 +14549,7 @@
       "price_proj": 19.1,
       "price": 10.1,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.93,
       "sprite": "sprites/1630551.png"
     },
     {
@@ -14983,7 +14772,7 @@
         "SF",
         "PF"
       ],
-      "proj": 18.7,
+      "proj": 18.6,
       "avg_fp": 18.6,
       "matchup_adj": -0.1,
       "games_this_season": 9,
@@ -15078,7 +14867,7 @@
       "price_proj": 18.7,
       "price": 9.9,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.88,
       "sprite": "sprites/1642345.png"
     },
     {
@@ -15093,7 +14882,7 @@
         "SF",
         "PF"
       ],
-      "proj": 18.4,
+      "proj": 18.5,
       "avg_fp": 20.8,
       "matchup_adj": -1.5,
       "games_this_season": 13,
@@ -15188,7 +14977,7 @@
       "price_proj": 18.4,
       "price": 9.8,
       "price_change": -1.3,
-      "value": 1.88,
+      "value": 1.89,
       "sprite": "sprites/1642258.png"
     },
     {
@@ -15203,7 +14992,7 @@
         "SF",
         "PF"
       ],
-      "proj": 18.3,
+      "proj": 17.9,
       "avg_fp": 17.4,
       "matchup_adj": 0.3,
       "games_this_season": 12,
@@ -15298,7 +15087,7 @@
       "price_proj": 18.3,
       "price": 9.7,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.85,
       "sprite": "sprites/1631222.png"
     },
     {
@@ -15417,7 +15206,7 @@
         "PF",
         "C"
       ],
-      "proj": 17.7,
+      "proj": 16.2,
       "avg_fp": 16.2,
       "matchup_adj": -0.0,
       "games_this_season": 11,
@@ -15512,7 +15301,7 @@
       "price_proj": 17.7,
       "price": 9.4,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.72,
       "sprite": "sprites/1629011.png"
     },
     {
@@ -15631,9 +15420,9 @@
         "SG",
         "SF"
       ],
-      "proj": 17.3,
+      "proj": 17.7,
       "avg_fp": 15.2,
-      "matchup_adj": 0.7,
+      "matchup_adj": 0.8,
       "games_this_season": 13,
       "last5": [
         16.5,
@@ -15726,7 +15515,7 @@
       "price_proj": 17.3,
       "price": 9.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.92,
       "sprite": "sprites/1629026.png"
     },
     {
@@ -15741,9 +15530,9 @@
         "PG",
         "SG"
       ],
-      "proj": 17.2,
+      "proj": 15.8,
       "avg_fp": 17.2,
-      "matchup_adj": -1.2,
+      "matchup_adj": -1.1,
       "games_this_season": 13,
       "last5": [
         10.8,
@@ -15836,7 +15625,7 @@
       "price_proj": 17.2,
       "price": 9.1,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.74,
       "sprite": "sprites/1642268.png"
     },
     {
@@ -15850,7 +15639,7 @@
       "positions": [
         "C"
       ],
-      "proj": 17.1,
+      "proj": 16.1,
       "avg_fp": 17.3,
       "matchup_adj": -0.4,
       "games_this_season": 12,
@@ -15945,7 +15734,7 @@
       "price_proj": 17.1,
       "price": 9.1,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.77,
       "sprite": "sprites/203083.png"
     },
     {
@@ -15959,9 +15748,9 @@
       "positions": [
         "C"
       ],
-      "proj": 16.9,
+      "proj": 20.1,
       "avg_fp": 19.7,
-      "matchup_adj": -0.0,
+      "matchup_adj": -0.1,
       "games_this_season": 11,
       "last5": [
         22.0,
@@ -16054,7 +15843,7 @@
       "price_proj": 16.9,
       "price": 9.0,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 2.23,
       "sprite": "sprites/1642863.png"
     },
     {
@@ -16069,7 +15858,7 @@
         "SF",
         "PF"
       ],
-      "proj": 16.9,
+      "proj": 18.3,
       "avg_fp": 18.0,
       "matchup_adj": 0.3,
       "games_this_season": 1,
@@ -16160,7 +15949,7 @@
       "price_proj": 16.9,
       "price": 9.0,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 2.03,
       "sprite": "sprites/1629684.png"
     },
     {
@@ -16175,7 +15964,7 @@
         "PG",
         "SG"
       ],
-      "proj": 17.0,
+      "proj": 18.2,
       "avg_fp": 18.5,
       "matchup_adj": -0.6,
       "games_this_season": 11,
@@ -16270,7 +16059,7 @@
       "price_proj": 17.0,
       "price": 9.0,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 2.02,
       "sprite": "sprites/1642920.png"
     },
     {
@@ -16285,9 +16074,9 @@
         "PG",
         "SG"
       ],
-      "proj": 17.0,
+      "proj": 15.4,
       "avg_fp": 17.5,
-      "matchup_adj": -1.4,
+      "matchup_adj": -1.3,
       "games_this_season": 12,
       "last5": [
         17.0,
@@ -16380,7 +16169,7 @@
       "price_proj": 17.0,
       "price": 9.0,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.71,
       "sprite": "sprites/1641731.png"
     },
     {
@@ -16395,7 +16184,7 @@
         "SG",
         "SF"
       ],
-      "proj": 16.8,
+      "proj": 17.1,
       "avg_fp": 17.3,
       "matchup_adj": 0.3,
       "games_this_season": 13,
@@ -16490,7 +16279,7 @@
       "price_proj": 16.8,
       "price": 8.9,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.92,
       "sprite": "sprites/1629680.png"
     },
     {
@@ -16505,7 +16294,7 @@
         "PG",
         "SG"
       ],
-      "proj": 16.8,
+      "proj": 17.3,
       "avg_fp": 16.4,
       "matchup_adj": 0.3,
       "games_this_season": 12,
@@ -16600,7 +16389,7 @@
       "price_proj": 16.8,
       "price": 8.9,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.94,
       "sprite": "sprites/1642883.png"
     },
     {
@@ -16614,9 +16403,9 @@
       "positions": [
         "C"
       ],
-      "proj": 16.7,
+      "proj": 16.1,
       "avg_fp": 16.2,
-      "matchup_adj": 0.3,
+      "matchup_adj": 0.2,
       "games_this_season": 12,
       "last5": [
         14.5,
@@ -16709,7 +16498,7 @@
       "price_proj": 16.7,
       "price": 8.9,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.81,
       "sprite": "sprites/1641750.png"
     },
     {
@@ -16724,9 +16513,9 @@
         "SF",
         "PF"
       ],
-      "proj": 16.8,
+      "proj": 11.6,
       "avg_fp": 11.1,
-      "matchup_adj": 0.7,
+      "matchup_adj": 0.5,
       "games_this_season": 7,
       "last5": [
         0.0,
@@ -16819,7 +16608,7 @@
       "price_proj": 16.8,
       "price": 8.9,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.3,
       "sprite": "sprites/1631119.png"
     },
     {
@@ -16833,9 +16622,9 @@
       "positions": [
         "C"
       ],
-      "proj": 16.6,
+      "proj": 14.9,
       "avg_fp": 14.5,
-      "matchup_adj": -0.4,
+      "matchup_adj": -0.3,
       "games_this_season": 11,
       "last5": [
         37.0,
@@ -16928,7 +16717,7 @@
       "price_proj": 16.6,
       "price": 8.8,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.69,
       "sprite": "sprites/1630643.png"
     },
     {
@@ -16943,9 +16732,9 @@
         "PG",
         "SG"
       ],
-      "proj": 16.6,
+      "proj": 15.2,
       "avg_fp": 15.3,
-      "matchup_adj": -0.9,
+      "matchup_adj": -0.8,
       "games_this_season": 11,
       "last5": [
         20.5,
@@ -17038,115 +16827,8 @@
       "price_proj": 16.6,
       "price": 8.8,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.73,
       "sprite": "sprites/1628370.png"
-    },
-    {
-      "id": 1631126,
-      "name": "Caleb Love",
-      "num": "8",
-      "team": "PHI",
-      "opp": "IND",
-      "home": true,
-      "game_id": "0022600236",
-      "positions": [
-        "PG",
-        "SG"
-      ],
-      "proj": 16.5,
-      "avg_fp": 0.0,
-      "matchup_adj": 0.3,
-      "games_this_season": 2,
-      "last5": [
-        0.0,
-        0.0
-      ],
-      "stats": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
-        "tov": 0.0,
-        "fg3m": 0.0,
-        "min": 0.5
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 0.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 0.5,
-          "fgm": 0.0,
-          "fga": 0.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 0.0,
-          "g": 2
-        },
-        "l5": {
-          "pts": 0.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 0.5,
-          "fgm": 0.0,
-          "fga": 0.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 0.0,
-          "g": 2
-        },
-        "l10": {
-          "pts": 0.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 0.5,
-          "fgm": 0.0,
-          "fga": 0.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 0.0,
-          "g": 2
-        },
-        "season": {
-          "pts": 0.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 0.5,
-          "fgm": 0.0,
-          "fga": 0.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 0.0,
-          "g": 2
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.0,
-      "price_proj": 16.5,
-      "price": 8.7,
-      "price_change": 0.0,
-      "value": 1.9,
-      "sprite": "sprites/1631126.png"
     },
     {
       "id": 1630573,
@@ -17160,7 +16842,7 @@
         "SF",
         "PF"
       ],
-      "proj": 16.5,
+      "proj": 15.9,
       "avg_fp": 16.0,
       "matchup_adj": -0.0,
       "games_this_season": 12,
@@ -17255,7 +16937,7 @@
       "price_proj": 16.5,
       "price": 8.7,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 1.83,
       "sprite": "sprites/1630573.png"
     },
     {
@@ -17270,7 +16952,7 @@
         "PG",
         "SG"
       ],
-      "proj": 16.3,
+      "proj": 16.2,
       "avg_fp": 16.5,
       "matchup_adj": -1.3,
       "games_this_season": 12,
@@ -17365,7 +17047,7 @@
       "price_proj": 16.3,
       "price": 8.6,
       "price_change": -1.2,
-      "value": 1.9,
+      "value": 1.88,
       "sprite": "sprites/1642383.png"
     },
     {
@@ -17483,7 +17165,7 @@
         "PG",
         "SG"
       ],
-      "proj": 16.0,
+      "proj": 16.1,
       "avg_fp": 16.0,
       "matchup_adj": -0.4,
       "games_this_season": 12,
@@ -17578,115 +17260,8 @@
       "price_proj": 16.0,
       "price": 8.5,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.89,
       "sprite": "sprites/1629013.png"
-    },
-    {
-      "id": 1641869,
-      "name": "Malachi Smith",
-      "num": "18",
-      "team": "TOR",
-      "opp": "NYK",
-      "home": true,
-      "game_id": "0022600241",
-      "positions": [
-        "PG",
-        "SG"
-      ],
-      "proj": 16.0,
-      "avg_fp": 0.0,
-      "matchup_adj": -1.2,
-      "games_this_season": 2,
-      "last5": [
-        0.0,
-        0.0
-      ],
-      "stats": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
-        "tov": 0.0,
-        "fg3m": 0.0,
-        "min": 1.5
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 0.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 1.5,
-          "fgm": 0.0,
-          "fga": 0.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 0.0,
-          "g": 2
-        },
-        "l5": {
-          "pts": 0.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 1.5,
-          "fgm": 0.0,
-          "fga": 0.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 0.0,
-          "g": 2
-        },
-        "l10": {
-          "pts": 0.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 1.5,
-          "fgm": 0.0,
-          "fga": 0.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 0.0,
-          "g": 2
-        },
-        "season": {
-          "pts": 0.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 1.5,
-          "fgm": 0.0,
-          "fga": 0.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 0.0,
-          "g": 2
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.0,
-      "pct_started": 0.0,
-      "price_proj": 16.0,
-      "price": 8.5,
-      "price_change": 0.0,
-      "value": 1.88,
-      "sprite": "sprites/1641869.png"
     },
     {
       "id": 1642364,
@@ -17804,7 +17379,7 @@
         "SF",
         "PF"
       ],
-      "proj": 15.6,
+      "proj": 15.5,
       "avg_fp": 15.0,
       "matchup_adj": -0.0,
       "games_this_season": 11,
@@ -17899,7 +17474,7 @@
       "price_proj": 15.6,
       "price": 8.3,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.87,
       "sprite": "sprites/1642346.png"
     },
     {
@@ -17914,7 +17489,7 @@
         "PG",
         "SG"
       ],
-      "proj": 15.6,
+      "proj": 16.1,
       "avg_fp": 15.2,
       "matchup_adj": -0.0,
       "games_this_season": 12,
@@ -18009,7 +17584,7 @@
       "price_proj": 15.6,
       "price": 8.3,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.94,
       "sprite": "sprites/1631248.png"
     },
     {
@@ -18024,7 +17599,7 @@
         "PG",
         "SG"
       ],
-      "proj": 15.6,
+      "proj": 14.1,
       "avg_fp": 14.9,
       "matchup_adj": -0.4,
       "games_this_season": 12,
@@ -18119,7 +17694,7 @@
       "price_proj": 15.6,
       "price": 8.3,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.7,
       "sprite": "sprites/1630540.png"
     },
     {
@@ -18244,9 +17819,9 @@
         "SF",
         "PF"
       ],
-      "proj": 15.4,
+      "proj": 14.4,
       "avg_fp": 15.1,
-      "matchup_adj": -1.1,
+      "matchup_adj": -1.0,
       "games_this_season": 13,
       "last5": [
         6.5,
@@ -18339,7 +17914,7 @@
       "price_proj": 15.4,
       "price": 8.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.76,
       "sprite": "sprites/1641729.png"
     },
     {
@@ -18458,9 +18033,9 @@
         "SF",
         "PF"
       ],
-      "proj": 15.5,
+      "proj": 13.1,
       "avg_fp": 13.8,
-      "matchup_adj": -0.8,
+      "matchup_adj": -0.7,
       "games_this_season": 8,
       "last5": [
         14.0,
@@ -18553,7 +18128,7 @@
       "price_proj": 15.5,
       "price": 8.2,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.6,
       "sprite": "sprites/1641778.png"
     },
     {
@@ -18567,9 +18142,9 @@
       "positions": [
         "C"
       ],
-      "proj": 15.2,
+      "proj": 18.5,
       "avg_fp": 19.8,
-      "matchup_adj": -1.0,
+      "matchup_adj": -1.3,
       "games_this_season": 9,
       "last5": [
         23.0,
@@ -18662,7 +18237,7 @@
       "price_proj": 15.2,
       "price": 8.1,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 2.28,
       "sprite": "sprites/1628964.png"
     },
     {
@@ -18677,7 +18252,7 @@
         "PF",
         "C"
       ],
-      "proj": 15.1,
+      "proj": 14.7,
       "avg_fp": 14.6,
       "matchup_adj": 0.3,
       "games_this_season": 11,
@@ -18772,7 +18347,7 @@
       "price_proj": 15.1,
       "price": 8.0,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.84,
       "sprite": "sprites/1629731.png"
     },
     {
@@ -18786,7 +18361,7 @@
       "positions": [
         "C"
       ],
-      "proj": 15.0,
+      "proj": 14.6,
       "avg_fp": 14.0,
       "matchup_adj": -0.0,
       "games_this_season": 12,
@@ -18881,7 +18456,7 @@
       "price_proj": 15.0,
       "price": 8.0,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.82,
       "sprite": "sprites/1630568.png"
     },
     {
@@ -18896,7 +18471,7 @@
         "PG",
         "SG"
       ],
-      "proj": 15.0,
+      "proj": 14.0,
       "avg_fp": 15.5,
       "matchup_adj": -1.2,
       "games_this_season": 12,
@@ -18991,7 +18566,7 @@
       "price_proj": 15.0,
       "price": 8.0,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.75,
       "sprite": "sprites/1642848.png"
     },
     {
@@ -19006,7 +18581,7 @@
         "PG",
         "SG"
       ],
-      "proj": 15.0,
+      "proj": 13.1,
       "avg_fp": 12.5,
       "matchup_adj": 0.6,
       "games_this_season": 1,
@@ -19097,7 +18672,7 @@
       "price_proj": 15.0,
       "price": 8.0,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.64,
       "sprite": "sprites/1642260.png"
     },
     {
@@ -19112,7 +18687,7 @@
         "PG",
         "SG"
       ],
-      "proj": 14.9,
+      "proj": 14.7,
       "avg_fp": 14.9,
       "matchup_adj": 0.7,
       "games_this_season": 12,
@@ -19207,7 +18782,7 @@
       "price_proj": 14.9,
       "price": 7.9,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.86,
       "sprite": "sprites/1642857.png"
     },
     {
@@ -19332,7 +18907,7 @@
         "PG",
         "SG"
       ],
-      "proj": 14.5,
+      "proj": 13.5,
       "avg_fp": 13.5,
       "matchup_adj": -0.0,
       "games_this_season": 10,
@@ -19427,7 +19002,7 @@
       "price_proj": 14.5,
       "price": 7.7,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.75,
       "sprite": "sprites/1628379.png"
     },
     {
@@ -19442,7 +19017,7 @@
         "SF",
         "PF"
       ],
-      "proj": 14.6,
+      "proj": 12.3,
       "avg_fp": 12.4,
       "matchup_adj": 0.2,
       "games_this_season": 12,
@@ -19537,118 +19112,8 @@
       "price_proj": 14.6,
       "price": 7.7,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 1.6,
       "sprite": "sprites/1626220.png"
-    },
-    {
-      "id": 1630557,
-      "name": "Corey Kispert",
-      "num": "24",
-      "team": "ATL",
-      "opp": "MIL",
-      "home": false,
-      "game_id": "0022600243",
-      "positions": [
-        "SF",
-        "PF"
-      ],
-      "proj": 14.6,
-      "avg_fp": 10.4,
-      "matchup_adj": 1.1,
-      "games_this_season": 6,
-      "last5": [
-        5.5,
-        1.5,
-        18.2,
-        11.0,
-        11.0
-      ],
-      "stats": {
-        "pts": 7.7,
-        "reb": 0.7,
-        "ast": 0.7,
-        "stl": 0.2,
-        "blk": 0.0,
-        "tov": 0.5,
-        "fg3m": 1.7,
-        "min": 9.7
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 8.0,
-          "reb": 1.0,
-          "ast": 1.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.5,
-          "fg3m": 1.0,
-          "min": 12.0,
-          "fgm": 3.0,
-          "fga": 5.0,
-          "ftm": 1.0,
-          "fta": 1.0,
-          "fp": 11.0,
-          "g": 2
-        },
-        "l5": {
-          "pts": 7.0,
-          "reb": 0.6,
-          "ast": 0.6,
-          "stl": 0.2,
-          "blk": 0.0,
-          "tov": 0.6,
-          "fg3m": 1.4,
-          "min": 9.6,
-          "fgm": 2.6,
-          "fga": 4.4,
-          "ftm": 0.4,
-          "fta": 0.4,
-          "fp": 9.4,
-          "g": 5
-        },
-        "l10": {
-          "pts": 7.7,
-          "reb": 0.7,
-          "ast": 0.7,
-          "stl": 0.2,
-          "blk": 0.0,
-          "tov": 0.5,
-          "fg3m": 1.7,
-          "min": 9.7,
-          "fgm": 2.83,
-          "fga": 4.5,
-          "ftm": 0.33,
-          "fta": 0.33,
-          "fp": 10.4,
-          "g": 6
-        },
-        "season": {
-          "pts": 7.7,
-          "reb": 0.7,
-          "ast": 0.7,
-          "stl": 0.2,
-          "blk": 0.0,
-          "tov": 0.5,
-          "fg3m": 1.7,
-          "min": 9.7,
-          "fgm": 2.83,
-          "fga": 4.5,
-          "ftm": 0.33,
-          "fta": 0.33,
-          "fp": 10.4,
-          "g": 6
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.2,
-      "pct_started": 0.1,
-      "price_proj": 14.6,
-      "price": 7.7,
-      "price_change": 0.0,
-      "value": 1.9,
-      "sprite": "sprites/1630557.png"
     },
     {
       "id": 203484,
@@ -19662,7 +19127,7 @@
         "PG",
         "SG"
       ],
-      "proj": 14.4,
+      "proj": 13.9,
       "avg_fp": 14.4,
       "matchup_adj": 0.3,
       "games_this_season": 13,
@@ -19757,7 +19222,7 @@
       "price_proj": 14.4,
       "price": 7.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.83,
       "sprite": "sprites/203484.png"
     },
     {
@@ -19772,9 +19237,9 @@
         "PG",
         "SG"
       ],
-      "proj": 14.1,
+      "proj": 4.6,
       "avg_fp": 4.8,
-      "matchup_adj": -0.3,
+      "matchup_adj": -0.1,
       "games_this_season": 1,
       "last5": [
         4.8
@@ -19863,7 +19328,7 @@
       "price_proj": 14.1,
       "price": 7.5,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 0.61,
       "sprite": "sprites/1641767.png"
     },
     {
@@ -19877,7 +19342,7 @@
       "positions": [
         "C"
       ],
-      "proj": 14.1,
+      "proj": 15.2,
       "avg_fp": 14.7,
       "matchup_adj": 0.5,
       "games_this_season": 6,
@@ -19972,7 +19437,7 @@
       "price_proj": 14.1,
       "price": 7.5,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 2.03,
       "sprite": "sprites/203991.png"
     },
     {
@@ -19987,9 +19452,9 @@
         "SF",
         "PF"
       ],
-      "proj": 14.1,
+      "proj": 4.9,
       "avg_fp": 5.3,
-      "matchup_adj": -1.2,
+      "matchup_adj": -0.4,
       "games_this_season": 5,
       "last5": [
         4.0,
@@ -20082,7 +19547,7 @@
       "price_proj": 14.1,
       "price": 7.5,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 0.65,
       "sprite": "sprites/203114.png"
     },
     {
@@ -20097,9 +19562,9 @@
         "PF",
         "C"
       ],
-      "proj": 14.0,
+      "proj": 13.1,
       "avg_fp": 12.2,
-      "matchup_adj": 0.3,
+      "matchup_adj": 0.2,
       "games_this_season": 13,
       "last5": [
         11.0,
@@ -20192,7 +19657,7 @@
       "price_proj": 14.0,
       "price": 7.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.77,
       "sprite": "sprites/1628436.png"
     },
     {
@@ -20317,9 +19782,9 @@
         "PG",
         "SG"
       ],
-      "proj": 13.9,
+      "proj": 6.8,
       "avg_fp": 7.0,
-      "matchup_adj": -0.4,
+      "matchup_adj": -0.2,
       "games_this_season": 5,
       "last5": [
         20.8,
@@ -20412,7 +19877,7 @@
       "price_proj": 13.9,
       "price": 7.4,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 0.92,
       "sprite": "sprites/1630631.png"
     },
     {
@@ -20518,115 +19983,6 @@
       "price_change": 0.0,
       "value": 1.89,
       "sprite": "sprites/1631243.png"
-    },
-    {
-      "id": 1630311,
-      "name": "Pat Spencer",
-      "num": "61",
-      "team": "PHX",
-      "opp": "LAL",
-      "home": true,
-      "game_id": "0022600237",
-      "positions": [
-        "PG",
-        "SG"
-      ],
-      "proj": 13.8,
-      "avg_fp": 5.4,
-      "matchup_adj": -0.0,
-      "games_this_season": 4,
-      "last5": [
-        12.2,
-        1.5,
-        -1.0,
-        9.0
-      ],
-      "stats": {
-        "pts": 1.2,
-        "reb": 1.2,
-        "ast": 1.0,
-        "stl": 0.2,
-        "blk": 0.5,
-        "tov": 1.0,
-        "fg3m": 0.2,
-        "min": 4.5
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 1.0,
-          "reb": 1.0,
-          "ast": 1.0,
-          "stl": 0.0,
-          "blk": 0.5,
-          "tov": 1.5,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 0.5,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 4.0,
-          "g": 2
-        },
-        "l5": {
-          "pts": 1.2,
-          "reb": 1.2,
-          "ast": 1.0,
-          "stl": 0.2,
-          "blk": 0.5,
-          "tov": 1.0,
-          "fg3m": 0.2,
-          "min": 4.5,
-          "fgm": 0.5,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 5.4,
-          "g": 4
-        },
-        "l10": {
-          "pts": 1.2,
-          "reb": 1.2,
-          "ast": 1.0,
-          "stl": 0.2,
-          "blk": 0.5,
-          "tov": 1.0,
-          "fg3m": 0.2,
-          "min": 4.5,
-          "fgm": 0.5,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 5.4,
-          "g": 4
-        },
-        "season": {
-          "pts": 1.2,
-          "reb": 1.2,
-          "ast": 1.0,
-          "stl": 0.2,
-          "blk": 0.5,
-          "tov": 1.0,
-          "fg3m": 0.2,
-          "min": 4.5,
-          "fgm": 0.5,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 5.4,
-          "g": 4
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.0,
-      "price_proj": 13.8,
-      "price": 7.3,
-      "price_change": 0.0,
-      "value": 1.89,
-      "sprite": "sprites/1630311.png"
     },
     {
       "id": 1642933,
@@ -20848,9 +20204,9 @@
         "SF",
         "PF"
       ],
-      "proj": 13.5,
+      "proj": 10.6,
       "avg_fp": 11.4,
-      "matchup_adj": -0.3,
+      "matchup_adj": -0.2,
       "games_this_season": 11,
       "last5": [
         37.2,
@@ -20943,7 +20299,7 @@
       "price_proj": 13.5,
       "price": 7.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.47,
       "sprite": "sprites/1641771.png"
     },
     {
@@ -20958,9 +20314,9 @@
         "PG",
         "SG"
       ],
-      "proj": 13.6,
+      "proj": 11.3,
       "avg_fp": 12.1,
-      "matchup_adj": -1.1,
+      "matchup_adj": -0.9,
       "games_this_season": 11,
       "last5": [
         4.0,
@@ -21053,117 +20409,8 @@
       "price_proj": 13.6,
       "price": 7.2,
       "price_change": -0.7,
-      "value": 1.89,
+      "value": 1.57,
       "sprite": "sprites/1631108.png"
-    },
-    {
-      "id": 1642271,
-      "name": "Kyle Filipowski",
-      "num": "2",
-      "team": "UTA",
-      "opp": "SAS",
-      "home": true,
-      "game_id": "0022600239",
-      "positions": [
-        "C"
-      ],
-      "proj": 13.4,
-      "avg_fp": 5.8,
-      "matchup_adj": -0.9,
-      "games_this_season": 9,
-      "last5": [
-        3.5,
-        0.0,
-        16.5,
-        12.5,
-        2.0
-      ],
-      "stats": {
-        "pts": 3.0,
-        "reb": 1.6,
-        "ast": 0.3,
-        "stl": 0.3,
-        "blk": 0.0,
-        "tov": 0.9,
-        "fg3m": 0.2,
-        "min": 8.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 4.5,
-          "reb": 2.0,
-          "ast": 0.5,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 1.0,
-          "fg3m": 0.0,
-          "min": 8.5,
-          "fgm": 2.0,
-          "fga": 3.0,
-          "ftm": 0.5,
-          "fta": 2.0,
-          "fp": 7.2,
-          "g": 2
-        },
-        "l5": {
-          "pts": 3.8,
-          "reb": 2.4,
-          "ast": 0.2,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.6,
-          "fg3m": 0.2,
-          "min": 8.2,
-          "fgm": 1.6,
-          "fga": 3.6,
-          "ftm": 0.4,
-          "fta": 1.2,
-          "fp": 6.9,
-          "g": 5
-        },
-        "l10": {
-          "pts": 3.0,
-          "reb": 1.6,
-          "ast": 0.3,
-          "stl": 0.3,
-          "blk": 0.0,
-          "tov": 0.9,
-          "fg3m": 0.2,
-          "min": 8.0,
-          "fgm": 1.22,
-          "fga": 2.89,
-          "ftm": 0.33,
-          "fta": 0.78,
-          "fp": 5.8,
-          "g": 9
-        },
-        "season": {
-          "pts": 3.0,
-          "reb": 1.6,
-          "ast": 0.3,
-          "stl": 0.3,
-          "blk": 0.0,
-          "tov": 0.9,
-          "fg3m": 0.2,
-          "min": 8.0,
-          "fgm": 1.22,
-          "fga": 2.89,
-          "ftm": 0.33,
-          "fta": 0.78,
-          "fp": 5.8,
-          "g": 9
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 3.2,
-      "pct_started": 1.9,
-      "price_proj": 13.4,
-      "price": 7.1,
-      "price_change": 0.0,
-      "value": 1.89,
-      "sprite": "sprites/1642271.png"
     },
     {
       "id": 1642278,
@@ -21177,9 +20424,9 @@
         "PG",
         "SG"
       ],
-      "proj": 13.1,
+      "proj": 14.1,
       "avg_fp": 14.5,
-      "matchup_adj": -0.3,
+      "matchup_adj": -0.4,
       "games_this_season": 10,
       "last5": [
         7.5,
@@ -21272,7 +20519,7 @@
       "price_proj": 13.1,
       "price": 6.9,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 2.04,
       "sprite": "sprites/1642278.png"
     },
     {
@@ -21287,7 +20534,7 @@
         "SF",
         "PF"
       ],
-      "proj": 12.8,
+      "proj": 12.4,
       "avg_fp": 12.8,
       "matchup_adj": 0.2,
       "games_this_season": 11,
@@ -21382,7 +20629,7 @@
       "price_proj": 12.8,
       "price": 6.8,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.82,
       "sprite": "sprites/1642275.png"
     },
     {
@@ -21396,9 +20643,9 @@
       "positions": [
         "C"
       ],
-      "proj": 12.8,
+      "proj": 11.0,
       "avg_fp": 12.5,
-      "matchup_adj": -1.1,
+      "matchup_adj": -0.9,
       "games_this_season": 13,
       "last5": [
         28.2,
@@ -21491,7 +20738,7 @@
       "price_proj": 12.8,
       "price": 6.8,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.62,
       "sprite": "sprites/1629028.png"
     },
     {
@@ -21616,9 +20863,9 @@
         "SG",
         "SF"
       ],
-      "proj": 12.7,
+      "proj": 13.5,
       "avg_fp": 14.2,
-      "matchup_adj": -0.4,
+      "matchup_adj": -0.5,
       "games_this_season": 11,
       "last5": [
         25.0,
@@ -21711,118 +20958,8 @@
       "price_proj": 12.7,
       "price": 6.7,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 2.01,
       "sprite": "sprites/1641711.png"
-    },
-    {
-      "id": 1631131,
-      "name": "Oscar Tshiebwe",
-      "num": "9",
-      "team": "HOU",
-      "opp": "WAS",
-      "home": false,
-      "game_id": "0022600242",
-      "positions": [
-        "PF",
-        "C"
-      ],
-      "proj": 12.6,
-      "avg_fp": 6.1,
-      "matchup_adj": 0.4,
-      "games_this_season": 8,
-      "last5": [
-        5.2,
-        2.0,
-        2.0,
-        0.0,
-        7.8
-      ],
-      "stats": {
-        "pts": 2.1,
-        "reb": 2.1,
-        "ast": 0.4,
-        "stl": 0.1,
-        "blk": 0.4,
-        "tov": 0.5,
-        "fg3m": 0.0,
-        "min": 6.8
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 0.0,
-          "reb": 2.5,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.5,
-          "tov": 0.5,
-          "fg3m": 0.0,
-          "min": 3.5,
-          "fgm": 0.0,
-          "fga": 0.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 3.9,
-          "g": 2
-        },
-        "l5": {
-          "pts": 1.6,
-          "reb": 1.2,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.2,
-          "tov": 0.2,
-          "fg3m": 0.0,
-          "min": 3.8,
-          "fgm": 0.8,
-          "fga": 1.0,
-          "ftm": 0.0,
-          "fta": 0.2,
-          "fp": 3.4,
-          "g": 5
-        },
-        "l10": {
-          "pts": 2.1,
-          "reb": 2.1,
-          "ast": 0.4,
-          "stl": 0.1,
-          "blk": 0.4,
-          "tov": 0.5,
-          "fg3m": 0.0,
-          "min": 6.8,
-          "fgm": 1.0,
-          "fga": 1.25,
-          "ftm": 0.12,
-          "fta": 0.5,
-          "fp": 6.1,
-          "g": 8
-        },
-        "season": {
-          "pts": 2.1,
-          "reb": 2.1,
-          "ast": 0.4,
-          "stl": 0.1,
-          "blk": 0.4,
-          "tov": 0.5,
-          "fg3m": 0.0,
-          "min": 6.8,
-          "fgm": 1.0,
-          "fga": 1.25,
-          "ftm": 0.12,
-          "fta": 0.5,
-          "fp": 6.1,
-          "g": 8
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.0,
-      "pct_started": 0.0,
-      "price_proj": 12.6,
-      "price": 6.7,
-      "price_change": 0.0,
-      "value": 1.88,
-      "sprite": "sprites/1631131.png"
     },
     {
       "id": 1642880,
@@ -21940,7 +21077,7 @@
         "PG",
         "SG"
       ],
-      "proj": 12.7,
+      "proj": 11.5,
       "avg_fp": 11.2,
       "matchup_adj": 0.6,
       "games_this_season": 13,
@@ -22035,7 +21172,7 @@
       "price_proj": 12.7,
       "price": 6.7,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 1.72,
       "sprite": "sprites/1631260.png"
     },
     {
@@ -22154,7 +21291,7 @@
         "SF",
         "PF"
       ],
-      "proj": 12.1,
+      "proj": 10.8,
       "avg_fp": 10.6,
       "matchup_adj": 0.2,
       "games_this_season": 9,
@@ -22249,7 +21386,7 @@
       "price_proj": 12.1,
       "price": 6.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.69,
       "sprite": "sprites/1641737.png"
     },
     {
@@ -22368,9 +21505,9 @@
         "SF",
         "PF"
       ],
-      "proj": 12.1,
+      "proj": 13.7,
       "avg_fp": 14.5,
-      "matchup_adj": -0.9,
+      "matchup_adj": -1.0,
       "games_this_season": 12,
       "last5": [
         11.2,
@@ -22463,7 +21600,7 @@
       "price_proj": 12.1,
       "price": 6.4,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 2.14,
       "sprite": "sprites/1642419.png"
     },
     {
@@ -22478,9 +21615,9 @@
         "PG",
         "SG"
       ],
-      "proj": 12.0,
+      "proj": 10.6,
       "avg_fp": 11.8,
-      "matchup_adj": -1.0,
+      "matchup_adj": -0.9,
       "games_this_season": 13,
       "last5": [
         8.8,
@@ -22573,7 +21710,7 @@
       "price_proj": 12.0,
       "price": 6.4,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.66,
       "sprite": "sprites/1642267.png"
     },
     {
@@ -22588,9 +21725,9 @@
         "SF",
         "PF"
       ],
-      "proj": 11.9,
+      "proj": 9.8,
       "avg_fp": 9.7,
-      "matchup_adj": 0.2,
+      "matchup_adj": 0.1,
       "games_this_season": 8,
       "last5": [
         2.8,
@@ -22683,7 +21820,7 @@
       "price_proj": 11.9,
       "price": 6.3,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.56,
       "sprite": "sprites/1629020.png"
     },
     {
@@ -22698,7 +21835,7 @@
         "PG",
         "SG"
       ],
-      "proj": 11.8,
+      "proj": 11.3,
       "avg_fp": 11.3,
       "matchup_adj": -0.0,
       "games_this_season": 12,
@@ -22793,221 +21930,8 @@
       "price_proj": 11.8,
       "price": 6.3,
       "price_change": 0.0,
-      "value": 1.87,
+      "value": 1.79,
       "sprite": "sprites/1641775.png"
-    },
-    {
-      "id": 1631250,
-      "name": "Pete Nance",
-      "num": "35",
-      "team": "MIL",
-      "opp": "ATL",
-      "home": true,
-      "game_id": "0022600243",
-      "positions": [
-        "SF",
-        "PF"
-      ],
-      "proj": 11.9,
-      "avg_fp": 5.8,
-      "matchup_adj": 0.6,
-      "games_this_season": 1,
-      "last5": [
-        5.8
-      ],
-      "stats": {
-        "pts": 3.0,
-        "reb": 1.0,
-        "ast": 1.0,
-        "stl": 0.0,
-        "blk": 0.0,
-        "tov": 0.0,
-        "fg3m": 0.0,
-        "min": 4.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 3.0,
-          "reb": 1.0,
-          "ast": 1.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 1.0,
-          "fga": 2.0,
-          "ftm": 1.0,
-          "fta": 2.0,
-          "fp": 5.8,
-          "g": 1
-        },
-        "l5": {
-          "pts": 3.0,
-          "reb": 1.0,
-          "ast": 1.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 1.0,
-          "fga": 2.0,
-          "ftm": 1.0,
-          "fta": 2.0,
-          "fp": 5.8,
-          "g": 1
-        },
-        "l10": {
-          "pts": 3.0,
-          "reb": 1.0,
-          "ast": 1.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 1.0,
-          "fga": 2.0,
-          "ftm": 1.0,
-          "fta": 2.0,
-          "fp": 5.8,
-          "g": 1
-        },
-        "season": {
-          "pts": 3.0,
-          "reb": 1.0,
-          "ast": 1.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 1.0,
-          "fga": 2.0,
-          "ftm": 1.0,
-          "fta": 2.0,
-          "fp": 5.8,
-          "g": 1
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.0,
-      "pct_started": 0.0,
-      "price_proj": 11.9,
-      "price": 6.3,
-      "price_change": 0.0,
-      "value": 1.89,
-      "sprite": "sprites/1631250.png"
-    },
-    {
-      "id": 1641712,
-      "name": "Rayan Rupert",
-      "num": "12",
-      "team": "PHI",
-      "opp": "IND",
-      "home": true,
-      "game_id": "0022600236",
-      "positions": [
-        "SG",
-        "SF"
-      ],
-      "proj": 11.7,
-      "avg_fp": 4.6,
-      "matchup_adj": 0.2,
-      "games_this_season": 2,
-      "last5": [
-        4.5,
-        4.8
-      ],
-      "stats": {
-        "pts": 1.0,
-        "reb": 1.5,
-        "ast": 0.5,
-        "stl": 0.5,
-        "blk": 0.0,
-        "tov": 0.0,
-        "fg3m": 0.0,
-        "min": 4.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 1.0,
-          "reb": 1.5,
-          "ast": 0.5,
-          "stl": 0.5,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 0.5,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 4.6,
-          "g": 2
-        },
-        "l5": {
-          "pts": 1.0,
-          "reb": 1.5,
-          "ast": 0.5,
-          "stl": 0.5,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 0.5,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 4.6,
-          "g": 2
-        },
-        "l10": {
-          "pts": 1.0,
-          "reb": 1.5,
-          "ast": 0.5,
-          "stl": 0.5,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 0.5,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 4.6,
-          "g": 2
-        },
-        "season": {
-          "pts": 1.0,
-          "reb": 1.5,
-          "ast": 0.5,
-          "stl": 0.5,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 0.5,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 4.6,
-          "g": 2
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.1,
-      "price_proj": 11.7,
-      "price": 6.2,
-      "price_change": 0.0,
-      "value": 1.89,
-      "sprite": "sprites/1641712.png"
     },
     {
       "id": 1626204,
@@ -23021,7 +21945,7 @@
         "PF",
         "C"
       ],
-      "proj": 11.4,
+      "proj": 11.8,
       "avg_fp": 10.8,
       "matchup_adj": -0.3,
       "games_this_season": 12,
@@ -23116,7 +22040,7 @@
       "price_proj": 11.4,
       "price": 6.0,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 1.97,
       "sprite": "sprites/1626204.png"
     },
     {
@@ -23131,7 +22055,7 @@
         "SF",
         "PF"
       ],
-      "proj": 11.3,
+      "proj": 12.0,
       "avg_fp": 11.8,
       "matchup_adj": 0.2,
       "games_this_season": 9,
@@ -23226,7 +22150,7 @@
       "price_proj": 11.3,
       "price": 6.0,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 2.0,
       "sprite": "sprites/1631133.png"
     },
     {
@@ -23351,7 +22275,7 @@
         "SF",
         "PF"
       ],
-      "proj": 11.4,
+      "proj": 8.7,
       "avg_fp": 8.4,
       "matchup_adj": 0.2,
       "games_this_season": 11,
@@ -23446,7 +22370,7 @@
       "price_proj": 11.4,
       "price": 6.0,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 1.45,
       "sprite": "sprites/203084.png"
     },
     {
@@ -23461,9 +22385,9 @@
         "SF",
         "PF"
       ],
-      "proj": 11.3,
+      "proj": 12.1,
       "avg_fp": 13.1,
-      "matchup_adj": -0.9,
+      "matchup_adj": -1.0,
       "games_this_season": 9,
       "last5": [
         0.0,
@@ -23556,117 +22480,8 @@
       "price_proj": 11.3,
       "price": 6.0,
       "price_change": 0.2,
-      "value": 1.88,
+      "value": 2.02,
       "sprite": "sprites/1628997.png"
-    },
-    {
-      "id": 201144,
-      "name": "Mike Conley",
-      "num": "45",
-      "team": "BOS",
-      "opp": "DAL",
-      "home": true,
-      "game_id": "0022600240",
-      "positions": [
-        "PG",
-        "SG"
-      ],
-      "proj": 11.3,
-      "avg_fp": 6.4,
-      "matchup_adj": -0.0,
-      "games_this_season": 4,
-      "last5": [
-        11.0,
-        5.0,
-        1.5,
-        8.2
-      ],
-      "stats": {
-        "pts": 3.0,
-        "reb": 0.8,
-        "ast": 0.5,
-        "stl": 0.5,
-        "blk": 0.2,
-        "tov": 0.5,
-        "fg3m": 1.0,
-        "min": 8.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 1.5,
-          "reb": 1.5,
-          "ast": 1.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.5,
-          "fg3m": 0.5,
-          "min": 10.5,
-          "fgm": 0.5,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 4.9,
-          "g": 2
-        },
-        "l5": {
-          "pts": 3.0,
-          "reb": 0.8,
-          "ast": 0.5,
-          "stl": 0.5,
-          "blk": 0.2,
-          "tov": 0.5,
-          "fg3m": 1.0,
-          "min": 8.0,
-          "fgm": 1.0,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 6.4,
-          "g": 4
-        },
-        "l10": {
-          "pts": 3.0,
-          "reb": 0.8,
-          "ast": 0.5,
-          "stl": 0.5,
-          "blk": 0.2,
-          "tov": 0.5,
-          "fg3m": 1.0,
-          "min": 8.0,
-          "fgm": 1.0,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 6.4,
-          "g": 4
-        },
-        "season": {
-          "pts": 3.0,
-          "reb": 0.8,
-          "ast": 0.5,
-          "stl": 0.5,
-          "blk": 0.2,
-          "tov": 0.5,
-          "fg3m": 1.0,
-          "min": 8.0,
-          "fgm": 1.0,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 6.4,
-          "g": 4
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.2,
-      "pct_started": 0.1,
-      "price_proj": 11.3,
-      "price": 6.0,
-      "price_change": 0.0,
-      "value": 1.88,
-      "sprite": "sprites/201144.png"
     },
     {
       "id": 1641738,
@@ -23680,7 +22495,7 @@
         "SF",
         "PF"
       ],
-      "proj": 11.1,
+      "proj": 9.2,
       "avg_fp": 9.4,
       "matchup_adj": -0.2,
       "games_this_season": 6,
@@ -23775,7 +22590,7 @@
       "price_proj": 11.1,
       "price": 5.9,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.56,
       "sprite": "sprites/1641738.png"
     },
     {
@@ -23790,7 +22605,7 @@
         "PG",
         "SG"
       ],
-      "proj": 11.2,
+      "proj": 11.4,
       "avg_fp": 11.4,
       "matchup_adj": -0.8,
       "games_this_season": 12,
@@ -23885,7 +22700,7 @@
       "price_proj": 11.2,
       "price": 5.9,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 1.93,
       "sprite": "sprites/1629006.png"
     },
     {
@@ -23900,9 +22715,9 @@
         "SF",
         "PF"
       ],
-      "proj": 11.1,
+      "proj": 7.9,
       "avg_fp": 7.6,
-      "matchup_adj": 0.5,
+      "matchup_adj": 0.4,
       "games_this_season": 10,
       "last5": [
         0.0,
@@ -23995,224 +22810,8 @@
       "price_proj": 11.1,
       "price": 5.9,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.34,
       "sprite": "sprites/1631172.png"
-    },
-    {
-      "id": 1642484,
-      "name": "RayJ Dennis",
-      "num": "00",
-      "team": "ATL",
-      "opp": "MIL",
-      "home": false,
-      "game_id": "0022600243",
-      "positions": [
-        "PG",
-        "SG"
-      ],
-      "proj": 10.9,
-      "avg_fp": 11.5,
-      "matchup_adj": 0.8,
-      "games_this_season": 1,
-      "last5": [
-        11.5
-      ],
-      "stats": {
-        "pts": 4.0,
-        "reb": 2.0,
-        "ast": 2.0,
-        "stl": 0.0,
-        "blk": 1.0,
-        "tov": 0.0,
-        "fg3m": 0.0,
-        "min": 8.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 4.0,
-          "reb": 2.0,
-          "ast": 2.0,
-          "stl": 0.0,
-          "blk": 1.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 8.0,
-          "fgm": 2.0,
-          "fga": 4.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 11.5,
-          "g": 1
-        },
-        "l5": {
-          "pts": 4.0,
-          "reb": 2.0,
-          "ast": 2.0,
-          "stl": 0.0,
-          "blk": 1.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 8.0,
-          "fgm": 2.0,
-          "fga": 4.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 11.5,
-          "g": 1
-        },
-        "l10": {
-          "pts": 4.0,
-          "reb": 2.0,
-          "ast": 2.0,
-          "stl": 0.0,
-          "blk": 1.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 8.0,
-          "fgm": 2.0,
-          "fga": 4.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 11.5,
-          "g": 1
-        },
-        "season": {
-          "pts": 4.0,
-          "reb": 2.0,
-          "ast": 2.0,
-          "stl": 0.0,
-          "blk": 1.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 8.0,
-          "fgm": 2.0,
-          "fga": 4.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 11.5,
-          "g": 1
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.0,
-      "pct_started": 0.0,
-      "price_proj": 10.9,
-      "price": 5.8,
-      "price_change": 0.0,
-      "value": 1.88,
-      "sprite": "sprites/1642484.png"
-    },
-    {
-      "id": 1629018,
-      "name": "Gary Trent Jr.",
-      "num": "5",
-      "team": "MIL",
-      "opp": "ATL",
-      "home": true,
-      "game_id": "0022600243",
-      "positions": [
-        "PG",
-        "SG"
-      ],
-      "proj": 11.0,
-      "avg_fp": 5.5,
-      "matchup_adj": 0.5,
-      "games_this_season": 5,
-      "last5": [
-        3.5,
-        6.2,
-        7.0,
-        8.2,
-        2.5
-      ],
-      "stats": {
-        "pts": 3.6,
-        "reb": 0.4,
-        "ast": 0.2,
-        "stl": 0.4,
-        "blk": 0.0,
-        "tov": 0.4,
-        "fg3m": 1.0,
-        "min": 7.8
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 3.5,
-          "reb": 0.5,
-          "ast": 0.0,
-          "stl": 0.5,
-          "blk": 0.0,
-          "tov": 0.5,
-          "fg3m": 1.0,
-          "min": 10.0,
-          "fgm": 1.0,
-          "fga": 3.0,
-          "ftm": 0.5,
-          "fta": 1.5,
-          "fp": 5.4,
-          "g": 2
-        },
-        "l5": {
-          "pts": 3.6,
-          "reb": 0.4,
-          "ast": 0.2,
-          "stl": 0.4,
-          "blk": 0.0,
-          "tov": 0.4,
-          "fg3m": 1.0,
-          "min": 7.8,
-          "fgm": 1.2,
-          "fga": 3.0,
-          "ftm": 0.2,
-          "fta": 0.6,
-          "fp": 5.5,
-          "g": 5
-        },
-        "l10": {
-          "pts": 3.6,
-          "reb": 0.4,
-          "ast": 0.2,
-          "stl": 0.4,
-          "blk": 0.0,
-          "tov": 0.4,
-          "fg3m": 1.0,
-          "min": 7.8,
-          "fgm": 1.2,
-          "fga": 3.0,
-          "ftm": 0.2,
-          "fta": 0.6,
-          "fp": 5.5,
-          "g": 5
-        },
-        "season": {
-          "pts": 3.6,
-          "reb": 0.4,
-          "ast": 0.2,
-          "stl": 0.4,
-          "blk": 0.0,
-          "tov": 0.4,
-          "fg3m": 1.0,
-          "min": 7.8,
-          "fgm": 1.2,
-          "fga": 3.0,
-          "ftm": 0.2,
-          "fta": 0.6,
-          "fp": 5.5,
-          "g": 5
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.1,
-      "price_proj": 11.0,
-      "price": 5.8,
-      "price_change": 0.0,
-      "value": 1.9,
-      "sprite": "sprites/1629018.png"
     },
     {
       "id": 1642854,
@@ -24226,9 +22825,9 @@
         "SF",
         "PF"
       ],
-      "proj": 10.7,
+      "proj": 9.7,
       "avg_fp": 9.0,
-      "matchup_adj": 0.8,
+      "matchup_adj": 0.7,
       "games_this_season": 5,
       "last5": [
         4.8,
@@ -24321,114 +22920,8 @@
       "price_proj": 10.7,
       "price": 5.7,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.7,
       "sprite": "sprites/1642854.png"
-    },
-    {
-      "id": 1641790,
-      "name": "PJ Hall",
-      "num": "16",
-      "team": "CHA",
-      "opp": "LAC",
-      "home": false,
-      "game_id": "0022600238",
-      "positions": [
-        "C"
-      ],
-      "proj": 10.6,
-      "avg_fp": 4.5,
-      "matchup_adj": 0.2,
-      "games_this_season": 2,
-      "last5": [
-        7.8,
-        1.2
-      ],
-      "stats": {
-        "pts": 0.0,
-        "reb": 1.0,
-        "ast": 1.5,
-        "stl": 0.0,
-        "blk": 0.5,
-        "tov": 0.0,
-        "fg3m": 0.0,
-        "min": 6.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 0.0,
-          "reb": 1.0,
-          "ast": 1.5,
-          "stl": 0.0,
-          "blk": 0.5,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 6.0,
-          "fgm": 0.0,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 4.5,
-          "g": 2
-        },
-        "l5": {
-          "pts": 0.0,
-          "reb": 1.0,
-          "ast": 1.5,
-          "stl": 0.0,
-          "blk": 0.5,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 6.0,
-          "fgm": 0.0,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 4.5,
-          "g": 2
-        },
-        "l10": {
-          "pts": 0.0,
-          "reb": 1.0,
-          "ast": 1.5,
-          "stl": 0.0,
-          "blk": 0.5,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 6.0,
-          "fgm": 0.0,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 4.5,
-          "g": 2
-        },
-        "season": {
-          "pts": 0.0,
-          "reb": 1.0,
-          "ast": 1.5,
-          "stl": 0.0,
-          "blk": 0.5,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 6.0,
-          "fgm": 0.0,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 4.5,
-          "g": 2
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.0,
-      "pct_started": 0.0,
-      "price_proj": 10.6,
-      "price": 5.6,
-      "price_change": 0.0,
-      "value": 1.89,
-      "sprite": "sprites/1641790.png"
     },
     {
       "id": 203903,
@@ -24442,9 +22935,9 @@
         "PG",
         "SG"
       ],
-      "proj": 10.6,
+      "proj": 9.0,
       "avg_fp": 9.3,
-      "matchup_adj": -0.3,
+      "matchup_adj": -0.2,
       "games_this_season": 10,
       "last5": [
         9.5,
@@ -24537,7 +23030,7 @@
       "price_proj": 10.6,
       "price": 5.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.61,
       "sprite": "sprites/203903.png"
     },
     {
@@ -24651,116 +23144,6 @@
       "sprite": "sprites/1643552.png"
     },
     {
-      "id": 203937,
-      "name": "Kyle Anderson",
-      "num": "13",
-      "team": "TOR",
-      "opp": "NYK",
-      "home": true,
-      "game_id": "0022600241",
-      "positions": [
-        "SG",
-        "SF"
-      ],
-      "proj": 10.4,
-      "avg_fp": 6.8,
-      "matchup_adj": -0.8,
-      "games_this_season": 9,
-      "last5": [
-        5.5,
-        3.5,
-        13.5,
-        13.8,
-        1.0
-      ],
-      "stats": {
-        "pts": 1.6,
-        "reb": 1.2,
-        "ast": 1.6,
-        "stl": 0.3,
-        "blk": 0.4,
-        "tov": 0.4,
-        "fg3m": 0.0,
-        "min": 7.7
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 1.0,
-          "reb": 1.5,
-          "ast": 2.5,
-          "stl": 0.0,
-          "blk": 0.5,
-          "tov": 0.5,
-          "fg3m": 0.0,
-          "min": 8.0,
-          "fgm": 0.5,
-          "fga": 2.0,
-          "ftm": 0.0,
-          "fta": 1.0,
-          "fp": 7.4,
-          "g": 2
-        },
-        "l5": {
-          "pts": 2.4,
-          "reb": 1.0,
-          "ast": 1.6,
-          "stl": 0.2,
-          "blk": 0.6,
-          "tov": 0.4,
-          "fg3m": 0.0,
-          "min": 8.8,
-          "fgm": 1.2,
-          "fga": 2.2,
-          "ftm": 0.0,
-          "fta": 0.4,
-          "fp": 7.5,
-          "g": 5
-        },
-        "l10": {
-          "pts": 1.6,
-          "reb": 1.2,
-          "ast": 1.6,
-          "stl": 0.3,
-          "blk": 0.4,
-          "tov": 0.4,
-          "fg3m": 0.0,
-          "min": 7.7,
-          "fgm": 0.78,
-          "fga": 1.67,
-          "ftm": 0.0,
-          "fta": 0.22,
-          "fp": 6.8,
-          "g": 9
-        },
-        "season": {
-          "pts": 1.6,
-          "reb": 1.2,
-          "ast": 1.6,
-          "stl": 0.3,
-          "blk": 0.4,
-          "tov": 0.4,
-          "fg3m": 0.0,
-          "min": 7.7,
-          "fgm": 0.78,
-          "fga": 1.67,
-          "ftm": 0.0,
-          "fta": 0.22,
-          "fp": 6.8,
-          "g": 9
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.2,
-      "pct_started": 0.1,
-      "price_proj": 10.4,
-      "price": 5.5,
-      "price_change": 0.0,
-      "value": 1.89,
-      "sprite": "sprites/203937.png"
-    },
-    {
       "id": 203992,
       "name": "Bogdan Bogdanovi\u0107",
       "num": "31",
@@ -24772,9 +23155,9 @@
         "PG",
         "SG"
       ],
-      "proj": 10.4,
+      "proj": 9.6,
       "avg_fp": 9.3,
-      "matchup_adj": 0.4,
+      "matchup_adj": 0.3,
       "games_this_season": 13,
       "last5": [
         0.0,
@@ -24867,7 +23250,7 @@
       "price_proj": 10.4,
       "price": 5.5,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.75,
       "sprite": "sprites/203992.png"
     },
     {
@@ -24882,7 +23265,7 @@
         "SG",
         "SF"
       ],
-      "proj": 10.1,
+      "proj": 9.8,
       "avg_fp": 9.3,
       "matchup_adj": 0.4,
       "games_this_season": 8,
@@ -24977,118 +23360,8 @@
       "price_proj": 10.1,
       "price": 5.4,
       "price_change": 0.0,
-      "value": 1.87,
+      "value": 1.81,
       "sprite": "sprites/1642877.png"
-    },
-    {
-      "id": 1626172,
-      "name": "Kevon Looney",
-      "num": "55",
-      "team": "LAL",
-      "opp": "PHX",
-      "home": false,
-      "game_id": "0022600237",
-      "positions": [
-        "SF",
-        "PF"
-      ],
-      "proj": 10.0,
-      "avg_fp": 3.7,
-      "matchup_adj": 0.1,
-      "games_this_season": 6,
-      "last5": [
-        1.2,
-        4.5,
-        0.0,
-        0.0,
-        2.5
-      ],
-      "stats": {
-        "pts": 1.3,
-        "reb": 1.7,
-        "ast": 0.2,
-        "stl": 0.0,
-        "blk": 0.0,
-        "tov": 0.0,
-        "fg3m": 0.0,
-        "min": 5.7
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 0.0,
-          "reb": 1.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 2.0,
-          "fgm": 0.0,
-          "fga": 0.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 1.2,
-          "g": 2
-        },
-        "l5": {
-          "pts": 0.4,
-          "reb": 1.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 3.8,
-          "fgm": 0.0,
-          "fga": 0.2,
-          "ftm": 0.4,
-          "fta": 0.4,
-          "fp": 1.6,
-          "g": 5
-        },
-        "l10": {
-          "pts": 1.3,
-          "reb": 1.7,
-          "ast": 0.2,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 5.7,
-          "fgm": 0.5,
-          "fga": 1.0,
-          "ftm": 0.33,
-          "fta": 0.33,
-          "fp": 3.7,
-          "g": 6
-        },
-        "season": {
-          "pts": 1.3,
-          "reb": 1.7,
-          "ast": 0.2,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 5.7,
-          "fgm": 0.5,
-          "fga": 1.0,
-          "ftm": 0.33,
-          "fta": 0.33,
-          "fp": 3.7,
-          "g": 6
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.2,
-      "pct_started": 0.1,
-      "price_proj": 10.0,
-      "price": 5.3,
-      "price_change": 0.0,
-      "value": 1.89,
-      "sprite": "sprites/1626172.png"
     },
     {
       "id": 1642864,
@@ -25102,7 +23375,7 @@
         "PG",
         "SG"
       ],
-      "proj": 10.0,
+      "proj": 9.9,
       "avg_fp": 9.1,
       "matchup_adj": -0.0,
       "games_this_season": 12,
@@ -25197,118 +23470,8 @@
       "price_proj": 10.0,
       "price": 5.3,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.87,
       "sprite": "sprites/1642864.png"
-    },
-    {
-      "id": 1631123,
-      "name": "Jamaree Bouyea",
-      "num": "17",
-      "team": "PHX",
-      "opp": "LAL",
-      "home": true,
-      "game_id": "0022600237",
-      "positions": [
-        "PG",
-        "SG"
-      ],
-      "proj": 9.8,
-      "avg_fp": 5.8,
-      "matchup_adj": -0.0,
-      "games_this_season": 6,
-      "last5": [
-        3.5,
-        3.5,
-        -0.5,
-        8.5,
-        12.8
-      ],
-      "stats": {
-        "pts": 3.2,
-        "reb": 0.3,
-        "ast": 1.5,
-        "stl": 0.0,
-        "blk": 0.0,
-        "tov": 0.2,
-        "fg3m": 0.2,
-        "min": 5.3
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 5.5,
-          "reb": 0.5,
-          "ast": 3.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 8.5,
-          "fgm": 2.0,
-          "fga": 2.0,
-          "ftm": 1.5,
-          "fta": 1.5,
-          "fp": 10.6,
-          "g": 2
-        },
-        "l5": {
-          "pts": 3.2,
-          "reb": 0.2,
-          "ast": 1.4,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.2,
-          "fg3m": 0.2,
-          "min": 5.0,
-          "fgm": 1.2,
-          "fga": 1.2,
-          "ftm": 0.6,
-          "fta": 0.6,
-          "fp": 5.5,
-          "g": 5
-        },
-        "l10": {
-          "pts": 3.2,
-          "reb": 0.3,
-          "ast": 1.5,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.2,
-          "fg3m": 0.2,
-          "min": 5.3,
-          "fgm": 1.17,
-          "fga": 1.17,
-          "ftm": 0.67,
-          "fta": 0.67,
-          "fp": 5.8,
-          "g": 6
-        },
-        "season": {
-          "pts": 3.2,
-          "reb": 0.3,
-          "ast": 1.5,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.2,
-          "fg3m": 0.2,
-          "min": 5.3,
-          "fgm": 1.17,
-          "fga": 1.17,
-          "ftm": 0.67,
-          "fta": 0.67,
-          "fp": 5.8,
-          "g": 6
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.0,
-      "pct_started": 0.0,
-      "price_proj": 9.8,
-      "price": 5.2,
-      "price_change": 0.0,
-      "value": 1.88,
-      "sprite": "sprites/1631123.png"
     },
     {
       "id": 1642918,
@@ -25322,9 +23485,9 @@
         "PG",
         "SG"
       ],
-      "proj": 9.8,
+      "proj": 11.6,
       "avg_fp": 11.9,
-      "matchup_adj": -0.7,
+      "matchup_adj": -0.9,
       "games_this_season": 11,
       "last5": [
         8.2,
@@ -25417,226 +23580,8 @@
       "price_proj": 9.8,
       "price": 5.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 2.23,
       "sprite": "sprites/1642918.png"
-    },
-    {
-      "id": 1630264,
-      "name": "Anthony Gill",
-      "num": "16",
-      "team": "WAS",
-      "opp": "HOU",
-      "home": true,
-      "game_id": "0022600242",
-      "positions": [
-        "SF",
-        "PF"
-      ],
-      "proj": 9.9,
-      "avg_fp": 1.6,
-      "matchup_adj": -0.8,
-      "games_this_season": 3,
-      "last5": [
-        0.0,
-        2.2,
-        2.5
-      ],
-      "stats": {
-        "pts": 0.3,
-        "reb": 1.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
-        "tov": 0.0,
-        "fg3m": 0.0,
-        "min": 4.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 0.5,
-          "reb": 1.5,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 5.5,
-          "fgm": 0.0,
-          "fga": 2.0,
-          "ftm": 0.5,
-          "fta": 1.0,
-          "fp": 2.4,
-          "g": 2
-        },
-        "l5": {
-          "pts": 0.3,
-          "reb": 1.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 0.0,
-          "fga": 1.33,
-          "ftm": 0.33,
-          "fta": 0.67,
-          "fp": 1.6,
-          "g": 3
-        },
-        "l10": {
-          "pts": 0.3,
-          "reb": 1.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 0.0,
-          "fga": 1.33,
-          "ftm": 0.33,
-          "fta": 0.67,
-          "fp": 1.6,
-          "g": 3
-        },
-        "season": {
-          "pts": 0.3,
-          "reb": 1.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 4.0,
-          "fgm": 0.0,
-          "fga": 1.33,
-          "ftm": 0.33,
-          "fta": 0.67,
-          "fp": 1.6,
-          "g": 3
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.0,
-      "pct_started": 0.0,
-      "price_proj": 9.9,
-      "price": 5.2,
-      "price_change": 0.0,
-      "value": 1.9,
-      "sprite": "sprites/1630264.png"
-    },
-    {
-      "id": 1631342,
-      "name": "Daeqwon Plowden",
-      "num": "29",
-      "team": "SAC",
-      "opp": "OKC",
-      "home": true,
-      "game_id": "0022600244",
-      "positions": [
-        "SG",
-        "SF"
-      ],
-      "proj": 9.8,
-      "avg_fp": 4.6,
-      "matchup_adj": -0.5,
-      "games_this_season": 9,
-      "last5": [
-        4.0,
-        2.2,
-        7.0,
-        -0.5,
-        0.0
-      ],
-      "stats": {
-        "pts": 2.3,
-        "reb": 0.9,
-        "ast": 0.2,
-        "stl": 0.2,
-        "blk": 0.1,
-        "tov": 0.2,
-        "fg3m": 0.4,
-        "min": 9.9
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 0.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.5,
-          "fg3m": 0.0,
-          "min": 2.0,
-          "fgm": 0.0,
-          "fga": 0.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": -0.2,
-          "g": 2
-        },
-        "l5": {
-          "pts": 2.2,
-          "reb": 0.2,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.2,
-          "fg3m": 0.4,
-          "min": 4.6,
-          "fgm": 0.8,
-          "fga": 2.0,
-          "ftm": 0.2,
-          "fta": 0.4,
-          "fp": 2.5,
-          "g": 5
-        },
-        "l10": {
-          "pts": 2.3,
-          "reb": 0.9,
-          "ast": 0.2,
-          "stl": 0.2,
-          "blk": 0.1,
-          "tov": 0.2,
-          "fg3m": 0.4,
-          "min": 9.9,
-          "fgm": 0.89,
-          "fga": 2.11,
-          "ftm": 0.11,
-          "fta": 0.22,
-          "fp": 4.6,
-          "g": 9
-        },
-        "season": {
-          "pts": 2.3,
-          "reb": 0.9,
-          "ast": 0.2,
-          "stl": 0.2,
-          "blk": 0.1,
-          "tov": 0.2,
-          "fg3m": 0.4,
-          "min": 9.9,
-          "fgm": 0.89,
-          "fga": 2.11,
-          "ftm": 0.11,
-          "fta": 0.22,
-          "fp": 4.6,
-          "g": 9
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.0,
-      "pct_started": 0.0,
-      "price_proj": 9.8,
-      "price": 5.2,
-      "price_change": 0.0,
-      "value": 1.88,
-      "sprite": "sprites/1631342.png"
     },
     {
       "id": 1643419,
@@ -25747,116 +23692,6 @@
       "price_change": 0.0,
       "value": 1.88,
       "sprite": "sprites/1643419.png"
-    },
-    {
-      "id": 1629618,
-      "name": "Jalen Pickett",
-      "num": "21",
-      "team": "LAC",
-      "opp": "CHA",
-      "home": true,
-      "game_id": "0022600238",
-      "positions": [
-        "PG",
-        "SG"
-      ],
-      "proj": 9.7,
-      "avg_fp": 5.4,
-      "matchup_adj": -0.3,
-      "games_this_season": 5,
-      "last5": [
-        5.5,
-        6.8,
-        7.0,
-        -0.5,
-        8.2
-      ],
-      "stats": {
-        "pts": 2.0,
-        "reb": 0.8,
-        "ast": 1.0,
-        "stl": 0.4,
-        "blk": 0.0,
-        "tov": 0.2,
-        "fg3m": 0.4,
-        "min": 5.2
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 1.5,
-          "reb": 0.5,
-          "ast": 0.5,
-          "stl": 0.5,
-          "blk": 0.0,
-          "tov": 0.5,
-          "fg3m": 0.5,
-          "min": 5.0,
-          "fgm": 0.5,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 3.9,
-          "g": 2
-        },
-        "l5": {
-          "pts": 2.0,
-          "reb": 0.8,
-          "ast": 1.0,
-          "stl": 0.4,
-          "blk": 0.0,
-          "tov": 0.2,
-          "fg3m": 0.4,
-          "min": 5.2,
-          "fgm": 0.8,
-          "fga": 1.6,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 5.4,
-          "g": 5
-        },
-        "l10": {
-          "pts": 2.0,
-          "reb": 0.8,
-          "ast": 1.0,
-          "stl": 0.4,
-          "blk": 0.0,
-          "tov": 0.2,
-          "fg3m": 0.4,
-          "min": 5.2,
-          "fgm": 0.8,
-          "fga": 1.6,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 5.4,
-          "g": 5
-        },
-        "season": {
-          "pts": 2.0,
-          "reb": 0.8,
-          "ast": 1.0,
-          "stl": 0.4,
-          "blk": 0.0,
-          "tov": 0.2,
-          "fg3m": 0.4,
-          "min": 5.2,
-          "fgm": 0.8,
-          "fga": 1.6,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 5.4,
-          "g": 5
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.1,
-      "price_proj": 9.7,
-      "price": 5.1,
-      "price_change": 0.0,
-      "value": 1.9,
-      "sprite": "sprites/1629618.png"
     },
     {
       "id": 1643512,
@@ -26297,9 +24132,9 @@
         "PG",
         "SG"
       ],
-      "proj": 9.5,
+      "proj": 9.2,
       "avg_fp": 10.0,
-      "matchup_adj": -0.8,
+      "matchup_adj": -0.7,
       "games_this_season": 10,
       "last5": [
         1.0,
@@ -26392,118 +24227,8 @@
       "price_proj": 9.5,
       "price": 5.0,
       "price_change": -0.5,
-      "value": 1.9,
+      "value": 1.84,
       "sprite": "sprites/1631204.png"
-    },
-    {
-      "id": 1630702,
-      "name": "Jaden Hardy",
-      "num": "7",
-      "team": "LAL",
-      "opp": "PHX",
-      "home": false,
-      "game_id": "0022600237",
-      "positions": [
-        "PG",
-        "SG"
-      ],
-      "proj": 9.1,
-      "avg_fp": 3.6,
-      "matchup_adj": 0.1,
-      "games_this_season": 7,
-      "last5": [
-        1.2,
-        1.0,
-        2.0,
-        3.5,
-        4.8
-      ],
-      "stats": {
-        "pts": 1.6,
-        "reb": 0.6,
-        "ast": 0.4,
-        "stl": 0.3,
-        "blk": 0.0,
-        "tov": 0.1,
-        "fg3m": 0.3,
-        "min": 3.4
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 1.5,
-          "reb": 0.5,
-          "ast": 0.5,
-          "stl": 0.5,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.5,
-          "min": 2.5,
-          "fgm": 0.5,
-          "fga": 1.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 4.1,
-          "g": 2
-        },
-        "l5": {
-          "pts": 1.2,
-          "reb": 0.4,
-          "ast": 0.2,
-          "stl": 0.2,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.2,
-          "min": 1.6,
-          "fgm": 0.2,
-          "fga": 0.8,
-          "ftm": 0.6,
-          "fta": 0.8,
-          "fp": 2.5,
-          "g": 5
-        },
-        "l10": {
-          "pts": 1.6,
-          "reb": 0.6,
-          "ast": 0.4,
-          "stl": 0.3,
-          "blk": 0.0,
-          "tov": 0.1,
-          "fg3m": 0.3,
-          "min": 3.4,
-          "fgm": 0.29,
-          "fga": 1.86,
-          "ftm": 0.71,
-          "fta": 0.86,
-          "fp": 3.6,
-          "g": 7
-        },
-        "season": {
-          "pts": 1.6,
-          "reb": 0.6,
-          "ast": 0.4,
-          "stl": 0.3,
-          "blk": 0.0,
-          "tov": 0.1,
-          "fg3m": 0.3,
-          "min": 3.4,
-          "fgm": 0.29,
-          "fga": 1.86,
-          "ftm": 0.71,
-          "fta": 0.86,
-          "fp": 3.6,
-          "g": 7
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.1,
-      "price_proj": 9.1,
-      "price": 4.8,
-      "price_change": 0.0,
-      "value": 1.9,
-      "sprite": "sprites/1630702.png"
     },
     {
       "id": 1643547,
@@ -26613,116 +24338,6 @@
       "price_change": -0.4,
       "value": 1.87,
       "sprite": "sprites/1643547.png"
-    },
-    {
-      "id": 1642363,
-      "name": "Nique Clifford",
-      "num": "18",
-      "team": "OKC",
-      "opp": "SAC",
-      "home": false,
-      "game_id": "0022600244",
-      "positions": [
-        "PG",
-        "SG"
-      ],
-      "proj": 8.9,
-      "avg_fp": 5.1,
-      "matchup_adj": 0.4,
-      "games_this_season": 11,
-      "last5": [
-        2.0,
-        10.5,
-        10.0,
-        10.8,
-        0.0
-      ],
-      "stats": {
-        "pts": 2.0,
-        "reb": 1.3,
-        "ast": 0.9,
-        "stl": 0.2,
-        "blk": 0.0,
-        "tov": 0.5,
-        "fg3m": 0.2,
-        "min": 8.9
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 2.5,
-          "reb": 1.5,
-          "ast": 0.5,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.5,
-          "min": 14.0,
-          "fgm": 1.0,
-          "fga": 3.0,
-          "ftm": 0.0,
-          "fta": 1.0,
-          "fp": 5.4,
-          "g": 2
-        },
-        "l5": {
-          "pts": 2.8,
-          "reb": 2.2,
-          "ast": 0.8,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.6,
-          "fg3m": 0.4,
-          "min": 11.2,
-          "fgm": 1.2,
-          "fga": 2.4,
-          "ftm": 0.0,
-          "fta": 0.4,
-          "fp": 6.7,
-          "g": 5
-        },
-        "l10": {
-          "pts": 1.6,
-          "reb": 1.3,
-          "ast": 0.7,
-          "stl": 0.1,
-          "blk": 0.0,
-          "tov": 0.3,
-          "fg3m": 0.2,
-          "min": 8.1,
-          "fgm": 0.7,
-          "fga": 2.0,
-          "ftm": 0.0,
-          "fta": 0.2,
-          "fp": 4.4,
-          "g": 10
-        },
-        "season": {
-          "pts": 2.0,
-          "reb": 1.3,
-          "ast": 0.9,
-          "stl": 0.2,
-          "blk": 0.0,
-          "tov": 0.5,
-          "fg3m": 0.2,
-          "min": 8.9,
-          "fgm": 0.91,
-          "fga": 2.45,
-          "ftm": 0.0,
-          "fta": 0.18,
-          "fp": 5.1,
-          "g": 11
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.7,
-      "pct_started": 0.4,
-      "price_proj": 8.9,
-      "price": 4.7,
-      "price_change": 0.0,
-      "value": 1.89,
-      "sprite": "sprites/1642363.png"
     },
     {
       "id": 1643567,
@@ -26846,7 +24461,7 @@
         "SF",
         "PF"
       ],
-      "proj": 8.7,
+      "proj": 8.5,
       "avg_fp": 7.5,
       "matchup_adj": 0.2,
       "games_this_season": 12,
@@ -26941,106 +24556,107 @@
       "price_proj": 8.7,
       "price": 4.6,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.85,
       "sprite": "sprites/1642868.png"
     },
     {
-      "id": 1630579,
-      "name": "Jericho Sims",
-      "num": "00",
-      "team": "MIL",
-      "opp": "ATL",
+      "id": 1642367,
+      "name": "Jonathan Mogbo",
+      "num": "22",
+      "team": "SAC",
+      "opp": "OKC",
       "home": true,
-      "game_id": "0022600243",
+      "game_id": "0022600244",
       "positions": [
-        "C"
+        "SF",
+        "PF"
       ],
       "proj": 8.7,
-      "avg_fp": 2.4,
-      "matchup_adj": 0.4,
-      "games_this_season": 8,
+      "avg_fp": 9.2,
+      "matchup_adj": -0.5,
+      "games_this_season": 5,
       "last5": [
-        0.0,
-        1.2,
-        4.0,
-        2.0,
-        8.0
+        -0.5,
+        14.2,
+        11.8,
+        20.2,
+        0.0
       ],
       "stats": {
-        "pts": 0.5,
-        "reb": 1.1,
-        "ast": 0.2,
-        "stl": 0.0,
-        "blk": 0.1,
-        "tov": 0.2,
-        "fg3m": 0.0,
-        "min": 9.1
+        "pts": 3.0,
+        "reb": 2.2,
+        "ast": 0.8,
+        "stl": 0.8,
+        "blk": 0.4,
+        "tov": 0.6,
+        "fg3m": 0.2,
+        "min": 14.2
       },
       "stats_from": "this season",
       "windows": {
         "l2": {
-          "pts": 1.0,
-          "reb": 2.0,
-          "ast": 0.5,
-          "stl": 0.0,
+          "pts": 3.0,
+          "reb": 1.5,
+          "ast": 1.5,
+          "stl": 1.0,
           "blk": 0.5,
-          "tov": 0.5,
+          "tov": 0.0,
           "fg3m": 0.0,
-          "min": 13.0,
-          "fgm": 0.5,
-          "fga": 1.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 5.0,
+          "min": 13.5,
+          "fgm": 1.0,
+          "fga": 2.0,
+          "ftm": 1.0,
+          "fta": 1.0,
+          "fp": 10.1,
           "g": 2
         },
         "l5": {
-          "pts": 0.8,
-          "reb": 1.4,
-          "ast": 0.2,
-          "stl": 0.0,
-          "blk": 0.2,
-          "tov": 0.4,
-          "fg3m": 0.0,
-          "min": 9.8,
-          "fgm": 0.4,
-          "fga": 1.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 3.0,
+          "pts": 3.0,
+          "reb": 2.2,
+          "ast": 0.8,
+          "stl": 0.8,
+          "blk": 0.4,
+          "tov": 0.6,
+          "fg3m": 0.2,
+          "min": 14.2,
+          "fgm": 1.2,
+          "fga": 3.4,
+          "ftm": 0.4,
+          "fta": 0.4,
+          "fp": 9.2,
           "g": 5
         },
         "l10": {
-          "pts": 0.5,
-          "reb": 1.1,
-          "ast": 0.2,
-          "stl": 0.0,
-          "blk": 0.1,
-          "tov": 0.2,
-          "fg3m": 0.0,
-          "min": 9.1,
-          "fgm": 0.25,
-          "fga": 0.62,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 2.4,
-          "g": 8
+          "pts": 3.0,
+          "reb": 2.2,
+          "ast": 0.8,
+          "stl": 0.8,
+          "blk": 0.4,
+          "tov": 0.6,
+          "fg3m": 0.2,
+          "min": 14.2,
+          "fgm": 1.2,
+          "fga": 3.4,
+          "ftm": 0.4,
+          "fta": 0.4,
+          "fp": 9.2,
+          "g": 5
         },
         "season": {
-          "pts": 0.5,
-          "reb": 1.1,
-          "ast": 0.2,
-          "stl": 0.0,
-          "blk": 0.1,
-          "tov": 0.2,
-          "fg3m": 0.0,
-          "min": 9.1,
-          "fgm": 0.25,
-          "fga": 0.62,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 2.4,
-          "g": 8
+          "pts": 3.0,
+          "reb": 2.2,
+          "ast": 0.8,
+          "stl": 0.8,
+          "blk": 0.4,
+          "tov": 0.6,
+          "fg3m": 0.2,
+          "min": 14.2,
+          "fgm": 1.2,
+          "fga": 3.4,
+          "ftm": 0.4,
+          "fta": 0.4,
+          "fp": 9.2,
+          "g": 5
         }
       },
       "injury": null,
@@ -27051,7 +24667,7 @@
       "price": 4.6,
       "price_change": 0.0,
       "value": 1.89,
-      "sprite": "sprites/1630579.png"
+      "sprite": "sprites/1642367.png"
     },
     {
       "id": 1642862,
@@ -27065,7 +24681,7 @@
         "SF",
         "PF"
       ],
-      "proj": 8.5,
+      "proj": 7.4,
       "avg_fp": 7.3,
       "matchup_adj": 0.1,
       "games_this_season": 6,
@@ -27160,335 +24776,8 @@
       "price_proj": 8.5,
       "price": 4.5,
       "price_change": 0.0,
-      "value": 1.89,
+      "value": 1.64,
       "sprite": "sprites/1642862.png"
-    },
-    {
-      "id": 1627827,
-      "name": "Dorian Finney-Smith",
-      "num": "8",
-      "team": "ATL",
-      "opp": "MIL",
-      "home": false,
-      "game_id": "0022600243",
-      "positions": [
-        "SF",
-        "PF"
-      ],
-      "proj": 8.4,
-      "avg_fp": 2.3,
-      "matchup_adj": 0.6,
-      "games_this_season": 3,
-      "last5": [
-        7.0,
-        0.0,
-        0.0
-      ],
-      "stats": {
-        "pts": 1.0,
-        "reb": 0.7,
-        "ast": 0.3,
-        "stl": 0.0,
-        "blk": 0.0,
-        "tov": 0.3,
-        "fg3m": 0.3,
-        "min": 4.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 0.0,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.0,
-          "min": 2.0,
-          "fgm": 0.0,
-          "fga": 0.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 0.0,
-          "g": 2
-        },
-        "l5": {
-          "pts": 1.0,
-          "reb": 0.7,
-          "ast": 0.3,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.3,
-          "fg3m": 0.3,
-          "min": 4.0,
-          "fgm": 0.33,
-          "fga": 1.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 2.3,
-          "g": 3
-        },
-        "l10": {
-          "pts": 1.0,
-          "reb": 0.7,
-          "ast": 0.3,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.3,
-          "fg3m": 0.3,
-          "min": 4.0,
-          "fgm": 0.33,
-          "fga": 1.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 2.3,
-          "g": 3
-        },
-        "season": {
-          "pts": 1.0,
-          "reb": 0.7,
-          "ast": 0.3,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.3,
-          "fg3m": 0.3,
-          "min": 4.0,
-          "fgm": 0.33,
-          "fga": 1.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 2.3,
-          "g": 3
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.0,
-      "price_proj": 8.4,
-      "price": 4.5,
-      "price_change": 0.0,
-      "value": 1.87,
-      "sprite": "sprites/1627827.png"
-    },
-    {
-      "id": 1642853,
-      "name": "Rasheer Fleming",
-      "num": "20",
-      "team": "PHX",
-      "opp": "LAL",
-      "home": true,
-      "game_id": "0022600237",
-      "positions": [
-        "SF",
-        "PF"
-      ],
-      "proj": 8.1,
-      "avg_fp": 5.0,
-      "matchup_adj": -0.0,
-      "games_this_season": 4,
-      "last5": [
-        7.5,
-        1.2,
-        5.2,
-        6.0
-      ],
-      "stats": {
-        "pts": 1.8,
-        "reb": 1.5,
-        "ast": 0.0,
-        "stl": 0.5,
-        "blk": 0.2,
-        "tov": 0.5,
-        "fg3m": 0.2,
-        "min": 9.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 3.0,
-          "reb": 1.5,
-          "ast": 0.0,
-          "stl": 0.5,
-          "blk": 0.0,
-          "tov": 1.0,
-          "fg3m": 0.5,
-          "min": 10.5,
-          "fgm": 1.0,
-          "fga": 2.0,
-          "ftm": 0.5,
-          "fta": 1.0,
-          "fp": 5.6,
-          "g": 2
-        },
-        "l5": {
-          "pts": 1.8,
-          "reb": 1.5,
-          "ast": 0.0,
-          "stl": 0.5,
-          "blk": 0.2,
-          "tov": 0.5,
-          "fg3m": 0.2,
-          "min": 9.0,
-          "fgm": 0.5,
-          "fga": 2.5,
-          "ftm": 0.5,
-          "fta": 1.0,
-          "fp": 5.0,
-          "g": 4
-        },
-        "l10": {
-          "pts": 1.8,
-          "reb": 1.5,
-          "ast": 0.0,
-          "stl": 0.5,
-          "blk": 0.2,
-          "tov": 0.5,
-          "fg3m": 0.2,
-          "min": 9.0,
-          "fgm": 0.5,
-          "fga": 2.5,
-          "ftm": 0.5,
-          "fta": 1.0,
-          "fp": 5.0,
-          "g": 4
-        },
-        "season": {
-          "pts": 1.8,
-          "reb": 1.5,
-          "ast": 0.0,
-          "stl": 0.5,
-          "blk": 0.2,
-          "tov": 0.5,
-          "fg3m": 0.2,
-          "min": 9.0,
-          "fgm": 0.5,
-          "fga": 2.5,
-          "ftm": 0.5,
-          "fta": 1.0,
-          "fp": 5.0,
-          "g": 4
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.0,
-      "price_proj": 8.1,
-      "price": 4.3,
-      "price_change": 0.0,
-      "value": 1.88,
-      "sprite": "sprites/1642853.png"
-    },
-    {
-      "id": 1642348,
-      "name": "Justin Edwards",
-      "num": "11",
-      "team": "PHI",
-      "opp": "IND",
-      "home": true,
-      "game_id": "0022600236",
-      "positions": [
-        "SF",
-        "PF"
-      ],
-      "proj": 8.0,
-      "avg_fp": 1.5,
-      "matchup_adj": 0.1,
-      "games_this_season": 6,
-      "last5": [
-        1.2,
-        3.2,
-        4.2,
-        -0.5,
-        0.8
-      ],
-      "stats": {
-        "pts": 0.8,
-        "reb": 0.7,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
-        "tov": 0.5,
-        "fg3m": 0.2,
-        "min": 2.5
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 0.0,
-          "reb": 0.5,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 1.0,
-          "fg3m": 0.0,
-          "min": 3.5,
-          "fgm": 0.0,
-          "fga": 0.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 0.1,
-          "g": 2
-        },
-        "l5": {
-          "pts": 1.0,
-          "reb": 0.8,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.6,
-          "fg3m": 0.2,
-          "min": 3.0,
-          "fgm": 0.4,
-          "fga": 0.8,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 1.8,
-          "g": 5
-        },
-        "l10": {
-          "pts": 0.8,
-          "reb": 0.7,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.5,
-          "fg3m": 0.2,
-          "min": 2.5,
-          "fgm": 0.33,
-          "fga": 0.67,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 1.5,
-          "g": 6
-        },
-        "season": {
-          "pts": 0.8,
-          "reb": 0.7,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.5,
-          "fg3m": 0.2,
-          "min": 2.5,
-          "fgm": 0.33,
-          "fga": 0.67,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 1.5,
-          "g": 6
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.1,
-      "price_proj": 8.0,
-      "price": 4.2,
-      "price_change": 0.0,
-      "value": 1.9,
-      "sprite": "sprites/1642348.png"
     },
     {
       "id": 1630182,
@@ -27502,7 +24791,7 @@
         "PG",
         "SG"
       ],
-      "proj": 7.9,
+      "proj": 7.6,
       "avg_fp": 7.8,
       "matchup_adj": -0.5,
       "games_this_season": 11,
@@ -27597,7 +24886,7 @@
       "price_proj": 7.9,
       "price": 4.2,
       "price_change": 0.0,
-      "value": 1.88,
+      "value": 1.81,
       "sprite": "sprites/1630182.png"
     },
     {
@@ -27612,7 +24901,7 @@
         "SG",
         "SF"
       ],
-      "proj": 8.0,
+      "proj": 6.8,
       "avg_fp": 8.1,
       "matchup_adj": -0.5,
       "games_this_season": 13,
@@ -27707,226 +24996,8 @@
       "price_proj": 8.0,
       "price": 4.2,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 1.62,
       "sprite": "sprites/1629004.png"
-    },
-    {
-      "id": 1630544,
-      "name": "Tre Mann",
-      "num": "1",
-      "team": "WAS",
-      "opp": "HOU",
-      "home": true,
-      "game_id": "0022600242",
-      "positions": [
-        "PG",
-        "SG"
-      ],
-      "proj": 7.9,
-      "avg_fp": 3.3,
-      "matchup_adj": -0.7,
-      "games_this_season": 5,
-      "last5": [
-        0.0,
-        0.0,
-        4.0,
-        12.5,
-        0.0
-      ],
-      "stats": {
-        "pts": 0.8,
-        "reb": 0.0,
-        "ast": 0.4,
-        "stl": 0.6,
-        "blk": 0.4,
-        "tov": 0.2,
-        "fg3m": 0.0,
-        "min": 5.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 1.0,
-          "reb": 0.0,
-          "ast": 1.0,
-          "stl": 1.0,
-          "blk": 1.0,
-          "tov": 0.5,
-          "fg3m": 0.0,
-          "min": 10.0,
-          "fgm": 0.5,
-          "fga": 3.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 6.2,
-          "g": 2
-        },
-        "l5": {
-          "pts": 0.8,
-          "reb": 0.0,
-          "ast": 0.4,
-          "stl": 0.6,
-          "blk": 0.4,
-          "tov": 0.2,
-          "fg3m": 0.0,
-          "min": 5.0,
-          "fgm": 0.4,
-          "fga": 1.6,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 3.3,
-          "g": 5
-        },
-        "l10": {
-          "pts": 0.8,
-          "reb": 0.0,
-          "ast": 0.4,
-          "stl": 0.6,
-          "blk": 0.4,
-          "tov": 0.2,
-          "fg3m": 0.0,
-          "min": 5.0,
-          "fgm": 0.4,
-          "fga": 1.6,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 3.3,
-          "g": 5
-        },
-        "season": {
-          "pts": 0.8,
-          "reb": 0.0,
-          "ast": 0.4,
-          "stl": 0.6,
-          "blk": 0.4,
-          "tov": 0.2,
-          "fg3m": 0.0,
-          "min": 5.0,
-          "fgm": 0.4,
-          "fga": 1.6,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 3.3,
-          "g": 5
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.1,
-      "price_proj": 7.9,
-      "price": 4.2,
-      "price_change": 0.0,
-      "value": 1.88,
-      "sprite": "sprites/1630544.png"
-    },
-    {
-      "id": 1642261,
-      "name": "Dalton Knecht",
-      "num": "1",
-      "team": "NYK",
-      "opp": "TOR",
-      "home": false,
-      "game_id": "0022600241",
-      "positions": [
-        "SF",
-        "PF"
-      ],
-      "proj": 7.6,
-      "avg_fp": 8.9,
-      "matchup_adj": -0.2,
-      "games_this_season": 3,
-      "last5": [
-        23.2,
-        0.0,
-        3.5
-      ],
-      "stats": {
-        "pts": 4.3,
-        "reb": 2.3,
-        "ast": 0.3,
-        "stl": 0.0,
-        "blk": 0.3,
-        "tov": 0.0,
-        "fg3m": 1.0,
-        "min": 9.7
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 1.5,
-          "reb": 0.0,
-          "ast": 0.0,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.5,
-          "min": 6.5,
-          "fgm": 0.5,
-          "fga": 1.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 1.8,
-          "g": 2
-        },
-        "l5": {
-          "pts": 4.3,
-          "reb": 2.3,
-          "ast": 0.3,
-          "stl": 0.0,
-          "blk": 0.3,
-          "tov": 0.0,
-          "fg3m": 1.0,
-          "min": 9.7,
-          "fgm": 1.67,
-          "fga": 2.67,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 8.9,
-          "g": 3
-        },
-        "l10": {
-          "pts": 4.3,
-          "reb": 2.3,
-          "ast": 0.3,
-          "stl": 0.0,
-          "blk": 0.3,
-          "tov": 0.0,
-          "fg3m": 1.0,
-          "min": 9.7,
-          "fgm": 1.67,
-          "fga": 2.67,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 8.9,
-          "g": 3
-        },
-        "season": {
-          "pts": 4.3,
-          "reb": 2.3,
-          "ast": 0.3,
-          "stl": 0.0,
-          "blk": 0.3,
-          "tov": 0.0,
-          "fg3m": 1.0,
-          "min": 9.7,
-          "fgm": 1.67,
-          "fga": 2.67,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 8.9,
-          "g": 3
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.6,
-      "pct_started": 0.4,
-      "price_proj": 7.6,
-      "price": 4.0,
-      "price_change": 0.0,
-      "value": 1.9,
-      "sprite": "sprites/1642261.png"
     },
     {
       "id": 1642885,
@@ -27940,7 +25011,7 @@
         "SF",
         "PF"
       ],
-      "proj": 7.6,
+      "proj": 8.4,
       "avg_fp": 8.6,
       "matchup_adj": -0.2,
       "games_this_season": 6,
@@ -28035,227 +25106,8 @@
       "price_proj": 7.6,
       "price": 4.0,
       "price_change": 0.0,
-      "value": 1.9,
+      "value": 2.1,
       "sprite": "sprites/1642885.png"
-    },
-    {
-      "id": 1642860,
-      "name": "Will Riley",
-      "num": "27",
-      "team": "WAS",
-      "opp": "HOU",
-      "home": true,
-      "game_id": "0022600242",
-      "positions": [
-        "SF",
-        "PF"
-      ],
-      "proj": 7.4,
-      "avg_fp": 2.8,
-      "matchup_adj": -0.6,
-      "games_this_season": 10,
-      "last5": [
-        2.0,
-        7.5,
-        9.0,
-        1.5,
-        3.5
-      ],
-      "stats": {
-        "pts": 1.9,
-        "reb": 0.2,
-        "ast": 0.3,
-        "stl": 0.0,
-        "blk": 0.1,
-        "tov": 0.2,
-        "fg3m": 0.2,
-        "min": 6.4
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 1.5,
-          "reb": 0.0,
-          "ast": 0.5,
-          "stl": 0.0,
-          "blk": 0.0,
-          "tov": 0.0,
-          "fg3m": 0.5,
-          "min": 3.5,
-          "fgm": 0.5,
-          "fga": 0.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 2.5,
-          "g": 2
-        },
-        "l5": {
-          "pts": 3.0,
-          "reb": 0.4,
-          "ast": 0.4,
-          "stl": 0.0,
-          "blk": 0.2,
-          "tov": 0.0,
-          "fg3m": 0.4,
-          "min": 9.8,
-          "fgm": 1.2,
-          "fga": 2.6,
-          "ftm": 0.2,
-          "fta": 0.4,
-          "fp": 4.7,
-          "g": 5
-        },
-        "l10": {
-          "pts": 1.9,
-          "reb": 0.2,
-          "ast": 0.3,
-          "stl": 0.0,
-          "blk": 0.1,
-          "tov": 0.2,
-          "fg3m": 0.2,
-          "min": 6.4,
-          "fgm": 0.7,
-          "fga": 1.6,
-          "ftm": 0.3,
-          "fta": 0.4,
-          "fp": 2.8,
-          "g": 10
-        },
-        "season": {
-          "pts": 1.9,
-          "reb": 0.2,
-          "ast": 0.3,
-          "stl": 0.0,
-          "blk": 0.1,
-          "tov": 0.2,
-          "fg3m": 0.2,
-          "min": 6.4,
-          "fgm": 0.7,
-          "fga": 1.6,
-          "ftm": 0.3,
-          "fta": 0.4,
-          "fp": 2.8,
-          "g": 10
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.1,
-      "price_proj": 7.4,
-      "price": 3.9,
-      "price_change": 0.0,
-      "value": 1.9,
-      "sprite": "sprites/1642860.png"
-    },
-    {
-      "id": 1630164,
-      "name": "James Wiseman",
-      "num": "35",
-      "team": "NYK",
-      "opp": "TOR",
-      "home": false,
-      "game_id": "0022600241",
-      "positions": [
-        "C"
-      ],
-      "proj": 6.4,
-      "avg_fp": 6.3,
-      "matchup_adj": -0.2,
-      "games_this_season": 5,
-      "last5": [
-        0.0,
-        4.0,
-        0.8,
-        23.5,
-        3.2
-      ],
-      "stats": {
-        "pts": 1.6,
-        "reb": 2.4,
-        "ast": 0.0,
-        "stl": 0.2,
-        "blk": 0.8,
-        "tov": 0.6,
-        "fg3m": 0.0,
-        "min": 5.0
-      },
-      "stats_from": "this season",
-      "windows": {
-        "l2": {
-          "pts": 4.0,
-          "reb": 4.5,
-          "ast": 0.0,
-          "stl": 0.5,
-          "blk": 1.5,
-          "tov": 0.5,
-          "fg3m": 0.0,
-          "min": 7.5,
-          "fgm": 2.0,
-          "fga": 2.5,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 13.4,
-          "g": 2
-        },
-        "l5": {
-          "pts": 1.6,
-          "reb": 2.4,
-          "ast": 0.0,
-          "stl": 0.2,
-          "blk": 0.8,
-          "tov": 0.6,
-          "fg3m": 0.0,
-          "min": 5.0,
-          "fgm": 0.8,
-          "fga": 2.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 6.3,
-          "g": 5
-        },
-        "l10": {
-          "pts": 1.6,
-          "reb": 2.4,
-          "ast": 0.0,
-          "stl": 0.2,
-          "blk": 0.8,
-          "tov": 0.6,
-          "fg3m": 0.0,
-          "min": 5.0,
-          "fgm": 0.8,
-          "fga": 2.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 6.3,
-          "g": 5
-        },
-        "season": {
-          "pts": 1.6,
-          "reb": 2.4,
-          "ast": 0.0,
-          "stl": 0.2,
-          "blk": 0.8,
-          "tov": 0.6,
-          "fg3m": 0.0,
-          "min": 5.0,
-          "fgm": 0.8,
-          "fga": 2.0,
-          "ftm": 0.0,
-          "fta": 0.0,
-          "fp": 6.3,
-          "g": 5
-        }
-      },
-      "injury": null,
-      "injury_src": null,
-      "pct_rostered": 0.1,
-      "pct_started": 0.1,
-      "price_proj": 6.4,
-      "price": 3.4,
-      "price_change": 0.0,
-      "value": 1.88,
-      "sprite": "sprites/1630164.png"
     },
     {
       "id": 1643717,

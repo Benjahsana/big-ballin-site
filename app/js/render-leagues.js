@@ -2,13 +2,13 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=2f68c1e';
-import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=2f68c1e';
-import { avatar } from './avatars.js?v=2f68c1e';
-import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=2f68c1e';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=2f68c1e';
-import { L, asLast, lastDate, loadLast } from './night.js?v=2f68c1e';
-import { benchOn } from './lineup.js?v=2f68c1e';
+import { S } from './state.js?v=bbd1da6';
+import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=bbd1da6';
+import { avatar } from './avatars.js?v=bbd1da6';
+import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=bbd1da6';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=bbd1da6';
+import { L, asLast, lastDate, loadLast } from './night.js?v=bbd1da6';
+import { benchOn } from './lineup.js?v=bbd1da6';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -169,7 +169,7 @@ function tonightTable(rows, night, o) {
         <span class="lt-who"><span class="lt-name">${esc(r.display_name)}</span>${(() => { const wb = winBadges(r.user_id, o.winners, o.kinds); return wb ? `<span class="lt-bdgs">${wb}</span>` : ''; })()}<span class="lt-open">${open ? '▲ CLOSE' : '▼ BOX SCORE'}</span></span></button></th>`;
     const t = teamNums(n, o.last);
     const live = `<td class="lt-num lt-live"><b>${Number(r.total).toFixed(1)}</b>${n && n.bonus ? `<i>${Number(n.raw).toFixed(1)} × ${Number(n.bonus).toFixed(2)}</i>` : ''}</td>`;
-    const proj = `<td class="lt-num lt-proj">${!t ? '<b>–</b>' : t.hidden === t.picks ? `<b>?</b><i>${t.hidden} hidden</i>` : `<b>${t.proj.toFixed(1)}${t.hidden ? '<em>+?</em>' : ''}</b><i class="${t.liveN ? 'on' : ''}">${t.line}</i>`}</td>`;
+    const proj = `<td class="lt-num lt-proj">${!t ? '<b>–</b>' : t.hidden && !t.hiddenKnown && t.hidden === t.picks ? `<b>?</b><i>${t.hidden} hidden</i>` : `<b>${t.proj.toFixed(1)}${t.hidden && !t.hiddenKnown ? '<em>+?</em>' : ''}</b><i class="${t.liveN ? 'on' : ''}">${t.line}</i>`}</td>`;
     let cells;
     if (!n) cells = `<td class="pc none" colspan="${cols.length}">No lineup ${when} (counts as 0)</td>`;
     else cells = cols.map((pos) => {
@@ -210,10 +210,13 @@ function teamNums(n, last) {
     exp += last ? p.proj : d.expect;
     if (d.state === 2) liveN++; else if (d.state === 3) done++; else toGo++;
   });
+  // Hidden picks: the database sends only their projected total (not who they are).
+  const hp = n.hidden_proj != null ? Number(n.hidden_proj) : null;
+  if (hidden && hp != null) exp += hp;
   const bonus = Number(n.bonus) || 1;
   const line = last ? 'pre-game' : !liveN && !done ? `${toGo} to play` : !liveN && !toGo ? 'ALL FINAL'
     : [liveN ? `${liveN} LIVE` : '', toGo ? `${toGo} to go` : '', done ? `${done} done` : ''].filter(Boolean).join(' · ');
-  return { proj: exp * bonus, hidden, picks, liveN, line };
+  return { proj: exp * bonus, hidden, hiddenKnown: hp != null, picks, liveN, line };
 }
 
 /* Popover for a player cell: headshot, matchup, FP vs projection, cost, value, stat line. */
