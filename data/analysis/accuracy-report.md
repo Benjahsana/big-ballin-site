@@ -1,46 +1,46 @@
 # BIG BALLIN projection accuracy
 
-9 scored nights, 2026-11-06 to 2026-11-14. Projections are compared with what players
+10 scored nights, 2026-11-06 to 2026-11-15. Projections are compared with what players
 actually scored, among players who got into the game. Bias above 0 means projections were too low.
 
 ## Overall
 
-- **Last night (2026-11-14):** off by 8.7 FP on average (48% of the projection), +1.6 bias, 66% within 10 FP (97 player-games)
-- **Last 7 nights:** off by 8.1 FP on average (41% of the projection), -0.7 bias, 70% within 10 FP (1002 player-games)
-- **All nights:** off by 8.2 FP on average (42% of the projection), -0.8 bias, 69% within 10 FP (1327 player-games)
-- **Since projection pricing (Nov 14):** off by 8.7 FP on average (48% of the projection), +1.6 bias, 66% within 10 FP (97 player-games)
-- **Didn't play last night:** 44 slate players, 13 of them not listed OUT (late scratches; the 6th Man covers these).
+- **Last night (2026-11-15):** off by 8.1 FP on average (56% of the projection), +1.2 bias, 69% within 10 FP (183 player-games)
+- **Last 7 nights:** off by 8.2 FP on average (44% of the projection), -0.2 bias, 70% within 10 FP (1038 player-games)
+- **All nights:** off by 8.2 FP on average (43% of the projection), -0.6 bias, 69% within 10 FP (1510 player-games)
+- **Since projection pricing (Nov 14):** off by 8.3 FP on average (54% of the projection), +1.4 bias, 68% within 10 FP (280 player-games)
+- **Didn't play last night:** 77 slate players, 31 of them not listed OUT (late scratches; the 6th Man covers these).
 
 ## By price tier (all nights)
 
 | Price | Player-games | Avg miss | Bias | Within 10 FP |
 |---|---|---|---|---|
-| under $10M | 767 | 7.5 FP | -0.5 | 74% |
-| $10-20M | 352 | 8.8 FP | -1.3 | 64% |
-| $20-30M | 138 | 9.8 FP | -0.1 | 58% |
-| $30M+ | 70 | 9.2 FP | -2.9 | 63% |
+| under $10M | 846 | 7.6 FP | -0.1 | 74% |
+| $10-20M | 435 | 8.7 FP | -1.1 | 64% |
+| $20-30M | 157 | 9.3 FP | -0.4 | 60% |
+| $30M+ | 72 | 9.0 FP | -2.9 | 64% |
 
-## Biggest misses last night (2026-11-14)
+## Biggest misses last night (2026-11-15)
 
 **Beat their projection** (the bargains):
 
 | Player | Price | Proj | Actual | Diff | Min |
 |---|---|---|---|---|---|
-| Tyrese Proctor (CLE) | $8.6M | 16.2 | 58.8 | +42.6 | 34 |
-| Thomas Bryant (CLE) | $6.9M | 13.0 | 39.2 | +26.2 | 27 |
-| Kyrie Irving (DAL) | $19.1M | 36.0 | 60.0 | +24.0 | 37 |
-| Cedric Coward (MEM) | $16.4M | 31.0 | 54.5 | +23.5 | 33 |
-| Kevin Huerter (DET) | $11.2M | 21.2 | 43.0 | +21.8 | 38 |
+| Kasparas Jakučionis (MIL) | $7.9M | 14.7 | 45.8 | +31.1 | 26 |
+| Mo Bamba (UTA) | $8.1M | 18.5 | 46.8 | +28.3 | 36 |
+| Gary Trent Jr. (MIL) | $5.8M | 5.8 | 30.0 | +24.2 | 30 |
+| Leaky Black (SAC) | $8.2M | 13.1 | 37.2 | +24.1 | 29 |
+| Alex Sarr (WAS) | $14.2M | 25.4 | 46.2 | +20.8 | 27 |
 
 **Fell short:**
 
 | Player | Price | Proj | Actual | Diff | Min |
 |---|---|---|---|---|---|
-| Elijah Harkless (DET) | $8.6M | 16.3 | 1.5 | -14.8 | 2 |
-| Duncan Robinson (DET) | $14.9M | 28.1 | 13.8 | -14.3 | 17 |
-| Taurean Prince (DET) | $9.2M | 17.4 | 3.5 | -13.9 | 8 |
-| Jahmai Mashack (MEM) | $6.9M | 13.0 | 0.0 | -13.0 | 2 |
-| Santi Aldama (DAL) | $14.0M | 26.5 | 14.0 | -12.5 | 16 |
+| Dillon Brooks (PHX) | $14.2M | 25.7 | 1.5 | -24.2 | 22 |
+| Tyler Herro (MIL) | $19.5M | 36.8 | 15.2 | -21.6 | 20 |
+| Rui Hachimura (LAC) | $12.2M | 26.0 | 5.5 | -20.5 | 22 |
+| Trae Young (WAS) | $18.5M | 35.4 | 15.8 | -19.6 | 26 |
+| Brandon Miller (CHA) | $18.6M | 34.6 | 15.5 | -19.1 | 24 |
 
 ## Biggest misses, all nights
 
@@ -52,7 +52,7 @@ actually scored, among players who got into the game. Bias above 0 means project
 | 2026-11-12 | Cade Cunningham | $35.8M | 47.6 | 81.8 | +34.2 |
 | 2026-11-12 | Ausar Thompson | $13.1M | 28.8 | 62.2 | +33.4 |
 | 2026-11-10 | Domantas Sabonis | $32.3M | 43.4 | 10.0 | -33.4 |
+| 2026-11-15 | Kasparas Jakučionis | $7.9M | 14.7 | 45.8 | +31.1 |
 | 2026-11-07 | Jamal Cain | $3.7M | 9.4 | 40.0 | +30.6 |
 | 2026-11-06 | Brayden Burries | $10.3M | 17.3 | 47.2 | +29.9 |
 | 2026-11-08 | Julian Reese | $12.0M | 29.9 | 0.0 | -29.9 |
-| 2026-11-12 | Bones Hyland | $5.1M | 16.7 | 45.8 | +29.1 |
