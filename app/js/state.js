@@ -15,6 +15,7 @@ export const S = {
   user: null, profile: null, cloudOk: false, cloudReady: false,   // cloudReady: the startup check has finished
   sync: 'local',        // 'local' (this device only) | 'saving' | 'saved' | 'error'
   live: null,           // { at, games: {game_id: {s, t, a, h}}, p: {player id: {fp, pts, ...}} }
+  streaks: null, ach: null, awards: null,   // render-awards.js: everyone's current streaks, my achievements, steal & bust (S.results' night)
   hotSeen: {},          // player id → highest HOT_LEVELS shout already made tonight (1, 2, 3)
   // Leagues tab: my leagues (with invite codes), every league (public list), the one being viewed.
   leagues: [], allLeagues: null, lbLeague: null, lbPeriod: 'night', lbRows: null, lbNight: null, lbWinners: null, lbErr: null,

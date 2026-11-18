@@ -823,3 +823,27 @@ button.mt-who:hover .mt-name { color: var(--yel); }
   .chat-list { max-height: 55vh; }
   .chat-form .btn { padding: 0 12px; }
 }
+
+/* ---------- Steal & bust, streaks, achievements (Nov 18): render-awards.js ---------- */
+.aw-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin: 18px 0; max-width: 760px; }
+.aw-box { display: flex; flex-direction: column; gap: 4px; background: var(--panel); border: 3px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.aw-steal { border-color: #2FBF71; }
+.aw-bust { border-color: #6FA8DC; }
+.aw-name { font-size: 20px; }
+.aw-name .muted { font-size: 15px; font-weight: normal; }
+.aw-line { font-size: 17px; }
+.aw-who { font-size: 15px; color: var(--soft); }
+.red { color: var(--red); }
+.stk { display: inline-block; margin-left: 6px; font-family: var(--pixel); font-size: 9px; padding: 2px 4px; border-radius: 4px; background: var(--bg); border: 1px solid var(--line2); vertical-align: middle; white-space: nowrap; }
+.stk.heat { color: var(--red); border-color: var(--red); }
+.stk.iron { color: var(--soft); }
+.achs { margin: 26px 0 8px; }
+.ach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+.ach { display: flex; flex-direction: column; gap: 4px; background: var(--panel); border: 3px solid var(--line); border-radius: 12px; padding: 12px; opacity: 0.55; }
+.ach.got { opacity: 1; border-color: var(--yel); }
+.ach-ic { font-size: 28px; }
+.ach b { font-family: var(--pixel); font-size: 10px; line-height: 1.5; }
+.ach b i { color: var(--yel); font-style: normal; }
+.ach .muted { font-size: 15px; }
+.ach-now { font-family: var(--pixel); font-size: 8px; color: var(--blu); }
+@media (max-width: 700px) { .ach-grid { grid-template-columns: 1fr 1fr; } }

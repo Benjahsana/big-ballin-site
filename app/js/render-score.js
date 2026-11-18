@@ -3,13 +3,14 @@
    players' games, and a box score: one row per player with FP (bar toward his projection),
    PROJ, PACE, COST, FP/$M, then MIN PTS REB AST STL BLK TOV FG 3PT FT +/- PF. Tap a player
    for where his points came from. League boards reuse mtTable() for a team's lineup. */
-import { S } from './state.js?v=a8a2ab1';
-import { $, POS, BN, slotLabel, HOSTED, esc, money, where, jersey } from './util.js?v=a8a2ab1';
-import { liveOf, gameOf, allFinal, isLocked, spent, filledCount, capBonusFor, bonusText, subSlot, benchRule } from './lineup.js?v=a8a2ab1';
-import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=a8a2ab1';
-import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=a8a2ab1';
-import { play } from './sound.js?v=a8a2ab1';
-import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=a8a2ab1';
+import { S } from './state.js?v=d0bea8a';
+import { achBox } from './render-awards.js?v=d0bea8a';
+import { $, POS, BN, slotLabel, HOSTED, esc, money, where, jersey } from './util.js?v=d0bea8a';
+import { liveOf, gameOf, allFinal, isLocked, spent, filledCount, capBonusFor, bonusText, subSlot, benchRule } from './lineup.js?v=d0bea8a';
+import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=d0bea8a';
+import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=d0bea8a';
+import { play } from './sound.js?v=d0bea8a';
+import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=d0bea8a';
 
 export const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
 
@@ -249,7 +250,7 @@ export function renderScore() {
     html = `<div class="empty"><span>Tonight’s players and prices post around 6:30 AM on game days. Last night’s scores are under LAST NIGHT.</span>
       <button class="btn btn-primary" data-act="scoreview" data-v="last">SEE LAST NIGHT</button></div>`;
   } else html = scoreBody(false);
-  $('#score').innerHTML = sw + html;
+  $('#score').innerHTML = sw + html + achBox();
 }
 
 function scoreBody(isLast) {

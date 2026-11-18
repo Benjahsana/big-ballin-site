@@ -2,14 +2,15 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=a8a2ab1';
-import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=a8a2ab1';
-import { avatar } from './avatars.js?v=a8a2ab1';
-import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=a8a2ab1';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=a8a2ab1';
-import { L, asLast, lastDate, loadLast } from './night.js?v=a8a2ab1';
-import { benchOn } from './lineup.js?v=a8a2ab1';
-import { chatShell, renderChatList, reactBar, loadChat, chatLoaded, unread } from './render-chat.js?v=a8a2ab1';
+import { S } from './state.js?v=d0bea8a';
+import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=d0bea8a';
+import { avatar } from './avatars.js?v=d0bea8a';
+import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=d0bea8a';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=d0bea8a';
+import { L, asLast, lastDate, loadLast } from './night.js?v=d0bea8a';
+import { benchOn } from './lineup.js?v=d0bea8a';
+import { streakChips, awardsStrip, loadStreaks } from './render-awards.js?v=d0bea8a';
+import { chatShell, renderChatList, reactBar, loadChat, chatLoaded, unread } from './render-chat.js?v=d0bea8a';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -56,7 +57,8 @@ export async function loadBoards() {
   try {
     const lg = S.lbLeague, period = S.lbPeriod;
     const board = lg ? Promise.all([boardQuery(period, lg), latestWinners(lg)]) : Promise.resolve(null);
-    const [mine, all, b] = await Promise.all([signedIn() ? myLeagues() : Promise.resolve([]), leagueList(S.slate.date), board]);
+    const [mine, all, b] = await Promise.all([signedIn() ? myLeagues() : Promise.resolve([]), leagueList(S.slate.date), board,
+      loadStreaks(), lg ? loadLast() : null]);   // streak chips; last night's steal & bust
     S.leagues = mine; S.allLeagues = all;
     if (lg && !all.some((l) => l.id === lg)) { S.lbLeague = null; store('bb-league', null); }
     if (!S.lbLeague) { S.lbRows = null; S.lbNight = null; S.lbWinners = null; S.lbErr = null; return; }
@@ -120,7 +122,7 @@ export function boardList(rows, period, night, opts) {
       : `<span class="muted">${r.nights} night${r.nights === 1 ? '' : 's'} played</span>`;
     return `<li class="lb-row${r.user_id === me ? ' me' : ''}">
       <span class="lb-rank">${r.rank}</span>
-      <div class="lb-who"><div class="lb-name">${avatar(r.avatar, 36)}<span class="pname">${esc(r.display_name)}</span></div>
+      <div class="lb-who"><div class="lb-name">${avatar(r.avatar, 36)}<span class="pname">${esc(r.display_name)}</span>${streakChips(r.user_id)}</div>
         <div class="bdgs">${badges(r.badges)}</div>${period === 'night' && n && o.lineups ? '' : detail}</div>
       <div class="lb-score"><b class="yel">${Number(r.total).toFixed(1)}</b>${r.unofficial ? '<span class="live-tag">LIVE</span>' : ''}
         ${period === 'night' && n && n.bonus ? `<span class="muted">${Number(n.raw).toFixed(1)} FP × ${Number(n.bonus).toFixed(2)}</span>` : ''}</div>
@@ -167,7 +169,7 @@ function tonightTable(rows, night, o) {
     const open = !!S.lbOpen[key];
     const team = `<th class="lt-team" scope="row"><button class="lt-tb" data-act="ltopen" data-v="${esc(key)}" aria-expanded="${open}">
         <span class="lt-rank">${r.rank}</span>${avatar(r.avatar, 30)}
-        <span class="lt-who"><span class="lt-name">${esc(r.display_name)}</span>${(() => { const wb = winBadges(r.user_id, o.winners, o.kinds); return wb ? `<span class="lt-bdgs">${wb}</span>` : ''; })()}<span class="lt-open">${open ? '▲ CLOSE' : '▼ BOX SCORE'}</span></span></button>${o.league && n ? reactBar(o.league, `n${S.slate.date}:${r.user_id}`, true) : ''}</th>`;
+        <span class="lt-who"><span class="lt-name">${esc(r.display_name)}${streakChips(r.user_id)}</span>${(() => { const wb = winBadges(r.user_id, o.winners, o.kinds); return wb ? `<span class="lt-bdgs">${wb}</span>` : ''; })()}<span class="lt-open">${open ? '▲ CLOSE' : '▼ BOX SCORE'}</span></span></button>${o.league && n ? reactBar(o.league, `n${S.slate.date}:${r.user_id}`, true) : ''}</th>`;
     const t = teamNums(n, o.last);
     const live = `<td class="lt-num lt-live"><b>${Number(r.total).toFixed(1)}</b>${n && n.bonus ? `<i>${Number(n.raw).toFixed(1)} × ${Number(n.bonus).toFixed(2)}</i>` : ''}</td>`;
     const proj = `<td class="lt-num lt-proj">${!t ? '<b>–</b>' : t.hidden && !t.hiddenKnown && t.hidden === t.picks ? `<b>?</b><i>${t.hidden} hidden</i>` : `<b>${t.proj.toFixed(1)}${t.hidden && !t.hiddenKnown ? '<em>+?</em>' : ''}</b><i class="${t.liveN ? 'on' : ''}">${t.line}</i>`}</td>`;
@@ -294,6 +296,7 @@ function leaguePage(lg) {
     <p class="muted lb-note">Ranked by final score (fantasy points × cap bonus). A night without a lineup counts as 0.
       Other players’ picks show once their game tips off.</p>
     ${board}
+    ${awardsStrip(S.lbPeriod === 'last' ? S.lbNight : (recallBoard(lg.id, 'last') || {}).night)}
     ${member && signedIn() ? '<div id="chatSlot"></div>' : signedIn() ? '' : '<p class="muted lb-note">Members can chat here. Sign in and join with an invite to talk trash.</p>'}
     ${invite}`;
 }

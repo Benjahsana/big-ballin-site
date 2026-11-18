@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=a8a2ab1';
-import { POS } from './util.js?v=a8a2ab1';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=a8a2ab1';
+import { S } from './state.js?v=d0bea8a';
+import { POS } from './util.js?v=d0bea8a';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=d0bea8a';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -236,3 +236,15 @@ export function chatSubscribe(on) {
     .subscribe();
 }
 export function chatUnsubscribe() { if (chan && sb) sb.removeChannel(chan); chan = null; }
+
+/* ---------- Achievements and streaks (Nov 18; awarded by the score job) ---------- */
+export async function myAchievements() {
+  const { data, error } = await sb.from('achievements').select('id,kind,slate_date,value,detail').eq('user_id', S.user.id).order('id');
+  if (error) throw error;
+  return data || [];
+}
+export async function streaksAll() {
+  const { data, error } = await sb.from('streaks').select('user_id,heater,ironman').or('heater.gt.0,ironman.gt.0');
+  if (error) throw error;
+  return data || [];
+}

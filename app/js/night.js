@@ -4,9 +4,9 @@
    posts, that is the slate already loaded, so nothing extra is fetched.
    Rendering code reads S.slate / S.byId / S.games / S.results / S.live / S.lineup, so asLast()
    swaps last night's copies in for one synchronous render, then puts today's back. */
-import { S } from './state.js?v=a8a2ab1';
-import { POS, BN, recall, store } from './util.js?v=a8a2ab1';
-import { CLOUD, signedIn, loadLineup, liveFeed, prevSlateDate } from './cloud.js?v=a8a2ab1';
+import { S } from './state.js?v=d0bea8a';
+import { POS, BN, recall, store } from './util.js?v=d0bea8a';
+import { CLOUD, signedIn, loadLineup, liveFeed, prevSlateDate } from './cloud.js?v=d0bea8a';
 
 const LOOKBACK_DAYS = 10;      // without the database: how far back to look for a slate file
 
@@ -81,7 +81,7 @@ function finish(date, slate, res, live, saved) {
       if (!lu) lu = recall('bb-lineup-' + date);
       const lineup = {};
       [...POS, BN].forEach((pos) => { lineup[pos] = lu && lu[pos] && byId[lu[pos]] ? lu[pos] : null; });
-      Object.assign(L, { state: 'ready', date, slate, byId, games, results: res ? res.players : null, live, lineup });
+      Object.assign(L, { state: 'ready', date, slate, byId, games, results: res ? res.players : null, awards: res ? res.awards || null : null, live, lineup });
 }
 /* After sign-in/out the saved lineup for last night may differ. */
 export function resetLastLineup() { if (L.state === 'ready') { L.state = 'idle'; L.tRanks = null; } }

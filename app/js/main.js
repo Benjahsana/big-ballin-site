@@ -1,21 +1,22 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=a8a2ab1';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=a8a2ab1';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=a8a2ab1';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=a8a2ab1';
-import { defaultDir } from './filters.js?v=a8a2ab1';
-import { renderStats } from './render-stats.js?v=a8a2ab1';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=a8a2ab1';
-import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=a8a2ab1';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=a8a2ab1';
-import { openModal, closeModal, renderModal } from './render-account.js?v=a8a2ab1';
-import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=a8a2ab1';
-import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=a8a2ab1';
-import { avatar } from './avatars.js?v=a8a2ab1';
-import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=a8a2ab1';
-import { play, SOUNDS, styleFor } from './sound.js?v=a8a2ab1';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=a8a2ab1';
-import { LABELS } from './util.js?v=a8a2ab1';
+import { S, ui } from './state.js?v=d0bea8a';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=d0bea8a';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=d0bea8a';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=d0bea8a';
+import { defaultDir } from './filters.js?v=d0bea8a';
+import { renderStats } from './render-stats.js?v=d0bea8a';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=d0bea8a';
+import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=d0bea8a';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=d0bea8a';
+import { openModal, closeModal, renderModal } from './render-account.js?v=d0bea8a';
+import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=d0bea8a';
+import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=d0bea8a';
+import { avatar } from './avatars.js?v=d0bea8a';
+import { checkAchievements, loadStreaks } from './render-awards.js?v=d0bea8a';
+import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=d0bea8a';
+import { play, SOUNDS, styleFor } from './sound.js?v=d0bea8a';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=d0bea8a';
+import { LABELS } from './util.js?v=d0bea8a';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -153,7 +154,7 @@ document.addEventListener('click', (e) => {
     case 'tab': S.tab = b.dataset.tab; play('tap'); renderAll(); window.scrollTo({ top: 0 });
       if (S.tab === 'leagues') loadBoards().then(renderAll);
       if (S.tab === 'world') loadWorld().then(renderAll);
-      if (S.tab === 'score') { pollLive().then(loadTonightRanks).then(renderAll); loadLast().then(loadLastRanks).then(renderAll); }
+      if (S.tab === 'score') { loadStreaks().then(renderAll); pollLive().then(loadTonightRanks).then(renderAll); loadLast().then(loadLastRanks).then(renderAll); }
       break;
     case 'acct': signedIn() ? openModal('account') : S.user ? openModal('name') : openModal('signin'); break;
     case 'modal': openModal(b.dataset.k, b.dataset.k === 'signin' && S.modal ? { email: S.modal.email } : null); break;
@@ -300,7 +301,7 @@ async function afterAuth() {
   // These don't depend on each other, so they all go out at once (each request takes ~0.4 s).
   const code = recall('bb-join');
   const rankP = myWorldRank().catch(() => null);
-  const badgeP = checkBadges();
+  const badgeP = Promise.all([checkBadges(), checkAchievements(), loadStreaks()]);
   const boardP = code ? null : S.tab === 'leagues' ? loadBoards() : S.tab === 'world' ? loadWorld() : null;
   try {
     const lu = await loadLineup(S.slate.date);
@@ -444,7 +445,8 @@ document.addEventListener('visibilitychange', () => {
 async function loadResults() {
   try {
     const r = await fetch(`../data/results/results-${S.slate.date}.json`, { cache: 'no-store' });
-    S.results = r.ok ? (await r.json()).players : null;
+    const j = r.ok ? await r.json() : null;
+    S.results = j ? j.players : null; S.awards = j ? j.awards || null : null;   // awards: steal & bust (render-awards.js)
   } catch (e) { S.results = null; }
 }
 /* data/status.json is written by the server after every run (deploy/nightly.sh). */
