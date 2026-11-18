@@ -1,22 +1,22 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=d0bea8a';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=d0bea8a';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=d0bea8a';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=d0bea8a';
-import { defaultDir } from './filters.js?v=d0bea8a';
-import { renderStats } from './render-stats.js?v=d0bea8a';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=d0bea8a';
-import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=d0bea8a';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=d0bea8a';
-import { openModal, closeModal, renderModal } from './render-account.js?v=d0bea8a';
-import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=d0bea8a';
-import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=d0bea8a';
-import { avatar } from './avatars.js?v=d0bea8a';
-import { checkAchievements, loadStreaks } from './render-awards.js?v=d0bea8a';
-import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=d0bea8a';
-import { play, SOUNDS, styleFor } from './sound.js?v=d0bea8a';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=d0bea8a';
-import { LABELS } from './util.js?v=d0bea8a';
+import { S, ui } from './state.js?v=d48f0e7';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=d48f0e7';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=d48f0e7';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=d48f0e7';
+import { defaultDir } from './filters.js?v=d48f0e7';
+import { renderStats } from './render-stats.js?v=d48f0e7';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=d48f0e7';
+import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=d48f0e7';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=d48f0e7';
+import { openModal, closeModal, renderModal } from './render-account.js?v=d48f0e7';
+import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=d48f0e7';
+import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=d48f0e7';
+import { avatar } from './avatars.js?v=d48f0e7';
+import { checkAchievements, loadStreaks } from './render-awards.js?v=d48f0e7';
+import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=d48f0e7';
+import { play, SOUNDS, styleFor } from './sound.js?v=d48f0e7';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=d48f0e7';
+import { LABELS } from './util.js?v=d48f0e7';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -437,7 +437,7 @@ document.addEventListener('visibilitychange', () => {
   // Coming back to the tab: catch up right away instead of waiting for the next minute.
   if (!document.hidden && S.slate && Date.now() - lastTick > 30000) {
     lastTick = Date.now(); tick();
-    chatCatchUp([S.slate.date, lastDate()]).then(renderAll);   // phones drop the chat's live connection in the background
+    chatCatchUp().then(renderAll);   // phones drop the chat's live connection in the background
   }
 });
 

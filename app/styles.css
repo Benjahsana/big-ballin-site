@@ -812,8 +812,6 @@ button.mt-who:hover .mt-name { color: var(--yel); }
 .rx-pick { position: absolute; z-index: 20; left: 0; top: calc(100% + 4px); display: flex; gap: 2px; background: var(--panel2); border: 2px solid var(--yel); border-radius: 10px; padding: 4px; box-shadow: 0 4px 0 #000; }
 .rx-e { min-width: 40px; min-height: 40px; border: 0; background: none; font-size: 22px; border-radius: 8px; cursor: pointer; }
 .rx-e:hover, .rx-e:focus-visible { background: var(--line); }
-.lt-team .rx-bar { padding: 0 6px 6px; }
-.lt-team .rx, .lt-team .rx-add { min-height: 24px; font-size: 13px; padding: 0 6px; }
 /* Unread: a dot on the LEAGUES tab, NEW CHAT on the league card. */
 .tab.has-new { position: relative; }
 .tab.has-new::after { content: ''; position: absolute; top: 6px; right: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 2px var(--bg); }

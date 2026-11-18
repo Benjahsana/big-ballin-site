@@ -1,15 +1,15 @@
 /* BIG BALLIN: league chat (Nov 18). A message board on each league's page (members only), emoji
-   reactions on messages and on a team's night on the board, game posts from the server (winners,
+   reactions on messages (board-row reactions were tried on Nov 18 and removed), game posts from the server (winners,
    ON FIRE), unread dots, and instant updates through Supabase Realtime.
    The chat box is kept as one live element: the league page re-renders every minute during games,
    and renderLeagues() moves this box into the new page instead of rebuilding it, so typing,
    focus and scroll survive. Only the message list inside it is redrawn (renderChatList). */
-import { S, ui } from './state.js?v=d0bea8a';
-import { esc, store, recall, flash } from './util.js?v=d0bea8a';
-import { avatar } from './avatars.js?v=d0bea8a';
-import { CHAT } from './app-config.js?v=d0bea8a';
-import { play } from './sound.js?v=d0bea8a';
-import { signedIn, chatLoad, chatPost, chatDelete, react, reactionsLoad, chatLatest, chatSubscribe, chatUnsubscribe, profileOf, friendly } from './cloud.js?v=d0bea8a';
+import { S, ui } from './state.js?v=d48f0e7';
+import { esc, store, recall, flash } from './util.js?v=d48f0e7';
+import { avatar } from './avatars.js?v=d48f0e7';
+import { CHAT } from './app-config.js?v=d48f0e7';
+import { play } from './sound.js?v=d48f0e7';
+import { signedIn, chatLoad, chatPost, chatDelete, react, reactionsLoad, chatLatest, chatSubscribe, chatUnsubscribe, profileOf, friendly } from './cloud.js?v=d48f0e7';
 
 const C = {
   msgs: {},       // league id → messages (oldest first), once loaded
@@ -52,15 +52,15 @@ function addMsg(m) {
   return true;
 }
 
-/* Messages, plus reactions on them and on tonight's / last night's board rows. */
-export async function loadChat(lg, dates) {
+/* Messages and their reactions. */
+export async function loadChat(lg) {
   if (!signedIn() || C.loading[lg]) return;
   C.loading[lg] = true;
   try {
     const msgs = await chatLoad(lg, CHAT.load);
     C.msgs[lg] = [];
     msgs.forEach(addMsg);
-    const rows = await reactionsLoad(lg, msgs.map((m) => 'm' + m.id), (dates || []).filter(Boolean));
+    const rows = await reactionsLoad(lg, msgs.map((m) => 'm' + m.id), []);
     C.rx[lg] = {};
     rows.forEach((r) => addRx(lg, r.target, r.user_id, r.emoji, true));
   } catch (e) { if (!C.msgs[lg]) C.msgs[lg] = null; }
@@ -76,11 +76,11 @@ export async function startChat() {
   try { (await chatLatest()).forEach((r) => { C.latest[r.league_id] = { id: r.last_id, user: r.last_user }; }); } catch (e) { /* dots wait */ }
 }
 /* Back from the background (phones drop the live connection): catch up. */
-export async function chatCatchUp(dates) {
+export async function chatCatchUp() {
   if (!signedIn()) return;
   chatSubscribe(onLive);
   try { (await chatLatest()).forEach((r) => { C.latest[r.league_id] = { id: r.last_id, user: r.last_user }; }); } catch (e) { /* later */ }
-  if (S.lbLeague && C.msgs[S.lbLeague] !== undefined) await loadChat(S.lbLeague, dates);
+  if (S.lbLeague && C.msgs[S.lbLeague] !== undefined) await loadChat(S.lbLeague);
 }
 
 /* A Realtime change ('m' messages / 'r' reactions; only rows from my leagues arrive). */

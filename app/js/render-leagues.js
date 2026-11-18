@@ -2,15 +2,15 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=d0bea8a';
-import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=d0bea8a';
-import { avatar } from './avatars.js?v=d0bea8a';
-import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=d0bea8a';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=d0bea8a';
-import { L, asLast, lastDate, loadLast } from './night.js?v=d0bea8a';
-import { benchOn } from './lineup.js?v=d0bea8a';
-import { streakChips, awardsStrip, loadStreaks } from './render-awards.js?v=d0bea8a';
-import { chatShell, renderChatList, reactBar, loadChat, chatLoaded, unread } from './render-chat.js?v=d0bea8a';
+import { S } from './state.js?v=d48f0e7';
+import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=d48f0e7';
+import { avatar } from './avatars.js?v=d48f0e7';
+import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=d48f0e7';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=d48f0e7';
+import { L, asLast, lastDate, loadLast } from './night.js?v=d48f0e7';
+import { benchOn } from './lineup.js?v=d48f0e7';
+import { streakChips, awardsStrip, loadStreaks } from './render-awards.js?v=d48f0e7';
+import { chatShell, renderChatList, loadChat, chatLoaded, unread } from './render-chat.js?v=d48f0e7';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -169,7 +169,7 @@ function tonightTable(rows, night, o) {
     const open = !!S.lbOpen[key];
     const team = `<th class="lt-team" scope="row"><button class="lt-tb" data-act="ltopen" data-v="${esc(key)}" aria-expanded="${open}">
         <span class="lt-rank">${r.rank}</span>${avatar(r.avatar, 30)}
-        <span class="lt-who"><span class="lt-name">${esc(r.display_name)}${streakChips(r.user_id)}</span>${(() => { const wb = winBadges(r.user_id, o.winners, o.kinds); return wb ? `<span class="lt-bdgs">${wb}</span>` : ''; })()}<span class="lt-open">${open ? '▲ CLOSE' : '▼ BOX SCORE'}</span></span></button>${o.league && n ? reactBar(o.league, `n${S.slate.date}:${r.user_id}`, true) : ''}</th>`;
+        <span class="lt-who"><span class="lt-name">${esc(r.display_name)}${streakChips(r.user_id)}</span>${(() => { const wb = winBadges(r.user_id, o.winners, o.kinds); return wb ? `<span class="lt-bdgs">${wb}</span>` : ''; })()}<span class="lt-open">${open ? '▲ CLOSE' : '▼ BOX SCORE'}</span></span></button></th>`;
     const t = teamNums(n, o.last);
     const live = `<td class="lt-num lt-live"><b>${Number(r.total).toFixed(1)}</b>${n && n.bonus ? `<i>${Number(n.raw).toFixed(1)} × ${Number(n.bonus).toFixed(2)}</i>` : ''}</td>`;
     const proj = `<td class="lt-num lt-proj">${!t ? '<b>–</b>' : t.hidden && !t.hiddenKnown && t.hidden === t.picks ? `<b>?</b><i>${t.hidden} hidden</i>` : `<b>${t.proj.toFixed(1)}${t.hidden && !t.hiddenKnown ? '<em>+?</em>' : ''}</b><i class="${t.liveN ? 'on' : ''}">${t.line}</i>`}</td>`;
@@ -271,7 +271,7 @@ function leaguePage(lg) {
   if (S.lbErr) board = `<div class="empty"><span>${esc(S.lbErr)}</span></div>`;
   else if (!rows) board = `<p class="muted">Loading…</p>`;
   else if (!rows.length) board = `<div class="empty"><span>${S.lbPeriod === 'last' ? 'No one in this league played last night.' : 'No one in this league has a lineup yet for this stretch.'}</span></div>`;
-  else board = S.lbPeriod === 'night' || S.lbPeriod === 'last' ? nightTable(rows, S.lbNight, { last: S.lbPeriod === 'last', winners: S.lbWinners, kinds: LEAGUE_KINDS, league: member && signedIn() ? lg.id : null }) : boardList(rows, S.lbPeriod, null, { lineups: true, winners: S.lbWinners, kinds: LEAGUE_KINDS });
+  else board = S.lbPeriod === 'night' || S.lbPeriod === 'last' ? nightTable(rows, S.lbNight, { last: S.lbPeriod === 'last', winners: S.lbWinners, kinds: LEAGUE_KINDS }) : boardList(rows, S.lbPeriod, null, { lineups: true, winners: S.lbWinners, kinds: LEAGUE_KINDS });
 
   const invite = member && my ? `<div class="invite-box">
       <div class="m-actions">
@@ -322,5 +322,5 @@ export function renderLeagues() {
     if (focused) { inp.focus({ preventScroll: true }); inp.setSelectionRange(sel[0], sel[1]); }
   }
   else { slot.outerHTML = chatShell(lg); renderChatList(); }
-  if (!chatLoaded(lg.id)) loadChat(lg.id, [S.slate.date, lastDate()]);
+  if (!chatLoaded(lg.id)) loadChat(lg.id);
 }
