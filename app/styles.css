@@ -780,3 +780,46 @@ button.mt-who:hover .mt-name { color: var(--yel); }
 .howto summary { cursor: pointer; font-family: var(--pixel); font-size: 11px; color: var(--yel); min-height: 28px; display: flex; align-items: center; }
 .howto ul { margin: 10px 0 4px; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 17px; line-height: 1.35; color: var(--soft); }
 .howto b { color: var(--text); }
+
+/* ---------- League chat (Nov 18): render-chat.js ---------- */
+.chat { margin: 22px 0; background: var(--panel); border: 3px solid var(--line); border-radius: 12px; padding: 14px 16px; max-width: 760px; }
+.chat .lg-head { margin-top: 0; }
+.chat-list { list-style: none; margin: 0 0 12px; padding: 0 4px 0 0; max-height: 420px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; overscroll-behavior: contain; }
+.cm { display: flex; gap: 10px; align-items: flex-start; }
+.cm .ava { flex: none; }
+.cm-main { min-width: 0; flex: 1; }
+.cm-head { display: flex; align-items: baseline; gap: 8px; }
+.cm-name { font-family: var(--pixel); font-size: 10px; color: var(--yel); }
+.cm.mine .cm-name { color: var(--blu); }
+.cm-time { font-size: 14px; color: var(--muted); }
+.cm-body { font-size: 18px; line-height: 1.35; overflow-wrap: anywhere; white-space: pre-wrap; }
+.cm-del { margin-left: auto; background: none; border: 0; color: var(--muted); font-size: 20px; line-height: 1; min-width: 32px; min-height: 28px; cursor: pointer; }
+.cm-del:hover { color: var(--red); }
+.cm.game { flex-wrap: wrap; align-items: baseline; gap: 6px 10px; background: var(--bg); border: 2px dashed var(--line2); border-radius: 8px; padding: 8px 12px; }
+.cm.game .cm-body { color: var(--yel); font-size: 17px; }
+.cm.game .rx-bar { flex-basis: 100%; }
+.cm-empty { padding: 18px 0; text-align: center; }
+.chat-form { display: flex; gap: 10px; align-items: center; }
+.chat-form .search { max-width: none; flex: 1; }
+.chat-count { font-size: 14px; min-width: 2ch; }
+/* Reactions: counts + a picker. Used on chat messages and on a team's row on the board. */
+.rx-bar { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-top: 4px; }
+.rx, .rx-add { min-height: 28px; padding: 0 8px; border-radius: 14px; border: 2px solid var(--line2); background: transparent; font-size: 15px; cursor: pointer; color: var(--text); }
+.rx b { font-family: var(--pixel); font-size: 9px; margin-left: 4px; }
+.rx.mine { border-color: var(--blu); background: rgba(61, 139, 255, 0.18); }
+.rx-add { color: var(--muted); font-size: 13px; opacity: 0.75; }
+.rx-add:hover, .rx-add[aria-expanded="true"] { opacity: 1; border-color: var(--yel); color: var(--yel); }
+.rx-pick { position: absolute; z-index: 20; left: 0; top: calc(100% + 4px); display: flex; gap: 2px; background: var(--panel2); border: 2px solid var(--yel); border-radius: 10px; padding: 4px; box-shadow: 0 4px 0 #000; }
+.rx-e { min-width: 40px; min-height: 40px; border: 0; background: none; font-size: 22px; border-radius: 8px; cursor: pointer; }
+.rx-e:hover, .rx-e:focus-visible { background: var(--line); }
+.lt-team .rx-bar { padding: 0 6px 6px; }
+.lt-team .rx, .lt-team .rx-add { min-height: 24px; font-size: 13px; padding: 0 6px; }
+/* Unread: a dot on the LEAGUES tab, NEW CHAT on the league card. */
+.tab.has-new { position: relative; }
+.tab.has-new::after { content: ''; position: absolute; top: 6px; right: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 2px var(--bg); }
+.new-chat { font-family: var(--pixel); font-size: 8px; color: var(--bg); background: var(--red); border-radius: 4px; padding: 3px 5px; vertical-align: middle; }
+@media (max-width: 700px) {
+  .chat { padding: 12px; margin: 16px 0; }
+  .chat-list { max-height: 55vh; }
+  .chat-form .btn { padding: 0 12px; }
+}

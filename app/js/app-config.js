@@ -4,6 +4,10 @@
 /* Tab names shown in the app. The world board's may become 'WORLD HIGH SCORES'. */
 export const LABELS = { build: 'BUILD LINEUP', stats: 'PLAYERS', score: 'MY TEAM', world: 'TOP WORLD RANKINGS', worldShort: 'WORLD' };
 
+/* League chat: the emoji players can react with (the database allows exactly these; supabase/schema.sql
+   league_reactions), how many recent messages a league's chat loads, and the box's height. */
+export const CHAT = { emoji: ['🔥', '😂', '💀', '🧊', '👏', '🐐'], load: 100, maxLen: 300 };
+
 /* How many rows the World Rankings board shows (plus your own row if you're further down). */
 export const WORLD_ROWS = 100;
 
@@ -17,12 +21,12 @@ export const SOUND = {
   cooldownMs: 3000,      // after a reward/alert sound, others wait this long (quick taps don't start it)
   style: 'classic',      // 'classic' (plain beeps) or 'fun' (slides, swish, echo, crowd) for every sound
   pick: {},              // per-sound override, e.g. { sign: 'fun', fanfare: 'fun' } (hear both at #soundtest)
-  // Sounds that play an audio file instead (both classic and fun). Keep ?v=e38eb60 so phones fetch new versions.
-  files: { cut: 'sounds/cut.mp3?v=e38eb60', point: 'sounds/point.mp3?v=e38eb60', heat: 'sounds/heat.mp3?v=e38eb60',
-    fire: 'sounds/fire.mp3?v=e38eb60', insane: 'sounds/insane.mp3?v=e38eb60', nightwin: 'sounds/nightwin.mp3?v=e38eb60',
+  // Sounds that play an audio file instead (both classic and fun). Keep ?v=a8a2ab1 so phones fetch new versions.
+  files: { cut: 'sounds/cut.mp3?v=a8a2ab1', point: 'sounds/point.mp3?v=a8a2ab1', heat: 'sounds/heat.mp3?v=a8a2ab1',
+    fire: 'sounds/fire.mp3?v=a8a2ab1', insane: 'sounds/insane.mp3?v=a8a2ab1', nightwin: 'sounds/nightwin.mp3?v=a8a2ab1',
     // Announcer (ElevenLabs voice "BIG BALLIN Announcer"): signing callouts and the full-lineup shout
-    signed: 'sounds/signed.mp3?v=e38eb60', maxcontract: 'sounds/maxcontract.mp3?v=e38eb60',
-    capcrusher: 'sounds/capcrusher.mp3?v=e38eb60', bigballin: 'sounds/bigballin.mp3?v=e38eb60' },
+    signed: 'sounds/signed.mp3?v=a8a2ab1', maxcontract: 'sounds/maxcontract.mp3?v=a8a2ab1',
+    capcrusher: 'sounds/capcrusher.mp3?v=a8a2ab1', bigballin: 'sounds/bigballin.mp3?v=a8a2ab1' },
   fileGain: 1.5,         // file loudness vs the made-in-browser sounds (raise if the files sound quieter)
 };
 

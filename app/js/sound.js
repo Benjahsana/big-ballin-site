@@ -6,8 +6,8 @@
    Rules: nothing plays before the first tap on the page; one sound at a time; after a
    reward/alert sound, others wait SOUND.cooldownMs (quick taps don't start that wait, and
    are simply skipped if something is playing). On/off and volume are remembered per device. */
-import { S } from './state.js?v=e38eb60';
-import { SOUND } from './app-config.js?v=e38eb60';
+import { S } from './state.js?v=a8a2ab1';
+import { SOUND } from './app-config.js?v=a8a2ab1';
 
 let ctx = null;
 let noiseBuf = null;
@@ -63,6 +63,9 @@ export const SOUNDS = {
   tap: ['Tab / button tap', true,
     (o, t) => notes(o, t, 'square', [[988, 0.04]]),
     (o, t) => { tone(o, t, { f: 1400, f1: 900, dur: 0.045, vol: 0.8 }); return 0.05; }],
+  msg: ['New chat message', true,
+    (o, t) => notes(o, t, 'square', [[1320, 0.04], [1760, 0.06]], 0.6),
+    (o, t) => { tone(o, t, { type: 'triangle', f: 1200, f1: 1800, dur: 0.09, vol: 0.7 }); return 0.1; }],
   sign: ['Sign a player', false,
     (o, t) => notes(o, t, 'square', [[784, 0.05], [1175, 0.08]]),
     (o, t) => {   // coin "ka-ching" + net swish

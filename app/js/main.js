@@ -1,20 +1,21 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=e38eb60';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=e38eb60';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=e38eb60';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=e38eb60';
-import { defaultDir } from './filters.js?v=e38eb60';
-import { renderStats } from './render-stats.js?v=e38eb60';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=e38eb60';
-import { L, asLast, loadLast, lastIsCurrent, anyStarted, resetLastLineup } from './night.js?v=e38eb60';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=e38eb60';
-import { openModal, closeModal, renderModal } from './render-account.js?v=e38eb60';
-import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=e38eb60';
-import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=e38eb60';
-import { avatar } from './avatars.js?v=e38eb60';
-import { play, SOUNDS, styleFor } from './sound.js?v=e38eb60';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=e38eb60';
-import { LABELS } from './util.js?v=e38eb60';
+import { S, ui } from './state.js?v=a8a2ab1';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=a8a2ab1';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=a8a2ab1';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=a8a2ab1';
+import { defaultDir } from './filters.js?v=a8a2ab1';
+import { renderStats } from './render-stats.js?v=a8a2ab1';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=a8a2ab1';
+import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=a8a2ab1';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=a8a2ab1';
+import { openModal, closeModal, renderModal } from './render-account.js?v=a8a2ab1';
+import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=a8a2ab1';
+import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=a8a2ab1';
+import { avatar } from './avatars.js?v=a8a2ab1';
+import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=a8a2ab1';
+import { play, SOUNDS, styleFor } from './sound.js?v=a8a2ab1';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=a8a2ab1';
+import { LABELS } from './util.js?v=a8a2ab1';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -42,6 +43,7 @@ function renderHeader() {
   // Account button + where the lineup is saved.
   const cloudOn = CLOUD && S.cloudOk;
   $('#leaguesTab').hidden = !cloudOn;
+  $('#leaguesTab').classList.toggle('has-new', cloudOn && anyUnread());   // a new chat message in one of my leagues
   $('#worldBtn').hidden = !cloudOn;
   $('#worldBtn').setAttribute('aria-pressed', String(S.tab === 'world'));
   $('#acctBtn').hidden = !cloudOn;
@@ -168,6 +170,9 @@ document.addEventListener('click', (e) => {
     case 'ltopen': S.lbOpen[b.dataset.v] = !S.lbOpen[b.dataset.v]; renderAll(); break;
     case 'mtopen': S.mtOpen[b.dataset.v] = !S.mtOpen[b.dataset.v]; play('tap'); renderAll(); break;
     case 'pcell': showPop(b, true); break;
+    case 'chatdel': chatRemove(Number(b.dataset.v)); break;
+    case 'react': toggleReact(b.dataset.lg, b.dataset.t, b.dataset.e).then(renderAll); break;
+    case 'rxpick': togglePicker(b.dataset.t); renderAll(); break;
     case 'invitetoggle': S.inviteOpen = !S.inviteOpen; renderLeagues(); break;
     case 'copyinvite': case 'shareinvite': {
       const lg = S.leagues.find((l) => l.id === S.lbLeague);
@@ -245,6 +250,8 @@ document.addEventListener('input', (e) => {
   $('#soundPanel').dataset.vol = Math.round(S.volume * 100);
 });
 document.addEventListener('change', (e) => { if (e.target.id === 'volRange') play('sign', { force: true }); });   // hear the new level
+document.addEventListener('input', (e) => { if (e.target.id === 'chatInput') updateCount(); });
+document.addEventListener('submit', (e) => { if (e.target.id === 'chatForm') { e.preventDefault(); chatSend(e.target.dataset.league).then(renderAll); } });
 $('#statsSearch').addEventListener('input', (e) => { S.statsQuery = e.target.value; renderStats(); });
 
 /* ---------- Account pop-up forms ---------- */
@@ -287,6 +294,7 @@ $('#modal').addEventListener('submit', async (e) => {
 /* After sign-in, sign-out or on load: pick up the account's lineup and any pending invite. */
 async function afterAuth() {
   resetLastLineup();   // last night's saved lineup depends on who is signed in
+  startChat().then(renderAll);   // league chat: unread dots + instant updates (stops when signed out)
   if (!S.user) { S.sync = 'local'; S.leagues = []; S.rank = null; S.tRanks = null; S.inviteOpen = false; if (S.tab === 'leagues') await loadBoards(); renderAll(); return; }
   if (!S.profile) { renderAll(); openModal('name'); return; }
   // These don't depend on each other, so they all go out at once (each request takes ~0.4 s).
@@ -414,8 +422,8 @@ async function pollLive() {
 async function tick() {
   if (document.hidden) return;
   await pollLive();
-  // Boards opened on LAST NIGHT before tonight's games switch to TONIGHT at the first tip-off (unless picked by hand).
-  if (S.lbAuto && anyStarted() && !lastIsCurrent()) { S.lbAuto = false; S.lbPeriod = 'night'; S.lbRows = null; if (S.tab === 'leagues') await loadBoards(); }
+  // Boards opened on LAST NIGHT switch to TONIGHT once today's slate is loaded (unless picked by hand).
+  if (S.lbAuto && !lastIsCurrent()) { S.lbAuto = false; S.lbPeriod = 'night'; S.lbRows = null; if (S.tab === 'leagues') await loadBoards(); }
   const liveNow = S.live && !allFinal();
   if (liveNow && S.tab === 'leagues' && S.lbLeague && S.lbPeriod === 'night') await loadBoards();
   if (liveNow && S.tab === 'world' && S.wPeriod === 'night') await loadWorld();
@@ -426,7 +434,10 @@ let lastTick = 0;
 window.addEventListener('hashchange', () => { if (location.hash === '#soundtest') { soundOpen = true; renderHeader(); } });
 document.addEventListener('visibilitychange', () => {
   // Coming back to the tab: catch up right away instead of waiting for the next minute.
-  if (!document.hidden && S.slate && Date.now() - lastTick > 30000) { lastTick = Date.now(); tick(); }
+  if (!document.hidden && S.slate && Date.now() - lastTick > 30000) {
+    lastTick = Date.now(); tick();
+    chatCatchUp([S.slate.date, lastDate()]).then(renderAll);   // phones drop the chat's live connection in the background
+  }
 });
 
 /* ---------- Loading ---------- */
@@ -485,7 +496,9 @@ async function load() {
   $('#buildTab').textContent = LABELS.build;
   $('#statsTab').textContent = LABELS.stats;
   $('#worldBtnLabel').textContent = LABELS.world;
-  if (!anyStarted() || lastIsCurrent()) { S.lbPeriod = 'last'; S.lbAuto = true; }   // mornings: open the boards on last night
+  // Before the morning slate posts the boards open on LAST NIGHT; once today's slate is in, on TONIGHT
+  // (every team's projected total shows as soon as its lineup is saved).
+  if (lastIsCurrent()) { S.lbPeriod = 'last'; S.lbAuto = true; }
   setupPoolControls();
   const nextEmpty = POS.find((pos) => !S.lineup[pos]); S.poolPos = nextEmpty || 'ALL';
 

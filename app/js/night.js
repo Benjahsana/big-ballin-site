@@ -4,9 +4,9 @@
    posts, that is the slate already loaded, so nothing extra is fetched.
    Rendering code reads S.slate / S.byId / S.games / S.results / S.live / S.lineup, so asLast()
    swaps last night's copies in for one synchronous render, then puts today's back. */
-import { S } from './state.js?v=e38eb60';
-import { POS, BN, recall, store } from './util.js?v=e38eb60';
-import { CLOUD, signedIn, loadLineup, liveFeed, prevSlateDate } from './cloud.js?v=e38eb60';
+import { S } from './state.js?v=a8a2ab1';
+import { POS, BN, recall, store } from './util.js?v=a8a2ab1';
+import { CLOUD, signedIn, loadLineup, liveFeed, prevSlateDate } from './cloud.js?v=a8a2ab1';
 
 const LOOKBACK_DAYS = 10;      // without the database: how far back to look for a slate file
 

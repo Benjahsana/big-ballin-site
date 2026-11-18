@@ -22,7 +22,7 @@ export const S = {
   mtOpen: {},           // MY TEAM / league lineups: player rows opened to the FP breakdown (by 'scope:player id')   // lbOpen: Tonight table rows opened to the detailed lineup (by user id)
   // World Rankings tab, and my season world rank for the header ({rank, prev_rank, total, nights, players}).
   scoreView: null,      // Scoreboard: 'last' | 'tonight', or null = last night until tonight's first tip-off
-  lbAuto: false,        // league boards opened on LAST NIGHT automatically (switch to TONIGHT at tip-off)
+  lbAuto: false,        // league boards opened on LAST NIGHT automatically (before the morning slate; switch to TONIGHT once it's in)
   tRanks: null,        // Scoreboard: my rank tonight [{id (null = world), name, rank, of, move}]
   wPeriod: 'season', wRows: null, wNight: null, wWinners: null, wErr: null, rank: null,
   modal: null           // { kind: 'signin' | 'code' | 'name' | 'create' | 'join' | 'account', ... }

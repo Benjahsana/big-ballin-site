@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=e38eb60';
-import { POS } from './util.js?v=e38eb60';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=e38eb60';
+import { S } from './state.js?v=a8a2ab1';
+import { POS } from './util.js?v=a8a2ab1';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=a8a2ab1';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -184,3 +184,55 @@ export async function latestWinners(league) {
   });
   return out;
 }
+
+/* ---------- League chat (Nov 18): messages, reactions, instant updates ---------- */
+const MSG_COLS = 'id,league_id,user_id,kind,body,created_at,profiles(display_name,avatar)';
+export async function chatLoad(league, limit) {
+  const { data, error } = await sb.from('league_messages').select(MSG_COLS).eq('league_id', league)
+    .order('id', { ascending: false }).limit(limit);
+  if (error) throw error;
+  return (data || []).reverse();
+}
+export async function chatPost(league, body) {
+  const { data, error } = await sb.rpc('post_message', { p_league: league, p_body: body });
+  if (error) throw error;
+  return data;
+}
+export async function chatDelete(id) {
+  const { error } = await sb.rpc('delete_message', { p_id: id });
+  if (error) throw error;
+}
+export async function react(league, target, emoji) {
+  const { data, error } = await sb.rpc('react', { p_league: league, p_target: target, p_emoji: emoji });
+  if (error) throw error;
+  return data;
+}
+/* Reactions in a league on these messages ('m<id>') and on every team's night on these dates ('n<date>:<user>'). */
+export async function reactionsLoad(league, msgTargets, dates) {
+  const ors = [...(msgTargets.length ? [`target.in.(${msgTargets.join(',')})`] : []), ...dates.map((d) => `target.like.n${d}:*`)];
+  if (!ors.length) return [];
+  const { data, error } = await sb.from('league_reactions').select('target,user_id,emoji').eq('league_id', league).or(ors.join(','));
+  if (error) throw error;
+  return data || [];
+}
+export async function chatLatest() {
+  const { data, error } = await sb.rpc('chat_latest');
+  if (error) throw error;
+  return data || [];
+}
+export async function profileOf(id) {
+  const { data } = await sb.from('profiles').select('display_name,avatar').eq('id', id).maybeSingle();
+  return data || null;
+}
+/* One Realtime channel for every league I'm in (the database's read rules filter what arrives).
+   on(table, event, newRow, oldRow). Returns a stop function. */
+let chan = null;
+export function chatSubscribe(on) {
+  chatUnsubscribe();
+  if (!sb || !S.user) return;
+  chan = sb.channel('bb-chat-' + S.user.id)
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'league_messages' }, (p) => on('m', p.eventType, p.new, p.old))
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'league_reactions' }, (p) => on('r', p.eventType, p.new, p.old))
+    .subscribe();
+}
+export function chatUnsubscribe() { if (chan && sb) sb.removeChannel(chan); chan = null; }

@@ -2,13 +2,14 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=e38eb60';
-import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=e38eb60';
-import { avatar } from './avatars.js?v=e38eb60';
-import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=e38eb60';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=e38eb60';
-import { L, asLast, lastDate, loadLast } from './night.js?v=e38eb60';
-import { benchOn } from './lineup.js?v=e38eb60';
+import { S } from './state.js?v=a8a2ab1';
+import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=a8a2ab1';
+import { avatar } from './avatars.js?v=a8a2ab1';
+import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=a8a2ab1';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=a8a2ab1';
+import { L, asLast, lastDate, loadLast } from './night.js?v=a8a2ab1';
+import { benchOn } from './lineup.js?v=a8a2ab1';
+import { chatShell, renderChatList, reactBar, loadChat, chatLoaded, unread } from './render-chat.js?v=a8a2ab1';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -166,7 +167,7 @@ function tonightTable(rows, night, o) {
     const open = !!S.lbOpen[key];
     const team = `<th class="lt-team" scope="row"><button class="lt-tb" data-act="ltopen" data-v="${esc(key)}" aria-expanded="${open}">
         <span class="lt-rank">${r.rank}</span>${avatar(r.avatar, 30)}
-        <span class="lt-who"><span class="lt-name">${esc(r.display_name)}</span>${(() => { const wb = winBadges(r.user_id, o.winners, o.kinds); return wb ? `<span class="lt-bdgs">${wb}</span>` : ''; })()}<span class="lt-open">${open ? '▲ CLOSE' : '▼ BOX SCORE'}</span></span></button></th>`;
+        <span class="lt-who"><span class="lt-name">${esc(r.display_name)}</span>${(() => { const wb = winBadges(r.user_id, o.winners, o.kinds); return wb ? `<span class="lt-bdgs">${wb}</span>` : ''; })()}<span class="lt-open">${open ? '▲ CLOSE' : '▼ BOX SCORE'}</span></span></button>${o.league && n ? reactBar(o.league, `n${S.slate.date}:${r.user_id}`, true) : ''}</th>`;
     const t = teamNums(n, o.last);
     const live = `<td class="lt-num lt-live"><b>${Number(r.total).toFixed(1)}</b>${n && n.bonus ? `<i>${Number(n.raw).toFixed(1)} × ${Number(n.bonus).toFixed(2)}</i>` : ''}</td>`;
     const proj = `<td class="lt-num lt-proj">${!t ? '<b>–</b>' : t.hidden && !t.hiddenKnown && t.hidden === t.picks ? `<b>?</b><i>${t.hidden} hidden</i>` : `<b>${t.proj.toFixed(1)}${t.hidden && !t.hiddenKnown ? '<em>+?</em>' : ''}</b><i class="${t.liveN ? 'on' : ''}">${t.line}</i>`}</td>`;
@@ -235,7 +236,7 @@ export function playerPop(pid) {
 function leagueCard(l) {
   const lead = l.leader ? `Tonight: <b>${esc(l.leader)}</b> ${Number(l.leader_score || 0).toFixed(1)}` : 'No lineups tonight yet';
   return `<button class="lg-card${l.mine ? ' mine' : ''}" data-act="league" data-v="${esc(l.id)}">
-    <span class="lg-name">${esc(l.name)}</span>
+    <span class="lg-name">${esc(l.name)}${l.mine && unread(l.id) ? ' <span class="new-chat">NEW CHAT</span>' : ''}</span>
     <span class="muted">${l.members} player${l.members === 1 ? '' : 's'} · run by ${esc(l.owner_name || '?')}${l.mine ? ' · <span class="yel">YOU’RE IN</span>' : ''}</span>
     <span class="lg-lead">${lead}</span></button>`;
 }
@@ -268,7 +269,7 @@ function leaguePage(lg) {
   if (S.lbErr) board = `<div class="empty"><span>${esc(S.lbErr)}</span></div>`;
   else if (!rows) board = `<p class="muted">Loading…</p>`;
   else if (!rows.length) board = `<div class="empty"><span>${S.lbPeriod === 'last' ? 'No one in this league played last night.' : 'No one in this league has a lineup yet for this stretch.'}</span></div>`;
-  else board = S.lbPeriod === 'night' || S.lbPeriod === 'last' ? nightTable(rows, S.lbNight, { last: S.lbPeriod === 'last', winners: S.lbWinners, kinds: LEAGUE_KINDS }) : boardList(rows, S.lbPeriod, null, { lineups: true, winners: S.lbWinners, kinds: LEAGUE_KINDS });
+  else board = S.lbPeriod === 'night' || S.lbPeriod === 'last' ? nightTable(rows, S.lbNight, { last: S.lbPeriod === 'last', winners: S.lbWinners, kinds: LEAGUE_KINDS, league: member && signedIn() ? lg.id : null }) : boardList(rows, S.lbPeriod, null, { lineups: true, winners: S.lbWinners, kinds: LEAGUE_KINDS });
 
   const invite = member && my ? `<div class="invite-box">
       <div class="m-actions">
@@ -293,6 +294,7 @@ function leaguePage(lg) {
     <p class="muted lb-note">Ranked by final score (fantasy points × cap bonus). A night without a lineup counts as 0.
       Other players’ picks show once their game tips off.</p>
     ${board}
+    ${member && signedIn() ? '<div id="chatSlot"></div>' : signedIn() ? '' : '<p class="muted lb-note">Members can chat here. Sign in and join with an invite to talk trash.</p>'}
     ${invite}`;
 }
 
@@ -302,5 +304,20 @@ export function renderLeagues() {
   if (!S.cloudReady) { box.innerHTML = `<p class="muted">Loading…</p>`; return; }
   if (!S.cloudOk) { box.innerHTML = `<div class="empty"><span>Couldn’t reach the leagues server. Your lineup still works on this device.</span></div>`; return; }
   const lg = S.lbLeague ? league() : null;
+  // The chat box survives re-renders (typing, focus and scroll stay put): lift it out, then put it back.
+  const keep = document.getElementById('chatBox');
+  const inp = keep && keep.querySelector('#chatInput'), list = keep && keep.querySelector('#chatList');
+  const focused = inp && document.activeElement === inp, sel = inp ? [inp.selectionStart, inp.selectionEnd] : null;
+  const scroll = list ? list.scrollTop : 0;
+  if (keep) keep.remove();
   box.innerHTML = lg ? leaguePage(lg) : leagueListView();
+  const slot = document.getElementById('chatSlot');
+  if (!slot) return;
+  if (keep && keep.dataset.league === lg.id) {
+    slot.replaceWith(keep);
+    list.scrollTop = scroll;
+    if (focused) { inp.focus({ preventScroll: true }); inp.setSelectionRange(sel[0], sel[1]); }
+  }
+  else { slot.outerHTML = chatShell(lg); renderChatList(); }
+  if (!chatLoaded(lg.id)) loadChat(lg.id, [S.slate.date, lastDate()]);
 }
