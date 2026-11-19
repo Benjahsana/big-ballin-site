@@ -1,7 +1,7 @@
 {
   "date": "2026-11-19",
   "season": "2026-27",
-  "generated_at": "2026-11-19T22:00:52+00:00",
+  "generated_at": "2026-11-19T22:45:09+00:00",
   "cap": 100,
   "price_source": "formula",
   "price_formula": 3,
@@ -22,7 +22,7 @@
   "bench_budget": 15.0,
   "bench_rule": {
     "max_minutes": 5,
-    "pick": "gain"
+    "pick": "lowest"
   },
   "cap_bonus": {
     "rate": 1.0,

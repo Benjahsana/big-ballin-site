@@ -1,8 +1,8 @@
 /* BIG BALLIN: lineup rules: locks, cap, cap bonus, sign and cut. */
-import { S, ui } from './state.js?v=eea4012';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=eea4012';
-import { play } from './sound.js?v=eea4012';
-import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=eea4012';
+import { S, ui } from './state.js?v=0c63c43';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=0c63c43';
+import { play } from './sound.js?v=0c63c43';
+import { signedIn, pushLineup, loadLineup, friendly } from './cloud.js?v=0c63c43';
 
 /* ---------- Live points (S.live, from Supabase) ---------- */
 export const liveOf = (p) => (S.live && S.live.p[String(p.id)]) || null;
@@ -27,6 +27,7 @@ export const benchRule = () => (S.slate && S.slate.bench_rule) || { max_minutes:
    a starter qualifies when he didn't play or played fewer than max_minutes, once that's settled
    (official results, listed out in the live feed, or his game is final). Rule 'gain': only if the
    6th man has MORE fantasy points; he replaces the lowest scorer. Rule 'order': first in PG..C.
+   Rule 'lowest' (from Nov 19): like 'gain', but minutes don't matter (any settled starter qualifies).
    lu = a lineup {PG..C, BN} of player ids. */
 export function subSlot(lu) {
   if (!lu || !lu[BN]) return null;
@@ -38,7 +39,7 @@ export function subSlot(lu) {
     const id = lu[pos];
     if (!id) return null;
     const r = line(id);
-    if (r && !((r.min ?? 999) < rule.max_minutes)) return null;          // played enough
+    if (rule.pick !== 'lowest' && r && !((r.min ?? 999) < rule.max_minutes)) return null;   // played enough
     const p = S.byId[id];
     const settled = !!S.results || (S.live && (S.live.out || []).includes(id)) || !!(p && gameOf(p) && gameOf(p).s === 3);
     if (!settled) return null;
@@ -47,7 +48,7 @@ export function subSlot(lu) {
     return { pos, o, fp };
   }).filter(Boolean);
   if (!cands.length) return null;
-  if (rule.pick === 'gain') cands.sort((a, b) => a.fp - b.fp || a.o - b.o);
+  if (rule.pick !== 'order') cands.sort((a, b) => a.fp - b.fp || a.o - b.o);
   return cands[0].pos;
 }
 export function spent() { return POS.reduce((t, pos) => t + (S.lineup[pos] ? S.byId[S.lineup[pos]].price : 0), 0); }

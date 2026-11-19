@@ -1,22 +1,22 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=eea4012';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=eea4012';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=eea4012';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=eea4012';
-import { defaultDir } from './filters.js?v=eea4012';
-import { renderStats } from './render-stats.js?v=eea4012';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=eea4012';
-import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=eea4012';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=eea4012';
-import { openModal, closeModal, renderModal } from './render-account.js?v=eea4012';
-import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=eea4012';
-import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=eea4012';
-import { avatar } from './avatars.js?v=eea4012';
-import { checkAchievements, loadStreaks } from './render-awards.js?v=eea4012';
-import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=eea4012';
-import { play, SOUNDS, styleFor } from './sound.js?v=eea4012';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=eea4012';
-import { LABELS } from './util.js?v=eea4012';
+import { S, ui } from './state.js?v=0c63c43';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=0c63c43';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=0c63c43';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=0c63c43';
+import { defaultDir } from './filters.js?v=0c63c43';
+import { renderStats } from './render-stats.js?v=0c63c43';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=0c63c43';
+import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=0c63c43';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=0c63c43';
+import { openModal, closeModal, renderModal } from './render-account.js?v=0c63c43';
+import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=0c63c43';
+import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=0c63c43';
+import { avatar } from './avatars.js?v=0c63c43';
+import { checkAchievements, loadStreaks } from './render-awards.js?v=0c63c43';
+import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=0c63c43';
+import { play, SOUNDS, styleFor } from './sound.js?v=0c63c43';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=0c63c43';
+import { LABELS } from './util.js?v=0c63c43';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -83,7 +83,9 @@ function renderHowTo() {
   const cb = S.slate.cap_bonus || { rate: 1, max: 1.1 };
   const fullAt = S.slate.cap - (cb.max - 1) * 100 / cb.rate;
   const bench = S.slate.bench_budget != null
-    ? `<li><b>6TH MAN (bench insurance).</b> One extra pick, any position, costing ${money(S.slate.bench_budget)} or less from a separate bench budget. He isn't part of the ${money(S.slate.cap)} cap and never changes your cap bonus. ${(S.slate.bench_rule || {}).max_minutes > 0
+    ? `<li><b>6TH MAN (bench insurance).</b> One extra pick, any position, costing ${money(S.slate.bench_budget)} or less from a separate bench budget. He isn't part of the ${money(S.slate.cap)} cap and never changes your cap bonus. ${(S.slate.bench_rule || {}).pick === 'lowest'
+      ? `If your 6th man scores more than your lowest-scoring starter, his points replace that starter's, however many minutes the starter played. It's checked as each of your games ends, so it can move to a lower scorer later in the night. Otherwise his points don't count.`
+      : (S.slate.bench_rule || {}).max_minutes > 0
       ? `If one of your five plays under ${S.slate.bench_rule.max_minutes} minutes (rested, inactive, hurt early, a late scratch) and your 6th man scores more than him, the 6th man's points replace his. If more than one qualifies, he replaces the one it helps most (the lowest scorer). It's settled when that starter's game ends. Otherwise his points don't count.`
       : `He scores only if one of your five doesn't play at all (rested, inactive, a late scratch): then his points replace that starter's. If two sit, he covers the first in PG, SG, SF, PF, C order. If nobody sits, his points don't count.`}</li>` : '';
   box.innerHTML = `<summary>HOW TO PLAY</summary><ul>

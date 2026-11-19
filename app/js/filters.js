@@ -1,7 +1,7 @@
 /* BIG BALLIN: stat windows, sorting, filters and "what fits my cap". */
-import { S } from './state.js?v=eea4012';
-import { POS, slotsFor, matches } from './util.js?v=eea4012';
-import { slotOf, maxForSlot, fits } from './lineup.js?v=eea4012';
+import { S } from './state.js?v=0c63c43';
+import { POS, slotsFor, matches } from './util.js?v=0c63c43';
+import { slotOf, maxForSlot, fits } from './lineup.js?v=0c63c43';
 
 export const WINDOWS = [['l2', 'L2'], ['l5', 'L5'], ['l10', 'L10'], ['season', 'SEASON']];
 export const winLabel = () => ({ l2: 'Last 2', l5: 'Last 5', l10: 'Last 10', season: 'Season' })[S.win] || 'Season';
