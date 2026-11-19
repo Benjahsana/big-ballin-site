@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=cfda1a7';
-import { POS } from './util.js?v=cfda1a7';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=cfda1a7';
+import { S } from './state.js?v=0907a30';
+import { POS } from './util.js?v=0907a30';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=0907a30';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -96,9 +96,11 @@ export function pushLineup(date, lineup) {
 
 /* ---------- Leagues ---------- */
 export async function myLeagues() {
-  const { data, error } = await sb.from('leagues').select('id,name,code,owner').order('name');
-  if (error) throw error;
-  return data || [];
+  const [lg, me] = await Promise.all([sb.from('leagues').select('id,name,code,owner').order('name'),
+    sb.from('league_members').select('league_id,co_owner').eq('user_id', S.user.id)]);
+  if (lg.error) throw lg.error;
+  const co = new Set(((me.data) || []).filter((m) => m.co_owner).map((m) => m.league_id));
+  return (lg.data || []).map((l) => ({ ...l, co_owner: co.has(l.id) }));
 }
 export async function createLeague(name) {
   const { data, error } = await sb.rpc('create_league', { p_name: name });
@@ -248,3 +250,17 @@ export async function streaksAll() {
   if (error) throw error;
   return data || [];
 }
+
+/* ---------- League management (Nov 19): owner and co-commissioners ---------- */
+async function rpc(fn, args) {
+  const { data, error } = await sb.rpc(fn, args);
+  if (error) throw error;
+  return data;
+}
+export const leagueRoster = (lg) => rpc('league_roster', { p_league: lg }).then((d) => d || []);
+export const removeMember = (lg, user) => rpc('remove_member', { p_league: lg, p_user: user });
+export const newLeagueCode = (lg) => rpc('new_league_code', { p_league: lg });
+export const renameLeague = (lg, name) => rpc('rename_league', { p_league: lg, p_name: name });
+export const setCoOwner = (lg, user, on) => rpc('set_co_owner', { p_league: lg, p_user: user, p_on: on });
+export const handOffLeague = (lg, user) => rpc('hand_off_league', { p_league: lg, p_user: user });
+export const deleteLeague = (lg) => rpc('delete_league', { p_league: lg });

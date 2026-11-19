@@ -850,3 +850,17 @@ button.mt-who:hover .mt-name { color: var(--yel); }
 .prof-links { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .prof-links .muted { font-size: 15px; margin-right: auto; }
 .prof-links .btn { color: var(--text); min-height: 44px; font-size: 11px; text-decoration: none; display: inline-flex; align-items: center; }
+
+/* MANAGE LEAGUE (owner / co-commissioners) */
+.manage { display: flex; flex-direction: column; gap: 12px; padding: 16px; border: 2px solid var(--line2); border-radius: 10px; background: var(--panel); }
+.manage .mg-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.mg-row { margin-top: 10px; }
+.mg-sub { font-family: var(--pixel); font-size: 11px; margin: 4px 0 0; color: var(--soft); }
+.mg-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.mg-p { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 8px 10px; background: var(--panel2); border-radius: 8px; }
+.mg-p b { font-size: 19px; }
+.mg-tag { font-family: var(--pixel); font-size: 9px; padding: 4px 6px; border-radius: 4px; }
+.mg-tag.own { background: var(--yel); color: var(--bg); }
+.mg-tag.co { border: 1px solid var(--blu); color: var(--blu); }
+.mg-acts { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
+.mg-acts .btn { min-height: 38px; font-size: 9px; padding: 0 10px; }

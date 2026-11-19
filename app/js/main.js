@@ -1,22 +1,23 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=cfda1a7';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=cfda1a7';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=cfda1a7';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=cfda1a7';
-import { defaultDir } from './filters.js?v=cfda1a7';
-import { renderStats } from './render-stats.js?v=cfda1a7';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=cfda1a7';
-import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=cfda1a7';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=cfda1a7';
-import { openModal, closeModal, renderModal } from './render-account.js?v=cfda1a7';
-import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=cfda1a7';
-import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=cfda1a7';
-import { avatar } from './avatars.js?v=cfda1a7';
-import { checkAchievements, loadStreaks } from './render-awards.js?v=cfda1a7';
-import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=cfda1a7';
-import { play, SOUNDS, styleFor } from './sound.js?v=cfda1a7';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=cfda1a7';
-import { LABELS } from './util.js?v=cfda1a7';
+import { S, ui } from './state.js?v=0907a30';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=0907a30';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=0907a30';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=0907a30';
+import { defaultDir } from './filters.js?v=0907a30';
+import { renderStats } from './render-stats.js?v=0907a30';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=0907a30';
+import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=0907a30';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=0907a30';
+import { openModal, closeModal, renderModal } from './render-account.js?v=0907a30';
+import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=0907a30';
+import { manageAct } from './render-manage.js?v=0907a30';
+import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=0907a30';
+import { avatar } from './avatars.js?v=0907a30';
+import { checkAchievements, loadStreaks } from './render-awards.js?v=0907a30';
+import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=0907a30';
+import { play, SOUNDS, styleFor } from './sound.js?v=0907a30';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=0907a30';
+import { LABELS } from './util.js?v=0907a30';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -177,6 +178,7 @@ document.addEventListener('click', (e) => {
     case 'react': toggleReact(b.dataset.lg, b.dataset.t, b.dataset.e).then(renderAll); break;
     case 'rxpick': togglePicker(b.dataset.t); renderAll(); break;
     case 'invitetoggle': S.inviteOpen = !S.inviteOpen; renderLeagues(); break;
+    case 'mgopen': case 'mgrename': case 'mgcode': case 'mgkick': case 'mgco': case 'mghand': case 'mgdelete': manageAct(b.dataset.act, b); break;
     case 'copyinvite': case 'shareinvite': {
       const lg = S.leagues.find((l) => l.id === S.lbLeague);
       if (!lg) break;
@@ -189,7 +191,8 @@ document.addEventListener('click', (e) => {
     }
     case 'leave': {
       const lg = S.leagues.find((l) => l.id === S.lbLeague);
-      if (!lg || !confirm(`Leave ${lg.name}? You can rejoin later with the code ${lg.code}.`)) break;
+      if (!lg || !confirm(`Leave ${lg.name}? You can rejoin later with the code ${lg.code}.` + (lg.owner === (S.user || {}).id
+        ? ' You own it: a co-commissioner takes over (else the longest-standing member). If you’re the last one in, the league is deleted.' : ''))) break;
       leaveLeague(lg.id).then(() => { S.lbLeague = null; store('bb-league', null); return loadBoards(); }).then(renderAll)
         .catch((e) => { const f = friendly(e); flash(f.title, '#FF4A3D', '#3D8BFF'); });
       break;
