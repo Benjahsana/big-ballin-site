@@ -845,3 +845,8 @@ button.mt-who:hover .mt-name { color: var(--yel); }
 .ach .muted { font-size: 15px; }
 .ach-now { font-family: var(--pixel); font-size: 8px; color: var(--blu); }
 @media (max-width: 700px) { .ach-grid { grid-template-columns: 1fr 1fr; } }
+
+/* Player card: NBA.com / ESPN profile links */
+.prof-links { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.prof-links .muted { font-size: 15px; margin-right: auto; }
+.prof-links .btn { color: var(--text); min-height: 44px; font-size: 11px; text-decoration: none; display: inline-flex; align-items: center; }

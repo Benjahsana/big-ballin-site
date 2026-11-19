@@ -2,15 +2,15 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=d48f0e7';
-import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=d48f0e7';
-import { avatar } from './avatars.js?v=d48f0e7';
-import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=d48f0e7';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=d48f0e7';
-import { L, asLast, lastDate, loadLast } from './night.js?v=d48f0e7';
-import { benchOn } from './lineup.js?v=d48f0e7';
-import { streakChips, awardsStrip, loadStreaks } from './render-awards.js?v=d48f0e7';
-import { chatShell, renderChatList, loadChat, chatLoaded, unread } from './render-chat.js?v=d48f0e7';
+import { S } from './state.js?v=20fe34f';
+import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=20fe34f';
+import { avatar } from './avatars.js?v=20fe34f';
+import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=20fe34f';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=20fe34f';
+import { L, asLast, lastDate, loadLast } from './night.js?v=20fe34f';
+import { benchOn } from './lineup.js?v=20fe34f';
+import { streakChips, awardsStrip, loadStreaks } from './render-awards.js?v=20fe34f';
+import { chatShell, renderChatList, loadChat, chatLoaded, unread } from './render-chat.js?v=20fe34f';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {

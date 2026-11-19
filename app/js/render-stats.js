@@ -1,10 +1,10 @@
 /* BIG BALLIN: PLAYERS tab (data-tab "stats"; once called the Stat Center): stats table and the big player card.
    Shows every NBA player: tonight's slate (with prices) plus data/players-all.json (everyone else,
    stats only), loaded the first time the tab opens. ALL NBA | PLAYING TONIGHT switches between them. */
-import { S } from './state.js?v=d48f0e7';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=d48f0e7';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=d48f0e7';
-import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=d48f0e7';
+import { S } from './state.js?v=20fe34f';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=20fe34f';
+import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=20fe34f';
+import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=20fe34f';
 
 const n1 = (v) => (v == null ? '–' : Number(v).toFixed(1));
 const tonight = (p) => p.price != null;     // on tonight's slate (has a price); others are stats only
@@ -129,5 +129,16 @@ export function renderCard() {
     </div>
     ${on ? `<div class="note"><span>${adj > 0 ? 'Matchup boost' : adj < 0 ? 'Tough matchup' : 'Neutral matchup'} ${esc(where(p))}</span>
       <span style="font-family:var(--pixel);font-size:11px;color:${adj > 0 ? 'var(--yel)' : adj < 0 ? 'var(--red)' : 'var(--muted)'}">${adj > 0 ? '+' : ''}${adj.toFixed(1)} FP</span></div>
-    <button class="btn ${st.cls}" style="min-height:54px;font-size:12px" data-act="sign" data-id="${p.id}" ${st.off ? 'disabled' : ''}>${st.label}</button>` : ''}`;
+    <button class="btn ${st.cls}" style="min-height:54px;font-size:12px" data-act="sign" data-id="${p.id}" ${st.off ? 'disabled' : ''}>${st.label}</button>` : ''}
+    ${profileLinks(p)}`;
+}
+
+/* NBA.com and ESPN player pages (open in a new tab). Our player id is NBA.com's; ESPN's comes from
+   the ESPN download (espn_id), else an ESPN search for his name. */
+function profileLinks(p) {
+  const espn = p.espn_id ? `https://www.espn.com/nba/player/_/id/${encodeURIComponent(p.espn_id)}`
+    : `https://www.espn.com/search/_/q/${encodeURIComponent(p.name)}`;
+  return `<div class="prof-links"><span class="muted">FULL PROFILE</span>
+    <a class="btn btn-ghost" href="https://www.nba.com/player/${encodeURIComponent(p.id)}" target="_blank" rel="noopener">NBA.COM ↗</a>
+    <a class="btn btn-ghost" href="${espn}" target="_blank" rel="noopener">ESPN ↗</a></div>`;
 }
