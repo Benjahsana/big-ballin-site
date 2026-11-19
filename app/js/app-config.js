@@ -25,12 +25,12 @@ export const SOUND = {
   cooldownMs: 3000,      // after a reward/alert sound, others wait this long (quick taps don't start it)
   style: 'classic',      // 'classic' (plain beeps) or 'fun' (slides, swish, echo, crowd) for every sound
   pick: {},              // per-sound override, e.g. { sign: 'fun', fanfare: 'fun' } (hear both at #soundtest)
-  // Sounds that play an audio file instead (both classic and fun). Keep ?v=20fe34f so phones fetch new versions.
-  files: { cut: 'sounds/cut.mp3?v=20fe34f', point: 'sounds/point.mp3?v=20fe34f', heat: 'sounds/heat.mp3?v=20fe34f',
-    fire: 'sounds/fire.mp3?v=20fe34f', insane: 'sounds/insane.mp3?v=20fe34f', nightwin: 'sounds/nightwin.mp3?v=20fe34f',
+  // Sounds that play an audio file instead (both classic and fun). Keep ?v=eea4012 so phones fetch new versions.
+  files: { cut: 'sounds/cut.mp3?v=eea4012', point: 'sounds/point.mp3?v=eea4012', heat: 'sounds/heat.mp3?v=eea4012',
+    fire: 'sounds/fire.mp3?v=eea4012', insane: 'sounds/insane.mp3?v=eea4012', nightwin: 'sounds/nightwin.mp3?v=eea4012',
     // Announcer (ElevenLabs voice "BIG BALLIN Announcer"): signing callouts and the full-lineup shout
-    signed: 'sounds/signed.mp3?v=20fe34f', maxcontract: 'sounds/maxcontract.mp3?v=20fe34f',
-    capcrusher: 'sounds/capcrusher.mp3?v=20fe34f', bigballin: 'sounds/bigballin.mp3?v=20fe34f' },
+    signed: 'sounds/signed.mp3?v=eea4012', maxcontract: 'sounds/maxcontract.mp3?v=eea4012',
+    capcrusher: 'sounds/capcrusher.mp3?v=eea4012', bigballin: 'sounds/bigballin.mp3?v=eea4012' },
   fileGain: 1.5,         // file loudness vs the made-in-browser sounds (raise if the files sound quieter)
 };
 

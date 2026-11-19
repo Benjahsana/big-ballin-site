@@ -1,7 +1,7 @@
 {
   "date": "2026-11-19",
   "season": "2026-27",
-  "generated_at": "2026-11-19T15:00:37+00:00",
+  "generated_at": "2026-11-19T15:49:50+00:00",
   "players": [
     {
       "id": 1642484,
@@ -88,6 +88,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4431941,
       "sprite": "sprites/1642484.png"
     },
     {
@@ -175,8 +176,9 @@
           "g": 15
         }
       },
-      "pct_started": 1.2,
+      "pct_started": 1.1,
       "pct_rostered": 2.7,
+      "espn_id": 4397020,
       "sprite": "sprites/1629652.png"
     },
     {
@@ -264,8 +266,9 @@
           "g": 12
         }
       },
-      "pct_started": 91.3,
+      "pct_started": 91.2,
       "pct_rostered": 99.5,
+      "espn_id": 4701230,
       "sprite": "sprites/1630552.png"
     },
     {
@@ -353,8 +356,9 @@
           "g": 15
         }
       },
-      "pct_started": 17.8,
+      "pct_started": 17.6,
       "pct_rostered": 33.6,
+      "espn_id": 4397183,
       "sprite": "sprites/1630598.png"
     },
     {
@@ -444,8 +448,9 @@
       },
       "injury": "OUT",
       "injury_src": "espn",
-      "pct_started": 35.5,
-      "pct_rostered": 67.5,
+      "pct_started": 35.3,
+      "pct_rostered": 67.4,
+      "espn_id": 2490149,
       "sprite": "sprites/203468.png"
     },
     {
@@ -537,6 +542,7 @@
       "injury_src": "espn",
       "pct_started": 0.8,
       "pct_rostered": 4.2,
+      "espn_id": 5149077,
       "sprite": "sprites/1643412.png"
     },
     {
@@ -624,8 +630,9 @@
           "g": 15
         }
       },
-      "pct_started": 83.0,
+      "pct_started": 82.9,
       "pct_rostered": 96.1,
+      "espn_id": 4869342,
       "sprite": "sprites/1630700.png"
     },
     {
@@ -713,8 +720,9 @@
           "g": 15
         }
       },
-      "pct_started": 79.8,
+      "pct_started": 79.6,
       "pct_rostered": 94.8,
+      "espn_id": 4278039,
       "sprite": "sprites/1629638.png"
     },
     {
@@ -803,6 +811,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 2578185,
       "sprite": "sprites/1627827.png"
     },
     {
@@ -894,6 +903,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4873201,
       "sprite": "sprites/1642854.png"
     },
     {
@@ -981,8 +991,9 @@
           "g": 15
         }
       },
-      "pct_started": 71.9,
+      "pct_started": 71.8,
       "pct_rostered": 86.3,
+      "espn_id": 4431680,
       "sprite": "sprites/1630168.png"
     },
     {
@@ -1068,6 +1079,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4712863,
       "sprite": "sprites/1631243.png"
     },
     {
@@ -1157,6 +1169,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 5106262,
       "sprite": "sprites/1643544.png"
     },
     {
@@ -1240,6 +1253,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4431714,
       "sprite": "sprites/1630592.png"
     },
     {
@@ -1329,6 +1343,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 4280151,
       "sprite": "sprites/1630557.png"
     },
     {
@@ -1419,6 +1434,7 @@
       "injury_src": "espn",
       "pct_started": 0.1,
       "pct_rostered": 0.3,
+      "espn_id": 3146557,
       "sprite": "sprites/1629111.png"
     },
     {
@@ -1508,6 +1524,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4687718,
       "sprite": "sprites/1631169.png"
     },
     {
@@ -1597,6 +1614,7 @@
       },
       "pct_started": 1.5,
       "pct_rostered": 5.0,
+      "espn_id": 5101761,
       "sprite": "sprites/1643414.png"
     },
     {
@@ -1686,6 +1704,7 @@
       },
       "pct_started": 0.3,
       "pct_rostered": 0.8,
+      "espn_id": 4702177,
       "sprite": "sprites/1631165.png"
     },
     {
@@ -1774,7 +1793,8 @@
         }
       },
       "pct_started": 1.4,
-      "pct_rostered": 3.6,
+      "pct_rostered": 3.5,
+      "espn_id": 5107173,
       "sprite": "sprites/1642874.png"
     },
     {
@@ -1864,6 +1884,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5037873,
       "sprite": "sprites/1642962.png"
     },
     {
@@ -1951,8 +1972,9 @@
           "g": 8
         }
       },
-      "pct_started": 6.9,
+      "pct_started": 6.8,
       "pct_rostered": 28.6,
+      "espn_id": 5175643,
       "sprite": "sprites/1642856.png"
     },
     {
@@ -2038,6 +2060,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4870564,
       "sprite": "sprites/1643538.png"
     },
     {
@@ -2125,8 +2148,9 @@
           "g": 13
         }
       },
-      "pct_started": 4.7,
+      "pct_started": 4.6,
       "pct_rostered": 11.6,
+      "espn_id": 5279130,
       "sprite": "sprites/1642849.png"
     },
     {
@@ -2216,6 +2240,7 @@
       },
       "pct_started": 0.6,
       "pct_rostered": 1.5,
+      "espn_id": 3150844,
       "sprite": "sprites/1629021.png"
     },
     {
@@ -2305,6 +2330,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 3907823,
       "sprite": "sprites/1629611.png"
     },
     {
@@ -2475,8 +2501,9 @@
           "g": 13
         }
       },
-      "pct_started": 83.6,
-      "pct_rostered": 96.3,
+      "pct_started": 83.4,
+      "pct_rostered": 96.2,
+      "espn_id": 4278104,
       "sprite": "sprites/1629008.png"
     },
     {
@@ -2563,8 +2590,9 @@
           "g": 14
         }
       },
-      "pct_started": 17.4,
-      "pct_rostered": 32.6,
+      "pct_started": 17.2,
+      "pct_rostered": 32.4,
+      "espn_id": 4432194,
       "sprite": "sprites/1630549.png"
     },
     {
@@ -2654,6 +2682,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.5,
+      "espn_id": 4712896,
       "sprite": "sprites/1641730.png"
     },
     {
@@ -2741,8 +2770,9 @@
           "g": 14
         }
       },
-      "pct_started": 75.2,
+      "pct_started": 75.0,
       "pct_rostered": 92.4,
+      "espn_id": 3064514,
       "sprite": "sprites/203944.png"
     },
     {
@@ -2832,6 +2862,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5174655,
       "sprite": "sprites/1643052.png"
     },
     {
@@ -2917,6 +2948,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5242502,
       "sprite": "sprites/1642879.png"
     },
     {
@@ -3004,8 +3036,9 @@
           "g": 14
         }
       },
-      "pct_started": 96.0,
+      "pct_started": 95.9,
       "pct_rostered": 99.9,
+      "espn_id": 4065648,
       "sprite": "sprites/1628369.png"
     },
     {
@@ -3095,6 +3128,7 @@
       },
       "pct_started": 4.7,
       "pct_rostered": 10.9,
+      "espn_id": 4351852,
       "sprite": "sprites/1629011.png"
     },
     {
@@ -3184,6 +3218,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4397251,
       "sprite": "sprites/1631199.png"
     },
     {
@@ -3271,8 +3306,9 @@
           "g": 15
         }
       },
-      "pct_started": 71.4,
+      "pct_started": 71.0,
       "pct_rostered": 93.8,
+      "espn_id": 3078576,
       "sprite": "sprites/1628401.png"
     },
     {
@@ -3360,8 +3396,9 @@
           "g": 15
         }
       },
-      "pct_started": 41.5,
+      "pct_started": 41.2,
       "pct_rostered": 70.4,
+      "espn_id": 4066354,
       "sprite": "sprites/1630202.png"
     },
     {
@@ -3451,6 +3488,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 5142621,
       "sprite": "sprites/1643416.png"
     },
     {
@@ -3538,8 +3576,9 @@
           "g": 13
         }
       },
-      "pct_started": 85.1,
+      "pct_started": 84.9,
       "pct_rostered": 96.1,
+      "espn_id": 4251,
       "sprite": "sprites/202331.png"
     },
     {
@@ -3625,6 +3664,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5106283,
       "sprite": "sprites/1641759.png"
     },
     {
@@ -3714,6 +3754,7 @@
       },
       "pct_started": 0.3,
       "pct_rostered": 0.6,
+      "espn_id": 4683689,
       "sprite": "sprites/1641775.png"
     },
     {
@@ -3803,6 +3844,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.5,
+      "espn_id": 5175647,
       "sprite": "sprites/1642864.png"
     },
     {
@@ -3892,6 +3934,7 @@
       },
       "pct_started": 1.1,
       "pct_rostered": 2.3,
+      "espn_id": 4065804,
       "sprite": "sprites/1630573.png"
     },
     {
@@ -3980,6 +4023,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 3195,
       "sprite": "sprites/201144.png"
     },
     {
@@ -4068,6 +4112,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.3,
+      "espn_id": 4277951,
       "sprite": "sprites/1630568.png"
     },
     {
@@ -4157,6 +4202,7 @@
       },
       "pct_started": 0.4,
       "pct_rostered": 0.8,
+      "espn_id": 4593841,
       "sprite": "sprites/1631248.png"
     },
     {
@@ -4240,6 +4286,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4702745,
       "sprite": "sprites/1642873.png"
     },
     {
@@ -4326,8 +4373,9 @@
           "g": 14
         }
       },
-      "pct_started": 8.8,
+      "pct_started": 8.7,
       "pct_rostered": 21.4,
+      "espn_id": 4397424,
       "sprite": "sprites/1629674.png"
     },
     {
@@ -4413,6 +4461,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4433188,
       "sprite": "sprites/1642269.png"
     },
     {
@@ -4502,6 +4551,7 @@
       },
       "pct_started": 0.4,
       "pct_rostered": 1.3,
+      "espn_id": 2583632,
       "sprite": "sprites/1626220.png"
     },
     {
@@ -4589,8 +4639,9 @@
           "g": 14
         }
       },
-      "pct_started": 57.8,
+      "pct_started": 57.9,
       "pct_rostered": 91.1,
+      "espn_id": 4396971,
       "sprite": "sprites/1629675.png"
     },
     {
@@ -4678,6 +4729,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.6,
+      "espn_id": 4066218,
       "sprite": "sprites/1629684.png"
     },
     {
@@ -4767,6 +4819,7 @@
       },
       "pct_started": 24.1,
       "pct_rostered": 57.9,
+      "espn_id": 4395651,
       "sprite": "sprites/1629632.png"
     },
     {
@@ -4856,6 +4909,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.6,
+      "espn_id": 4602025,
       "sprite": "sprites/1642883.png"
     },
     {
@@ -4945,6 +4999,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.3,
+      "espn_id": 5060701,
       "sprite": "sprites/1643515.png"
     },
     {
@@ -5032,6 +5087,7 @@
       "injury_src": "espn",
       "pct_started": 22.5,
       "pct_rostered": 78.4,
+      "espn_id": 5061575,
       "sprite": "sprites/1642851.png"
     },
     {
@@ -5123,6 +5179,7 @@
       "injury_src": "espn",
       "pct_started": 8.4,
       "pct_rostered": 24.3,
+      "espn_id": 3135045,
       "sprite": "sprites/1628960.png"
     },
     {
@@ -5211,6 +5268,7 @@
       },
       "pct_started": 0.6,
       "pct_rostered": 1.9,
+      "espn_id": 4576060,
       "sprite": "sprites/1641750.png"
     },
     {
@@ -5300,6 +5358,7 @@
       },
       "pct_started": 21.0,
       "pct_rostered": 46.2,
+      "espn_id": 4433249,
       "sprite": "sprites/1631217.png"
     },
     {
@@ -5385,6 +5444,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4701225,
       "sprite": "sprites/1641790.png"
     },
     {
@@ -5476,6 +5536,7 @@
       "injury_src": "espn",
       "pct_started": 0.6,
       "pct_rostered": 3.4,
+      "espn_id": 3032979,
       "sprite": "sprites/203471.png"
     },
     {
@@ -5565,6 +5626,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.5,
+      "espn_id": 5281370,
       "sprite": "sprites/1643419.png"
     },
     {
@@ -5654,6 +5716,7 @@
       },
       "pct_started": 42.8,
       "pct_rostered": 86.0,
+      "espn_id": 4433287,
       "sprite": "sprites/1641706.png"
     },
     {
@@ -5743,6 +5806,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5211176,
       "sprite": "sprites/1642275.png"
     },
     {
@@ -5832,6 +5896,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5239590,
       "sprite": "sprites/1642862.png"
     },
     {
@@ -5921,6 +5986,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 5242496,
       "sprite": "sprites/1642855.png"
     },
     {
@@ -6008,8 +6074,9 @@
           "g": 14
         }
       },
-      "pct_started": 64.4,
+      "pct_started": 64.3,
       "pct_rostered": 92.9,
+      "espn_id": 4871145,
       "sprite": "sprites/1630581.png"
     },
     {
@@ -6098,6 +6165,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.2,
+      "espn_id": 4848625,
       "sprite": "sprites/1643517.png"
     },
     {
@@ -6180,6 +6248,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4593049,
       "sprite": "sprites/1631115.png"
     },
     {
@@ -6269,6 +6338,7 @@
       },
       "pct_started": 0.3,
       "pct_rostered": 0.8,
+      "espn_id": 2990984,
       "sprite": "sprites/1627741.png"
     },
     {
@@ -6360,6 +6430,7 @@
       "injury_src": "espn",
       "pct_started": 36.7,
       "pct_rostered": 79.8,
+      "espn_id": 5095151,
       "sprite": "sprites/1643410.png"
     },
     {
@@ -6446,8 +6517,9 @@
           "g": 5
         }
       },
-      "pct_started": 9.1,
+      "pct_started": 9.0,
       "pct_rostered": 40.4,
+      "espn_id": 4278067,
       "sprite": "sprites/1629651.png"
     },
     {
@@ -6537,6 +6609,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.3,
+      "espn_id": 5044385,
       "sprite": "sprites/1631159.png"
     },
     {
@@ -6626,6 +6699,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4066650,
       "sprite": "sprites/1628380.png"
     },
     {
@@ -6713,8 +6787,9 @@
           "g": 14
         }
       },
-      "pct_started": 39.1,
-      "pct_rostered": 65.3,
+      "pct_started": 39.0,
+      "pct_rostered": 65.4,
+      "espn_id": 4711294,
       "sprite": "sprites/1641824.png"
     },
     {
@@ -6804,6 +6879,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4683750,
       "sprite": "sprites/1641722.png"
     },
     {
@@ -6894,6 +6970,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5105555,
       "sprite": "sprites/1643591.png"
     },
     {
@@ -7070,8 +7147,9 @@
           "g": 12
         }
       },
-      "pct_started": 58.5,
+      "pct_started": 58.3,
       "pct_rostered": 80.5,
+      "espn_id": 2595516,
       "sprite": "sprites/1626181.png"
     },
     {
@@ -7159,8 +7237,9 @@
           "g": 13
         }
       },
-      "pct_started": 34.0,
+      "pct_started": 33.9,
       "pct_rostered": 46.4,
+      "espn_id": 4397189,
       "sprite": "sprites/1630188.png"
     },
     {
@@ -7250,6 +7329,7 @@
       },
       "pct_started": 2.1,
       "pct_rostered": 5.6,
+      "espn_id": 4395626,
       "sprite": "sprites/1630200.png"
     },
     {
@@ -7339,6 +7419,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.7,
+      "espn_id": 4432822,
       "sprite": "sprites/1630171.png"
     },
     {
@@ -7428,6 +7509,7 @@
       },
       "pct_started": 0.5,
       "pct_rostered": 1.4,
+      "espn_id": 4431687,
       "sprite": "sprites/1630172.png"
     },
     {
@@ -7515,8 +7597,9 @@
           "g": 15
         }
       },
-      "pct_started": 81.1,
+      "pct_started": 80.9,
       "pct_rostered": 99.4,
+      "espn_id": 3992,
       "sprite": "sprites/201935.png"
     },
     {
@@ -7606,6 +7689,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.3,
+      "espn_id": 3934723,
       "sprite": "sprites/1628418.png"
     },
     {
@@ -7694,8 +7778,9 @@
       },
       "injury": "OUT",
       "injury_src": "espn",
-      "pct_started": 60.6,
+      "pct_started": 60.5,
       "pct_rostered": 97.0,
+      "espn_id": 4432158,
       "sprite": "sprites/1630596.png"
     },
     {
@@ -7785,6 +7870,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.6,
+      "espn_id": 4066757,
       "sprite": "sprites/1630241.png"
     },
     {
@@ -7874,8 +7960,9 @@
       },
       "injury": "GTD",
       "injury_src": "espn",
-      "pct_started": 11.7,
+      "pct_started": 11.6,
       "pct_rostered": 36.4,
+      "espn_id": 4576087,
       "sprite": "sprites/1631212.png"
     },
     {
@@ -7965,6 +8052,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4701233,
       "sprite": "sprites/1641854.png"
     },
     {
@@ -8052,8 +8140,9 @@
           "g": 13
         }
       },
-      "pct_started": 4.4,
+      "pct_started": 4.3,
       "pct_rostered": 9.7,
+      "espn_id": 5041951,
       "sprite": "sprites/1643509.png"
     },
     {
@@ -8145,6 +8234,7 @@
       "injury_src": "espn",
       "pct_started": 0.5,
       "pct_rostered": 2.0,
+      "espn_id": 4683747,
       "sprite": "sprites/1642281.png"
     },
     {
@@ -8232,8 +8322,9 @@
           "g": 15
         }
       },
-      "pct_started": 4.6,
-      "pct_rostered": 13.0,
+      "pct_started": 4.5,
+      "pct_rostered": 12.9,
+      "espn_id": 5023693,
       "sprite": "sprites/1642878.png"
     },
     {
@@ -8320,8 +8411,9 @@
           "g": 13
         }
       },
-      "pct_started": 67.2,
+      "pct_started": 67.0,
       "pct_rostered": 88.8,
+      "espn_id": 4066328,
       "sprite": "sprites/1628386.png"
     },
     {
@@ -8411,6 +8503,7 @@
       },
       "pct_started": 0.6,
       "pct_rostered": 1.6,
+      "espn_id": 2995706,
       "sprite": "sprites/1626209.png"
     },
     {
@@ -8496,6 +8589,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5106268,
       "sprite": "sprites/1641772.png"
     },
     {
@@ -8583,8 +8677,9 @@
           "g": 15
         }
       },
-      "pct_started": 92.7,
+      "pct_started": 92.6,
       "pct_rostered": 99.9,
+      "espn_id": 3908809,
       "sprite": "sprites/1628378.png"
     },
     {
@@ -8674,6 +8769,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4702134,
       "sprite": "sprites/1641807.png"
     },
     {
@@ -8763,6 +8859,7 @@
       },
       "pct_started": 0.4,
       "pct_rostered": 1.3,
+      "espn_id": 4432582,
       "sprite": "sprites/1631108.png"
     },
     {
@@ -8852,6 +8949,7 @@
       },
       "pct_started": 0.6,
       "pct_rostered": 1.9,
+      "espn_id": 4896372,
       "sprite": "sprites/1642383.png"
     },
     {
@@ -8936,6 +9034,7 @@
       "injury_src": "espn",
       "pct_started": 0.5,
       "pct_rostered": 4.4,
+      "espn_id": 4683688,
       "sprite": "sprites/1641726.png"
     },
     {
@@ -9025,6 +9124,7 @@
       },
       "pct_started": 4.3,
       "pct_rostered": 9.9,
+      "espn_id": 4278594,
       "sprite": "sprites/1630230.png"
     },
     {
@@ -9114,6 +9214,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 4432107,
       "sprite": "sprites/1631204.png"
     },
     {
@@ -9203,6 +9304,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5105806,
       "sprite": "sprites/1641724.png"
     },
     {
@@ -9292,6 +9394,7 @@
       },
       "pct_started": 3.2,
       "pct_rostered": 7.5,
+      "espn_id": 5211175,
       "sprite": "sprites/1642258.png"
     },
     {
@@ -9379,8 +9482,9 @@
           "g": 12
         }
       },
-      "pct_started": 81.2,
+      "pct_started": 81.0,
       "pct_rostered": 96.1,
+      "espn_id": 6442,
       "sprite": "sprites/202681.png"
     },
     {
@@ -9470,6 +9574,7 @@
       },
       "pct_started": 1.0,
       "pct_rostered": 2.9,
+      "espn_id": 4873153,
       "sprite": "sprites/1643516.png"
     },
     {
@@ -9559,6 +9664,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.8,
+      "espn_id": 3138160,
       "sprite": "sprites/1628997.png"
     },
     {
@@ -9646,8 +9752,9 @@
           "g": 15
         }
       },
-      "pct_started": 16.7,
+      "pct_started": 16.5,
       "pct_rostered": 36.8,
+      "espn_id": 4278049,
       "sprite": "sprites/1629655.png"
     },
     {
@@ -9735,8 +9842,9 @@
           "g": 15
         }
       },
-      "pct_started": 17.8,
+      "pct_started": 17.7,
       "pct_rostered": 33.1,
+      "espn_id": 4278078,
       "sprite": "sprites/1629023.png"
     },
     {
@@ -9825,6 +9933,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4701208,
       "sprite": "sprites/1630619.png"
     },
     {
@@ -9912,8 +10021,9 @@
           "g": 14
         }
       },
-      "pct_started": 94.9,
+      "pct_started": 94.8,
       "pct_rostered": 99.9,
+      "espn_id": 5041939,
       "sprite": "sprites/1642843.png"
     },
     {
@@ -10005,6 +10115,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5106040,
       "sprite": "sprites/1643588.png"
     },
     {
@@ -10094,6 +10205,7 @@
       },
       "pct_started": 0.9,
       "pct_rostered": 5.1,
+      "espn_id": 4593125,
       "sprite": "sprites/1630583.png"
     },
     {
@@ -10184,6 +10296,7 @@
       "injury_src": "espn",
       "pct_started": 0.1,
       "pct_rostered": 0.4,
+      "espn_id": 5279129,
       "sprite": "sprites/1643547.png"
     },
     {
@@ -10271,8 +10384,9 @@
           "g": 13
         }
       },
-      "pct_started": 30.1,
+      "pct_started": 29.9,
       "pct_rostered": 44.9,
+      "espn_id": 4431767,
       "sprite": "sprites/1631128.png"
     },
     {
@@ -10359,6 +10473,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.5,
+      "espn_id": 5105592,
       "sprite": "sprites/1641715.png"
     },
     {
@@ -10444,6 +10559,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4432181,
       "sprite": "sprites/1631124.png"
     },
     {
@@ -10533,6 +10649,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.5,
+      "espn_id": 4277848,
       "sprite": "sprites/1628963.png"
     },
     {
@@ -10622,6 +10739,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.3,
+      "espn_id": 3135046,
       "sprite": "sprites/1626145.png"
     },
     {
@@ -10711,6 +10829,7 @@
       },
       "pct_started": 0.6,
       "pct_rostered": 1.7,
+      "espn_id": 4698719,
       "sprite": "sprites/1642350.png"
     },
     {
@@ -10798,6 +10917,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4433629,
       "sprite": "sprites/1642948.png"
     },
     {
@@ -10885,8 +11005,9 @@
           "g": 12
         }
       },
-      "pct_started": 29.5,
+      "pct_started": 29.4,
       "pct_rostered": 51.8,
+      "espn_id": 3978,
       "sprite": "sprites/201942.png"
     },
     {
@@ -10975,6 +11096,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4065813,
       "sprite": "sprites/1643813.png"
     },
     {
@@ -11064,6 +11186,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4565698,
       "sprite": "sprites/1643624.png"
     },
     {
@@ -11152,6 +11275,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4433607,
       "sprite": "sprites/1641747.png"
     },
     {
@@ -11238,8 +11362,9 @@
           "g": 13
         }
       },
-      "pct_started": 95.8,
+      "pct_started": 95.6,
       "pct_rostered": 99.9,
+      "espn_id": 3112335,
       "sprite": "sprites/203999.png"
     },
     {
@@ -11328,7 +11453,8 @@
         }
       },
       "pct_started": 0.1,
-      "pct_rostered": 0.4,
+      "pct_rostered": 0.3,
+      "espn_id": 4592427,
       "sprite": "sprites/1642461.png"
     },
     {
@@ -11415,6 +11541,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4431690,
       "sprite": "sprites/1630192.png"
     },
     {
@@ -11503,7 +11630,8 @@
         }
       },
       "pct_started": 3.8,
-      "pct_rostered": 9.9,
+      "pct_rostered": 9.8,
+      "espn_id": 3138196,
       "sprite": "sprites/1629661.png"
     },
     {
@@ -11591,8 +11719,9 @@
           "g": 13
         }
       },
-      "pct_started": 91.9,
+      "pct_started": 91.8,
       "pct_rostered": 99.6,
+      "espn_id": 3936299,
       "sprite": "sprites/1627750.png"
     },
     {
@@ -11680,8 +11809,9 @@
           "g": 13
         }
       },
-      "pct_started": 17.6,
+      "pct_started": 17.5,
       "pct_rostered": 40.1,
+      "espn_id": 3064290,
       "sprite": "sprites/203932.png"
     },
     {
@@ -11769,6 +11899,7 @@
       "injury_src": "espn",
       "pct_started": 32.8,
       "pct_rostered": 90.3,
+      "espn_id": 4433621,
       "sprite": "sprites/1631105.png"
     },
     {
@@ -11858,8 +11989,9 @@
       },
       "injury": "GTD",
       "injury_src": "espn",
-      "pct_started": 89.3,
+      "pct_started": 89.1,
       "pct_rostered": 99.9,
+      "espn_id": 4432166,
       "sprite": "sprites/1630595.png"
     },
     {
@@ -11951,6 +12083,7 @@
       "injury_src": "espn",
       "pct_started": 0.2,
       "pct_rostered": 0.6,
+      "espn_id": 4683771,
       "sprite": "sprites/1641842.png"
     },
     {
@@ -12038,8 +12171,9 @@
           "g": 14
         }
       },
-      "pct_started": 21.2,
+      "pct_started": 21.0,
       "pct_rostered": 35.1,
+      "espn_id": 4278562,
       "sprite": "sprites/1630194.png"
     },
     {
@@ -12129,6 +12263,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4700852,
       "sprite": "sprites/1642404.png"
     },
     {
@@ -12216,8 +12351,9 @@
           "g": 13
         }
       },
-      "pct_started": 60.7,
+      "pct_started": 60.6,
       "pct_rostered": 81.9,
+      "espn_id": 4684742,
       "sprite": "sprites/1641709.png"
     },
     {
@@ -12307,6 +12443,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 2990962,
       "sprite": "sprites/1627752.png"
     },
     {
@@ -12396,6 +12533,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5107818,
       "sprite": "sprites/1642403.png"
     },
     {
@@ -12484,6 +12622,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.8,
+      "espn_id": 4395702,
       "sprite": "sprites/1630198.png"
     },
     {
@@ -12571,8 +12710,9 @@
           "g": 14
         }
       },
-      "pct_started": 26.4,
+      "pct_started": 26.2,
       "pct_rostered": 56.0,
+      "espn_id": 3908845,
       "sprite": "sprites/1628381.png"
     },
     {
@@ -12662,6 +12802,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 5258459,
       "sprite": "sprites/1643536.png"
     },
     {
@@ -12749,8 +12890,9 @@
           "g": 14
         }
       },
-      "pct_started": 19.4,
-      "pct_rostered": 37.6,
+      "pct_started": 19.1,
+      "pct_rostered": 37.7,
+      "espn_id": 5107199,
       "sprite": "sprites/1642450.png"
     },
     {
@@ -12838,8 +12980,9 @@
           "g": 14
         }
       },
-      "pct_started": 4.9,
-      "pct_rostered": 11.1,
+      "pct_started": 4.8,
+      "pct_rostered": 11.0,
+      "espn_id": 4066372,
       "sprite": "sprites/1628989.png"
     },
     {
@@ -12929,6 +13072,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.5,
+      "espn_id": 2596112,
       "sprite": "sprites/1629750.png"
     },
     {
@@ -13018,6 +13162,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4397882,
       "sprite": "sprites/1642449.png"
     },
     {
@@ -13108,7 +13253,8 @@
       "injury": "OUT",
       "injury_src": "espn",
       "pct_started": 17.1,
-      "pct_rostered": 42.9,
+      "pct_rostered": 42.8,
+      "espn_id": 3157465,
       "sprite": "sprites/1629130.png"
     },
     {
@@ -13197,6 +13343,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4397449,
       "sprite": "sprites/1641989.png"
     },
     {
@@ -13282,6 +13429,7 @@
       "injury_src": "espn",
       "pct_started": 0.1,
       "pct_rostered": 0.3,
+      "espn_id": 4432171,
       "sprite": "sprites/1630541.png"
     },
     {
@@ -13367,6 +13515,7 @@
       "injury_src": "espn",
       "pct_started": 12.2,
       "pct_rostered": 31.5,
+      "espn_id": 3102531,
       "sprite": "sprites/204001.png"
     },
     {
@@ -13452,6 +13601,7 @@
       "injury_src": "espn",
       "pct_started": 4.7,
       "pct_rostered": 27.6,
+      "espn_id": 6430,
       "sprite": "sprites/202710.png"
     },
     {
@@ -13630,6 +13780,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 4703396,
       "sprite": "sprites/1643633.png"
     },
     {
@@ -13717,8 +13868,9 @@
           "g": 15
         }
       },
-      "pct_started": 85.6,
+      "pct_started": 85.5,
       "pct_rostered": 98.8,
+      "espn_id": 4684740,
       "sprite": "sprites/1641708.png"
     },
     {
@@ -13808,6 +13960,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5105837,
       "sprite": "sprites/1643570.png"
     },
     {
@@ -13891,6 +14044,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5105553,
       "sprite": "sprites/1641763.png"
     },
     {
@@ -13978,8 +14132,9 @@
           "g": 13
         }
       },
-      "pct_started": 50.5,
+      "pct_started": 50.3,
       "pct_rostered": 73.1,
+      "espn_id": 2991230,
       "sprite": "sprites/1627832.png"
     },
     {
@@ -14067,8 +14222,9 @@
           "g": 16
         }
       },
-      "pct_started": 93.4,
+      "pct_started": 93.3,
       "pct_rostered": 99.9,
+      "espn_id": 3202,
       "sprite": "sprites/201142.png"
     },
     {
@@ -14158,6 +14314,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 3136777,
       "sprite": "sprites/1630256.png"
     },
     {
@@ -14247,6 +14404,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4432827,
       "sprite": "sprites/1631131.png"
     },
     {
@@ -14334,8 +14492,9 @@
           "g": 16
         }
       },
-      "pct_started": 63.6,
+      "pct_started": 63.4,
       "pct_rostered": 85.1,
+      "espn_id": 4432639,
       "sprite": "sprites/1631095.png"
     },
     {
@@ -14422,6 +14581,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.3,
+      "espn_id": 2991235,
       "sprite": "sprites/203500.png"
     },
     {
@@ -14511,6 +14671,7 @@
       },
       "pct_started": 28.4,
       "pct_rostered": 50.2,
+      "espn_id": 4711272,
       "sprite": "sprites/1642263.png"
     },
     {
@@ -14598,8 +14759,9 @@
           "g": 16
         }
       },
-      "pct_started": 9.3,
-      "pct_rostered": 17.9,
+      "pct_started": 9.2,
+      "pct_rostered": 17.8,
+      "espn_id": 4433192,
       "sprite": "sprites/1631106.png"
     },
     {
@@ -14689,6 +14851,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4592857,
       "sprite": "sprites/1642384.png"
     },
     {
@@ -14777,8 +14940,9 @@
       },
       "injury": "GTD",
       "injury_src": "espn",
-      "pct_started": 93.8,
+      "pct_started": 93.6,
       "pct_rostered": 99.5,
+      "espn_id": 4871144,
       "sprite": "sprites/1630578.png"
     },
     {
@@ -14869,6 +15033,7 @@
       "injury_src": "espn",
       "pct_started": 0.1,
       "pct_rostered": 0.3,
+      "espn_id": 3102529,
       "sprite": "sprites/203991.png"
     },
     {
@@ -14958,6 +15123,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.3,
+      "espn_id": 3037789,
       "sprite": "sprites/203992.png"
     },
     {
@@ -15047,6 +15213,7 @@
       },
       "pct_started": 0.5,
       "pct_rostered": 1.2,
+      "espn_id": 2990992,
       "sprite": "sprites/203935.png"
     },
     {
@@ -15137,6 +15304,7 @@
       "injury_src": "espn",
       "pct_started": 40.3,
       "pct_rostered": 98.0,
+      "espn_id": 4396993,
       "sprite": "sprites/1630169.png"
     },
     {
@@ -15226,6 +15394,7 @@
       },
       "pct_started": 2.4,
       "pct_rostered": 6.1,
+      "espn_id": 4278355,
       "sprite": "sprites/1630167.png"
     },
     {
@@ -15315,8 +15484,9 @@
       },
       "injury": "GTD",
       "injury_src": "espn",
-      "pct_started": 35.7,
-      "pct_rostered": 68.9,
+      "pct_started": 35.5,
+      "pct_rostered": 68.8,
+      "espn_id": 4395712,
       "sprite": "sprites/1629614.png"
     },
     {
@@ -15408,6 +15578,7 @@
       "injury_src": "espn",
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 5105854,
       "sprite": "sprites/1643552.png"
     },
     {
@@ -15497,6 +15668,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.6,
+      "espn_id": 5106060,
       "sprite": "sprites/1641716.png"
     },
     {
@@ -15586,6 +15758,7 @@
       },
       "pct_started": 2.5,
       "pct_rostered": 7.8,
+      "espn_id": 2530530,
       "sprite": "sprites/204456.png"
     },
     {
@@ -15675,6 +15848,7 @@
       },
       "pct_started": 3.3,
       "pct_rostered": 8.5,
+      "espn_id": 3133603,
       "sprite": "sprites/1626162.png"
     },
     {
@@ -15760,6 +15934,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5157066,
       "sprite": "sprites/1642277.png"
     },
     {
@@ -15849,6 +16024,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4398207,
       "sprite": "sprites/1641771.png"
     },
     {
@@ -15938,6 +16114,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 2580365,
       "sprite": "sprites/1626204.png"
     },
     {
@@ -16027,6 +16204,7 @@
       },
       "pct_started": 1.2,
       "pct_rostered": 3.0,
+      "espn_id": 4396909,
       "sprite": "sprites/1630174.png"
     },
     {
@@ -16116,6 +16294,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 4431752,
       "sprite": "sprites/1641738.png"
     },
     {
@@ -16203,6 +16382,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4433076,
       "sprite": "sprites/1641767.png"
     },
     {
@@ -16292,6 +16472,7 @@
       },
       "pct_started": 1.8,
       "pct_rostered": 4.2,
+      "espn_id": 4592829,
       "sprite": "sprites/1631245.png"
     },
     {
@@ -16380,6 +16561,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.5,
+      "espn_id": 4065731,
       "sprite": "sprites/1630643.png"
     },
     {
@@ -16466,8 +16648,9 @@
           "g": 10
         }
       },
-      "pct_started": 38.9,
+      "pct_started": 38.7,
       "pct_rostered": 70.2,
+      "espn_id": 4017837,
       "sprite": "sprites/1627826.png"
     },
     {
@@ -16555,8 +16738,9 @@
           "g": 14
         }
       },
-      "pct_started": 91.5,
+      "pct_started": 91.4,
       "pct_rostered": 99.2,
+      "espn_id": 3149673,
       "sprite": "sprites/1627783.png"
     },
     {
@@ -16642,6 +16826,7 @@
       "injury_src": "espn",
       "pct_started": 0.2,
       "pct_rostered": 1.4,
+      "espn_id": 6580,
       "sprite": "sprites/203078.png"
     },
     {
@@ -16725,8 +16910,9 @@
       },
       "injury": "OUT",
       "injury_src": "espn",
-      "pct_started": 24.4,
+      "pct_started": 24.6,
       "pct_rostered": 65.9,
+      "espn_id": 3913176,
       "sprite": "sprites/1627742.png"
     },
     {
@@ -16816,6 +17002,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5105832,
       "sprite": "sprites/1643568.png"
     },
     {
@@ -16896,8 +17083,9 @@
           "g": 41
         }
       },
-      "pct_started": 0.3,
+      "pct_started": 0.4,
       "pct_rostered": 0.6,
+      "espn_id": 5108024,
       "sprite": "sprites/1642949.png"
     },
     {
@@ -16987,6 +17175,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 5075626,
       "sprite": "sprites/1642394.png"
     },
     {
@@ -17076,6 +17265,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 4398390,
       "sprite": "sprites/1629618.png"
     },
     {
@@ -17161,6 +17351,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4396818,
       "sprite": "sprites/1641757.png"
     },
     {
@@ -17250,6 +17441,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4845363,
       "sprite": "sprites/1642353.png"
     },
     {
@@ -17339,6 +17531,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5060631,
       "sprite": "sprites/1642876.png"
     },
     {
@@ -17428,6 +17621,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 4278077,
       "sprite": "sprites/1629020.png"
     },
     {
@@ -17517,6 +17711,7 @@
       },
       "pct_started": 3.9,
       "pct_rostered": 7.3,
+      "espn_id": 3907498,
       "sprite": "sprites/1629680.png"
     },
     {
@@ -17604,8 +17799,9 @@
           "g": 14
         }
       },
-      "pct_started": 18.3,
-      "pct_rostered": 42.8,
+      "pct_started": 18.1,
+      "pct_rostered": 42.9,
+      "espn_id": 4397014,
       "sprite": "sprites/1629656.png"
     },
     {
@@ -17695,6 +17891,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4868423,
       "sprite": "sprites/1630702.png"
     },
     {
@@ -17784,6 +17981,7 @@
       },
       "pct_started": 1.2,
       "pct_rostered": 2.5,
+      "espn_id": 4683774,
       "sprite": "sprites/1642355.png"
     },
     {
@@ -17873,6 +18071,7 @@
       },
       "pct_started": 7.5,
       "pct_rostered": 20.4,
+      "espn_id": 4277811,
       "sprite": "sprites/1629012.png"
     },
     {
@@ -17960,8 +18159,9 @@
           "g": 13
         }
       },
-      "pct_started": 3.2,
-      "pct_rostered": 6.2,
+      "pct_started": 3.1,
+      "pct_rostered": 6.1,
+      "espn_id": 4433137,
       "sprite": "sprites/1630533.png"
     },
     {
@@ -18049,8 +18249,9 @@
           "g": 15
         }
       },
-      "pct_started": 3.5,
+      "pct_started": 3.4,
       "pct_rostered": 7.3,
+      "espn_id": 4592691,
       "sprite": "sprites/1631222.png"
     },
     {
@@ -18137,8 +18338,9 @@
           "g": 15
         }
       },
-      "pct_started": 79.7,
+      "pct_started": 79.6,
       "pct_rostered": 94.6,
+      "espn_id": 4433136,
       "sprite": "sprites/1631117.png"
     },
     {
@@ -18228,8 +18430,9 @@
       },
       "injury": "OUT",
       "injury_src": "espn",
-      "pct_started": 69.3,
+      "pct_started": 69.2,
       "pct_rostered": 98.9,
+      "espn_id": 4066457,
       "sprite": "sprites/1630559.png"
     },
     {
@@ -18317,6 +18520,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5105817,
       "sprite": "sprites/1643721.png"
     },
     {
@@ -18403,6 +18607,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4702972,
       "sprite": "sprites/1643024.png"
     },
     {
@@ -18492,6 +18697,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.4,
+      "espn_id": 5113969,
       "sprite": "sprites/1643418.png"
     },
     {
@@ -18579,8 +18785,9 @@
           "g": 16
         }
       },
-      "pct_started": 4.2,
-      "pct_rostered": 8.5,
+      "pct_started": 4.1,
+      "pct_rostered": 8.4,
+      "espn_id": 4278580,
       "sprite": "sprites/1630572.png"
     },
     {
@@ -18670,6 +18877,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 3155535,
       "sprite": "sprites/1626172.png"
     },
     {
@@ -18757,8 +18965,9 @@
           "g": 14
         }
       },
-      "pct_started": 94.5,
+      "pct_started": 94.4,
       "pct_rostered": 99.9,
+      "espn_id": 3945274,
       "sprite": "sprites/1629029.png"
     },
     {
@@ -18848,6 +19057,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 4595400,
       "sprite": "sprites/1641765.png"
     },
     {
@@ -18937,6 +19147,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4683934,
       "sprite": "sprites/1642942.png"
     },
     {
@@ -19026,6 +19237,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 5231919,
       "sprite": "sprites/1643510.png"
     },
     {
@@ -19115,6 +19327,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 3899664,
       "sprite": "sprites/1631323.png"
     },
     {
@@ -19202,8 +19415,9 @@
           "g": 15
         }
       },
-      "pct_started": 72.1,
+      "pct_started": 71.9,
       "pct_rostered": 85.1,
+      "espn_id": 4278053,
       "sprite": "sprites/1630558.png"
     },
     {
@@ -19293,6 +19507,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.4,
+      "espn_id": 5107157,
       "sprite": "sprites/1643553.png"
     },
     {
@@ -19382,6 +19597,7 @@
       },
       "pct_started": 0.5,
       "pct_rostered": 1.1,
+      "espn_id": 4997528,
       "sprite": "sprites/1631107.png"
     },
     {
@@ -19469,8 +19685,9 @@
           "g": 15
         }
       },
-      "pct_started": 95.9,
+      "pct_started": 95.8,
       "pct_rostered": 99.9,
+      "espn_id": 3032977,
       "sprite": "sprites/203507.png"
     },
     {
@@ -19559,6 +19776,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4278076,
       "sprite": "sprites/1630208.png"
     },
     {
@@ -19648,6 +19866,7 @@
       },
       "pct_started": 3.4,
       "pct_rostered": 7.9,
+      "espn_id": 4601025,
       "sprite": "sprites/1641796.png"
     },
     {
@@ -19737,6 +19956,7 @@
       },
       "pct_started": 1.1,
       "pct_rostered": 2.6,
+      "espn_id": 2528210,
       "sprite": "sprites/203501.png"
     },
     {
@@ -19824,8 +20044,9 @@
           "g": 14
         }
       },
-      "pct_started": 22.2,
-      "pct_rostered": 38.5,
+      "pct_started": 22.0,
+      "pct_rostered": 38.4,
+      "espn_id": 6475,
       "sprite": "sprites/202691.png"
     },
     {
@@ -19915,6 +20136,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4066993,
       "sprite": "sprites/1630696.png"
     },
     {
@@ -20002,8 +20224,9 @@
           "g": 15
         }
       },
-      "pct_started": 91.8,
+      "pct_started": 91.6,
       "pct_rostered": 99.5,
+      "espn_id": 4066261,
       "sprite": "sprites/1628389.png"
     },
     {
@@ -20095,6 +20318,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4431772,
       "sprite": "sprites/1642066.png"
     },
     {
@@ -20181,6 +20405,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4431786,
       "sprite": "sprites/1642352.png"
     },
     {
@@ -20268,8 +20493,9 @@
           "g": 15
         }
       },
-      "pct_started": 22.4,
+      "pct_started": 22.3,
       "pct_rostered": 45.0,
+      "espn_id": 3059319,
       "sprite": "sprites/203952.png"
     },
     {
@@ -20439,6 +20665,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4700818,
       "sprite": "sprites/1642884.png"
     },
     {
@@ -20528,6 +20755,7 @@
       },
       "pct_started": 4.1,
       "pct_rostered": 10.6,
+      "espn_id": 3064482,
       "sprite": "sprites/1626171.png"
     },
     {
@@ -20611,8 +20839,9 @@
           "g": 1
         }
       },
-      "pct_started": 0.1,
+      "pct_started": 0.2,
       "pct_rostered": 0.2,
+      "espn_id": 2991043,
       "sprite": "sprites/1627747.png"
     },
     {
@@ -20696,6 +20925,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4697268,
       "sprite": "sprites/1642880.png"
     },
     {
@@ -20783,6 +21013,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5214989,
       "sprite": "sprites/1642881.png"
     },
     {
@@ -20951,6 +21182,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4397233,
       "sprite": "sprites/1631250.png"
     },
     {
@@ -21036,6 +21268,7 @@
       "injury_src": "espn",
       "pct_started": 0.4,
       "pct_rostered": 1.6,
+      "espn_id": 3934673,
       "sprite": "sprites/1628978.png"
     },
     {
@@ -21125,6 +21358,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 4895758,
       "sprite": "sprites/1642262.png"
     },
     {
@@ -21295,6 +21529,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4433569,
       "sprite": "sprites/1641780.png"
     },
     {
@@ -21384,6 +21619,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 5061585,
       "sprite": "sprites/1642912.png"
     },
     {
@@ -21468,6 +21704,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 5157587,
       "sprite": "sprites/1642911.png"
     },
     {
@@ -21555,8 +21792,9 @@
           "g": 16
         }
       },
-      "pct_started": 40.4,
+      "pct_started": 40.2,
       "pct_rostered": 70.0,
+      "espn_id": 5144091,
       "sprite": "sprites/1642847.png"
     },
     {
@@ -21644,8 +21882,9 @@
           "g": 15
         }
       },
-      "pct_started": 89.0,
+      "pct_started": 88.8,
       "pct_rostered": 97.0,
+      "espn_id": 4395628,
       "sprite": "sprites/1629627.png"
     },
     {
@@ -21734,7 +21973,8 @@
         }
       },
       "pct_started": 0.5,
-      "pct_rostered": 1.3,
+      "pct_rostered": 1.2,
+      "espn_id": 4277813,
       "sprite": "sprites/1630529.png"
     },
     {
@@ -21824,6 +22064,7 @@
       },
       "pct_started": 6.8,
       "pct_rostered": 11.7,
+      "espn_id": 4277956,
       "sprite": "sprites/1629673.png"
     },
     {
@@ -21913,8 +22154,9 @@
       },
       "injury": "OUT",
       "injury_src": "espn",
-      "pct_started": 37.3,
-      "pct_rostered": 77.0,
+      "pct_started": 37.2,
+      "pct_rostered": 76.9,
+      "espn_id": 3907497,
       "sprite": "sprites/1627749.png"
     },
     {
@@ -22003,6 +22245,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 3442,
       "sprite": "sprites/201599.png"
     },
     {
@@ -22180,6 +22423,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4431675,
       "sprite": "sprites/1630570.png"
     },
     {
@@ -22269,6 +22513,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4703115,
       "sprite": "sprites/1643555.png"
     },
     {
@@ -22360,6 +22605,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4576086,
       "sprite": "sprites/1631121.png"
     },
     {
@@ -22449,6 +22695,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4683742,
       "sprite": "sprites/1642882.png"
     },
     {
@@ -22538,6 +22785,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5170947,
       "sprite": "sprites/1642358.png"
     },
     {
@@ -22627,6 +22875,7 @@
       },
       "pct_started": 0.3,
       "pct_rostered": 0.8,
+      "espn_id": 4997538,
       "sprite": "sprites/1631255.png"
     },
     {
@@ -22713,8 +22962,9 @@
           "g": 5
         }
       },
-      "pct_started": 12.9,
-      "pct_rostered": 25.4,
+      "pct_started": 12.7,
+      "pct_rostered": 25.3,
+      "espn_id": 5061589,
       "sprite": "sprites/1642274.png"
     },
     {
@@ -22801,8 +23051,9 @@
           "g": 16
         }
       },
-      "pct_started": 42.4,
-      "pct_rostered": 66.0,
+      "pct_started": 42.2,
+      "pct_rostered": 65.9,
+      "espn_id": 4869780,
       "sprite": "sprites/1642852.png"
     },
     {
@@ -22893,7 +23144,8 @@
       "injury": "OUT",
       "injury_src": "espn",
       "pct_started": 1.5,
-      "pct_rostered": 6.3,
+      "pct_rostered": 6.2,
+      "espn_id": 4683634,
       "sprite": "sprites/1631097.png"
     },
     {
@@ -22985,6 +23237,7 @@
       "injury_src": "espn",
       "pct_started": 39.3,
       "pct_rostered": 78.0,
+      "espn_id": 4397688,
       "sprite": "sprites/1630530.png"
     },
     {
@@ -23072,8 +23325,9 @@
           "g": 16
         }
       },
-      "pct_started": 32.5,
+      "pct_started": 32.3,
       "pct_rostered": 50.3,
+      "espn_id": 4397136,
       "sprite": "sprites/1630180.png"
     },
     {
@@ -23163,6 +23417,7 @@
       },
       "pct_started": 0.3,
       "pct_rostered": 0.5,
+      "espn_id": 2528426,
       "sprite": "sprites/203903.png"
     },
     {
@@ -23250,6 +23505,7 @@
       },
       "pct_started": 0.3,
       "pct_rostered": 0.5,
+      "espn_id": 4897943,
       "sprite": "sprites/1642261.png"
     },
     {
@@ -23338,6 +23594,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5211983,
       "sprite": "sprites/1642359.png"
     },
     {
@@ -23427,6 +23684,7 @@
       },
       "pct_started": 0.5,
       "pct_rostered": 1.0,
+      "espn_id": 4277869,
       "sprite": "sprites/1630631.png"
     },
     {
@@ -23601,6 +23859,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 4432808,
       "sprite": "sprites/1630164.png"
     },
     {
@@ -23688,8 +23947,9 @@
           "g": 15
         }
       },
-      "pct_started": 94.9,
+      "pct_started": 94.8,
       "pct_rostered": 99.9,
+      "espn_id": 4278073,
       "sprite": "sprites/1628983.png"
     },
     {
@@ -23777,8 +24037,9 @@
           "g": 15
         }
       },
-      "pct_started": 16.0,
-      "pct_rostered": 34.3,
+      "pct_started": 15.8,
+      "pct_rostered": 34.2,
+      "espn_id": 4683778,
       "sprite": "sprites/1642272.png"
     },
     {
@@ -23868,6 +24129,7 @@
       },
       "pct_started": 0.5,
       "pct_rostered": 1.3,
+      "espn_id": 4432823,
       "sprite": "sprites/1631119.png"
     },
     {
@@ -23957,6 +24219,7 @@
       "injury_src": "espn",
       "pct_started": 25.2,
       "pct_rostered": 75.1,
+      "espn_id": 4433255,
       "sprite": "sprites/1631096.png"
     },
     {
@@ -24046,6 +24309,7 @@
       "injury_src": "espn",
       "pct_started": 21.3,
       "pct_rostered": 40.5,
+      "espn_id": 4593803,
       "sprite": "sprites/1631114.png"
     },
     {
@@ -24135,8 +24399,9 @@
       },
       "injury": "GTD",
       "injury_src": "espn",
-      "pct_started": 6.4,
-      "pct_rostered": 14.1,
+      "pct_started": 6.3,
+      "pct_rostered": 14.0,
+      "espn_id": 2991350,
       "sprite": "sprites/1627936.png"
     },
     {
@@ -24226,6 +24491,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.6,
+      "espn_id": 5241364,
       "sprite": "sprites/1642892.png"
     },
     {
@@ -24312,8 +24578,9 @@
           "g": 15
         }
       },
-      "pct_started": 11.4,
+      "pct_started": 11.3,
       "pct_rostered": 23.7,
+      "espn_id": 5174983,
       "sprite": "sprites/1643530.png"
     },
     {
@@ -24403,6 +24670,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4432185,
       "sprite": "sprites/1642877.png"
     },
     {
@@ -24492,6 +24760,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.6,
+      "espn_id": 4702384,
       "sprite": "sprites/1642363.png"
     },
     {
@@ -24670,6 +24939,7 @@
       "injury_src": "espn",
       "pct_started": 1.2,
       "pct_rostered": 6.4,
+      "espn_id": 4683692,
       "sprite": "sprites/1641717.png"
     },
     {
@@ -24759,6 +25029,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4684208,
       "sprite": "sprites/1642964.png"
     },
     {
@@ -24846,8 +25117,9 @@
           "g": 13
         }
       },
-      "pct_started": 49.2,
+      "pct_started": 49.0,
       "pct_rostered": 69.7,
+      "espn_id": 4900671,
       "sprite": "sprites/1642349.png"
     },
     {
@@ -24937,6 +25209,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.6,
+      "espn_id": 3133626,
       "sprite": "sprites/1629026.png"
     },
     {
@@ -25024,6 +25297,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5159925,
       "sprite": "sprites/1642260.png"
     },
     {
@@ -25111,8 +25385,9 @@
           "g": 15
         }
       },
-      "pct_started": 36.2,
+      "pct_started": 36.0,
       "pct_rostered": 61.4,
+      "espn_id": 4222252,
       "sprite": "sprites/1628392.png"
     },
     {
@@ -25200,8 +25475,9 @@
           "g": 11
         }
       },
-      "pct_started": 51.9,
+      "pct_started": 51.6,
       "pct_rostered": 68.2,
+      "espn_id": 4712849,
       "sprite": "sprites/1641710.png"
     },
     {
@@ -25287,6 +25563,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4065654,
       "sprite": "sprites/1628371.png"
     },
     {
@@ -25376,6 +25653,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 3133635,
       "sprite": "sprites/1628975.png"
     },
     {
@@ -25463,8 +25741,9 @@
           "g": 13
         }
       },
-      "pct_started": 68.5,
+      "pct_started": 68.4,
       "pct_rostered": 91.2,
+      "espn_id": 4066320,
       "sprite": "sprites/1630217.png"
     },
     {
@@ -25552,8 +25831,9 @@
           "g": 6
         }
       },
-      "pct_started": 6.3,
-      "pct_rostered": 21.0,
+      "pct_started": 6.2,
+      "pct_rostered": 21.1,
+      "espn_id": 4432165,
       "sprite": "sprites/1630591.png"
     },
     {
@@ -25642,6 +25922,7 @@
       "injury_src": "espn",
       "pct_started": 27.5,
       "pct_rostered": 93.2,
+      "espn_id": 4432573,
       "sprite": "sprites/1631094.png"
     },
     {
@@ -25731,6 +26012,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 4278572,
       "sprite": "sprites/1631288.png"
     },
     {
@@ -25819,6 +26101,7 @@
       },
       "pct_started": 14.3,
       "pct_rostered": 32.3,
+      "espn_id": 6478,
       "sprite": "sprites/202696.png"
     },
     {
@@ -25908,6 +26191,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 5239561,
       "sprite": "sprites/1642859.png"
     },
     {
@@ -25995,6 +26279,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4397204,
       "sprite": "sprites/1630658.png"
     },
     {
@@ -26084,6 +26369,7 @@
       },
       "pct_started": 87.7,
       "pct_rostered": 95.2,
+      "espn_id": 4566434,
       "sprite": "sprites/1630532.png"
     },
     {
@@ -26171,8 +26457,9 @@
           "g": 12
         }
       },
-      "pct_started": 4.7,
+      "pct_started": 4.6,
       "pct_rostered": 10.0,
+      "espn_id": 4702382,
       "sprite": "sprites/1641783.png"
     },
     {
@@ -26349,8 +26636,9 @@
           "g": 14
         }
       },
-      "pct_started": 35.2,
+      "pct_started": 34.9,
       "pct_rostered": 56.5,
+      "espn_id": 4277847,
       "sprite": "sprites/1628976.png"
     },
     {
@@ -26440,6 +26728,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 4348700,
       "sprite": "sprites/1629048.png"
     },
     {
@@ -26525,6 +26814,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5214637,
       "sprite": "sprites/1642869.png"
     },
     {
@@ -26614,8 +26904,9 @@
       },
       "injury": "GTD",
       "injury_src": "espn",
-      "pct_started": 88.8,
+      "pct_started": 88.6,
       "pct_rostered": 99.9,
+      "espn_id": 4431678,
       "sprite": "sprites/1630178.png"
     },
     {
@@ -26705,6 +26996,7 @@
       },
       "pct_started": 0.3,
       "pct_rostered": 0.7,
+      "espn_id": 4873090,
       "sprite": "sprites/1642889.png"
     },
     {
@@ -26794,6 +27086,7 @@
       },
       "pct_started": 0.9,
       "pct_rostered": 1.8,
+      "espn_id": 2581018,
       "sprite": "sprites/203484.png"
     },
     {
@@ -26883,6 +27176,7 @@
       },
       "pct_started": 6.7,
       "pct_rostered": 12.6,
+      "espn_id": 4351851,
       "sprite": "sprites/1629014.png"
     },
     {
@@ -26972,8 +27266,9 @@
       },
       "injury": "OUT",
       "injury_src": "espn",
-      "pct_started": 74.4,
-      "pct_rostered": 99.6,
+      "pct_started": 74.3,
+      "pct_rostered": 99.7,
+      "espn_id": 3917376,
       "sprite": "sprites/1627759.png"
     },
     {
@@ -27061,6 +27356,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4433144,
       "sprite": "sprites/1631126.png"
     },
     {
@@ -27150,6 +27446,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 4711297,
       "sprite": "sprites/1642348.png"
     },
     {
@@ -27237,6 +27534,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5099752,
       "sprite": "sprites/1641712.png"
     },
     {
@@ -27324,8 +27622,9 @@
           "g": 13
         }
       },
-      "pct_started": 72.1,
+      "pct_started": 71.9,
       "pct_rostered": 94.9,
+      "espn_id": 3059318,
       "sprite": "sprites/203954.png"
     },
     {
@@ -27413,8 +27712,9 @@
           "g": 12
         }
       },
-      "pct_started": 85.0,
+      "pct_started": 84.8,
       "pct_rostered": 98.9,
+      "espn_id": 1966,
       "sprite": "sprites/2544.png"
     },
     {
@@ -27500,6 +27800,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.2,
+      "espn_id": 4870562,
       "sprite": "sprites/1631230.png"
     },
     {
@@ -27591,6 +27892,7 @@
       "injury_src": "espn",
       "pct_started": 0.1,
       "pct_rostered": 0.4,
+      "espn_id": 5105637,
       "sprite": "sprites/1641737.png"
     },
     {
@@ -27680,6 +27982,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 4432446,
       "sprite": "sprites/1631133.png"
     },
     {
@@ -27771,6 +28074,7 @@
       "injury_src": "espn",
       "pct_started": 0.6,
       "pct_rostered": 1.4,
+      "espn_id": 3912848,
       "sprite": "sprites/1629731.png"
     },
     {
@@ -27855,6 +28159,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4871141,
       "sprite": "sprites/1630574.png"
     },
     {
@@ -27942,8 +28247,9 @@
           "g": 15
         }
       },
-      "pct_started": 71.8,
+      "pct_started": 71.6,
       "pct_rostered": 89.6,
+      "espn_id": 5124612,
       "sprite": "sprites/1642845.png"
     },
     {
@@ -28032,6 +28338,7 @@
       },
       "pct_started": 0.3,
       "pct_rostered": 0.6,
+      "espn_id": 3904625,
       "sprite": "sprites/1629605.png"
     },
     {
@@ -28121,6 +28428,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.6,
+      "espn_id": 4888725,
       "sprite": "sprites/1642346.png"
     },
     {
@@ -28204,6 +28512,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4431695,
       "sprite": "sprites/1631166.png"
     },
     {
@@ -28291,8 +28600,9 @@
           "g": 14
         }
       },
-      "pct_started": 14.4,
+      "pct_started": 14.3,
       "pct_rostered": 29.3,
+      "espn_id": 3155526,
       "sprite": "sprites/1628415.png"
     },
     {
@@ -28380,8 +28690,9 @@
           "g": 14
         }
       },
-      "pct_started": 34.2,
+      "pct_started": 34.1,
       "pct_rostered": 59.7,
+      "espn_id": 4437244,
       "sprite": "sprites/1630224.png"
     },
     {
@@ -28471,6 +28782,7 @@
       },
       "pct_started": 0.4,
       "pct_rostered": 1.0,
+      "espn_id": 3913174,
       "sprite": "sprites/1628379.png"
     },
     {
@@ -28557,8 +28869,9 @@
           "g": 14
         }
       },
-      "pct_started": 1.3,
+      "pct_started": 1.2,
       "pct_rostered": 3.4,
+      "espn_id": 5203685,
       "sprite": "sprites/1642863.png"
     },
     {
@@ -28648,6 +28961,7 @@
       },
       "pct_started": 3.9,
       "pct_rostered": 13.3,
+      "espn_id": 4601023,
       "sprite": "sprites/1642345.png"
     },
     {
@@ -28735,8 +29049,9 @@
           "g": 14
         }
       },
-      "pct_started": 11.7,
+      "pct_started": 11.6,
       "pct_rostered": 34.5,
+      "espn_id": 4278585,
       "sprite": "sprites/1631221.png"
     },
     {
@@ -28824,8 +29139,9 @@
           "g": 14
         }
       },
-      "pct_started": 92.5,
+      "pct_started": 92.3,
       "pct_rostered": 99.9,
+      "espn_id": 3136193,
       "sprite": "sprites/1626164.png"
     },
     {
@@ -28915,6 +29231,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4280245,
       "sprite": "sprites/1631123.png"
     },
     {
@@ -29004,6 +29321,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 5041953,
       "sprite": "sprites/1643520.png"
     },
     {
@@ -29093,6 +29411,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5105977,
       "sprite": "sprites/1642853.png"
     },
     {
@@ -29180,8 +29499,9 @@
           "g": 14
         }
       },
-      "pct_started": 71.2,
-      "pct_rostered": 83.8,
+      "pct_started": 71.1,
+      "pct_rostered": 83.7,
+      "espn_id": 4066383,
       "sprite": "sprites/1628970.png"
     },
     {
@@ -29269,8 +29589,9 @@
           "g": 10
         }
       },
-      "pct_started": 1.2,
+      "pct_started": 1.1,
       "pct_rostered": 2.8,
+      "espn_id": 4278402,
       "sprite": "sprites/1630692.png"
     },
     {
@@ -29355,6 +29676,7 @@
       "injury_src": "espn",
       "pct_started": 1.8,
       "pct_rostered": 5.5,
+      "espn_id": 4701232,
       "sprite": "sprites/1631109.png"
     },
     {
@@ -29443,6 +29765,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4066268,
       "sprite": "sprites/1641871.png"
     },
     {
@@ -29531,6 +29854,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4592714,
       "sprite": "sprites/1630311.png"
     },
     {
@@ -29617,6 +29941,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4593043,
       "sprite": "sprites/1642910.png"
     },
     {
@@ -29705,6 +30030,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4066399,
       "sprite": "sprites/1630695.png"
     },
     {
@@ -29793,6 +30119,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4592435,
       "sprite": "sprites/1642382.png"
     },
     {
@@ -29881,6 +30208,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.3,
+      "espn_id": 5217746,
       "sprite": "sprites/1642905.png"
     },
     {
@@ -29966,6 +30294,7 @@
       "injury_src": "espn",
       "pct_started": 1.6,
       "pct_rostered": 6.2,
+      "espn_id": 4914336,
       "sprite": "sprites/1631101.png"
     },
     {
@@ -30055,6 +30384,7 @@
       },
       "pct_started": 3.6,
       "pct_rostered": 10.4,
+      "espn_id": 4066262,
       "sprite": "sprites/1628370.png"
     },
     {
@@ -30225,8 +30555,9 @@
           "g": 14
         }
       },
-      "pct_started": 73.3,
+      "pct_started": 73.1,
       "pct_rostered": 90.8,
+      "espn_id": 5142620,
       "sprite": "sprites/1643411.png"
     },
     {
@@ -30314,8 +30645,9 @@
           "g": 13
         }
       },
-      "pct_started": 57.9,
+      "pct_started": 57.7,
       "pct_rostered": 80.5,
+      "espn_id": 3064440,
       "sprite": "sprites/203897.png"
     },
     {
@@ -30403,8 +30735,9 @@
           "g": 12
         }
       },
-      "pct_started": 6.6,
-      "pct_rostered": 15.0,
+      "pct_started": 6.5,
+      "pct_rostered": 14.9,
+      "espn_id": 4431679,
       "sprite": "sprites/1630173.png"
     },
     {
@@ -30492,8 +30825,9 @@
           "g": 13
         }
       },
-      "pct_started": 92.1,
+      "pct_started": 92.0,
       "pct_rostered": 99.1,
+      "espn_id": 3155942,
       "sprite": "sprites/1627734.png"
     },
     {
@@ -30581,8 +30915,9 @@
           "g": 7
         }
       },
-      "pct_started": 10.0,
+      "pct_started": 9.9,
       "pct_rostered": 32.5,
+      "espn_id": 4594327,
       "sprite": "sprites/1631099.png"
     },
     {
@@ -30672,6 +31007,7 @@
       },
       "pct_started": 2.0,
       "pct_rostered": 5.8,
+      "espn_id": 4065732,
       "sprite": "sprites/1629631.png"
     },
     {
@@ -30761,6 +31097,7 @@
       },
       "pct_started": 0.2,
       "pct_rostered": 0.4,
+      "espn_id": 4395650,
       "sprite": "sprites/1641778.png"
     },
     {
@@ -30850,6 +31187,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5107897,
       "sprite": "sprites/1642367.png"
     },
     {
@@ -30939,6 +31277,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4279318,
       "sprite": "sprites/1631342.png"
     },
     {
@@ -31027,6 +31366,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.5,
+      "espn_id": 4433174,
       "sprite": "sprites/1642928.png"
     },
     {
@@ -31116,6 +31456,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4917149,
       "sprite": "sprites/1642284.png"
     },
     {
@@ -31205,6 +31546,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5106058,
       "sprite": "sprites/1643567.png"
     },
     {
@@ -31289,6 +31631,7 @@
       "injury_src": "espn",
       "pct_started": 0.1,
       "pct_rostered": 1.7,
+      "espn_id": 4898371,
       "sprite": "sprites/1642875.png"
     },
     {
@@ -31375,6 +31718,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 2488653,
       "sprite": "sprites/203486.png"
     },
     {
@@ -31464,6 +31808,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 3134916,
       "sprite": "sprites/1629162.png"
     },
     {
@@ -31552,6 +31897,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 5105809,
       "sprite": "sprites/1643542.png"
     },
     {
@@ -31637,6 +31983,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5105337,
       "sprite": "sprites/1643576.png"
     },
     {
@@ -31723,6 +32070,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5107968,
       "sprite": "sprites/1643551.png"
     },
     {
@@ -31808,6 +32156,7 @@
       "injury_src": "espn",
       "pct_started": 9.2,
       "pct_rostered": 40.2,
+      "espn_id": 6440,
       "sprite": "sprites/202699.png"
     },
     {
@@ -31896,6 +32245,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4713010,
       "sprite": "sprites/1642357.png"
     },
     {
@@ -31983,8 +32333,9 @@
           "g": 15
         }
       },
-      "pct_started": 3.0,
+      "pct_started": 2.9,
       "pct_rostered": 7.5,
+      "espn_id": 4432241,
       "sprite": "sprites/1642347.png"
     },
     {
@@ -32073,6 +32424,7 @@
       "injury_src": "espn",
       "pct_started": 36.0,
       "pct_rostered": 93.9,
+      "espn_id": 6450,
       "sprite": "sprites/202695.png"
     },
     {
@@ -32164,6 +32516,7 @@
       "injury_src": "espn",
       "pct_started": 78.0,
       "pct_rostered": 99.2,
+      "espn_id": 4433134,
       "sprite": "sprites/1630567.png"
     },
     {
@@ -32251,8 +32604,9 @@
           "g": 13
         }
       },
-      "pct_started": 59.2,
+      "pct_started": 59.0,
       "pct_rostered": 79.3,
+      "espn_id": 4395724,
       "sprite": "sprites/1630193.png"
     },
     {
@@ -32342,6 +32696,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4432737,
       "sprite": "sprites/1643558.png"
     },
     {
@@ -32431,8 +32786,9 @@
       },
       "injury": "GTD",
       "injury_src": "espn",
-      "pct_started": 60.2,
+      "pct_started": 60.0,
       "pct_rostered": 83.9,
+      "espn_id": 4395625,
       "sprite": "sprites/1629628.png"
     },
     {
@@ -32516,6 +32872,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4411057,
       "sprite": "sprites/1641755.png"
     },
     {
@@ -32605,6 +32962,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 2993874,
       "sprite": "sprites/203937.png"
     },
     {
@@ -32694,6 +33052,7 @@
       },
       "pct_started": 4.3,
       "pct_rostered": 10.5,
+      "espn_id": 4684272,
       "sprite": "sprites/1642266.png"
     },
     {
@@ -32867,8 +33226,9 @@
           "g": 13
         }
       },
-      "pct_started": 16.0,
-      "pct_rostered": 37.5,
+      "pct_started": 15.9,
+      "pct_rostered": 37.4,
+      "espn_id": 3134908,
       "sprite": "sprites/1627751.png"
     },
     {
@@ -32958,6 +33318,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.3,
+      "espn_id": 5149115,
       "sprite": "sprites/1643512.png"
     },
     {
@@ -33047,8 +33408,9 @@
       },
       "injury": "GTD",
       "injury_src": "espn",
-      "pct_started": 7.1,
-      "pct_rostered": 15.0,
+      "pct_started": 7.0,
+      "pct_rostered": 14.9,
+      "espn_id": 5093267,
       "sprite": "sprites/1642867.png"
     },
     {
@@ -33138,6 +33500,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 4431684,
       "sprite": "sprites/1631218.png"
     },
     {
@@ -33227,6 +33590,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4702656,
       "sprite": "sprites/1642918.png"
     },
     {
@@ -33316,6 +33680,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.2,
+      "espn_id": 4431893,
       "sprite": "sprites/1642419.png"
     },
     {
@@ -33399,6 +33764,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4433618,
       "sprite": "sprites/1631127.png"
     },
     {
@@ -33482,6 +33848,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4683736,
       "sprite": "sprites/1641723.png"
     },
     {
@@ -33570,6 +33937,7 @@
       },
       "pct_started": 1.2,
       "pct_rostered": 3.1,
+      "espn_id": 4684793,
       "sprite": "sprites/1642271.png"
     },
     {
@@ -33657,8 +34025,9 @@
           "g": 15
         }
       },
-      "pct_started": 73.2,
+      "pct_started": 73.0,
       "pct_rostered": 88.8,
+      "espn_id": 4433627,
       "sprite": "sprites/1641718.png"
     },
     {
@@ -33748,6 +34117,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 4432811,
       "sprite": "sprites/1630182.png"
     },
     {
@@ -33837,6 +34207,7 @@
       },
       "pct_started": 0.8,
       "pct_rostered": 2.4,
+      "espn_id": 4683766,
       "sprite": "sprites/1642268.png"
     },
     {
@@ -33926,6 +34297,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 3133602,
       "sprite": "sprites/1629004.png"
     },
     {
@@ -34015,6 +34387,7 @@
       },
       "pct_started": 3.3,
       "pct_rostered": 8.7,
+      "espn_id": 4397077,
       "sprite": "sprites/1629637.png"
     },
     {
@@ -34104,6 +34477,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4065673,
       "sprite": "sprites/1628396.png"
     },
     {
@@ -34191,8 +34565,9 @@
           "g": 16
         }
       },
-      "pct_started": 42.1,
-      "pct_rostered": 66.7,
+      "pct_started": 41.8,
+      "pct_rostered": 66.6,
+      "espn_id": 4873138,
       "sprite": "sprites/1642846.png"
     },
     {
@@ -34283,6 +34658,7 @@
       "injury_src": "espn",
       "pct_started": 17.0,
       "pct_rostered": 56.8,
+      "espn_id": 4277961,
       "sprite": "sprites/1628991.png"
     },
     {
@@ -34372,6 +34748,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.1,
+      "espn_id": 4065663,
       "sprite": "sprites/1629006.png"
     },
     {
@@ -34459,8 +34836,9 @@
           "g": 16
         }
       },
-      "pct_started": 55.7,
+      "pct_started": 55.4,
       "pct_rostered": 78.4,
+      "espn_id": 5041955,
       "sprite": "sprites/1643408.png"
     },
     {
@@ -34552,6 +34930,7 @@
       "injury_src": "espn",
       "pct_started": 35.8,
       "pct_rostered": 75.8,
+      "espn_id": 4066336,
       "sprite": "sprites/1628374.png"
     },
     {
@@ -34639,8 +35018,9 @@
           "g": 16
         }
       },
-      "pct_started": 3.1,
-      "pct_rostered": 7.4,
+      "pct_started": 3.0,
+      "pct_rostered": 7.3,
+      "espn_id": 5105839,
       "sprite": "sprites/1641729.png"
     },
     {
@@ -34725,6 +35105,7 @@
       "injury_src": "espn",
       "pct_started": 0.5,
       "pct_rostered": 6.5,
+      "espn_id": 3102530,
       "sprite": "sprites/203994.png"
     },
     {
@@ -34811,8 +35192,9 @@
           "g": 12
         }
       },
-      "pct_started": 10.1,
+      "pct_started": 10.0,
       "pct_rostered": 20.8,
+      "espn_id": 4277919,
       "sprite": "sprites/1628964.png"
     },
     {
@@ -34902,6 +35284,7 @@
       },
       "pct_started": 1.7,
       "pct_rostered": 3.9,
+      "espn_id": 5104155,
       "sprite": "sprites/1641731.png"
     },
     {
@@ -34987,6 +35370,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4997537,
       "sprite": "sprites/1641774.png"
     },
     {
@@ -35076,6 +35460,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 4432819,
       "sprite": "sprites/1630544.png"
     },
     {
@@ -35163,8 +35548,9 @@
           "g": 16
         }
       },
-      "pct_started": 90.0,
+      "pct_started": 89.9,
       "pct_rostered": 99.1,
+      "espn_id": 4277905,
       "sprite": "sprites/1629027.png"
     },
     {
@@ -35252,8 +35638,9 @@
           "g": 12
         }
       },
-      "pct_started": 50.0,
+      "pct_started": 49.8,
       "pct_rostered": 84.0,
+      "espn_id": 5142718,
       "sprite": "sprites/1643407.png"
     },
     {
@@ -35339,6 +35726,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4606840,
       "sprite": "sprites/1642364.png"
     },
     {
@@ -35428,6 +35816,7 @@
       },
       "pct_started": 0.6,
       "pct_rostered": 1.5,
+      "espn_id": 4845374,
       "sprite": "sprites/1642267.png"
     },
     {
@@ -35514,8 +35903,9 @@
           "g": 16
         }
       },
-      "pct_started": 3.5,
+      "pct_started": 3.4,
       "pct_rostered": 8.3,
+      "espn_id": 4278129,
       "sprite": "sprites/1629028.png"
     },
     {
@@ -35606,6 +35996,7 @@
       "injury_src": "espn",
       "pct_started": 0.1,
       "pct_rostered": 0.8,
+      "espn_id": 4432907,
       "sprite": "sprites/1630551.png"
     },
     {
@@ -35695,6 +36086,7 @@
       },
       "pct_started": 0.5,
       "pct_rostered": 1.4,
+      "espn_id": 5238230,
       "sprite": "sprites/1642848.png"
     },
     {
@@ -35784,6 +36176,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 2581184,
       "sprite": "sprites/1630264.png"
     },
     {
@@ -35871,8 +36264,9 @@
           "g": 16
         }
       },
-      "pct_started": 62.9,
+      "pct_started": 62.7,
       "pct_rostered": 79.0,
+      "espn_id": 5174563,
       "sprite": "sprites/1642273.png"
     },
     {
@@ -35959,8 +36353,9 @@
           "g": 15
         }
       },
-      "pct_started": 57.8,
+      "pct_started": 57.6,
       "pct_rostered": 77.9,
+      "espn_id": 5160992,
       "sprite": "sprites/1642259.png"
     },
     {
@@ -36050,6 +36445,7 @@
       },
       "pct_started": 0.1,
       "pct_rostered": 0.3,
+      "espn_id": 6609,
       "sprite": "sprites/203114.png"
     },
     {
@@ -36139,6 +36535,7 @@
       },
       "pct_started": 94.8,
       "pct_rostered": 99.7,
+      "espn_id": 6583,
       "sprite": "sprites/203076.png"
     },
     {
@@ -36226,6 +36623,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 4432187,
       "sprite": "sprites/1641736.png"
     },
     {
@@ -36315,6 +36713,7 @@
       },
       "pct_started": 0.0,
       "pct_rostered": 0.1,
+      "espn_id": 5144126,
       "sprite": "sprites/1642860.png"
     },
     {
@@ -36403,6 +36802,7 @@
       "injury_src": "espn",
       "pct_started": 0.0,
       "pct_rostered": 0.0,
+      "espn_id": 5105841,
       "sprite": "sprites/1643590.png"
     }
   ]

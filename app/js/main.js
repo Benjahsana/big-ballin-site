@@ -1,22 +1,22 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=20fe34f';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=20fe34f';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=20fe34f';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=20fe34f';
-import { defaultDir } from './filters.js?v=20fe34f';
-import { renderStats } from './render-stats.js?v=20fe34f';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=20fe34f';
-import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=20fe34f';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=20fe34f';
-import { openModal, closeModal, renderModal } from './render-account.js?v=20fe34f';
-import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=20fe34f';
-import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=20fe34f';
-import { avatar } from './avatars.js?v=20fe34f';
-import { checkAchievements, loadStreaks } from './render-awards.js?v=20fe34f';
-import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=20fe34f';
-import { play, SOUNDS, styleFor } from './sound.js?v=20fe34f';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=20fe34f';
-import { LABELS } from './util.js?v=20fe34f';
+import { S, ui } from './state.js?v=eea4012';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=eea4012';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=eea4012';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=eea4012';
+import { defaultDir } from './filters.js?v=eea4012';
+import { renderStats } from './render-stats.js?v=eea4012';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=eea4012';
+import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=eea4012';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=eea4012';
+import { openModal, closeModal, renderModal } from './render-account.js?v=eea4012';
+import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=eea4012';
+import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=eea4012';
+import { avatar } from './avatars.js?v=eea4012';
+import { checkAchievements, loadStreaks } from './render-awards.js?v=eea4012';
+import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=eea4012';
+import { play, SOUNDS, styleFor } from './sound.js?v=eea4012';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=eea4012';
+import { LABELS } from './util.js?v=eea4012';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;

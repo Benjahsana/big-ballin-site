@@ -3,14 +3,14 @@
    players' games, and a box score: one row per player with FP (bar toward his projection),
    PROJ, PACE, COST, FP/$M, then MIN PTS REB AST STL BLK TOV FG 3PT FT +/- PF. Tap a player
    for where his points came from. League boards reuse mtTable() for a team's lineup. */
-import { S } from './state.js?v=20fe34f';
-import { achBox } from './render-awards.js?v=20fe34f';
-import { $, POS, BN, slotLabel, HOSTED, esc, money, where, jersey } from './util.js?v=20fe34f';
-import { liveOf, gameOf, allFinal, isLocked, spent, filledCount, capBonusFor, bonusText, subSlot, benchRule } from './lineup.js?v=20fe34f';
-import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=20fe34f';
-import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=20fe34f';
-import { play } from './sound.js?v=20fe34f';
-import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=20fe34f';
+import { S } from './state.js?v=eea4012';
+import { achBox } from './render-awards.js?v=eea4012';
+import { $, POS, BN, slotLabel, HOSTED, esc, money, where, jersey } from './util.js?v=eea4012';
+import { liveOf, gameOf, allFinal, isLocked, spent, filledCount, capBonusFor, bonusText, subSlot, benchRule } from './lineup.js?v=eea4012';
+import { PACE_MIN_MINUTES, LABELS } from './app-config.js?v=eea4012';
+import { CLOUD, signedIn, leaderboard, myLeagues } from './cloud.js?v=eea4012';
+import { play } from './sound.js?v=eea4012';
+import { L, asLast, hasLast, lastIsCurrent, lastDate, anyStarted } from './night.js?v=eea4012';
 
 export const FLAME = `<svg class="flame" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-7 0-3.5-2.2-5.6-3.8-7.6-.4 2-1.4 3.2-2.7 3.6.4-3.4-.9-6.4-3.5-9-.3 3.8-2.2 6-3.8 8.1C4 11.5 5 14 5 15c0 4.2 3 7 7 7z"/></svg>`;
 

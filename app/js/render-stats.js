@@ -1,10 +1,10 @@
 /* BIG BALLIN: PLAYERS tab (data-tab "stats"; once called the Stat Center): stats table and the big player card.
    Shows every NBA player: tonight's slate (with prices) plus data/players-all.json (everyone else,
    stats only), loaded the first time the tab opens. ALL NBA | PLAYING TONIGHT switches between them. */
-import { S } from './state.js?v=20fe34f';
-import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=20fe34f';
-import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=20fe34f';
-import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=20fe34f';
+import { S } from './state.js?v=eea4012';
+import { $, POS, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches } from './util.js?v=eea4012';
+import { isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, targetSlot, costAfter, signState, saveLineup, sign, cut } from './lineup.js?v=eea4012';
+import { W, WINDOWS, winLabel, fgPct, ftPct, fmtPct, injuryTag } from './filters.js?v=eea4012';
 
 const n1 = (v) => (v == null ? '–' : Number(v).toFixed(1));
 const tonight = (p) => p.price != null;     // on tonight's slate (has a price); others are stats only
@@ -136,7 +136,8 @@ export function renderCard() {
 /* NBA.com and ESPN player pages (open in a new tab). Our player id is NBA.com's; ESPN's comes from
    the ESPN download (espn_id), else an ESPN search for his name. */
 function profileLinks(p) {
-  const espn = p.espn_id ? `https://www.espn.com/nba/player/_/id/${encodeURIComponent(p.espn_id)}`
+  const slug = p.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const espn = p.espn_id ? `https://www.espn.com/nba/player/_/id/${encodeURIComponent(p.espn_id)}/${slug}`
     : `https://www.espn.com/search/_/q/${encodeURIComponent(p.name)}`;
   return `<div class="prof-links"><span class="muted">FULL PROFILE</span>
     <a class="btn btn-ghost" href="https://www.nba.com/player/${encodeURIComponent(p.id)}" target="_blank" rel="noopener">NBA.COM ↗</a>
