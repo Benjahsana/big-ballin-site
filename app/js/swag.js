@@ -7,8 +7,8 @@
    character has its own `eye` in avatars.js), the mouth two rows below, and the jersey on rows 10–11.
    Item ids start with their slot (hair_, neck_, face_, fit_). NEW ITEMS: add them here AND to award_swag()
    (or swag_free() for free ones) in schema.sql. */
-import { S } from './state.js?v=a0c45de';
-import { CLOUD, swagAll, mySwag } from './cloud.js?v=a0c45de';
+import { S } from './state.js?v=3aa3c01';
+import { CLOUD, swagAll, mySwag } from './cloud.js?v=3aa3c01';
 
 export const SLOTS = ['hair', 'neck', 'face', 'fit'];
 export const SLOT_NAME = { hair: 'HAIR', neck: 'NECK', face: 'FACE', fit: 'FIT' };

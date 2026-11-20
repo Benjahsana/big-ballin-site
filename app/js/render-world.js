@@ -1,11 +1,11 @@
 /* BIG BALLIN: World Rankings tab. Every signed-in player who played in the stretch is ranked
    automatically, by final score (FP × cap bonus); a skipped night counts as 0; ties share a rank. */
-import { S } from './state.js?v=a0c45de';
-import { loadStreaks } from './render-awards.js?v=a0c45de';
-import { $, esc, LABELS, WORLD_ROWS } from './util.js?v=a0c45de';
-import { avatar } from './avatars.js?v=a0c45de';
-import { CLOUD, signedIn, latestWinners, friendly } from './cloud.js?v=a0c45de';
-import { boardList, periodSegs, winBadges, WORLD_KINDS, boardQuery, nightTable, remember, recallBoard } from './render-leagues.js?v=a0c45de';
+import { S } from './state.js?v=3aa3c01';
+import { loadStreaks } from './render-awards.js?v=3aa3c01';
+import { $, esc, LABELS, WORLD_ROWS } from './util.js?v=3aa3c01';
+import { avatar } from './avatars.js?v=3aa3c01';
+import { CLOUD, signedIn, latestWinners, friendly } from './cloud.js?v=3aa3c01';
+import { boardList, periodSegs, winBadges, WORLD_KINDS, boardQuery, nightTable, remember, recallBoard } from './render-leagues.js?v=3aa3c01';
 
 export async function loadWorld() {
   if (!CLOUD || !S.cloudOk) return;

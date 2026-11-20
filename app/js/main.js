@@ -1,25 +1,25 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=a0c45de';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=a0c45de';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=a0c45de';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=a0c45de';
-import { defaultDir } from './filters.js?v=a0c45de';
-import { renderStats } from './render-stats.js?v=a0c45de';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=a0c45de';
-import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=a0c45de';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=a0c45de';
-import { openModal, closeModal, renderModal } from './render-account.js?v=a0c45de';
-import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=a0c45de';
-import { manageAct } from './render-manage.js?v=a0c45de';
-import { renderLocker, loadLocker, openLocker, wear, checkSwag } from './render-locker.js?v=a0c45de';
-import { loadSwag } from './swag.js?v=a0c45de';
-import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=a0c45de';
-import { avatar } from './avatars.js?v=a0c45de';
-import { checkAchievements, loadStreaks } from './render-awards.js?v=a0c45de';
-import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=a0c45de';
-import { play, SOUNDS, styleFor } from './sound.js?v=a0c45de';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=a0c45de';
-import { LABELS } from './util.js?v=a0c45de';
+import { S, ui } from './state.js?v=3aa3c01';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=3aa3c01';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=3aa3c01';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=3aa3c01';
+import { defaultDir } from './filters.js?v=3aa3c01';
+import { renderStats } from './render-stats.js?v=3aa3c01';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=3aa3c01';
+import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=3aa3c01';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=3aa3c01';
+import { openModal, closeModal, renderModal } from './render-account.js?v=3aa3c01';
+import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=3aa3c01';
+import { manageAct } from './render-manage.js?v=3aa3c01';
+import { renderLocker, loadLocker, openLocker, wear, checkSwag } from './render-locker.js?v=3aa3c01';
+import { loadSwag } from './swag.js?v=3aa3c01';
+import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=3aa3c01';
+import { avatar } from './avatars.js?v=3aa3c01';
+import { checkAchievements, loadStreaks } from './render-awards.js?v=3aa3c01';
+import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=3aa3c01';
+import { play, SOUNDS, styleFor } from './sound.js?v=3aa3c01';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=3aa3c01';
+import { LABELS } from './util.js?v=3aa3c01';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;

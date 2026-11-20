@@ -2,7 +2,7 @@
    The database stores only the number (profiles.avatar, 0–35). New ones go at the END of the list
    (the number is what's saved), and schema.sql's profiles_avatar_range must allow the new top number.
    Swag gear (swag.js) is drawn on top; a new character needs its eye/mouth rows in ANCHOR. */
-import { ITEMS, TITLES, lookOf, lookKey, frameOf } from './swag.js?v=a0c45de';
+import { ITEMS, TITLES, lookOf, lookKey, frameOf } from './swag.js?v=3aa3c01';
 
 // Pixel art, 12×12. Letters are colors (see each avatar's palette); '.' is the background.
 const FACE = [

@@ -914,3 +914,4 @@ button.sw { cursor: pointer; }
 .sw-how { font-size: 14px; line-height: 1.2; }
 .sw-on { position: absolute; top: 6px; right: 6px; font-family: var(--pixel); font-size: 7px; background: var(--yel); color: var(--bg); padding: 3px 4px; border-radius: 3px; }
 @media (max-width: 700px) { .lk-hero { padding: 16px; } .lk-ava .ava { width: 120px; height: 120px; } .sw-row { grid-template-columns: repeat(2, 1fr); } }
+.lk-id .linkish { align-self: flex-start; }
