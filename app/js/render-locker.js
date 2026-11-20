@@ -1,14 +1,14 @@
 /* BIG BALLIN: LOCKER ROOM (Nov 19). Your home page when you're signed in: your avatar in its swag, the
    titles you hold, the 4 gear slots (tap to wear), your trophy case (every win, forever) and achievements.
    Anyone's locker can be opened (S.lockerUser) from chat avatars, list boards and box scores: read-only. */
-import { S, ui } from './state.js?v=3aa3c01';
-import { $, esc, flash } from './util.js?v=3aa3c01';
-import { avatar } from './avatars.js?v=3aa3c01';
-import { play } from './sound.js?v=3aa3c01';
-import { CLOUD, signedIn, lockerOf, setGear, mySwag, friendly } from './cloud.js?v=3aa3c01';
-import { ITEMS, TITLES, SLOTS, SLOT_NAME, RARITY, SW, loadSwag, unlockedOf } from './swag.js?v=3aa3c01';
-import { BADGE } from './render-leagues.js?v=3aa3c01';
-import { ACH } from './render-awards.js?v=3aa3c01';
+import { S, ui } from './state.js?v=d77b711';
+import { $, esc, flash } from './util.js?v=d77b711';
+import { avatar, avatarCard } from './avatars.js?v=d77b711';
+import { play } from './sound.js?v=d77b711';
+import { CLOUD, signedIn, lockerOf, setGear, mySwag, friendly } from './cloud.js?v=d77b711';
+import { ITEMS, TITLES, SLOTS, SLOT_NAME, RARITY, SW, loadSwag, unlockedOf } from './swag.js?v=d77b711';
+import { BADGE } from './render-leagues.js?v=d77b711';
+import { ACH } from './render-awards.js?v=d77b711';
 
 const LK = { uid: null, data: null, err: null, busy: false };
 const me = () => (S.user ? S.user.id : null);
@@ -65,7 +65,7 @@ function hero(d, mine) {
   const unl = unlockedOf(d && d.unlocks);
   const total = Object.keys(ITEMS).length;
   return `<div class="lk-hero">
-    <div class="lk-ava">${p ? avatar(p.avatar, 168, true, uid) : ''}</div>
+    <div class="lk-ava">${p ? avatarCard(p.avatar, uid, p.display_name, 200) : ''}</div>
     <div class="lk-id">
       ${S.lockerUser ? '<button class="linkish" data-act="locker" data-u="">← MY LOCKER ROOM</button>' : ''}
       <h2 class="lk-name">${esc(p ? p.display_name : '')}</h2>
@@ -90,7 +90,7 @@ function closet(d, mine) {
       const on = worn[slot] === id;
       const r = RARITY[it.rarity];
       const extra = id === 'neck_gold' && got && got.n > 1 ? ` ×${got.n}` : '';
-      const preview = avatar((d && d.profile ? d.profile : S.profile || { avatar: 0 }).avatar, 48, false, { gear: { [slot]: id }, titles: {}, chain: got ? got.n : 1 });
+      const preview = avatar((d && d.profile ? d.profile : S.profile || { avatar: 0 }).avatar, 84, false, { gear: { [slot]: id }, titles: {}, chain: got ? got.n : 1 });
       const inner = `${preview}<span class="sw-name">${esc(it.name)}${extra}</span><span class="sw-r" style="color:${r.color}">${r.name}</span>
         <span class="sw-how muted">${got ? (got.free ? 'Free' : got.earned_on ? 'Earned ' + esc(fmtDate(got.earned_on)) : 'Earned') : '🔒 ' + esc(it.how)}</span>`;
       if (!mine || !got) return `<div class="sw${got ? ' got' : ' locked'}${on ? ' on' : ''}" style="--rc:${r.color}">${inner}${on ? '<span class="sw-on">WEARING</span>' : ''}</div>`;

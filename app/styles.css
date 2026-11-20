@@ -879,7 +879,9 @@ button.mt-who:hover .mt-name { color: var(--yel); }
 .locker { display: flex; flex-direction: column; gap: 22px; }
 .lk-hero { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; padding: 20px; border-radius: 12px;
   background: linear-gradient(135deg, #1D1160 0%, #151525 55%, #3a1d5e 100%); border: 2px solid var(--line2); }
-.lk-ava .ava { width: 168px; height: 168px; }
+.lk-ava { line-height: 0; filter: drop-shadow(0 6px 18px #0008); }
+.ava-card.r-legendary { filter: drop-shadow(0 0 12px #FFD23F88); }
+.ava-card.r-epic { filter: drop-shadow(0 0 10px #B26BFF88); }
 .lk-id { display: flex; flex-direction: column; gap: 10px; flex: 1; min-width: 240px; }
 .lk-name { font-family: var(--display); font-size: 34px; margin: 0; letter-spacing: 1px; }
 .lk-stats { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--pixel); font-size: 10px; color: var(--soft); }
@@ -913,5 +915,5 @@ button.sw { cursor: pointer; }
 .sw-r { font-family: var(--pixel); font-size: 8px; }
 .sw-how { font-size: 14px; line-height: 1.2; }
 .sw-on { position: absolute; top: 6px; right: 6px; font-family: var(--pixel); font-size: 7px; background: var(--yel); color: var(--bg); padding: 3px 4px; border-radius: 3px; }
-@media (max-width: 700px) { .lk-hero { padding: 16px; } .lk-ava .ava { width: 120px; height: 120px; } .sw-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px) { .lk-hero { padding: 16px; justify-content: center; } .lk-ava .ava-card { width: 160px; height: 211px; } .sw-row { grid-template-columns: repeat(2, 1fr); } }
 .lk-id .linkish { align-self: flex-start; }
