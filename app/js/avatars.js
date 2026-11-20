@@ -1,6 +1,8 @@
 /* BIG BALLIN: 36 original 8-bit avatars (no real people, no mascots), drawn as SVG pixels.
    The database stores only the number (profiles.avatar, 0–35). New ones go at the END of the list
-   (the number is what's saved), and schema.sql's profiles_avatar_range must allow the new top number. */
+   (the number is what's saved), and schema.sql's profiles_avatar_range must allow the new top number.
+   Swag gear (swag.js) is drawn on top; a new character needs its eye/mouth rows in ANCHOR. */
+import { ITEMS, TITLES, lookOf, lookKey, frameOf } from './swag.js?v=a0c45de';
 
 // Pixel art, 12×12. Letters are colors (see each avatar's palette); '.' is the background.
 const FACE = [
@@ -45,7 +47,8 @@ const FACES = {
   phones: ['.ASKSSSSKSA.', ...FACE.slice(1)],
 };
 // person(top, face): face is a FACES key; true = beard (the original 12 use that).
-const person = (top, face) => [...TOPS[top], ...FACES[face === true ? 'beard' : face || 'plain'], ...JERSEY];
+// Marked as a person so swag hair replaces their hair (characters wear it on top of the head instead).
+const person = (top, face) => Object.assign([...TOPS[top], ...FACES[face === true ? 'beard' : face || 'plain'], ...JERSEY], { person: true });
 
 const SKIN = { a: '#5C3A21', b: '#8D5524', c: '#C68642', d: '#E0AC69', e: '#F1C27D' };
 const K = '#0B0B12', W = '#F4F1E8', MOUTH = '#5A1E1E';
@@ -122,28 +125,73 @@ export const AVATARS = [
     '.RFYKYYKYFR.', '.RFYYYYYYFR.', '..RFYMMYFR..', '...RFFFFR...', ...JERSEY] },
 ];
 
-const cache = {};
-function svgBody(i) {
-  if (cache[i]) return cache[i];
+/* Swag anchors (Nov 19): the eye row (people: 5) and mouth row (default eye + 2) for the characters,
+   so shades, grills and hair land in the right place on every avatar. */
+const ANCHOR = {
+  'Alien': [4, 7], 'Alley cat': [4, 7], 'Pup': [4, 6], 'Frog': [2, 7], 'Fox': [4, 8], 'Penguin': [4, 5],
+  'Ghost': [4, 7], 'Wizard': [5, 8], 'Astronaut': [4, 6], 'Dino': [3, 6], 'Fireball': [6, 8],
+};
+
+/* The 12×12 colors of avatar i, wearing `look` (see swag.js lookOf). */
+function grid(i, look) {
   const a = AVATARS[i] || AVATARS[0];
   const colors = { K, W, M: MOUTH, ...a.c };
+  const g = Array.from({ length: 12 }, (_, y) => [...(a.px[y] || '............')].map((ch) => (ch !== '.' && colors[ch]) || null));
+  if (!look) return g;
+  const [eye, mouth] = ANCHOR[a.name] || [5, (ANCHOR[a.name] || [5])[0] + 2];
+  const person = !!a.px.person;
+  const paint = (rows, y0, c, repl) => rows.forEach((r, dy) => {
+    const y = y0 + dy, replace = repl && dy < 5;
+    if (y < 0 || y > 11) return;
+    [...r].forEach((ch, x) => {
+      if (ch === '.') { if (replace) g[y][x] = null; return; }
+      if (ch === 'S') { if (replace) g[y][x] = a.c.S || g[y][x]; return; }
+      const col = ch === 'H' ? (replace && a.c.H) || c.H : ch === 'K' ? K : ch === 'W' ? W : ch === 'J' ? a.c.J : c[ch];
+      if (col) g[y][x] = col;
+    });
+  });
+  const place = (it) => (it.at === 'eye' ? eye : it.at === 'mouth' ? mouth : it.at === 'neck' ? 10 : it.at === 'belt' ? 11 : eye - 5);
+  const wear = (id) => {
+    const it = ITEMS[id];
+    if (!it) return;
+    let rows = it.rows;
+    (it.grow || []).forEach(([n, r]) => { if ((look.chain || 1) >= n) rows = r; });
+    paint(rows, place(it), it.c, it.slot === 'hair' && person);
+  };
+  ['fit', 'neck', 'face'].forEach((s) => wear(look.gear[s]));
+  const t = look.titles || {};
+  if (t.clown) paint(TITLES.clown.rows, eye - 5, TITLES.clown.c, person);
+  else wear(look.gear.hair);
+  if (t.crown) paint(TITLES.crown.rows, Math.max(0, eye - 5), TITLES.crown.c, false);
+  if (t.belt) paint(TITLES.belt.rows, 11, TITLES.belt.c, false);
+  if (t.clown) paint(['.....RR.....'], eye + 1, TITLES.clown.c, false);   // the nose
+  return g;
+}
+
+const cache = {};
+function svgBody(i, look) {
+  const key = i + '|' + lookKey(look);
+  if (cache[key]) return cache[key];
+  const a = AVATARS[i] || AVATARS[0];
   let rects = `<rect width="12" height="12" fill="${a.bg}"/>`;
-  a.px.forEach((row, y) => {
+  grid(i, look).forEach((row, y) => {
     // One rect per run of the same color keeps the SVG small.
-    for (let x = 0; x < row.length;) {
-      const ch = row[x];
+    for (let x = 0; x < 12;) {
+      const col = row[x];
       let n = 1;
-      while (row[x + n] === ch) n += 1;
-      if (ch !== '.' && colors[ch]) rects += `<rect x="${x}" y="${y}" width="${n}" height="1" fill="${colors[ch]}"/>`;
+      while (x + n < 12 && row[x + n] === col) n += 1;
+      if (col) rects += `<rect x="${x}" y="${y}" width="${n}" height="1" fill="${col}"/>`;
       x += n;
     }
   });
-  return (cache[i] = rects);
+  return (cache[key] = rects);
 }
 
-/* <svg> avatar. size in px (multiples of 12 stay crisp). */
-export function avatar(i, size, label) {
+/* <svg> avatar. size in px (multiples of 12 stay crisp). who = a user id (draws the swag they wear and
+   any title they hold) or a look object (the Locker Room's try-on preview). */
+export function avatar(i, size, label, who) {
   const n = Number.isInteger(i) && AVATARS[i] ? i : 0;
   const s = size || 36;
-  return `<svg class="ava" width="${s}" height="${s}" viewBox="0 0 12 12" shape-rendering="crispEdges" ${label ? `role="img" aria-label="${AVATARS[n].name}"` : 'aria-hidden="true"'}>${svgBody(n)}</svg>`;
+  const look = who && typeof who === 'object' ? who : lookOf(who);
+  return `<svg class="ava${frameOf(look)}" width="${s}" height="${s}" viewBox="0 0 12 12" shape-rendering="crispEdges" ${label ? `role="img" aria-label="${AVATARS[n].name}"` : 'aria-hidden="true"'}>${svgBody(n, look)}</svg>`;
 }

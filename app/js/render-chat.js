@@ -4,12 +4,12 @@
    The chat box is kept as one live element: the league page re-renders every minute during games,
    and renderLeagues() moves this box into the new page instead of rebuilding it, so typing,
    focus and scroll survive. Only the message list inside it is redrawn (renderChatList). */
-import { S, ui } from './state.js?v=0907a30';
-import { esc, store, recall, flash } from './util.js?v=0907a30';
-import { avatar } from './avatars.js?v=0907a30';
-import { CHAT } from './app-config.js?v=0907a30';
-import { play } from './sound.js?v=0907a30';
-import { signedIn, chatLoad, chatPost, chatDelete, react, reactionsLoad, chatLatest, chatSubscribe, chatUnsubscribe, profileOf, friendly } from './cloud.js?v=0907a30';
+import { S, ui } from './state.js?v=a0c45de';
+import { esc, store, recall, flash } from './util.js?v=a0c45de';
+import { avatar } from './avatars.js?v=a0c45de';
+import { CHAT } from './app-config.js?v=a0c45de';
+import { play } from './sound.js?v=a0c45de';
+import { signedIn, chatLoad, chatPost, chatDelete, react, reactionsLoad, chatLatest, chatSubscribe, chatUnsubscribe, profileOf, friendly } from './cloud.js?v=a0c45de';
 
 const C = {
   msgs: {},       // league id → messages (oldest first), once loaded
@@ -163,7 +163,7 @@ function msgHtml(m, lg, owner) {
   }
   const who = C.names[m.user_id] || m.profiles || { display_name: '?', avatar: 0 };
   const mine = m.user_id === me();
-  return `<li class="cm${mine ? ' mine' : ''}">${avatar(who.avatar, 28)}
+  return `<li class="cm${mine ? ' mine' : ''}"><button class="ava-btn" data-act="locker" data-u="${m.user_id}" aria-label="${esc(who.display_name)}'s locker room">${avatar(who.avatar, 28, false, m.user_id)}</button>
     <div class="cm-main"><div class="cm-head"><b class="cm-name">${esc(who.display_name)}</b><span class="cm-time">${esc(when(m.created_at))}</span>
       ${mine || owner ? `<button class="cm-del" data-act="chatdel" data-v="${m.id}" aria-label="Delete message">×</button>` : ''}</div>
       <div class="cm-body">${esc(m.body)}</div>${reactBar(lg, 'm' + m.id, true)}</div></li>`;

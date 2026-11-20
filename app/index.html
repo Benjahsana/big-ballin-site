@@ -6,7 +6,7 @@
 <title>BIG BALLIN</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=0907a30">
+<link rel="stylesheet" href="styles.css?v=a0c45de">
 </head>
 <body>
 <div class="wrap">
@@ -36,6 +36,7 @@
   <div class="banner" id="banner" hidden></div>
 
   <nav aria-label="Sections">
+    <button class="tab" data-act="tab" data-tab="locker" aria-pressed="false" id="lockerTab" hidden>LOCKER ROOM</button>
     <button class="tab" data-act="tab" data-tab="build" aria-pressed="true" id="buildTab">BUILD LINEUP</button>
     <button class="tab" data-act="tab" data-tab="stats" aria-pressed="false" id="statsTab">PLAYERS</button>
     <button class="tab" data-act="tab" data-tab="leagues" aria-pressed="false" id="leaguesTab" hidden>LEAGUES</button>
@@ -105,6 +106,9 @@
   </section>
 
   <!-- WORLD RANKINGS -->
+  <!-- LOCKER ROOM (locker): swag, titles, trophy case. Home page when signed in. -->
+  <section id="view-locker" aria-label="Locker room" hidden><div id="locker" class="locker"></div></section>
+
   <section id="view-world" aria-label="World rankings" hidden>
     <div class="leagues-wrap" id="world"></div>
   </section>
@@ -127,6 +131,6 @@
 <dialog class="modal" id="modal" aria-label="Account"></dialog>
 <div class="pc-pop" id="pcPop" role="tooltip" hidden></div>
 
-<script type="module" src="js/main.js?v=0907a30"></script>
+<script type="module" src="js/main.js?v=a0c45de"></script>
 </body>
 </html>

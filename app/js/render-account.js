@@ -1,8 +1,8 @@
 /* BIG BALLIN: account pop-up: sign in by email (link or 6-digit code), pick a name,
    create or join a league. One <dialog id="modal">, content depends on S.modal.kind. */
-import { S } from './state.js?v=0907a30';
-import { $, esc } from './util.js?v=0907a30';
-import { AVATARS, avatar } from './avatars.js?v=0907a30';
+import { S } from './state.js?v=a0c45de';
+import { $, esc } from './util.js?v=a0c45de';
+import { AVATARS, avatar } from './avatars.js?v=a0c45de';
 
 export function openModal(kind, extra) { S.modal = { kind, ...(extra || {}) }; renderModal(); const d = $('#modal'); if (!d.open) d.showModal(); focusFirst(); }
 export function closeModal() { S.modal = null; const d = $('#modal'); if (d.open) d.close(); }
@@ -42,7 +42,7 @@ export function renderModal() {
       <label for="mName">Display name</label>
       <input class="search" id="mName" name="name" minlength="2" maxlength="20" required autocomplete="nickname" value="${esc(m.name != null ? m.name : S.profile ? S.profile.display_name : '')}">
       <fieldset class="ava-pick"><legend>Avatar</legend>
-        ${AVATARS.map((a, i) => `<label class="ava-opt" title="${esc(a.name)}"><input type="radio" name="avatar" value="${i}" ${i === cur ? 'checked' : ''}>${avatar(i, 48, true)}</label>`).join('')}
+        ${AVATARS.map((a, i) => `<label class="ava-opt" title="${esc(a.name)}"><input type="radio" name="avatar" value="${i}" ${i === cur ? 'checked' : ''}>${avatar(i, 48, true, S.user && S.user.id)}</label>`).join('')}
       </fieldset>
       <button class="btn btn-primary" ${busy}>SAVE</button>
     </form>`;
@@ -64,7 +64,7 @@ export function renderModal() {
       <button class="btn btn-primary" ${busy}>JOIN</button>
     </form>`;
   else if (m.kind === 'account') body = `
-    <div class="m-who">${S.profile ? avatar(S.profile.avatar, 60) : ''}<h2>${esc(S.profile ? S.profile.display_name : 'Account')}</h2></div>
+    <div class="m-who">${S.profile ? avatar(S.profile.avatar, 60, false, S.user.id) : ''}<h2>${esc(S.profile ? S.profile.display_name : 'Account')}</h2></div>
     <p class="muted">Signed in as ${esc(S.user ? S.user.email : '')}. Your lineup saves to your account.</p>
     <div class="m-actions">
       <button class="btn btn-plain" data-act="modal" data-k="name">CHANGE NAME OR AVATAR</button>

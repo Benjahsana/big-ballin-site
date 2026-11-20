@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=0907a30';
-import { POS } from './util.js?v=0907a30';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=0907a30';
+import { S } from './state.js?v=a0c45de';
+import { POS } from './util.js?v=a0c45de';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=a0c45de';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -264,3 +264,32 @@ export const renameLeague = (lg, name) => rpc('rename_league', { p_league: lg, p
 export const setCoOwner = (lg, user, on) => rpc('set_co_owner', { p_league: lg, p_user: user, p_on: on });
 export const handOffLeague = (lg, user) => rpc('hand_off_league', { p_league: lg, p_user: user });
 export const deleteLeague = (lg) => rpc('delete_league', { p_league: lg });
+
+/* ---------- Swag (Nov 19): avatar gear, titles, trophy case ---------- */
+export async function swagAll() {
+  const [w, n, c] = await Promise.all([sb.from('swag_worn').select('user_id,hair,neck,face,fit'),
+    sb.from('swag_now').select('user_id,item,since,detail'),
+    sb.from('swag_unlocks').select('user_id,n').eq('item', 'neck_gold')]);
+  if (w.error) throw w.error;
+  if (n.error) throw n.error;
+  return { worn: w.data || [], now: n.data || [], chains: c.data || [] };
+}
+export async function mySwag(uid) {
+  const { data, error } = await sb.from('swag_unlocks').select('item,n,earned_on').eq('user_id', uid);
+  if (error) throw error;
+  return data || [];
+}
+export async function setGear(g) {
+  const { error } = await sb.rpc('set_gear', { p_hair: g.hair || null, p_neck: g.neck || null, p_face: g.face || null, p_fit: g.fit || null });
+  if (error) throw error;
+}
+/* Someone's locker room: their trophies (every badge), achievements and unlocks. */
+export async function lockerOf(uid) {
+  const [p, b, a, u] = await Promise.all([
+    sb.from('profiles').select('display_name,avatar').eq('id', uid).maybeSingle(),
+    sb.from('badges').select('kind,period,score,league_id').eq('user_id', uid).order('period', { ascending: false }),
+    sb.from('achievements').select('id,kind,slate_date,value,detail').eq('user_id', uid).order('id'),
+    mySwag(uid)]);
+  if (b.error) throw b.error;
+  return { profile: p.data, badges: b.data || [], ach: a.data || [], unlocks: u };
+}

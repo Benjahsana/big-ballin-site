@@ -864,3 +864,53 @@ button.mt-who:hover .mt-name { color: var(--yel); }
 .mg-tag.co { border: 1px solid var(--blu); color: var(--blu); }
 .mg-acts { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
 .mg-acts .btn { min-height: 38px; font-size: 9px; padding: 0 10px; }
+
+/* ---------- Swag & LOCKER ROOM (Nov 19) ---------- */
+.ava { border-radius: 6px; }
+.ava.fr-rare { box-shadow: 0 0 0 2px #3D8BFF; }
+.ava.fr-epic { box-shadow: 0 0 0 2px #B26BFF, 0 0 8px #B26BFF88; }
+.ava.fr-legendary { box-shadow: 0 0 0 2px #FFD23F, 0 0 10px #FFD23F; animation: ava-shine 2.4s ease-in-out infinite; }
+.ava.fr-goldframe { box-shadow: 0 0 0 3px #FFD23F, 0 0 0 5px #FF9F1C, 0 0 14px #FFD23F; animation: ava-shine 1.8s ease-in-out infinite; }
+@keyframes ava-shine { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.25) saturate(1.2); } }
+@media (prefers-reduced-motion: reduce) { .ava.fr-legendary, .ava.fr-goldframe { animation: none; } }
+.ava-btn { background: none; border: 0; padding: 0; cursor: pointer; line-height: 0; border-radius: 6px; }
+.ava-btn:focus-visible { outline: 2px solid var(--yel); outline-offset: 2px; }
+.lk-link { margin: 0 0 10px; min-height: 40px; font-size: 10px; }
+.locker { display: flex; flex-direction: column; gap: 22px; }
+.lk-hero { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; padding: 20px; border-radius: 12px;
+  background: linear-gradient(135deg, #1D1160 0%, #151525 55%, #3a1d5e 100%); border: 2px solid var(--line2); }
+.lk-ava .ava { width: 168px; height: 168px; }
+.lk-id { display: flex; flex-direction: column; gap: 10px; flex: 1; min-width: 240px; }
+.lk-name { font-family: var(--display); font-size: 34px; margin: 0; letter-spacing: 1px; }
+.lk-stats { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--pixel); font-size: 10px; color: var(--soft); }
+.lk-stats b { font-size: 18px; margin-right: 4px; }
+.lk-titles { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.lk-title { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; font-size: 18px; }
+.lk-title b { font-family: var(--pixel); font-size: 11px; color: var(--yel); }
+.lk-title.t-clown b { color: var(--red); }
+.lk-sec { display: flex; flex-direction: column; gap: 12px; }
+.tc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
+.tc-tile { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px 8px; border-radius: 10px;
+  background: var(--panel); border: 2px solid var(--line); opacity: .55; text-align: center; font-size: 15px; }
+.tc-tile.got { opacity: 1; border-color: var(--yel); box-shadow: 0 0 12px #FFD23F44; }
+.tc-tile b { font-family: var(--display); font-size: 28px; color: var(--yel); }
+.tc-ic { font-size: 26px; }
+.tc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.tc-list li { display: grid; grid-template-columns: 28px 1.2fr 1fr 1fr auto; gap: 10px; align-items: center; padding: 8px 12px;
+  background: var(--panel2); border-radius: 8px; font-size: 17px; }
+.tc-list b { font-family: var(--pixel); font-size: 10px; }
+@media (max-width: 700px) { .tc-list li { grid-template-columns: 28px 1fr auto; } .tc-list li > span:nth-child(3), .tc-list li > span:nth-child(4) { grid-column: 2; font-size: 15px; } }
+.sw-slot { display: flex; flex-direction: column; gap: 8px; }
+.sw-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.sw { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px 8px 10px; border-radius: 10px;
+  background: var(--panel); border: 2px solid var(--line); color: var(--text); text-align: center; font: inherit; }
+button.sw { cursor: pointer; }
+.sw.got { border-color: var(--rc); }
+.sw.locked { opacity: .45; }
+.sw.locked .ava { filter: grayscale(1) brightness(.6); }
+.sw.on { background: var(--panel2); box-shadow: 0 0 0 2px var(--rc), 0 0 14px var(--rc); }
+.sw-name { font-family: var(--pixel); font-size: 9px; line-height: 1.4; }
+.sw-r { font-family: var(--pixel); font-size: 8px; }
+.sw-how { font-size: 14px; line-height: 1.2; }
+.sw-on { position: absolute; top: 6px; right: 6px; font-family: var(--pixel); font-size: 7px; background: var(--yel); color: var(--bg); padding: 3px 4px; border-radius: 3px; }
+@media (max-width: 700px) { .lk-hero { padding: 16px; } .lk-ava .ava { width: 120px; height: 120px; } .sw-row { grid-template-columns: repeat(2, 1fr); } }

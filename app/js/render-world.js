@@ -1,11 +1,11 @@
 /* BIG BALLIN: World Rankings tab. Every signed-in player who played in the stretch is ranked
    automatically, by final score (FP × cap bonus); a skipped night counts as 0; ties share a rank. */
-import { S } from './state.js?v=0907a30';
-import { loadStreaks } from './render-awards.js?v=0907a30';
-import { $, esc, LABELS, WORLD_ROWS } from './util.js?v=0907a30';
-import { avatar } from './avatars.js?v=0907a30';
-import { CLOUD, signedIn, latestWinners, friendly } from './cloud.js?v=0907a30';
-import { boardList, periodSegs, winBadges, WORLD_KINDS, boardQuery, nightTable, remember, recallBoard } from './render-leagues.js?v=0907a30';
+import { S } from './state.js?v=a0c45de';
+import { loadStreaks } from './render-awards.js?v=a0c45de';
+import { $, esc, LABELS, WORLD_ROWS } from './util.js?v=a0c45de';
+import { avatar } from './avatars.js?v=a0c45de';
+import { CLOUD, signedIn, latestWinners, friendly } from './cloud.js?v=a0c45de';
+import { boardList, periodSegs, winBadges, WORLD_KINDS, boardQuery, nightTable, remember, recallBoard } from './render-leagues.js?v=a0c45de';
 
 export async function loadWorld() {
   if (!CLOUD || !S.cloudOk) return;
@@ -47,7 +47,7 @@ export function renderWorld() {
 
   const me = signedIn()
     ? (() => { const t = rankText(); const r = S.rank;
-        return `<div class="world-me">${avatar(S.profile.avatar, 48)}<div><b>${esc(S.profile.display_name)}</b>
+        return `<div class="world-me">${avatar(S.profile.avatar, 48, false, S.user.id)}<div><b>${esc(S.profile.display_name)}</b>
           <span class="world-me-rank">${t.rank} ${t.move}</span>
           <span class="muted">${r && r.rank != null ? `Season: ${Number(r.total).toFixed(1)} pts over ${r.nights} night${r.nights === 1 ? '' : 's'} · ${r.players} ranked players`
             : 'Your rank appears after your first scored night (the morning after you play).'}</span></div></div>`; })()

@@ -2,16 +2,16 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=0907a30';
-import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=0907a30';
-import { avatar } from './avatars.js?v=0907a30';
-import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=0907a30';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=0907a30';
-import { L, asLast, lastDate, loadLast } from './night.js?v=0907a30';
-import { benchOn } from './lineup.js?v=0907a30';
-import { streakChips, awardsStrip, loadStreaks } from './render-awards.js?v=0907a30';
-import { chatShell, renderChatList, loadChat, chatLoaded, unread } from './render-chat.js?v=0907a30';
-import { manageBox } from './render-manage.js?v=0907a30';
+import { S } from './state.js?v=a0c45de';
+import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=a0c45de';
+import { avatar } from './avatars.js?v=a0c45de';
+import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=a0c45de';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=a0c45de';
+import { L, asLast, lastDate, loadLast } from './night.js?v=a0c45de';
+import { benchOn } from './lineup.js?v=a0c45de';
+import { streakChips, awardsStrip, loadStreaks } from './render-awards.js?v=a0c45de';
+import { chatShell, renderChatList, loadChat, chatLoaded, unread } from './render-chat.js?v=a0c45de';
+import { manageBox } from './render-manage.js?v=a0c45de';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
@@ -123,7 +123,7 @@ export function boardList(rows, period, night, opts) {
       : `<span class="muted">${r.nights} night${r.nights === 1 ? '' : 's'} played</span>`;
     return `<li class="lb-row${r.user_id === me ? ' me' : ''}">
       <span class="lb-rank">${r.rank}</span>
-      <div class="lb-who"><div class="lb-name">${avatar(r.avatar, 36)}<span class="pname">${esc(r.display_name)}</span>${streakChips(r.user_id)}</div>
+      <div class="lb-who"><div class="lb-name"><button class="ava-btn" data-act="locker" data-u="${r.user_id}" aria-label="${esc(r.display_name)}'s locker room">${avatar(r.avatar, 36, false, r.user_id)}</button><span class="pname">${esc(r.display_name)}</span>${streakChips(r.user_id)}</div>
         <div class="bdgs">${badges(r.badges)}</div>${period === 'night' && n && o.lineups ? '' : detail}</div>
       <div class="lb-score"><b class="yel">${Number(r.total).toFixed(1)}</b>${r.unofficial ? '<span class="live-tag">LIVE</span>' : ''}
         ${period === 'night' && n && n.bonus ? `<span class="muted">${Number(n.raw).toFixed(1)} FP × ${Number(n.bonus).toFixed(2)}</span>` : ''}</div>
@@ -169,7 +169,7 @@ function tonightTable(rows, night, o) {
     const key = (o.last ? 'L' : '') + r.user_id;
     const open = !!S.lbOpen[key];
     const team = `<th class="lt-team" scope="row"><button class="lt-tb" data-act="ltopen" data-v="${esc(key)}" aria-expanded="${open}">
-        <span class="lt-rank">${r.rank}</span>${avatar(r.avatar, 30)}
+        <span class="lt-rank">${r.rank}</span>${avatar(r.avatar, 30, false, r.user_id)}
         <span class="lt-who"><span class="lt-name">${esc(r.display_name)}${streakChips(r.user_id)}</span>${(() => { const wb = winBadges(r.user_id, o.winners, o.kinds); return wb ? `<span class="lt-bdgs">${wb}</span>` : ''; })()}<span class="lt-open">${open ? '▲ CLOSE' : '▼ BOX SCORE'}</span></span></button></th>`;
     const t = teamNums(n, o.last);
     const live = `<td class="lt-num lt-live"><b>${Number(r.total).toFixed(1)}</b>${n && n.bonus ? `<i>${Number(n.raw).toFixed(1)} × ${Number(n.bonus).toFixed(2)}</i>` : ''}</td>`;
@@ -185,7 +185,7 @@ function tonightTable(rows, night, o) {
       const tag = bench ? (n.sub ? 'in' : 'bench') : n.sub === pos ? 'covered' : null;
       return p ? playerCell(p, o.last, tag, n.sub) : `<td class="pc"><span class="pc-name">#${esc(v)}</span></td>`;
     }).join('');
-    const detail = open && n ? `<tr class="lt-detail"><td colspan="${3 + cols.length}">${miniLineup(n, key)}</td></tr>` : '';
+    const detail = open && n ? `<tr class="lt-detail"><td colspan="${3 + cols.length}"><button class="btn btn-plain lk-link" data-act="locker" data-u="${r.user_id}">🏆 ${esc(r.display_name)}’S LOCKER ROOM</button>${miniLineup(n, key)}</td></tr>` : '';
     return `<tr class="lt-row${r.user_id === me ? ' me' : ''}${Number(r.rank) === 1 && Number(r.total) > 0 ? ' lead' : ''}${open ? ' open' : ''}">${team}${live}${proj}${cells}</tr>${detail}`;
   }).join('');
   return `<div class="lt-wrap"><table class="lt">

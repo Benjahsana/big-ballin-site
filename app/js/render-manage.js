@@ -2,12 +2,12 @@
    league page: rename, new invite code, remove teams. The owner also makes co-commissioners, hands
    the league to another member, and deletes it. The database checks every one of these
    (supabase/schema.sql "League management"); this file only draws the panel and asks to confirm. */
-import { S, ui } from './state.js?v=0907a30';
-import { esc, store, flash } from './util.js?v=0907a30';
-import { avatar } from './avatars.js?v=0907a30';
-import { play } from './sound.js?v=0907a30';
-import { leagueRoster, removeMember, newLeagueCode, renameLeague, setCoOwner, handOffLeague, deleteLeague, friendly } from './cloud.js?v=0907a30';
-import { loadBoards } from './render-leagues.js?v=0907a30';
+import { S, ui } from './state.js?v=a0c45de';
+import { esc, store, flash } from './util.js?v=a0c45de';
+import { avatar } from './avatars.js?v=a0c45de';
+import { play } from './sound.js?v=a0c45de';
+import { leagueRoster, removeMember, newLeagueCode, renameLeague, setCoOwner, handOffLeague, deleteLeague, friendly } from './cloud.js?v=a0c45de';
+import { loadBoards } from './render-leagues.js?v=a0c45de';
 
 const M = { open: null, roster: null, busy: false };   // open = league id whose panel is open
 const me = () => (S.user ? S.user.id : null);
@@ -44,7 +44,7 @@ export function manageBox() {
       if (owner) acts.push(`<button class="btn btn-plain" data-act="mghand" data-u="${m.user_id}">MAKE OWNER</button>`);
       if (owner || !m.co_owner) acts.push(`<button class="btn btn-cut" data-act="mgkick" data-u="${m.user_id}">REMOVE</button>`);
     }
-    return `<li class="mg-p">${avatar(m.avatar, 28)}<b>${esc(m.display_name)}${self ? ' <span class="muted">(you)</span>' : ''}</b>${tag}
+    return `<li class="mg-p">${avatar(m.avatar, 28, false, m.user_id)}<b>${esc(m.display_name)}${self ? ' <span class="muted">(you)</span>' : ''}</b>${tag}
       <span class="mg-acts">${acts.join('')}</span></li>`;
   }).join('');
   return `<section class="manage" aria-label="Manage league">
