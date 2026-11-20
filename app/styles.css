@@ -309,7 +309,9 @@ nav .acct { margin-left: auto; }
 .live-tag.blink { animation: blink 1.2s steps(2, start) infinite; }
 @keyframes blink { to { visibility: hidden; } }
 @media (prefers-reduced-motion: reduce) { .live-tag.blink { animation: none; } }
-.live-fp { font-family: var(--display); color: var(--red); font-size: 18px; margin-left: 8px; }
+.live-fp { font-family: var(--display); color: var(--red); font-size: 18px; }
+.slot-live { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; font-size: 16px; }
+.slot-live .live-fp { font-size: 26px; line-height: 1; }
 .gstat { font-family: var(--pixel); font-size: 8px; color: var(--muted); border: 1px solid var(--line2); border-radius: 4px; padding: 2px 4px; }
 .gstat.on { color: var(--red); border-color: var(--red); }
 @media (max-width: 700px) {

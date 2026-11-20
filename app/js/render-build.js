@@ -1,8 +1,8 @@
 /* BIG BALLIN: Build tab: lineup slots, fill bar, filters and free agents (cards or list). */
-import { S } from './state.js?v=d77b711';
-import { $, POS, BN, POSNAME, slotLabel, esc, money, where, slotsFor, chg, jersey, fitNames, color } from './util.js?v=d77b711';
-import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState, benchOn, benchBudget, benchSpent } from './lineup.js?v=d77b711';
-import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=d77b711';
+import { S } from './state.js?v=88e445f';
+import { $, POS, BN, POSNAME, slotLabel, esc, money, where, slotsFor, chg, jersey, fitNames, color } from './util.js?v=88e445f';
+import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState, benchOn, benchBudget, benchSpent } from './lineup.js?v=88e445f';
+import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=88e445f';
 
 export function renderSlots() {
   const slots = benchOn() ? [...POS, BN] : POS;
@@ -21,8 +21,9 @@ export function renderSlots() {
       <div class="who">${jersey(p, 'sm')}<div class="who-text"><span class="pname fit" style="font-size:21px">${esc(p.name)} ${injuryTag(p)}</span><span class="sub">${esc(where(p))}</span></div></div>
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
         <span class="price" style="text-align:left">${money(p.price)}</span>
-        ${locked ? `<span class="badge">LOCKED</span>${liveOf(p) ? `<span class="live-fp">${liveOf(p).fp.toFixed(1)} FP</span>` : ''}` : `<span class="yel" style="font-weight:700">${p.proj.toFixed(1)} proj</span>`}
+        ${locked ? '<span class="badge">LOCKED</span>' : `<span class="yel" style="font-weight:700">${p.proj.toFixed(1)} proj</span>`}
       </div>
+      ${locked && liveOf(p) ? `<div class="slot-live"><b class="live-fp">${liveOf(p).fp.toFixed(1)}</b><span>FP</span><span class="muted">of ${p.proj.toFixed(1)} proj</span></div>` : ''}
       <div class="slot-actions">
         <button class="btn btn-ghost" data-act="stats" data-id="${p.id}">STATS</button>
         <button class="btn btn-plain" data-act="choose" data-pos="${pos}" ${locked ? 'disabled' : ''}>SWAP</button>
