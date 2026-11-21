@@ -1,8 +1,8 @@
 /* BIG BALLIN: account pop-up: sign in by email (link or 6-digit code), pick a name,
    create or join a league. One <dialog id="modal">, content depends on S.modal.kind. */
-import { S } from './state.js?v=5b0b7ec';
-import { $, esc } from './util.js?v=5b0b7ec';
-import { AVATARS, avatar } from './avatars.js?v=5b0b7ec';
+import { S } from './state.js?v=3238925';
+import { $, esc } from './util.js?v=3238925';
+import { AVATARS, avatar } from './avatars.js?v=3238925';
 
 export function openModal(kind, extra) { S.modal = { kind, ...(extra || {}) }; renderModal(); const d = $('#modal'); if (!d.open) d.showModal(); focusFirst(); }
 export function closeModal() { S.modal = null; const d = $('#modal'); if (d.open) d.close(); }
