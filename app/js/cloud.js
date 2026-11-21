@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=88e445f';
-import { POS } from './util.js?v=88e445f';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=88e445f';
+import { S } from './state.js?v=5b0b7ec';
+import { POS } from './util.js?v=5b0b7ec';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=5b0b7ec';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -168,14 +168,27 @@ export async function myBadges() {
   return data || [];
 }
 
-/* Most recent badge of each kind for a league, or the world (league null). */
+/* Most recent badge of each kind for a league, or the world (league null). Records (Nov 21) come
+   from their own query: out.record (league) / out.w_record (world; on a league page too) = the
+   highest record badge, i.e. the record now, with every holder if tied. */
 export async function latestWinners(league) {
   let q = sb.from('badges').select('kind,period,score,user_id,profiles(display_name)')
-    .order('period', { ascending: false }).limit(40);
+    .not('kind', 'in', '(record,w_record)').order('period', { ascending: false }).limit(40);
   q = league ? q.eq('league_id', league) : q.is('league_id', null);
-  const { data, error } = await q;
+  let r = sb.from('badges').select('kind,period,score,user_id,profiles(display_name,avatar)')
+    .in('kind', ['record', 'w_record']).order('score', { ascending: false }).limit(20);
+  r = league ? r.or(`league_id.eq.${league},league_id.is.null`) : r.is('league_id', null);
+  const [{ data, error }, rec] = await Promise.all([q, r]);
   if (error) throw error;
   const out = {};
+  ((rec && rec.data) || []).forEach((b) => {
+    const cur = out[b.kind];
+    if (cur && Number(cur.score) !== Number(b.score)) return;
+    if (!cur) out[b.kind] = { period: b.period, score: b.score, names: [], ids: [], avatars: [] };
+    out[b.kind].names.push(b.profiles ? b.profiles.display_name : '?');
+    out[b.kind].ids.push(b.user_id);
+    out[b.kind].avatars.push(b.profiles ? b.profiles.avatar : 0);
+  });
   (data || []).forEach((b) => {
     const cur = out[b.kind];
     if (!cur || cur.period === b.period) {

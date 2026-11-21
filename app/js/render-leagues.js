@@ -2,25 +2,27 @@
    look at any league: the ALL LEAGUES list, then a league's page (name → leaderboard →
    winners → invite). Shared board pieces (rows, badges, periods) are also used by the
    World Rankings tab (render-world.js). */
-import { S } from './state.js?v=88e445f';
-import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=88e445f';
-import { avatar } from './avatars.js?v=88e445f';
-import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=88e445f';
-import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=88e445f';
-import { L, asLast, lastDate, loadLast } from './night.js?v=88e445f';
-import { benchOn } from './lineup.js?v=88e445f';
-import { streakChips, awardsStrip, loadStreaks } from './render-awards.js?v=88e445f';
-import { chatShell, renderChatList, loadChat, chatLoaded, unread } from './render-chat.js?v=88e445f';
-import { manageBox } from './render-manage.js?v=88e445f';
+import { S } from './state.js?v=5b0b7ec';
+import { $, POS, BN, slotLabel, esc, money, store, jersey } from './util.js?v=5b0b7ec';
+import { avatar } from './avatars.js?v=5b0b7ec';
+import { mtTable, lineupItems, rowData, statLine, tipText, FLAME } from './render-score.js?v=5b0b7ec';
+import { CLOUD, signedIn, leaderboard, nightLineups, latestWinners, myLeagues, leagueList, friendly } from './cloud.js?v=5b0b7ec';
+import { L, asLast, lastDate, loadLast } from './night.js?v=5b0b7ec';
+import { benchOn } from './lineup.js?v=5b0b7ec';
+import { streakChips, awardsStrip, loadStreaks } from './render-awards.js?v=5b0b7ec';
+import { chatShell, renderChatList, loadChat, chatLoaded, unread } from './render-chat.js?v=5b0b7ec';
+import { manageBox } from './render-manage.js?v=5b0b7ec';
 
 export const PERIODS = [['last', 'LAST NIGHT'], ['night', 'TONIGHT'], ['week', 'THIS WEEK'], ['month', 'THIS MONTH'], ['season', 'SEASON']];
 export const BADGE = {
   night: 'NIGHT WINNER', week: 'WEEK WINNER', month: 'MONTH WINNER', season: 'SEASON CHAMP',
   w_night1: 'WORLD #1 NIGHT', w_week10: 'TOP 10 WEEK', w_month10: 'TOP 10 MONTH',
+  record: 'LEAGUE RECORD', w_record: 'WORLD RECORD',
 };
 const WINNER = {
   night: 'LAST NIGHT’S WINNER', week: 'LAST WEEK’S WINNER', month: 'LAST MONTH’S WINNER', season: 'SEASON CHAMP',
   w_night1: 'LAST NIGHT’S WORLD #1', w_week10: 'LAST WEEK’S TOP 10', w_month10: 'LAST MONTH’S TOP 10',
+  record: 'HOLDS THE LEAGUE RECORD (best night ever)', w_record: 'HOLDS THE WORLD RECORD (best night ever)',
 };
 
 export const inviteLink = (code) => `${location.origin}${location.pathname}?join=${encodeURIComponent(code)}`;
@@ -83,14 +85,31 @@ export function periodSegs(cur, act) {
 
 /* The latest winners (night / week / month / season, or the world kinds) as trophy badges next to
    the winner's avatar on the board. w = latestWinners(); a badge shows only on the winner's row. */
-export const LEAGUE_KINDS = ['night', 'week', 'month', 'season'];
-export const WORLD_KINDS = ['w_night1', 'w_week10', 'w_month10'];
+export const LEAGUE_KINDS = ['night', 'week', 'month', 'season', 'record'];
+export const WORLD_KINDS = ['w_night1', 'w_week10', 'w_month10', 'w_record'];
 const TROPHY = `<svg aria-hidden="true" width="10" height="10" viewBox="0 0 10 10" shape-rendering="crispEdges" fill="currentColor"><rect x="2" y="0" width="6" height="4"/><rect x="0" y="1" width="2" height="1"/><rect x="0" y="1" width="1" height="3"/><rect x="8" y="1" width="2" height="1"/><rect x="9" y="1" width="1" height="3"/><rect x="3" y="4" width="4" height="1"/><rect x="4" y="5" width="2" height="2"/><rect x="2" y="8" width="6" height="2"/></svg>`;
-const SHORT = { night: 'NIGHT', week: 'WEEK', month: 'MONTH', season: 'CHAMP', w_night1: '#1', w_week10: 'TOP 10', w_month10: 'TOP 10' };
+const SHORT = { night: 'NIGHT', week: 'WEEK', month: 'MONTH', season: 'CHAMP', w_night1: '#1', w_week10: 'TOP 10', w_month10: 'TOP 10', record: 'RECORD', w_record: 'RECORD' };
 export function winBadges(uid, w, kinds) {
   if (!w || !uid) return '';
   return (kinds || []).filter((k) => w[k] && (w[k].ids || []).includes(uid)).map((k) =>
     `<span class="wbdg wbdg-${k}" title="${esc(WINNER[k] || BADGE[k])}${w[k].period ? ' (' + esc(w[k].period) + ')' : ''}">${TROPHY}<span class="wl">${esc(BADGE[k] || k)}</span><span class="ws">${esc(SHORT[k] || k)}</span></span>`).join('');
+}
+
+/* RECORD BOOK (Nov 21): the best single night ever, in this league and in the world (w = latestWinners()).
+   Handed out each morning by the score job; beat it to take it. */
+const recDate = (d) => new Date(d + 'T12:00:00').toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' });
+export function recordsStrip(w, inLeague) {
+  if (!w) return '';
+  const one = (k, label) => {
+    const r = w[k];
+    if (!r) return '';
+    const who = r.ids.map((id, i) => `<button class="ava-btn" data-act="locker" data-u="${id}" aria-label="${esc(r.names[i])}'s locker room">${avatar(r.avatars[i] || 0, 32, false, id)}</button><b>${esc(r.names[i])}</b>`).join(' ');
+    return `<div class="aw-box rec-box rec-${k}"><span class="cap-label">${label}</span>
+      <b class="rec-score">${Number(r.score).toFixed(1)}</b>
+      <span class="rec-who">${who}</span><span class="muted">${esc(recDate(r.period))} · best single night ever</span></div>`;
+  };
+  const html = (inLeague ? one('record', '📈 LEAGUE RECORD') : '') + one('w_record', '🌟 WORLD RECORD');
+  return html ? `<div class="aw-strip rec-strip" aria-label="Record book">${html}</div>` : '';
 }
 
 /* Another player's lineup for Tonight: the same box score as MY TEAM (render-score.js mtTable).
@@ -298,6 +317,7 @@ function leaguePage(lg) {
       Other players’ picks show once their game tips off.</p>
     ${board}
     ${awardsStrip(S.lbPeriod === 'last' ? S.lbNight : (recallBoard(lg.id, 'last') || {}).night)}
+    ${recordsStrip(S.lbWinners, true)}
     ${member && signedIn() ? '<div id="chatSlot"></div>' : signedIn() ? '' : '<p class="muted lb-note">Members can chat here. Sign in and join with an invite to talk trash.</p>'}
     ${invite}
     ${member && my ? manageBox() : ''}`;

@@ -1,14 +1,14 @@
 /* BIG BALLIN: LOCKER ROOM (Nov 19). Your home page when you're signed in: your avatar in its swag, the
    titles you hold, the 4 gear slots (tap to wear), your trophy case (every win, forever) and achievements.
    Anyone's locker can be opened (S.lockerUser) from chat avatars, list boards and box scores: read-only. */
-import { S, ui } from './state.js?v=88e445f';
-import { $, esc, flash } from './util.js?v=88e445f';
-import { avatar, avatarCard } from './avatars.js?v=88e445f';
-import { play } from './sound.js?v=88e445f';
-import { CLOUD, signedIn, lockerOf, setGear, mySwag, friendly } from './cloud.js?v=88e445f';
-import { ITEMS, TITLES, SLOTS, SLOT_NAME, RARITY, SW, loadSwag, unlockedOf } from './swag.js?v=88e445f';
-import { BADGE } from './render-leagues.js?v=88e445f';
-import { ACH } from './render-awards.js?v=88e445f';
+import { S, ui } from './state.js?v=5b0b7ec';
+import { $, esc, flash } from './util.js?v=5b0b7ec';
+import { avatar, avatarCard } from './avatars.js?v=5b0b7ec';
+import { play } from './sound.js?v=5b0b7ec';
+import { CLOUD, signedIn, lockerOf, setGear, mySwag, friendly } from './cloud.js?v=5b0b7ec';
+import { ITEMS, TITLES, SLOTS, SLOT_NAME, RARITY, SW, loadSwag, unlockedOf } from './swag.js?v=5b0b7ec';
+import { BADGE } from './render-leagues.js?v=5b0b7ec';
+import { ACH } from './render-awards.js?v=5b0b7ec';
 
 const LK = { uid: null, data: null, err: null, busy: false };
 const me = () => (S.user ? S.user.id : null);
@@ -48,13 +48,13 @@ export async function wear(slot, id) {
 
 const fmtDate = (d) => new Date(d + 'T12:00:00').toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' });
 function periodText(kind, period) {
-  if (/night/.test(kind)) return fmtDate(period);
+  if (/night|record/.test(kind)) return fmtDate(period);
   if (/week/.test(kind)) return 'Week of ' + fmtDate(period);
   if (/month/.test(kind)) return new Date(period + '-15T12:00:00').toLocaleDateString([], { month: 'long', year: 'numeric' });
   return 'Season ' + period;
 }
 const leagueName = (id) => (id ? ((S.allLeagues || []).find((l) => l.id === id) || {}).name || 'A league' : 'WORLD');
-const TROPHY_ICON = { night: '🏆', week: '🥇', month: '🏅', season: '💍', w_night1: '🌎', w_week10: '🌍', w_month10: '🌏' };
+const TROPHY_ICON = { night: '🏆', week: '🥇', month: '🏅', season: '💍', w_night1: '🌎', w_week10: '🌍', w_month10: '🌏', record: '📈', w_record: '🌟' };
 
 function hero(d, mine) {
   const uid = who();

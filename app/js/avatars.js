@@ -8,7 +8,7 @@
    item → front hair (hair item) → titles. All gear is drawn for a "reference head" (center 50,45, radius
    23×26, the people's head); a character's `box` maps that head onto its own, and `eyes` / `mouth` place
    shades, grills and toothpicks. Gradients, clips and the glow filter live once in a hidden <svg> (BBX). */
-import { lookOf, lookKey, frameOf, rarityOf } from './swag.js?v=88e445f';
+import { lookOf, lookKey, frameOf, rarityOf } from './swag.js?v=5b0b7ec';
 
 const OL = '#3DE0FF';      // neon outline
 const INK = '#140E1C';     // eyes, fine lines
@@ -329,6 +329,24 @@ function shirt(a, fit) {
     <path d="M38 78 Q50 90 62 78" fill="none" stroke="${tr}" stroke-width="4" stroke-linecap="round"/>${extra}
     <path d="${SHIRT}" fill="none" ${st()}/>`;
 }
+/* World record holder (Nov 21): a gold laurel wreath around the head, with a twinkle. */
+function laurel() {
+  let out = '';
+  [1, -1].forEach((side) => {
+    let stem = '', leaves = '';
+    for (let k = 0; k <= 7; k++) {
+      const deg = 130 + k * 15, r = deg * Math.PI / 180;   // from under the jaw up past the temple
+      const x = (50 + side * Math.cos(r) * 35).toFixed(1), y = (46 + Math.sin(r) * 32).toFixed(1);
+      stem += (k ? ' L' : 'M') + x + ' ' + y;
+      const tan = side === 1 ? deg + 90 : 90 - deg;
+      [-1, 1].forEach((o) => {
+        leaves += `<ellipse cx="${x}" cy="${y}" rx="5.6" ry="2.4" transform="rotate(${tan + o * 35} ${x} ${y}) translate(${o * 3.2} 0)" fill="url(#bbx-gold)" stroke="#5C3D00" stroke-width=".8"/>`;
+      });
+    }
+    out += `<path d="${stem}" fill="none" stroke="#B07800" stroke-width="1.6"/>${leaves}`;
+  });
+  return out + `<path d="M22 22 L23 25 L26 26 L23 27 L22 30 L21 27 L18 26 L21 25Z" fill="#fff"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></path>`;
+}
 const belt = () => `<rect x="14" y="93" width="72" height="7" fill="#2B2B3A" stroke="#000" stroke-width="1"/><rect x="38" y="89" width="24" height="12" rx="3" fill="url(#bbx-gold)" stroke="#6B4A00" stroke-width="1.2"/>
   ${star(50, 95, 4, '#FF2E4D', '#7A0016')}<circle cx="42" cy="95" r="1.2" fill="#3DA5FF"/><circle cx="58" cy="95" r="1.2" fill="#3DA5FF"/>`;
 
@@ -365,6 +383,7 @@ function body(a, look, small) {
   if (t.clown) { const [ey, xl, xr] = a.person ? [45, 40, 60] : a.eyes, [mx, my] = a.person ? [50, 61] : a.mouth; s += `<circle cx="${(xl + xr) / 2}" cy="${((ey + my) / 2).toFixed(1)}" r="4.6" fill="#FF2E1F" ${st(1.2, '#7A0016')}/><circle cx="${(xl + xr) / 2 - 1.5}" cy="${((ey + my) / 2 - 1.5).toFixed(1)}" r="1.3" fill="#fff" opacity=".8"/>`; }
   if (t.crown) s += toBox(a, crown(hairId === 'hair_afro' || hairId === 'hair_rainbow' ? -8 : hairId === 'hair_hightop' || hairId === 'hair_flame' || (a.person && a.hair === 'flat' && !hairId) ? -10 : a.hat ? 8 : 0));
   if (t.belt) s += belt();
+  if (t.record) s += toBox(a, laurel());
   return small ? `<g clip-path="url(#bbx-frame)">${s}</g>` : `<g clip-path="url(#bbx-frame)"><g filter="url(#bbx-glow)">${s}</g></g>`;
 }
 

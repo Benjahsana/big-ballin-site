@@ -4,8 +4,8 @@
    "who wears what" data. The art for every item is drawn in avatars.js (HAIR, neckItem, faceItem, shirt,
    crown, belt, CLOWN). Item ids start with their slot (hair_, neck_, face_, fit_). NEW ITEMS: add them
    here, draw them in avatars.js, AND add them to award_swag() (or swag_free() for free ones) in schema.sql. */
-import { S } from './state.js?v=88e445f';
-import { CLOUD, swagAll, mySwag } from './cloud.js?v=88e445f';
+import { S } from './state.js?v=5b0b7ec';
+import { CLOUD, swagAll, mySwag } from './cloud.js?v=5b0b7ec';
 
 export const SLOTS = ['hair', 'neck', 'face', 'fit'];
 export const SLOT_NAME = { hair: 'HAIR', neck: 'NECK', face: 'FACE', fit: 'FIT' };
@@ -48,6 +48,7 @@ export const TITLES = {
   belt: { name: 'TITLE BELT', icon: '🥇', what: 'Won the latest week' },
   goldframe: { name: 'GOLD FRAME', icon: '🖼️', what: 'Won the latest month' },
   clown: { name: 'CLOWN WIG', icon: '🤡', what: 'Last place last night (WORLD)' },
+  record: { name: 'WORLD RECORD LAUREL', icon: '🌟', what: 'Best single night in BIG BALLIN history' },
 };
 
 /* ---------- Public data: what everyone wears, current titles, my unlocks ---------- */
@@ -82,10 +83,10 @@ export function lookOf(uid) {
   return { gear: w ? { hair: w.hair, neck: w.neck, face: w.face, fit: w.fit } : {}, titles: t || {}, chain: SW.chain[uid] };
 }
 /* The rarest thing worn: 'common' | 'rare' | 'epic' | 'legendary'. Holding a title counts too:
-   the month (gold frame) = legendary, the night crown or week belt = epic. */
+   the month (gold frame) or the world record = legendary, the night crown or week belt = epic. */
 export function rarityOf(look) {
   if (!look) return 'common';
-  if (look.titles && look.titles.goldframe) return 'legendary';
+  if (look.titles && (look.titles.goldframe || look.titles.record)) return 'legendary';
   let best = look.titles && (look.titles.crown || look.titles.belt) ? 2 : 0;
   SLOTS.forEach((s) => { const it = ITEMS[look.gear[s]]; if (it && RANK[it.rarity] > best) best = RANK[it.rarity]; });
   return ['common', 'rare', 'epic', 'legendary'][best];
@@ -94,6 +95,7 @@ export function rarityOf(look) {
 export function frameOf(look) {
   if (!look) return '';
   if (look.titles.goldframe) return ' fr-goldframe';
+  if (look.titles.record) return ' fr-legendary';
   let best = -1, name = '';
   SLOTS.forEach((s) => { const it = ITEMS[look.gear[s]]; if (it && RANK[it.rarity] > best) { best = RANK[it.rarity]; name = it.rarity; } });
   return best > 0 ? ' fr-' + name : '';

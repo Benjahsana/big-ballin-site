@@ -3,12 +3,12 @@
    achievements and keeps everyone's current streaks (supabase/schema.sql award_achievements). This file
    draws them: the STEAL / BUST strip on a league page, streak chips next to names on the boards, the
    MY ACHIEVEMENTS box on MY TEAM, and the fanfare the first time I see a new achievement. */
-import { S } from './state.js?v=88e445f';
-import { esc, money, store, recall, flash, POS } from './util.js?v=88e445f';
-import { STREAKS } from './app-config.js?v=88e445f';
-import { CLOUD, signedIn, myAchievements, streaksAll } from './cloud.js?v=88e445f';
-import { L, lastIsCurrent } from './night.js?v=88e445f';
-import { play } from './sound.js?v=88e445f';
+import { S } from './state.js?v=5b0b7ec';
+import { esc, money, store, recall, flash, POS } from './util.js?v=5b0b7ec';
+import { STREAKS } from './app-config.js?v=5b0b7ec';
+import { CLOUD, signedIn, myAchievements, streaksAll } from './cloud.js?v=5b0b7ec';
+import { L, lastIsCurrent } from './night.js?v=5b0b7ec';
+import { play } from './sound.js?v=5b0b7ec';
 
 export const ACH = {
   perfect: { icon: '🎯', name: 'PERFECT NIGHT', what: 'All 5 starters beat their projection' },

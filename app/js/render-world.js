@@ -1,11 +1,11 @@
 /* BIG BALLIN: World Rankings tab. Every signed-in player who played in the stretch is ranked
    automatically, by final score (FP × cap bonus); a skipped night counts as 0; ties share a rank. */
-import { S } from './state.js?v=88e445f';
-import { loadStreaks } from './render-awards.js?v=88e445f';
-import { $, esc, LABELS, WORLD_ROWS } from './util.js?v=88e445f';
-import { avatar } from './avatars.js?v=88e445f';
-import { CLOUD, signedIn, latestWinners, friendly } from './cloud.js?v=88e445f';
-import { boardList, periodSegs, winBadges, WORLD_KINDS, boardQuery, nightTable, remember, recallBoard } from './render-leagues.js?v=88e445f';
+import { S } from './state.js?v=5b0b7ec';
+import { loadStreaks } from './render-awards.js?v=5b0b7ec';
+import { $, esc, LABELS, WORLD_ROWS } from './util.js?v=5b0b7ec';
+import { avatar } from './avatars.js?v=5b0b7ec';
+import { CLOUD, signedIn, latestWinners, friendly } from './cloud.js?v=5b0b7ec';
+import { boardList, periodSegs, winBadges, WORLD_KINDS, boardQuery, nightTable, remember, recallBoard, recordsStrip } from './render-leagues.js?v=5b0b7ec';
 
 export async function loadWorld() {
   if (!CLOUD || !S.cloudOk) return;
@@ -62,5 +62,6 @@ export function renderWorld() {
     <p class="muted lb-note">Every signed-in player who played is ranked by final score (fantasy points × cap bonus).
       A night without a lineup counts as 0. Ties share a rank. Tonight updates live during games.</p>
     ${board}
-    <p class="muted lb-note">Trophy badges next to a name: World #1 last night, Top 10 last week, Top 10 last month. They’re handed out each morning, separate from league badges.</p>`;
+    ${recordsStrip(S.wWinners, false)}
+    <p class="muted lb-note">Trophy badges next to a name: World #1 last night, Top 10 last week, Top 10 last month, and the WORLD RECORD (best single night ever; the holder wears a gold laurel). They’re handed out each morning, separate from league badges.</p>`;
 }

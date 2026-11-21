@@ -833,6 +833,10 @@ button.mt-who:hover .mt-name { color: var(--yel); }
 .aw-name .muted { font-size: 15px; font-weight: normal; }
 .aw-line { font-size: 17px; }
 .aw-who { font-size: 15px; color: var(--soft); }
+.rec-box { border-color: #FFD23F; box-shadow: 0 0 12px rgba(255, 210, 63, .25); }
+.rec-box.rec-record { border-color: #B26BFF; box-shadow: 0 0 12px rgba(178, 107, 255, .25); }
+.rec-score { font-family: var(--pixel, inherit); font-size: 30px; color: var(--yel, #FFD23F); line-height: 1.1; }
+.rec-who { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 17px; }
 .red { color: var(--red); }
 .stk { display: inline-block; margin-left: 6px; font-family: var(--pixel); font-size: 9px; padding: 2px 4px; border-radius: 4px; background: var(--bg); border: 1px solid var(--line2); vertical-align: middle; white-space: nowrap; }
 .stk.heat { color: var(--red); border-color: var(--red); }

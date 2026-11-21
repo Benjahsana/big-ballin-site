@@ -1,25 +1,25 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=88e445f';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=88e445f';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=88e445f';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=88e445f';
-import { defaultDir } from './filters.js?v=88e445f';
-import { renderStats } from './render-stats.js?v=88e445f';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=88e445f';
-import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=88e445f';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=88e445f';
-import { openModal, closeModal, renderModal } from './render-account.js?v=88e445f';
-import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=88e445f';
-import { manageAct } from './render-manage.js?v=88e445f';
-import { renderLocker, loadLocker, openLocker, wear, checkSwag } from './render-locker.js?v=88e445f';
-import { loadSwag } from './swag.js?v=88e445f';
-import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=88e445f';
-import { avatar } from './avatars.js?v=88e445f';
-import { checkAchievements, loadStreaks } from './render-awards.js?v=88e445f';
-import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=88e445f';
-import { play, SOUNDS, styleFor } from './sound.js?v=88e445f';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=88e445f';
-import { LABELS } from './util.js?v=88e445f';
+import { S, ui } from './state.js?v=5b0b7ec';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=5b0b7ec';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=5b0b7ec';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=5b0b7ec';
+import { defaultDir } from './filters.js?v=5b0b7ec';
+import { renderStats } from './render-stats.js?v=5b0b7ec';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=5b0b7ec';
+import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=5b0b7ec';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=5b0b7ec';
+import { openModal, closeModal, renderModal } from './render-account.js?v=5b0b7ec';
+import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=5b0b7ec';
+import { manageAct } from './render-manage.js?v=5b0b7ec';
+import { renderLocker, loadLocker, openLocker, wear, checkSwag } from './render-locker.js?v=5b0b7ec';
+import { loadSwag } from './swag.js?v=5b0b7ec';
+import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=5b0b7ec';
+import { avatar } from './avatars.js?v=5b0b7ec';
+import { checkAchievements, loadStreaks } from './render-awards.js?v=5b0b7ec';
+import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=5b0b7ec';
+import { play, SOUNDS, styleFor } from './sound.js?v=5b0b7ec';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=5b0b7ec';
+import { LABELS } from './util.js?v=5b0b7ec';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -379,7 +379,8 @@ document.addEventListener('keydown', (e) => {
 /* Fanfare (once) for a badge I haven't seen yet on this device. The first time an account is
    seen here, its existing badges are just marked as seen. */
 const BADGE_SHOUT = { night: 'NIGHT WINNER!', week: 'WEEK WINNER!', month: 'MONTH WINNER!', season: 'SEASON CHAMP!',
-  w_night1: 'WORLD #1 LAST NIGHT!', w_week10: 'WORLD TOP 10 WEEK!', w_month10: 'WORLD TOP 10 MONTH!' };
+  w_night1: 'WORLD #1 LAST NIGHT!', w_week10: 'WORLD TOP 10 WEEK!', w_month10: 'WORLD TOP 10 MONTH!',
+  record: 'NEW LEAGUE RECORD!', w_record: 'NEW WORLD RECORD!' };
 async function checkBadges() {
   if (!signedIn()) return;
   try {
@@ -390,7 +391,7 @@ async function checkBadges() {
     if (!Array.isArray(seen)) return;
     const fresh = mine.filter((b) => !seen.includes(b.id));
     if (!fresh.length) return;
-    const best = fresh.find((b) => b.kind === 'night' || b.kind === 'w_night1') || fresh[0];
+    const best = fresh.find((b) => b.kind === 'w_record') || fresh.find((b) => b.kind === 'record') || fresh.find((b) => b.kind === 'night' || b.kind === 'w_night1') || fresh[0];
     play(best.kind === 'night' || best.kind === 'w_night1' ? 'nightwin' : 'fanfare');
     flash(BADGE_SHOUT[best.kind] || 'BADGE!', '#FFD23F', '#FF4A3D');
   } catch (e) { /* try again next visit */ }
