@@ -509,6 +509,12 @@
   "style": "40px-16c",
   "team": "SAS"
  },
+ "1629216": {
+  "date": "2026-11-24",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "SAC"
+ },
  "1629605": {
   "date": "2026-11-08",
   "kind": "photo",
@@ -2506,6 +2512,12 @@
   "kind": "photo",
   "style": "40px-16c",
   "team": "POR"
+ },
+ "1643265": {
+  "date": "2026-11-24",
+  "kind": "photo",
+  "style": "40px-16c",
+  "team": "UTA"
  },
  "1643407": {
   "date": "2026-11-07",
