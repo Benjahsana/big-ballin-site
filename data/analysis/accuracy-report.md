@@ -1,46 +1,46 @@
 # BIG BALLIN projection accuracy
 
-18 scored nights, 2026-11-06 to 2026-11-23. Projections are compared with what players
+19 scored nights, 2026-11-06 to 2026-11-24. Projections are compared with what players
 actually scored, among players who got into the game. Bias above 0 means projections were too low.
 
 ## Overall
 
-- **Last night (2026-11-23):** off by 7.3 FP on average (40% of the projection), +0.8 bias, 75% within 10 FP (197 player-games)
-- **Last 7 nights:** off by 7.7 FP on average (41% of the projection), +0.6 bias, 73% within 10 FP (1014 player-games)
-- **All nights:** off by 8.0 FP on average (42% of the projection), -0.1 bias, 71% within 10 FP (2676 player-games)
-- **Since projection pricing (Nov 14):** off by 7.8 FP on average (43% of the projection), +0.7 bias, 72% within 10 FP (1446 player-games)
-- **Didn't play last night:** 55 slate players, 15 of them not listed OUT (late scratches; the 6th Man covers these).
+- **Last night (2026-11-24):** off by 7.2 FP on average (36% of the projection), -0.2 bias, 75% within 10 FP (60 player-games)
+- **Last 7 nights:** off by 7.6 FP on average (40% of the projection), +0.5 bias, 73% within 10 FP (985 player-games)
+- **All nights:** off by 7.9 FP on average (42% of the projection), -0.1 bias, 71% within 10 FP (2736 player-games)
+- **Since projection pricing (Nov 14):** off by 7.8 FP on average (43% of the projection), +0.7 bias, 72% within 10 FP (1506 player-games)
+- **Didn't play last night:** 11 slate players, 4 of them not listed OUT (late scratches; the 6th Man covers these).
 
 ## By price tier (all nights)
 
 | Price | Player-games | Avg miss | Bias | Within 10 FP |
 |---|---|---|---|---|
-| under $10M | 1334 | 7.4 FP | +0.2 | 75% |
-| $10-20M | 1006 | 8.3 FP | +0.1 | 67% |
-| $20-30M | 254 | 9.3 FP | -0.8 | 61% |
-| $30M+ | 82 | 9.5 FP | -2.9 | 62% |
+| under $10M | 1361 | 7.3 FP | +0.1 | 76% |
+| $10-20M | 1031 | 8.2 FP | +0.1 | 68% |
+| $20-30M | 261 | 9.4 FP | -0.8 | 61% |
+| $30M+ | 83 | 9.6 FP | -3.1 | 61% |
 
-## Biggest misses last night (2026-11-23)
+## Biggest misses last night (2026-11-24)
 
 **Beat their projection** (the bargains):
 
 | Player | Price | Proj | Actual | Diff | Min |
 |---|---|---|---|---|---|
-| Jalen Slawson (IND) | $7.2M | 13.6 | 44.0 | +30.4 | 20 |
-| Jaden McDaniels (MIN) | $18.7M | 35.3 | 62.5 | +27.2 | 34 |
-| Christian Anderson (CHA) | $6.1M | 11.6 | 38.5 | +26.9 | 25 |
-| Luke Kornet (SAS) | $5.8M | 11.0 | 37.8 | +26.8 | 29 |
-| Myles Turner (MIL) | $13.0M | 24.5 | 48.2 | +23.7 | 28 |
+| Caleb Martin (DAL) | $9.4M | 17.7 | 39.0 | +21.3 | 30 |
+| Jayson Tatum (BOS) | $26.1M | 49.2 | 68.0 | +18.8 | 37 |
+| Anthony Davis (WAS) | $22.8M | 43.1 | 57.8 | +14.7 | 37 |
+| AJ Dybantsa (WAS) | $16.2M | 30.6 | 45.2 | +14.6 | 41 |
+| Isaiah Joe (DET) | $8.9M | 16.7 | 29.5 | +12.8 | 30 |
 
 **Fell short:**
 
 | Player | Price | Proj | Actual | Diff | Min |
 |---|---|---|---|---|---|
-| Darius Acuff Jr. (SAC) | $21.5M | 40.5 | 18.8 | -21.7 | 33 |
-| Jaylon Tyson (CLE) | $11.0M | 20.7 | 2.0 | -18.7 | 12 |
-| Brook Lopez (LAC) | $14.8M | 28.0 | 9.5 | -18.5 | 21 |
-| Luka Dončić (LAL) | $33.6M | 63.4 | 46.5 | -16.9 | 33 |
-| Thomas Bryant (CLE) | $9.8M | 18.4 | 2.0 | -16.4 | 8 |
+| Anthony Black (ORL) | $18.7M | 35.3 | 12.5 | -22.8 | 28 |
+| Nikola Jokić (DEN) | $31.9M | 60.2 | 40.8 | -19.4 | 33 |
+| Jamal Murray (DEN) | $24.5M | 46.3 | 31.0 | -15.3 | 36 |
+| Alex Sarr (WAS) | $13.6M | 25.6 | 12.0 | -13.6 | 24 |
+| Jase Richardson (ORL) | $7.2M | 13.5 | 0.0 | -13.5 | 1 |
 
 ## Biggest misses, all nights
 
