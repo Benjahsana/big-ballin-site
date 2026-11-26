@@ -189,6 +189,8 @@ td:last-child { padding-right: 16px; }
 /* ---------- Phase 3: fill bar, filters, list view, injury tags ---------- */
 .fillbar { position: sticky; top: 0; z-index: 20; background: var(--bg); border: 3px solid var(--yel); border-radius: 12px; padding: 10px 12px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; justify-content: space-between; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); }
 .fb-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.fb-money, .fb-meter { display: none; }   /* phones only (see the 700px block) */
+.fb-chip .ck { margin-left: .4em; }
 .fb-chip { min-height: 40px; min-width: 52px; padding: 0 10px; border-radius: 8px; border: 2px dashed var(--line2); background: transparent; color: var(--muted); font-family: var(--pixel); font-size: 10px; }
 .fb-chip.has { border-style: solid; border-color: var(--blu); color: var(--soft); }
 .fb-chip[aria-pressed="true"] { background: var(--yel); border: 2px solid var(--yel); color: var(--bg); }
@@ -237,6 +239,36 @@ td:last-child { padding-right: 16px; }
   .fb-chip { flex: 1; min-width: 0; padding: 0 4px; }
   .fb-info { font-size: 15px; gap: 2px 10px; }
   body { padding-bottom: 130px; }
+  /* Nov 26: the money is the headline on phones: CAP LEFT · MAX <slot> (or average per open slot) · BONUS
+     in big digits, a spending meter, then the slot chips in the thumb zone. The sentence is hidden. */
+  .fillbar .fb-info { display: none; }
+  .fb-money { display: grid; grid-template-columns: 1.15fr 1fr 0.8fr; gap: 6px; width: 100%; }
+  .fbm { display: flex; flex-direction: column; align-items: center; gap: 2px; background: var(--panel2); border-radius: 8px; padding: 5px 4px 6px; min-width: 0; }
+  .fbm span { font-family: var(--pixel); font-size: 8px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  .fbm b { font-family: var(--display); font-weight: 400; font-size: 24px; line-height: 1.05; white-space: nowrap; }
+  .fb-meter { display: block; width: 100%; height: 5px; border-radius: 3px; background: var(--line); overflow: hidden; }
+  .fb-meter i { display: block; height: 100%; background: var(--yel); border-radius: 3px; transition: width .25s; }
+  .fb-chip { min-height: 44px; position: relative; white-space: nowrap; }
+  .fb-chip .ck { position: absolute; margin: 0; top: -6px; right: -4px; width: 16px; height: 16px; border-radius: 50%; background: var(--blu); color: #fff; font-family: var(--body); font-size: 11px; line-height: 16px; text-align: center; }
+  .slot-head { min-width: 40px; }
+  /* Compact lineup on phones: empty slots are one short row, filled slots a tight row (no tall boxes). */
+  .slots { grid-template-columns: 1fr; gap: 8px; }
+  .slot { min-height: 0; padding: 8px 10px; gap: 6px; }
+  .slot:not(.is-filled) { flex-direction: row; align-items: center; }
+  .slot:not(.is-filled) .slot-head { flex: 0 0 auto; }
+  .slot:not(.is-filled) .slot-head .muted { display: none; }
+  .slot:not(.is-filled) .slot-empty { min-height: 44px; flex: 1; text-align: center; }
+  .slot-empty small { display: none; }
+  .slot.bench .bench-meter { display: none; }
+  .slot.is-filled { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "head who price" "live live live" "act act act"; align-items: center; gap: 6px 10px; }
+  .slot.is-filled .slot-head { grid-area: head; }
+  .slot.is-filled .slot-head .muted { display: none; }
+  .slot.is-filled .who { grid-area: who; min-width: 0; }
+  .slot.is-filled .slot-price { grid-area: price; flex-direction: column; align-items: flex-end !important; gap: 0 !important; }
+  .slot.is-filled .slot-price .price { font-size: 20px; }
+  .slot.is-filled .slot-live { grid-area: live; }
+  .slot.is-filled .slot-actions { grid-area: act; }
+  .slot.is-filled .slot-actions .btn { min-height: 40px; }
   .filters .toolbar-group > * { flex: 1 1 140px; }
   .prow { grid-template-columns: 44px repeat(3, minmax(0, 1fr)) 104px; grid-template-areas: "av id id id price" "n1 n1 n2 n3 btn"; gap: 6px 8px; padding: 8px 10px; }
   .pr-av { grid-area: av; } .pr-id { grid-area: id; } .pr-price { grid-area: price; text-align: right; }

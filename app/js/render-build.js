@@ -1,8 +1,8 @@
 /* BIG BALLIN: Build tab: lineup slots, fill bar, filters and free agents (cards or list). */
-import { S } from './state.js?v=3238925';
-import { $, POS, BN, POSNAME, slotLabel, esc, money, where, slotsFor, chg, jersey, fitNames, color } from './util.js?v=3238925';
-import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState, benchOn, benchBudget, benchSpent } from './lineup.js?v=3238925';
-import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=3238925';
+import { S } from './state.js?v=38dfd5f';
+import { $, POS, BN, POSNAME, slotLabel, esc, money, where, slotsFor, chg, jersey, fitNames, color } from './util.js?v=38dfd5f';
+import { liveOf, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, signState, benchOn, benchBudget, benchSpent } from './lineup.js?v=38dfd5f';
+import { W, WINDOWS, winLabel, SORTS, sortDef, PRICE_BANDS, maxForSlot, filteredPool, injuryTag } from './filters.js?v=38dfd5f';
 
 export function renderSlots() {
   const slots = benchOn() ? [...POS, BN] : POS;
@@ -19,7 +19,7 @@ export function renderSlots() {
     const locked = isLocked(p);
     return `<div class="slot is-filled${active}">${head}
       <div class="who">${jersey(p, 'sm')}<div class="who-text"><span class="pname fit" style="font-size:21px">${esc(p.name)} ${injuryTag(p)}</span><span class="sub">${esc(where(p))}</span></div></div>
-      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+      <div class="slot-price" style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
         <span class="price" style="text-align:left">${money(p.price)}</span>
         ${locked ? '<span class="badge">LOCKED</span>' : `<span class="yel" style="font-weight:700">${p.proj.toFixed(1)} proj</span>`}
       </div>
@@ -40,7 +40,7 @@ function renderFillBar() {
   const chips = ['ALL', ...POS, ...(benchOn() ? [BN] : [])].map((v) => {
     const has = v !== 'ALL' && S.lineup[v];
     return `<button class="fb-chip${has ? ' has' : ''}${v === BN ? ' bench' : ''}" data-act="poolpos" data-v="${v}" aria-pressed="${S.poolPos === v}"
-      aria-label="${v === 'ALL' ? 'All positions' : `${POSNAME[v]}${has ? ', filled' : ', empty'}`}">${slotLabel(v)}${has ? ' ✓' : ''}</button>`;
+      aria-label="${v === 'ALL' ? 'All positions' : `${POSNAME[v]}${has ? ', filled' : ', empty'}`}">${slotLabel(v)}${has ? '<span class="ck">✓</span>' : ''}</button>`;
   }).join('');
   const bonus = filled === 5 ? capBonusFor(spent(), 5) : potentialBonus();
   let info;
@@ -53,7 +53,19 @@ function renderFillBar() {
   else info = `<span class="fb-now">NOW FILLING <b class="yel">${S.poolPos}</b></span>
       <span>Max for this slot <b>${money(Math.max(0, maxForSlot(S.poolPos)))}</b></span>
       <span>${money(left)} left · bonus <b class="blu">${bonusText(bonus)}</b></span>`;
-  $('#fillbar').innerHTML = `<div class="fb-chips" role="group" aria-label="Pick a slot to fill">${chips}</div><div class="fb-info">${info}</div>`;
+  // Phones (Nov 26): big money numbers instead of the info sentence (CSS shows .fb-money only at 700px and narrower).
+  const open = POS.filter((p) => !S.lineup[p]).length;
+  const mid = S.poolPos === BN ? ['BENCH LEFT', money(benchBudget() - benchSpent()), '']
+    : S.poolPos !== 'ALL' ? ['MAX ' + S.poolPos, money(Math.max(0, maxForSlot(S.poolPos))), '']
+    : open ? ['AVG / SLOT', money(Math.max(0, left) / open), ''] : ['SIGNED', '5/5', 'yel'];
+  const pct = Math.min(100, Math.max(0, (spent() / S.slate.cap) * 100));
+  const money3 = `<div class="fb-money" aria-label="Budget">
+      <div class="fbm"><span>CAP LEFT</span><b class="${left < 0 ? 'red' : 'yel'}">${money(left)}</b></div>
+      <div class="fbm"><span>${mid[0]}</span><b class="${mid[2]}">${mid[1]}</b></div>
+      <div class="fbm"><span>BONUS</span><b class="blu">${bonusText(bonus)}</b></div>
+    </div>
+    <div class="fb-meter" aria-hidden="true"><i style="width:${pct.toFixed(1)}%"></i></div>`;
+  $('#fillbar').innerHTML = `${money3}<div class="fb-chips" role="group" aria-label="Pick a slot to fill">${chips}</div><div class="fb-info">${info}</div>`;
 }
 
 function seg(items, cur, act) {
