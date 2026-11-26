@@ -4,8 +4,8 @@
    "who wears what" data. The art for every item is drawn in avatars.js (HAIR, neckItem, faceItem, shirt,
    crown, belt, CLOWN). Item ids start with their slot (hair_, neck_, face_, fit_). NEW ITEMS: add them
    here, draw them in avatars.js, AND add them to award_swag() (or swag_free() for free ones) in schema.sql. */
-import { S } from './state.js?v=38dfd5f';
-import { CLOUD, swagAll, mySwag } from './cloud.js?v=38dfd5f';
+import { S } from './state.js?v=61c3b29';
+import { CLOUD, swagAll, mySwag } from './cloud.js?v=61c3b29';
 
 export const SLOTS = ['hair', 'neck', 'face', 'fit'];
 export const SLOT_NAME = { hair: 'HAIR', neck: 'NECK', face: 'FACE', fit: 'FIT' };
