@@ -1,9 +1,9 @@
 /* BIG BALLIN: Supabase: accounts, saved lineups, leagues, leaderboards, live points.
    Everything here is optional: with no project set in cloud-config.js (or if Supabase
    can't be reached) the app plays locally exactly as before. */
-import { S } from './state.js?v=61c3b29';
-import { POS } from './util.js?v=61c3b29';
-import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=61c3b29';
+import { S } from './state.js?v=c9c1986';
+import { POS } from './util.js?v=c9c1986';
+import { SUPABASE_URL, SUPABASE_KEY } from './cloud-config.js?v=c9c1986';
 
 export const CLOUD = !!(SUPABASE_URL && SUPABASE_KEY);
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/+esm';
@@ -58,15 +58,37 @@ export async function verifyCode(email, token) {
 }
 export async function signOut() { if (sb) await sb.auth.signOut(); S.user = null; S.profile = null; }
 
+/* The signed-in player's name and avatar. A failed request (common when a home-screen app on iPhone
+   opens before its connection is back) must not look like "no account yet": try 3 times, then fall back to
+   the copy kept on this device, and if there is none, S.profileUnknown says to try again later
+   (main.js retries when the page comes back into view) instead of asking for a name. */
+const profKey = (id) => 'bb-profile-' + id;
+const pause = (ms) => new Promise((r) => setTimeout(r, ms));
 export async function loadProfile() {
-  const { data } = await sb.from('profiles').select('display_name,avatar').eq('id', S.user.id).maybeSingle();
-  S.profile = data || null;
+  const uid = S.user.id;
+  for (let i = 0; i < 3; i++) {
+    let q = sb.from('profiles').select('display_name,avatar').eq('id', uid);
+    if (window.AbortSignal && AbortSignal.timeout) q = q.abortSignal(AbortSignal.timeout(6000));   // a stalled connection gives up
+    const { data, error } = await q.maybeSingle();
+    if (!error) {
+      S.profile = data || null; S.profileUnknown = false;
+      try { if (data) localStorage.setItem(profKey(uid), JSON.stringify(data)); } catch (e) { /* private mode */ }
+      return;
+    }
+    await pause(700 * (i + 1));
+  }
+  let kept = null;
+  try { kept = JSON.parse(localStorage.getItem(profKey(uid))); } catch (e) { /* none */ }
+  S.profile = kept || null;
+  S.profileUnknown = !kept;
 }
 export async function saveProfile(name, avatar) {
   const row = { id: S.user.id, display_name: name.trim(), avatar: Number(avatar) || 0 };
   const { error } = await sb.from('profiles').upsert(row);
   if (error) throw error;
   S.profile = { display_name: row.display_name, avatar: row.avatar };
+  S.profileUnknown = false;
+  try { localStorage.setItem(profKey(row.id), JSON.stringify(S.profile)); } catch (e) { /* private mode */ }
 }
 
 /* ---------- Lineups ---------- */

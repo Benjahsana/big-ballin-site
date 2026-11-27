@@ -1,8 +1,12 @@
 /* BIG BALLIN: account pop-up: sign in by email (link or 6-digit code), pick a name,
    create or join a league. One <dialog id="modal">, content depends on S.modal.kind. */
-import { S } from './state.js?v=61c3b29';
-import { $, esc } from './util.js?v=61c3b29';
-import { AVATARS, avatar } from './avatars.js?v=61c3b29';
+import { S } from './state.js?v=c9c1986';
+import { $, esc } from './util.js?v=c9c1986';
+import { AVATARS, avatar } from './avatars.js?v=c9c1986';
+
+/* Opened from an iPhone/Android home-screen icon: its storage is separate from the browser's, so the
+   email's sign-in link (which opens the browser) can't sign it in. The 6-digit code can. */
+const homeApp = () => !!(navigator.standalone || (window.matchMedia && matchMedia('(display-mode: standalone)').matches));
 
 export function openModal(kind, extra) { S.modal = { kind, ...(extra || {}) }; renderModal(); const d = $('#modal'); if (!d.open) d.showModal(); focusFirst(); }
 export function closeModal() { S.modal = null; const d = $('#modal'); if (d.open) d.close(); }
@@ -16,15 +20,19 @@ export function renderModal() {
   let body = '';
   if (m.kind === 'signin') body = `
     <h2>Sign in</h2>
-    <p class="muted">Save your lineup to your account, join leagues with friends, and climb the leaderboards. No password: we email you a sign-in link.</p>
+    <p class="muted">Save your lineup to your account, join leagues with friends, and climb the leaderboards. ${homeApp()
+      ? 'No password: we email you a 6-digit code to type in here.' : 'No password: we email you a sign-in link.'}</p>
     <form data-form="signin" class="m-form">
       <label for="mEmail">Email</label>
       <input class="search" id="mEmail" name="email" type="email" autocomplete="email" required value="${esc(m.email || '')}">
-      <button class="btn btn-primary" ${busy}>${m.busy ? 'SENDING…' : 'EMAIL ME A LINK'}</button>
+      <button class="btn btn-primary" ${busy}>${m.busy ? 'SENDING…' : homeApp() ? 'EMAIL ME A CODE' : 'EMAIL ME A LINK'}</button>
     </form>`;
   else if (m.kind === 'code') body = `
     <h2>Check your email</h2>
-    <p>We sent a sign-in email to <b>${esc(m.email)}</b>. Tap the link in it, or type the 6-digit code from the email here.</p>
+    ${homeApp()
+      ? `<p>We sent a sign-in email to <b>${esc(m.email)}</b>. Type the 6-digit code from it here.</p>
+         <p class="muted">Don’t tap the link in the email: on iPhone it opens Safari and signs you in there, not in this home-screen app.</p>`
+      : `<p>We sent a sign-in email to <b>${esc(m.email)}</b>. Tap the link in it, or type the 6-digit code from the email here.</p>`}
     <form data-form="code" class="m-form">
       <label for="mCode">Code</label>
       <input class="search" id="mCode" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6,8}" maxlength="8" required>

@@ -1,25 +1,25 @@
 /* BIG BALLIN: startup, header, events, loading. */
-import { S, ui } from './state.js?v=61c3b29';
-import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=61c3b29';
-import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=61c3b29';
-import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=61c3b29';
-import { defaultDir } from './filters.js?v=61c3b29';
-import { renderStats } from './render-stats.js?v=61c3b29';
-import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=61c3b29';
-import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=61c3b29';
-import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=61c3b29';
-import { openModal, closeModal, renderModal } from './render-account.js?v=61c3b29';
-import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=61c3b29';
-import { manageAct } from './render-manage.js?v=61c3b29';
-import { renderLocker, loadLocker, openLocker, wear, checkSwag } from './render-locker.js?v=61c3b29';
-import { loadSwag } from './swag.js?v=61c3b29';
-import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=61c3b29';
-import { avatar } from './avatars.js?v=61c3b29';
-import { checkAchievements, loadStreaks } from './render-awards.js?v=61c3b29';
-import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=61c3b29';
-import { play, SOUNDS, styleFor } from './sound.js?v=61c3b29';
-import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=61c3b29';
-import { LABELS } from './util.js?v=61c3b29';
+import { S, ui } from './state.js?v=c9c1986';
+import { $, POS, BN, POSNAME, HOSTED, esc, fold, money, color, where, slotsFor, chg, store, recall, flash, jersey, pills, matches, fitNames } from './util.js?v=c9c1986';
+import { allFinal, isLocked, slotOf, spent, filledCount, capBonusFor, potentialBonus, bonusText, bonusMaxed, targetSlot, costAfter, signState, saveLineup, sign, cut, subSlot } from './lineup.js?v=c9c1986';
+import { renderSlots, renderPool, setupPoolControls } from './render-build.js?v=c9c1986';
+import { defaultDir } from './filters.js?v=c9c1986';
+import { renderStats } from './render-stats.js?v=c9c1986';
+import { renderScore, loadTonightRanks, loadLastRanks, scoreView } from './render-score.js?v=c9c1986';
+import { L, asLast, loadLast, lastIsCurrent, lastDate, anyStarted, resetLastLineup } from './night.js?v=c9c1986';
+import { CLOUD, signedIn, initCloud, sendLink, verifyCode, signOut, saveProfile, loadProfile, loadLineup, createLeague, joinLeague, leaveLeague, liveFeed, myWorldRank, myBadges, friendly } from './cloud.js?v=c9c1986';
+import { openModal, closeModal, renderModal } from './render-account.js?v=c9c1986';
+import { renderLeagues, loadBoards, inviteLink, playerPop, showKeptBoard } from './render-leagues.js?v=c9c1986';
+import { manageAct } from './render-manage.js?v=c9c1986';
+import { renderLocker, loadLocker, openLocker, wear, checkSwag } from './render-locker.js?v=c9c1986';
+import { loadSwag } from './swag.js?v=c9c1986';
+import { renderWorld, loadWorld, rankText, showKeptWorld } from './render-world.js?v=c9c1986';
+import { avatar } from './avatars.js?v=c9c1986';
+import { checkAchievements, loadStreaks } from './render-awards.js?v=c9c1986';
+import { startChat, chatCatchUp, send as chatSend, remove as chatRemove, toggleReact, togglePicker, updateCount, anyUnread } from './render-chat.js?v=c9c1986';
+import { play, SOUNDS, styleFor } from './sound.js?v=c9c1986';
+import { SOUND, LIVE_REFRESH_MS, HOT_LEVELS } from './app-config.js?v=c9c1986';
+import { LABELS } from './util.js?v=c9c1986';
 
 function renderHeader() {
   const cap = S.slate.cap, s = spent(), left = cap - s;
@@ -52,7 +52,7 @@ function renderHeader() {
   $('#worldBtn').hidden = !cloudOn;
   $('#worldBtn').setAttribute('aria-pressed', String(S.tab === 'world'));
   $('#acctBtn').hidden = !cloudOn;
-  $('#acctBtn').textContent = signedIn() ? 'ACCOUNT' : 'SIGN IN';
+  $('#acctBtn').textContent = signedIn() || (S.user && S.profileUnknown) ? 'ACCOUNT' : 'SIGN IN';
   renderRankChip(cloudOn);
   $('#acctBtn').classList.toggle('on', signedIn());
   $('#syncNote').textContent = !cloudOn ? '' : !signedIn() ? 'Saved on this device only · sign in to save it to your account'
@@ -165,7 +165,9 @@ document.addEventListener('click', (e) => {
       if (S.tab === 'leagues' || S.tab === 'world') loadSwag().then(renderAll);
       if (S.tab === 'score') { loadStreaks().then(renderAll); pollLive().then(loadTonightRanks).then(renderAll); loadLast().then(loadLastRanks).then(renderAll); }
       break;
-    case 'acct': signedIn() ? openModal('account') : S.user ? openModal('name') : openModal('signin'); break;
+    case 'acct':
+      if (S.user && !S.profile && S.profileUnknown) { flash('RECONNECTING…', '#A9A7C2', '#3D8BFF'); loadProfile().then(() => { if (S.profile) afterAuth(); else flash('OFFLINE!', '#FF4A3D', '#3D8BFF'); }); break; }
+      signedIn() ? openModal('account') : S.user ? openModal('name') : openModal('signin'); break;
     case 'modal': openModal(b.dataset.k, b.dataset.k === 'signin' && S.modal ? { email: S.modal.email } : null); break;
     case 'closemodal': closeModal(); break;
     case 'signout': signOut().then(() => { closeModal(); afterAuth(); flash('SIGNED OUT', '#A9A7C2', '#3D8BFF'); }); break;
@@ -311,7 +313,7 @@ async function afterAuth() {
   resetLastLineup();   // last night's saved lineup depends on who is signed in
   startChat().then(renderAll);   // league chat: unread dots + instant updates (stops when signed out)
   if (!S.user) { S.sync = 'local'; S.leagues = []; S.rank = null; S.tRanks = null; S.inviteOpen = false; S.lockerUser = null; loadSwag().then(renderAll); if (S.tab === 'leagues') await loadBoards(); renderAll(); return; }
-  if (!S.profile) { renderAll(); openModal('name'); return; }
+  if (!S.profile) { renderAll(); if (!S.profileUnknown) openModal('name'); return; }   // unknown = couldn't reach the server: retried on return
   // These don't depend on each other, so they all go out at once (each request takes ~0.4 s).
   const code = recall('bb-join');
   const rankP = myWorldRank().catch(() => null);
@@ -455,6 +457,8 @@ let lastTick = 0;
 window.addEventListener('hashchange', () => { if (location.hash === '#soundtest') { soundOpen = true; renderHeader(); } });
 document.addEventListener('visibilitychange', () => {
   // Coming back to the tab: catch up right away instead of waiting for the next minute.
+  // Signed in but the name didn't load (no connection when the app opened): try again now.
+  if (!document.hidden && S.user && !S.profile && S.profileUnknown) loadProfile().then(() => { if (S.profile) afterAuth(); });
   if (!document.hidden && S.slate && Date.now() - lastTick > 30000) {
     lastTick = Date.now(); tick();
     chatCatchUp().then(renderAll);   // phones drop the chat's live connection in the background

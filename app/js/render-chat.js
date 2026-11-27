@@ -4,12 +4,12 @@
    The chat box is kept as one live element: the league page re-renders every minute during games,
    and renderLeagues() moves this box into the new page instead of rebuilding it, so typing,
    focus and scroll survive. Only the message list inside it is redrawn (renderChatList). */
-import { S, ui } from './state.js?v=61c3b29';
-import { esc, store, recall, flash } from './util.js?v=61c3b29';
-import { avatar } from './avatars.js?v=61c3b29';
-import { CHAT } from './app-config.js?v=61c3b29';
-import { play } from './sound.js?v=61c3b29';
-import { signedIn, chatLoad, chatPost, chatDelete, react, reactionsLoad, chatLatest, chatSubscribe, chatUnsubscribe, profileOf, friendly } from './cloud.js?v=61c3b29';
+import { S, ui } from './state.js?v=c9c1986';
+import { esc, store, recall, flash } from './util.js?v=c9c1986';
+import { avatar } from './avatars.js?v=c9c1986';
+import { CHAT } from './app-config.js?v=c9c1986';
+import { play } from './sound.js?v=c9c1986';
+import { signedIn, chatLoad, chatPost, chatDelete, react, reactionsLoad, chatLatest, chatSubscribe, chatUnsubscribe, profileOf, friendly } from './cloud.js?v=c9c1986';
 
 const C = {
   msgs: {},       // league id → messages (oldest first), once loaded
