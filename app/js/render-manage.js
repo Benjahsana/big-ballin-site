@@ -2,12 +2,12 @@
    league page: rename, new invite code, remove teams. The owner also makes co-commissioners, hands
    the league to another member, and deletes it. The database checks every one of these
    (supabase/schema.sql "League management"); this file only draws the panel and asks to confirm. */
-import { S, ui } from './state.js?v=c9c1986';
-import { esc, store, flash } from './util.js?v=c9c1986';
-import { avatar } from './avatars.js?v=c9c1986';
-import { play } from './sound.js?v=c9c1986';
-import { leagueRoster, removeMember, newLeagueCode, renameLeague, setCoOwner, handOffLeague, deleteLeague, friendly } from './cloud.js?v=c9c1986';
-import { loadBoards } from './render-leagues.js?v=c9c1986';
+import { S, ui } from './state.js?v=4150944';
+import { esc, store, flash } from './util.js?v=4150944';
+import { avatar } from './avatars.js?v=4150944';
+import { play } from './sound.js?v=4150944';
+import { leagueRoster, removeMember, newLeagueCode, renameLeague, setCoOwner, handOffLeague, deleteLeague, friendly } from './cloud.js?v=4150944';
+import { loadBoards } from './render-leagues.js?v=4150944';
 
 const M = { open: null, roster: null, busy: false };   // open = league id whose panel is open
 const me = () => (S.user ? S.user.id : null);

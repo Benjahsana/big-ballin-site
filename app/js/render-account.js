@@ -1,8 +1,8 @@
 /* BIG BALLIN: account pop-up: sign in by email (link or 6-digit code), pick a name,
    create or join a league. One <dialog id="modal">, content depends on S.modal.kind. */
-import { S } from './state.js?v=c9c1986';
-import { $, esc } from './util.js?v=c9c1986';
-import { AVATARS, avatar } from './avatars.js?v=c9c1986';
+import { S } from './state.js?v=4150944';
+import { $, esc } from './util.js?v=4150944';
+import { AVATARS, avatar } from './avatars.js?v=4150944';
 
 /* Opened from an iPhone/Android home-screen icon: its storage is separate from the browser's, so the
    email's sign-in link (which opens the browser) can't sign it in. The 6-digit code can. */

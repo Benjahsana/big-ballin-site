@@ -1,14 +1,14 @@
 /* BIG BALLIN: LOCKER ROOM (Nov 19). Your home page when you're signed in: your avatar in its swag, the
    titles you hold, the 4 gear slots (tap to wear), your trophy case (every win, forever) and achievements.
    Anyone's locker can be opened (S.lockerUser) from chat avatars, list boards and box scores: read-only. */
-import { S, ui } from './state.js?v=c9c1986';
-import { $, esc, flash } from './util.js?v=c9c1986';
-import { avatar, avatarCard } from './avatars.js?v=c9c1986';
-import { play } from './sound.js?v=c9c1986';
-import { CLOUD, signedIn, lockerOf, setGear, mySwag, friendly } from './cloud.js?v=c9c1986';
-import { ITEMS, TITLES, SLOTS, SLOT_NAME, RARITY, SW, loadSwag, unlockedOf } from './swag.js?v=c9c1986';
-import { BADGE } from './render-leagues.js?v=c9c1986';
-import { ACH } from './render-awards.js?v=c9c1986';
+import { S, ui } from './state.js?v=4150944';
+import { $, esc, flash } from './util.js?v=4150944';
+import { avatar, avatarCard } from './avatars.js?v=4150944';
+import { play } from './sound.js?v=4150944';
+import { CLOUD, signedIn, lockerOf, setGear, mySwag, friendly } from './cloud.js?v=4150944';
+import { ITEMS, TITLES, SLOTS, SLOT_NAME, RARITY, SW, loadSwag, unlockedOf } from './swag.js?v=4150944';
+import { BADGE } from './render-leagues.js?v=4150944';
+import { ACH, achName, achLine } from './render-awards.js?v=4150944';
 
 const LK = { uid: null, data: null, err: null, busy: false };
 const me = () => (S.user ? S.user.id : null);
@@ -52,6 +52,13 @@ function periodText(kind, period) {
   if (/week/.test(kind)) return 'Week of ' + fmtDate(period);
   if (/month/.test(kind)) return new Date(period + '-15T12:00:00').toLocaleDateString([], { month: 'long', year: 'numeric' });
   return 'Season ' + period;
+}
+/* When a trophy was won, for sorting with achievements: the last day of its week / month / season. */
+function endOf(kind, period) {
+  if (/week/.test(kind)) { const d = new Date(period + 'T12:00:00'); d.setDate(d.getDate() + 6); return d.toISOString().slice(0, 10); }
+  if (/month/.test(kind)) { const [y, m] = period.split('-').map(Number); return new Date(Date.UTC(y, m, 0)).toISOString().slice(0, 10); }
+  if (kind === 'season') return (Number(period.slice(0, 4)) + 1) + '-07-31';
+  return period;
 }
 const leagueName = (id) => (id ? ((S.allLeagues || []).find((l) => l.id === id) || {}).name || 'A league' : 'WORLD');
 const TROPHY_ICON = { night: '🏆', week: '🥇', month: '🏅', season: '💍', w_night1: '🌎', w_week10: '🌍', w_month10: '🌏', record: '📈', w_record: '🌟' };
@@ -109,9 +116,16 @@ function trophyCase(d) {
   d.badges.forEach((b) => { counts[b.kind] = (counts[b.kind] || 0) + 1; });
   const tiles = Object.keys(BADGE).map((k) => `<div class="tc-tile${counts[k] ? ' got' : ''}"><span class="tc-ic" aria-hidden="true">${TROPHY_ICON[k]}</span>
       <b>${counts[k] || 0}</b><span>${esc(BADGE[k])}</span></div>`).join('');
-  const list = d.badges.length ? `<ol class="tc-list">${d.badges.map((b) => `<li><span aria-hidden="true">${TROPHY_ICON[b.kind] || '🏆'}</span>
+  // One list, newest first: trophies (badges) and achievements together (Nov 27), each with its icon.
+  const rows = [
+    ...d.badges.map((b) => ({ when: endOf(b.kind, b.period), html: `<li><span aria-hidden="true">${TROPHY_ICON[b.kind] || '🏆'}</span>
       <b>${esc(BADGE[b.kind] || b.kind)}</b><span>${esc(leagueName(b.league_id))}</span><span class="muted">${esc(periodText(b.kind, b.period))}</span>
-      <span class="yel">${Number(b.score).toFixed(1)}</span></li>`).join('')}</ol>`
+      <span class="yel">${Number(b.score).toFixed(1)}</span></li>` })),
+    ...d.ach.filter((a) => ACH[a.kind]).map((a) => ({ when: a.slate_date, html: `<li class="tc-ach"><span aria-hidden="true">${ACH[a.kind].icon}</span>
+      <b>${esc(achName(a))}</b><span>${achLine(a)}</span><span class="muted">${esc(fmtDate(a.slate_date))}</span>
+      <span class="blu">ACHIEVEMENT</span></li>` })),
+  ].sort((x, y) => (x.when < y.when ? 1 : x.when > y.when ? -1 : 0));
+  const list = rows.length ? `<ol class="tc-list">${rows.map((r) => r.html).join('')}</ol>`
     : '<p class="muted">No trophies yet. Win a night in a league to start the collection.</p>';
   return `<section class="lk-sec" aria-label="Trophy case"><h3 class="lg-head">TROPHY CASE</h3><div class="tc-grid">${tiles}</div>${list}</section>`;
 }

@@ -3,12 +3,12 @@
    achievements and keeps everyone's current streaks (supabase/schema.sql award_achievements). This file
    draws them: the STEAL / BUST strip on a league page, streak chips next to names on the boards, the
    MY ACHIEVEMENTS box on MY TEAM, and the fanfare the first time I see a new achievement. */
-import { S } from './state.js?v=c9c1986';
-import { esc, money, store, recall, flash, POS } from './util.js?v=c9c1986';
-import { STREAKS } from './app-config.js?v=c9c1986';
-import { CLOUD, signedIn, myAchievements, streaksAll } from './cloud.js?v=c9c1986';
-import { L, lastIsCurrent } from './night.js?v=c9c1986';
-import { play } from './sound.js?v=c9c1986';
+import { S } from './state.js?v=4150944';
+import { esc, money, store, recall, flash, POS } from './util.js?v=4150944';
+import { STREAKS } from './app-config.js?v=4150944';
+import { CLOUD, signedIn, myAchievements, streaksAll } from './cloud.js?v=4150944';
+import { L, lastIsCurrent } from './night.js?v=4150944';
+import { play } from './sound.js?v=4150944';
 
 export const ACH = {
   perfect: { icon: '🎯', name: 'PERFECT NIGHT', what: 'All 5 starters beat their projection' },
@@ -17,8 +17,8 @@ export const ACH = {
   heater: { icon: '🔥', name: 'HEATER', what: 'Beat your lineup’s projection nights in a row' },
   ironman: { icon: '🦾', name: 'IRON MAN', what: 'A full lineup nights in a row' },
 };
-const achName = (a) => (a.kind === 'big' && a.detail ? a.detail + ' CLUB' : ACH[a.kind].name);
-function achLine(a) {
+export const achName = (a) => (a.kind === 'big' && a.detail ? a.detail + ' CLUB' : ACH[a.kind].name);
+export function achLine(a) {
   if (a.kind === 'bargain') return `${esc(a.detail || '')} scored ${Number(a.value).toFixed(1)}`;
   if (a.kind === 'heater' || a.kind === 'ironman') return `${a.value} nights in a row`;
   return `${Number(a.value).toFixed(1)} final`;
