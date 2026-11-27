@@ -939,8 +939,6 @@ button.mt-who:hover .mt-name { color: var(--yel); }
 .tc-list li { display: grid; grid-template-columns: 28px 1.2fr 1fr 1fr auto; gap: 10px; align-items: center; padding: 8px 12px;
   background: var(--panel2); border-radius: 8px; font-size: 17px; }
 .tc-list b { font-family: var(--pixel); font-size: 10px; }
-.tc-list li.tc-ach { border-left: 3px solid var(--blu); }
-.tc-list li.tc-ach > span:last-child { font-family: var(--pixel); font-size: 8px; }
 @media (max-width: 700px) { .tc-list li { grid-template-columns: 28px 1fr auto; } .tc-list li > span:nth-child(3), .tc-list li > span:nth-child(4) { grid-column: 2; font-size: 15px; } }
 .sw-slot { display: flex; flex-direction: column; gap: 8px; }
 .sw-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
