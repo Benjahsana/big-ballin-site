@@ -935,11 +935,18 @@ button.mt-who:hover .mt-name { color: var(--yel); }
 .tc-tile.got { opacity: 1; border-color: var(--yel); box-shadow: 0 0 12px #FFD23F44; }
 .tc-tile b { font-family: var(--display); font-size: 28px; color: var(--yel); }
 .tc-ic { font-size: 26px; }
-.tc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-.tc-list li { display: grid; grid-template-columns: 28px 1.2fr 1fr 1fr auto; gap: 10px; align-items: center; padding: 8px 12px;
-  background: var(--panel2); border-radius: 8px; font-size: 17px; }
-.tc-list b { font-family: var(--pixel); font-size: 10px; }
-@media (max-width: 700px) { .tc-list li { grid-template-columns: 28px 1fr auto; } .tc-list li > span:nth-child(3), .tc-list li > span:nth-child(4) { grid-column: 2; font-size: 15px; } }
+.tn-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+.tn { background: var(--panel); border: 2px solid var(--line); border-radius: 12px; padding: 10px 12px 12px; }
+.tn.won { border-color: var(--yel); }
+.tn-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.tn-date { font-family: var(--pixel); font-size: 10px; color: var(--soft); }
+.tn-score { font-family: var(--display); font-size: 26px; line-height: 1; color: var(--yel); }
+.tn-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tchip { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; padding: 5px 10px; border: 2px solid; border-radius: 999px; font-family: var(--pixel); font-size: 8px; line-height: 1.5; }
+.tchip > span { font-size: 15px; line-height: 1; }
+.tchip small { font-family: var(--body); font-size: 13px; color: var(--soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tchip.t { border-color: var(--yel); color: var(--yel); background: rgba(255, 210, 63, .08); }
+.tchip.a { border-color: var(--blu); color: #8DB8FF; background: rgba(61, 139, 255, .08); }
 .sw-slot { display: flex; flex-direction: column; gap: 8px; }
 .sw-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
 .sw { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px 8px 10px; border-radius: 10px;

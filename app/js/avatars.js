@@ -8,7 +8,7 @@
    item → front hair (hair item) → titles. All gear is drawn for a "reference head" (center 50,45, radius
    23×26, the people's head); a character's `box` maps that head onto its own, and `eyes` / `mouth` place
    shades, grills and toothpicks. Gradients, clips and the glow filter live once in a hidden <svg> (BBX). */
-import { lookOf, lookKey, frameOf, rarityOf } from './swag.js?v=cf21a35';
+import { lookOf, lookKey, frameOf, rarityOf } from './swag.js?v=b389d92';
 
 const OL = '#3DE0FF';      // neon outline
 const INK = '#140E1C';     // eyes, fine lines
