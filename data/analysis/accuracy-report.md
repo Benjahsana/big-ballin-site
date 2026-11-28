@@ -1,46 +1,46 @@
 # BIG BALLIN projection accuracy
 
-20 scored nights, 2026-11-06 to 2026-11-25. Projections are compared with what players
+21 scored nights, 2026-11-06 to 2026-11-27. Projections are compared with what players
 actually scored, among players who got into the game. Bias above 0 means projections were too low.
 
 ## Overall
 
-- **Last night (2026-11-25):** off by 7.3 FP on average (38% of the projection), +0.0 bias, 72% within 10 FP (178 player-games)
-- **Last 7 nights:** off by 7.6 FP on average (40% of the projection), +0.6 bias, 73% within 10 FP (924 player-games)
-- **All nights:** off by 7.9 FP on average (42% of the projection), -0.1 bias, 71% within 10 FP (2914 player-games)
-- **Since projection pricing (Nov 14):** off by 7.8 FP on average (42% of the projection), +0.6 bias, 72% within 10 FP (1684 player-games)
-- **Didn't play last night:** 45 slate players, 16 of them not listed OUT (late scratches; the 6th Man covers these).
+- **Last night (2026-11-27):** off by 6.7 FP on average (35% of the projection), -0.8 bias, 76% within 10 FP (209 player-games)
+- **Last 7 nights:** off by 7.4 FP on average (39% of the projection), +0.2 bias, 73% within 10 FP (1060 player-games)
+- **All nights:** off by 7.8 FP on average (41% of the projection), -0.1 bias, 71% within 10 FP (3123 player-games)
+- **Since projection pricing (Nov 14):** off by 7.6 FP on average (41% of the projection), +0.5 bias, 72% within 10 FP (1893 player-games)
+- **Didn't play last night:** 58 slate players, 18 of them not listed OUT (late scratches; the 6th Man covers these).
 
 ## By price tier (all nights)
 
 | Price | Player-games | Avg miss | Bias | Within 10 FP |
 |---|---|---|---|---|
-| under $10M | 1435 | 7.3 FP | +0.1 | 76% |
-| $10-20M | 1115 | 8.2 FP | +0.1 | 67% |
-| $20-30M | 279 | 9.4 FP | -0.6 | 61% |
-| $30M+ | 85 | 9.6 FP | -2.8 | 61% |
+| under $10M | 1519 | 7.2 FP | +0.0 | 76% |
+| $10-20M | 1218 | 8.1 FP | +0.1 | 68% |
+| $20-30M | 298 | 9.3 FP | -0.7 | 61% |
+| $30M+ | 88 | 9.3 FP | -2.7 | 62% |
 
-## Biggest misses last night (2026-11-25)
+## Biggest misses last night (2026-11-27)
 
 **Beat their projection** (the bargains):
 
 | Player | Price | Proj | Actual | Diff | Min |
 |---|---|---|---|---|---|
-| Josh Hart (NYK) | $12.3M | 23.3 | 48.8 | +25.5 | 36 |
-| De'Anthony Melton (GSW) | $10.9M | 20.5 | 45.5 | +25.0 | 27 |
-| Deni Avdija (POR) | $21.9M | 41.3 | 65.5 | +24.2 | 36 |
-| Jose Alvarado (NYK) | $4.7M | 8.8 | 32.8 | +24.0 | 19 |
-| LeBron James (PHI) | $20.8M | 39.3 | 62.5 | +23.2 | 35 |
+| Immanuel Quickley (TOR) | $18.2M | 34.4 | 65.5 | +31.1 | 38 |
+| Cooper Flagg (DAL) | $25.1M | 47.3 | 72.2 | +24.9 | 42 |
+| Ayo Dosunmu (MIN) | $16.1M | 30.3 | 52.5 | +22.2 | 37 |
+| Scoot Henderson (POR) | $9.4M | 17.8 | 39.0 | +21.2 | 31 |
+| Neemias Queta (BOS) | $14.4M | 27.1 | 47.0 | +19.9 | 33 |
 
 **Fell short:**
 
 | Player | Price | Proj | Actual | Diff | Min |
 |---|---|---|---|---|---|
-| Jaylen Brown (PHI) | $21.9M | 41.3 | 8.8 | -32.5 | 17 |
-| Brayden Burries (MIL) | $15.3M | 28.8 | 10.2 | -18.6 | 22 |
-| Danny Wolf (BKN) | $13.1M | 24.8 | 6.5 | -18.3 | 19 |
-| Grant Williams (CHA) | $10.3M | 19.4 | 1.2 | -18.2 | 15 |
-| Moritz Wagner (BKN) | $9.9M | 18.6 | 2.0 | -16.6 | 4 |
+| Paul George (BOS) | $21.1M | 39.8 | 15.2 | -24.6 | 29 |
+| Pascal Siakam (IND) | $20.5M | 38.7 | 18.0 | -20.7 | 25 |
+| Jalen Green (PHX) | $13.6M | 25.7 | 7.8 | -17.9 | 19 |
+| Tyrese Maxey (PHI) | $21.4M | 40.4 | 22.8 | -17.6 | 29 |
+| Keldon Johnson (SAS) | $11.7M | 22.1 | 7.5 | -14.6 | 19 |
 
 ## Biggest misses, all nights
 
